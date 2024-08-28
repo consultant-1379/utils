@@ -1,0 +1,50 @@
+#-----------------------------------------------------------
+# COPYRIGHT Ericsson Radio Systems  AB 2011
+#
+# The copyright to the computer program(s) herein is the
+# property of ERICSSON RADIO SYSTEMS AB, Sweden. The
+# programs may be usedand/or copied only with the written
+# permission from ERICSSON RADIO SYSTEMS AB or in accordance
+# with the terms and conditions stipulated in the agreement
+# contract under which the program(s)have been supplied.
+#-----------------------------------------------------------
+#-----------------------------------------------------------
+#
+#   PRODUCT      : Network Managment Integration
+#   CRA NUMBER
+#   CRA NUMBER
+#   PRODUCT REV  :
+#   Document REV :
+#   RESP         : ejohmci
+#   DATE         : 10/06/2011
+#
+#   REV          : PA1
+#
+#
+#--------------------------------------------------------------
+# Need Below for ENIQ Grub from ENIQ Platform merge on pre merge the config type was eniq_install
+#
+#eniqdmconfig=config=stats inst_type=eniq
+#
+#################************Instructions For Use*************########################
+#           At start of every line type "questionAndAnser=" this is required
+#           Then Type the Inirator Question followed by && and then answer
+#           If its a new question and new Answer that is not declared
+#               Then there are impacts on the eniq_jump.pl script and
+#               eniq_blade_details.txt file.
+######################################################################################
+#
+questionAndAnswer=Select the server type you wish to install && $INST_TYPE
+#questionAndAnswer=Select the storage that the ENIQ databases will be installed on && $STG_TYPE
+questionAndAnswer=Select the storage that the ENIQ system will be installed on && $STG_TYPE
+questionAndAnswer=Enter the location of the licence file && $ENIQ_LIC
+questionAndAnswer=Enter the server network-number:netmask details && 
+questionAndAnswer=Hit enter to select default [1-15] or enter the disks you wish to use && 
+questionAndAnswer=Enter IP address of Defaultrouter && 
+questionAndAnswer=Enter IP address of DNS SERVER(s) && 
+questionAndAnswer=Enter DNS domain name && athtem.eei.ericsson.se
+questionAndAnswer=Enter TIMEZONE && 
+#questionAndAnswer=Enter Amount of Shared Memory to Allocate to IQ in Mbytes && 
+questionAndAnswer=Select the partition plan you wish to install && $PART_PLAN
+questionAndAnswer=Please enter the IP address of the OSS Server && $OSS_SERVER
+questionAndAnswer=Please enter the ENIQ feature software path && $FEATURE_PATH

@@ -1,0 +1,32 @@
+pipeline {
+    agent {
+        node {
+            label E2C_TEST
+        }
+    }
+
+    options {
+        timestamps()
+        timeout(time: 30, unit: 'MINUTES')
+        buildDiscarder(logRotator(numToKeepStr: '50', artifactNumToKeepStr: '50'))
+    }
+    stages { 
+         stage('Clean') {
+            steps {
+
+                sh "${bob} clean"
+
+            }
+        }
+        stage('Dora Metrics') {
+           steps {
+                withCredentials([usernamePassword(credentialsId: env.FUNCTIONAL_USER_SECRET, usernameVariable: 'FUNCTIONAL_USER_USERNAME', passwordVariable: 'FUNCTIONAL_USER_PASSWORD')]) {
+                sh "chmod +x ./dora_metrics/automatic-cbo-update.sh"
+                sh "./dora_metrics/automatic-cbo-update.sh"
+                sh "${bob} jenkins_docker_image"
+               }   
+             }
+        }
+    }
+}
+

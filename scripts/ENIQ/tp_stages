@@ -1,0 +1,8 @@
+install_ENIQ_features
+activate_ENIQ_features
+setup_SMF_scripts
+install_extra_fs
+install_rolling_snapshot
+validate_SMF_contracts
+add_alias_details_to_service_names
+cleanup

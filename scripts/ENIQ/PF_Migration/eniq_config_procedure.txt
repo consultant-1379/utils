@@ -1,0 +1,27 @@
+git checkout ${Branch}
+
+######Taking available r-state########
+Rstate=$(python /proj/eiffel013_config_fem6s11/tools/rstateUpdate.py eniq_config $Branch 2>&1)
+
+####updating version.properties file######
+sed -i 's/module.version=.*/module.version='${Rstate}'/g' version.properties
+sed -i 's/build.tag=.*/build.tag=b'${BUILD_NUMBER}'/g' version.properties
+sed -i 's/module.build=.*/module.build='${BUILD_NUMBER}'/g' version.properties 
+sed -i 's/build.label=.*/build.label=CXP9022137-'${Rstate}'/g' version.properties 
+
+#####bundling the package#######
+pkg_name="eniq_config_${Rstate}b${BUILD_NUMBER}.zip"
+zip --exclude=*.git* /proj/eiffel013_config_fem6s11/eiffel_home/jobs/Git_eniq_config_build/${pkg_name} *
+
+#####uploading built package to nexus#####
+cd /proj/eiffel013_config_fem6s11/eiffel_home/jobs/Git_eniq_config_build/
+curl -v -u esjkadm100:${pass} --upload-file ${pkg_name} https://arm1s11-eiffel013.eiffel.gic.ericsson.se:8443/nexus/content/repositories/eniq_platform/Packages/${Branch}/${pkg_name}
+echo "############## "${pkg_name}" is uploaded to nexus #################"
+
+####pushing updated version.properties file to gerrit####
+cd ${WORKSPACE}
+git add version.properties
+git commit -m "updated version.properties file for eniq_config ${pkg_name}"
+git push origin ${Branch}
+git tag -a CXP9022137-${Rstate} -m "CXP9022137-${Rstate} label is used"
+git push origin CXP9022137-${Rstate}

@@ -1,0 +1,229 @@
+#!/usr/bin/bash
+#sleep 1m
+#sshpass -p 'shroot12' ssh root@eniqs '
+
+
+cd /var/tmp
+rm -rf NMI_TC_Result.html
+
+
+#SERVER SANITY
+echo "******SERVER SANITY TC ******" >> /var/tmp/NMI_TC_Result.html
+echo "<html><head><title>NMI TestCase Results</title></head><body><table border=\"2\"><tr><th><b> TestCase Name </th><th><b> TestCase </th><th><b>PASS/FAIL</th></tr>" >> /var/tmp/NMI_TC_Result.html
+
+tc=`df -hk | grep -w pmdata_wifi | wc -l | grep 0`
+if [[ $tc =~ "0" ]]
+then
+        status="<td style=\"color:green;\"> PASS"
+else
+        status="<td style=\"color:red;\"> FAIL"
+fi
+echo "<tr> <td> PMDATA WIFI </td> <td> df -hk | grep -w pmdata_wifi | wc -l | grep 0 </td> $status </td> </tr>" >> /var/tmp/NMI_TC_Result.html
+
+tc1=`df -hk | grep nas | wc -l | grep 22`
+if [[ $tc1 =~ "22" ]]
+then
+        status="<td style=\"color:green;\"> PASS"
+else
+        status="<td style=\"color:red;\"> FAIL"
+fi
+echo "<tr> <td> NAS TC </td> <td> df -hk | grep nas | wc -l | grep 22 </td> $status </td> </tr>" >> /var/tmp/NMI_TC_Result.html
+
+tc2=`systemctl stop eniq-dwhdb; systemctl show -p ActiveState eniq-dwhdb | cut -f2 -d'=' | grep inactive`
+sleep 2m
+if [[ $tc2 =~ "inactive" ]]
+then
+        status="<td style=\"color:green;\"> PASS"
+else
+        status="<td style=\"color:red;\"> FAIL"
+fi
+echo "<tr> <td> STOP eniq-dwhdb Service </td> <td> systemctl stop eniq-dwhdb; systemctl show -p ActiveState eniq-dwhdb | cut -f2 -d'=' | grep inactive </td> $status </td> </tr>" >> /var/tmp/NMI_TC_Result.html
+
+tc3=`systemctl restart eniq-dwhdb; systemctl show -p ActiveState eniq-dwhdb | cut -f2 -d'=' | grep active`
+sleep 10m
+if [[ $tc3 =~ "active" ]]
+then
+        status="<td style=\"color:green;\"> PASS"
+else
+        status="<td style=\"color:red;\"> FAIL"
+fi
+echo "<tr> <td> RESTART eniq-dwhdb Service </td> <td> systemctl restart eniq-dwhdb; systemctl show -p ActiveState eniq-dwhdb | cut -f2 -d'=' | grep active </td> $status </td> </tr>" >> /var/tmp/NMI_TC_Result.html
+
+
+tc4=`systemctl start NASd.service;systemctl status NASd.service | grep "Started Storage NASd"`
+if [[ $tc4 =~ "Started Storage NASd" ]]
+then
+        status="<td style=\"color:green;\"> PASS"
+else
+        status="<td style=\"color:red;\"> FAIL"
+fi
+echo "<tr> <td> START NASd.service </td> <td> systemctl start NASd.service;systemctl status NASd.service | grep \"Started Storage NASd\" </td> $status </td> </tr>" >> /var/tmp/NMI_TC_Result.html
+
+tc5=`systemctl stop NAS-online.service;systemctl status NAS-online.service | grep "Stopped Milestone NAS Service"`
+if [[ $tc5 =~ "Stopped Milestone NAS Service" ]]
+then
+        status="<td style=\"color:green;\"> PASS"
+else
+        status="<td style=\"color:red;\"> FAIL"
+fi
+echo "<tr> <td> STOP NAS-online.service </td> <td> systemctl stop NAS-online.service;systemctl status NAS-online.service | grep \"Stopped Milestone NAS Service\" </td>  $status </td> </tr>" >> /var/tmp/NMI_TC_Result.html
+
+
+tc6=`systemctl start NAS-online.service;systemctl status NAS-online.service | grep "Started Milestone NAS Service"`
+if [[ $tc6 =~ "Started Milestone NAS Service" ]]
+then
+        status="<td style=\"color:green;\"> PASS"
+else
+        status="<td style=\"color:red;\"> FAIL"
+fi
+echo "<tr> <td> START NAS-online.service </td> <td> systemctl start NAS-online.service;systemctl status NAS-online.service | grep \"Started Milestone NAS Service\" </td> $status </td> </tr>" >> /var/tmp/NMI_TC_Result.html
+
+
+tc7=`id dcuser | awk "{print $2}" | grep dc5000`
+if [[ $tc7 =~ "dc5000" ]]
+then
+        status="<td style=\"color:green;\"> PASS"
+else
+        status="<td style=\"color:red;\"> FAIL"
+fi
+echo "<tr> <td> DCUSER </td> <td> id dcuser | awk "{print $2}" | grep dc5000 </td> $status </td> </tr>" >> /var/tmp/NMI_TC_Result.html
+
+
+tc8=`cat /etc/systemd/journald.conf | grep SystemMaxUse | cut -f2 -d'=' | grep 8G`
+if [[ $tc8 =~ "8G" ]]
+then
+        status="<td style=\"color:green;\"> PASS"
+else
+        status="<td style=\"color:red;\"> FAIL"
+fi
+echo "<tr> <td> CHECK journald.conf </td> <td> cat /etc/systemd/journald.conf | grep SystemMaxUse | cut -f2 -d'=' | grep 8G </td> $status </td> </tr>" >> /var/tmp/NMI_TC_Result.html
+
+
+#LOG SANITY
+tc9=`cat /eniq/local_logs/installation/eniqs_install.log | egrep -i "ERROR :"`
+if [[ $tc9 =~ "ERROR :" ]]
+then
+        status="<td style=\"color:red;\"> FAIL"
+else
+        status="<td style=\"color:green;\"> PASS"
+fi
+echo "<tr> <td> ERROR CHECK </td> <td> cat /eniq/local_logs/installation/eniqs_install.log | egrep -i \"ERROR :\" </td> $status </td> </tr>" >> /var/tmp/NMI_TC_Result.html
+
+
+tc10=`cat /eniq/local_logs/installation/eniqs_install.log | egrep -i "Successfully installed ENIQ Sentinel server"`
+if [[ $tc10 =~ "Successfully installed ENIQ Sentinel server" ]]
+then
+        status="<td style=\"color:green;\"> PASS"
+else
+        status="<td style=\"color:red;\"> FAIL"
+fi
+echo "<tr> <td> CHECK ENIQ SENTINEL SERVER </td> <td> cat /eniq/local_logs/installation/eniqs_install.log | egrep -i \"Successfully installed ENIQ Sentinel server\"  </td> $status </td> </tr>" >> /var/tmp/NMI_TC_Result.html
+
+
+tc11=`cat /eniq/local_logs/installation/eniqs_install.log | egrep -i "Successfully gathered IPMP information|Successfully gathered BOND information"`
+if [[ $tc11 =~ "Successfully gathered bond information" ]]
+then
+        status="<td style=\"color:green;\"> PASS"
+else
+        status="<td style=\"color:red;\"> FAIL"
+fi
+echo "<tr> <td> CHECK BOND INFORMATION </td> <td> cat /eniq/local_logs/installation/eniqs_install.log | egrep -i \"Successfully gathered IPMP information|Successfully gathered BOND information\"  </td> $status </td> </tr>" >> /var/tmp/NMI_TC_Result.html
+
+
+tc12=`cat /eniq/local_logs/installation/eniqs_install.log | egrep -i "Successfully created DB Sym Links"`
+if [[ $tc12 =~ "Successfully created DB Sym Links" ]]
+then
+        status="<td style=\"color:green;\"> PASS"
+else
+        status="<td style=\"color:red;\"> FAIL"
+fi
+echo "<tr> <td> CHECK DB SYM LINKS </td> <td> cat /eniq/local_logs/installation/eniqs_install.log | egrep -i \"Successfully created DB Sym Links\" </td> $status </td> </tr>" >> /var/tmp/NMI_TC_Result.html
+
+tc13=`cat /eniq/local_logs/installation/eniqs_install.log | egrep -i "Successfully created LUN Map ini file"`
+if [[ $tc13 =~ "Successfully created LUN Map ini file" ]]
+then
+        status="<td style=\"color:green;\"> PASS"
+else
+        status="<td style=\"color:red;\"> FAIL"
+fi
+echo "<tr> <td> CHECK DB SYM LINKS </td> <td> cat /eniq/local_logs/installation/eniqs_install.log | egrep -i \"Successfully created LUN Map ini file\" </td> $status </td> </tr>" >> /var/tmp/NMI_TC_Result.html
+
+
+tc14=`cat /eniq/local_logs/installation/eniqs_install.log | egrep -i "Successfully completed stage - create_repdb"`
+if [[ $tc14 =~ "Successfully completed stage - create_repdb" ]]
+then
+        status="<td style=\"color:green;\"> PASS"
+else
+        status="<td style=\"color:red;\"> FAIL"
+fi
+echo "<tr> <td> CHECK create_repdb </td> <td> cat /eniq/local_logs/installation/eniqs_install.log | egrep -i \"Successfully completed stage - create_repdb\" </td> $status </td> </tr>" >> /var/tmp/NMI_TC_Result.html
+
+tc=`cat /eniq/local_logs/installation/eniqs_install.log | egrep -i "Successfully installed SYBASE IQ"`
+if [[ $tc =~ "Successfully installed SYBASE IQ" ]]
+then
+        status="<td style=\"color:green;\"> PASS"
+else
+        status="<td style=\"color:red;\"> FAIL"
+fi
+echo "<tr> <td> CHECK SYBASE IQ </td> <td> cat /eniq/local_logs/installation/eniqs_install.log | egrep -i \"Successfully installed SYBASE IQ\" </td> $status </td> </tr>" >> /var/tmp/NMI_TC_Result.html
+
+tc=`cat /eniq/local_logs/installation/eniqs_install.log | egrep -i "Successfully installed SYBASE ASA"`
+if [[ $tc =~ "Successfully installed SYBASE ASA" ]]
+then
+        status="<td style=\"color:green;\"> PASS"
+else
+        status="<td style=\"color:red;\"> FAIL"
+fi
+echo "<tr> <td> CHECK SYBASE ASA </td> <td> cat /eniq/local_logs/installation/eniqs_install.log | egrep -i \"Successfully installed SYBASE ASA\" </td> $status </td> </tr>" >> /var/tmp/NMI_TC_Result.html
+
+tc=`cat /eniq/local_logs/installation/eniqs_install.log | egrep -i "Successfully installed ENIQ Platform"`
+if [[ $tc =~ "Successfully installed ENIQ Platform" ]]
+then
+        status="<td style=\"color:green;\"> PASS"
+else
+        status="<td style=\"color:red;\"> FAIL"
+fi
+echo "<tr> <td> CHECK ENIQ Platform </td> <td> cat /eniq/local_logs/installation/eniqs_install.log | egrep -i \"Successfully installed ENIQ Platform\" </td> $status </td> </tr>" >> /var/tmp/NMI_TC_Result.html
+
+tc=`cat /eniq/local_logs/installation/eniqs_install.log | egrep -i "Successfully installed Features"`
+if [[ $tc =~ "Successfully installed Features" ]]
+then
+        status="<td style=\"color:green;\"> PASS"
+else
+        status="<td style=\"color:red;\"> FAIL"
+fi
+echo "<tr> <td> CHECK ENIQ Features </td> <td> cat /eniq/local_logs/installation/eniqs_install.log | egrep -i \"Successfully installed Features\" </td> $status </td> </tr>" >> /var/tmp/NMI_TC_Result.html
+
+tc=`cat /eniq/local_logs/installation/eniqs_install.log | egrep -i "Successfully installed Service scripts"`
+if [[ $tc =~ "Successfully installed Service scripts" ]]
+then
+        status="<td style=\"color:green;\"> PASS"
+else
+        status="<td style=\"color:red;\"> FAIL"
+fi
+echo "<tr> <td> CHECK Service scripts </td> <td> cat /eniq/local_logs/installation/eniqs_install.log | egrep -i \"Successfully installed Service scripts\" </td> $status </td> </tr>" >> /var/tmp/NMI_TC_Result.html
+
+
+tc=`cat /eniq/local_logs/installation/eniqs_install.log | egrep -i "Successfully updated ENIQ status file"`
+if [[ $tc =~ "Successfully updated ENIQ status file" ]]
+then
+        status="<td style=\"color:green;\"> PASS"
+else
+        status="<td style=\"color:red;\"> FAIL"
+fi
+echo "<tr> <td> CHECK ENIQ status file </td> <td> cat /eniq/local_logs/installation/eniqs_install.log | egrep -i \"Successfully updated ENIQ status file\" </td> $status </td> </tr>" >> /var/tmp/NMI_TC_Result.html
+
+tc=`cat /eniq/local_logs/installation/eniqs_install.log | egrep -i "ENIQ SW successfully installed"`
+if [[ $tc =~ "ENIQ SW successfully installed" ]]
+then
+        status="<td style=\"color:green;\"> PASS"
+else
+        status="<td style=\"color:red;\"> FAIL"
+fi
+echo "<tr> <td> CHECK ENIQ SW </td> <td> cat /eniq/local_logs/installation/eniqs_install.log | egrep -i \"ENIQ SW successfully installed\" </td> $status </td> </tr>" >> /var/tmp/NMI_TC_Result.html
+
+
+echo "</table></body></html>" >> /var/tmp/NMI_TC_Result.html
+echo "*********************************************************************************"
+#'
+

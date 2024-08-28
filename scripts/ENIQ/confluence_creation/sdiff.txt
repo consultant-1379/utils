@@ -1,0 +1,2779 @@
+<doc new-page-level="npl0" table-caption="tc-no" math-support="ms-no"
+index-support="is-no" publication-no="doc-id" new-page-right="npr-yes"
+cover-back="cb-no" version="XSEIF R6"
+xmlns="urn:x-ericsson:r2:reg-doc:1551-fad.110.05:en:*">
+<meta-data><?Pub Dtl?>
+<confidentiality class="ericsson-internal"/>
+<doc-name xml:id="sdieditor">DOCUMENT LIST</doc-name>
+<doc-id>
+<doc-no type="registration">4/00151-EN/LZN 701 0493/1</doc-no><language
+code="en"/><rev>x</rev>
+<date><y>2021</y><m>06</m><d>24</d></date>
+</doc-id>
+<company-id>
+<business-unit>XWO</business-unit>
+<company-name></company-name>
+<company-symbol logotype="ericsson"></company-symbol>
+</company-id>
+<part-of>EN/LZN 701 0493/1 R8S</part-of>
+<title>Ericsson Network IQ Statistics ENIQ 20.4.9 EU08/21.1</title>
+<user-info xml:id="v2.2">Source SDI IDs</user-info>
+<drafted-by>
+<person>
+<name>ZRJNVNR</name><signature>ZRJNVRN</signature>
+<location></location><company>XWO</company><department></department>
+</person>
+</drafted-by>
+<approved-by approved="yes">
+<person>
+<name>ZRJNVRN</name><initials>ZRJNVRN</initials>
+<location></location><company>XWO</company><department></department>
+</person>
+</approved-by>
+<checked-by checked="no">
+<person>
+<name>ZRJNVRN</name><signature>ZRJNVRN</signature>
+<location></location><company>XWO</company><department></department>
+</person>
+</checked-by>
+<factual-supervisor responsible="department">
+<person>
+<name>ZRJNVRN</name><signature>ZRJNVRN</signature>
+<location></location><company>XWO</company><department></department>
+</person>
+</factual-supervisor>
+<translated-by>
+<person>
+<name></name><signature></signature>
+<location></location><company></company><department></department>
+</person>
+</translated-by>
+<revision-history suppress="yes">
+<rev-info>
+<rev>A17</rev>
+<date><y>2020</y><m>02</m><d>25</d></date>
+<signature>ZRJAPNA</signature>
+<description><dp></dp>
+</description>
+</rev-info>
+<rev-info>
+<rev>A20</rev>
+<date><y>2020</y><m>02</m><d>27</d></date>
+<signature>ZBASCHI</signature>
+<description><dp></dp>
+</description>
+</rev-info>
+<rev-info>
+<rev>A24</rev>
+<date><y>2020</y><m>03</m><d>19</d></date>
+<signature>ZRJAPNA</signature>
+<description><dp></dp>
+</description>
+</rev-info>
+<rev-info>
+<rev>A36</rev>
+<date><y>2020</y><m>04</m><d>08</d></date>
+<signature>ZRJAPNA</signature>
+<description><dp></dp>
+</description>
+</rev-info>
+<rev-info>
+<rev>A50</rev>
+<date><y>2020</y><m>04</m><d>29</d></date>
+<signature>ZRJAPNA</signature>
+<description><dp></dp>
+</description>
+</rev-info>
+<rev-info>
+<rev>A57</rev>
+<date><y>2020</y><m>05</m><d>18</d></date>
+<signature>ZRJAPNA</signature>
+<description><dp></dp>
+</description>
+</rev-info>
+<rev-info>
+<rev>A60</rev>
+<date><y>2020</y><m>06</m><d>11</d></date>
+<signature>zbarshr</signature>
+<description><dp></dp>
+</description>
+</rev-info>
+<rev-info>
+<rev>A80</rev>
+<date><y>2020</y><m>11</m><d>05</d></date>
+<signature>zbarshr</signature>
+<description><dp></dp>
+</description>
+</rev-info>
+<rev-info>
+<rev>A85</rev>
+<date><y>2020</y><m>07</m><d>27</d></date>
+<signature>zbarshr</signature>
+<description><dp></dp>
+</description>
+</rev-info>
+<rev-info>
+<rev>A90</rev>
+<date><y>2020</y><m>08</m><d>17</d></date>
+<signature>zbarshr</signature>
+<description><dp></dp>
+</description>
+</rev-info>
+<rev-info>
+<rev>A70</rev>
+<date><y>2020</y><m>09</m><d>03</d></date>
+<signature>zbarshr</signature>
+<description><dp></dp>
+</description>
+</rev-info>
+<rev-info>
+<rev>A71</rev>
+<date><y>2020</y><m>09</m><d>25</d></date>
+<signature>zbarshr</signature>
+<description><dp></dp>
+</description>
+</rev-info>
+<rev-info>
+<rev>A72</rev>
+<date><y>2020</y><m>10</m><d>01</d></date>
+<signature>zbarshr</signature>
+<description><dp></dp>
+</description>
+</rev-info>
+<rev-info>
+<rev>A76</rev>
+<date><y>2020</y><m>10</m><d>19</d></date>
+<signature>zbarshr</signature>
+<description><dp></dp>
+</description>
+</rev-info>
+<rev-info>
+<rev>A78</rev>
+<date><y>2020</y><m>11</m><d>02</d></date>
+<signature>zbarshr</signature>
+<description><dp></dp>
+</description>
+</rev-info>
+<rev-info>
+<rev>A87</rev>
+<date><y>2020</y><m>11</m><d>24</d></date>
+<signature>zbarshr</signature>
+<description><dp></dp>
+</description>
+</rev-info>
+<rev-info>
+<rev>A89</rev>
+<date><y>2020</y><m>12</m><d>16</d></date>
+<signature>zbarshr</signature>
+<description><dp></dp>
+</description>
+</rev-info>
+<rev-info>
+<rev>A92</rev>
+<date><y>2020</y><m>12</m><d>16</d></date>
+<signature>zbarshr</signature>
+<description><dp></dp>
+</description>
+</rev-info>
+<rev-info>
+<rev>A97</rev>
+<date><y>2021</y><m>02</m><d>15</d></date>
+<signature>zbarshr</signature>
+<description><dp></dp>
+</description>
+</rev-info>
+<rev-info>
+<rev>A99</rev>
+<date><y>2021</y><m>03</m><d>15</d></date>
+<signature>zbarshr</signature>
+<description><dp></dp>
+</description>
+</rev-info>
+<rev-info>
+<rev>A102</rev>
+<date><y>2021</y><m>05</m><d>11</d></date>
+<signature>zbarshr</signature>
+<description><dp></dp>
+</description>
+</rev-info>
+<rev-info>
+<rev>U</rev>
+<date><y>2021</y><m>05</m><d>13</d></date>
+<signature>ZRJNVRN</signature>
+<description><dp></dp>
+</description>
+</rev-info>
+<rev-info>
+<rev>V</rev>
+<date><y>2021</y><m>05</m><d>28</d></date>
+<signature>ZRJNVRN</signature>
+<description><dp></dp>
+</description>
+</rev-info>
+<rev-info>
+<rev>x</rev>
+<date><y>2021</y><m>06</m><d>24</d></date>
+<signature>ZRJNVRN</signature>
+<description><dp></dp>
+</description>
+</rev-info>
+</revision-history>
+</meta-data>
+<front>
+<title-page align-front-graphics="right">
+<copyright><p>LM Ericsson (LMI) 2021. All rights reserved. No part
+of this document may be reproduced in any form without the written
+permission of the copyright owner.</p>
+</copyright>
+<disclaimer>
+<p>The contents of this document are subject to revision without notice
+due to continued progress in methodology, design and manufacturing.
+Ericsson shall have no liability for any error or damage of any kind
+resulting from the use of this document.</p>
+</disclaimer>
+<trademark-list>
+<tm-item><trademark></trademark><owner></owner></tm-item>
+</trademark-list>
+</title-page>
+</front>
+<body>
+<chl role=" "><title xml:id="id_b32e">Safety and Environment</title>
+<table indent="half-indent">
+<caption></caption>
+<tgroup cols="2" align="left" char="" charoff="50"><colspec
+colwidth="60*"/><colspec colwidth="40*"/>
+<tbody valign="top"><row>
+<entry morerows="0" rotate="0" valign="top"><tp>Personal Health and
+Safety Information</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>124 46-2885 Uen J</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>System Safety Information</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>124 46-2886 Uen J</tp>
+</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</chl>
+<chl role=" "><title xml:id="id_sqdm">Library Overview</title>
+<table indent="half-indent">
+<caption></caption>
+<tgroup cols="2" align="left" char="" charoff="50"><colspec
+colwidth="60*"/><colspec colwidth="40*"/>
+<tbody valign="top"><row>
+<entry morerows="0" rotate="0" valign="top"><tp>How to Get Started
+with Ericsson Library Explorer</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>1/1553-LXA 119 1929
+Uen G</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>Typographic Conventions</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>1/154 43-AOM 901 017/4
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>Glossary of Terms</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>0033-AOM 901 017/2
+Uen DD</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>Trademark Information</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>00651-AOM901046 Uen
+T</tp>
+</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</chl>
+<chl role=" "><title xml:id="id_dmqx">Product Overview</title>
+<table indent="half-indent">
+<caption></caption>
+<tgroup cols="2" align="left" char="" charoff="50"><colspec
+colwidth="60*"/><colspec colwidth="40*"/>
+<tbody valign="top"><row>
+<entry morerows="0" rotate="0" valign="top"><tp>Network Impact Report
+for Ericsson Network IQ Statistics 20.4 and 21.1 on RHEL</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>1/10948-AOM901208
+Uen Y</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>Supported Network
+element for ENIQ-S</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>1/1029-FCP 132 9643
+Uen BK</tp>
+</entry>
+</row>
+<row>
+<entry rotate="0"><tp>Network Impact Report for Ericsson Network IQ
+Statistics Tech Pack; Key Performance Indicators and Network Analytics
+Features</tp>
+</entry>
+<entry rotate="0"><tp>1/10948-FCP 132 9643 Uen AE</tp>
+</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</chl>
+<chl role=" "><title xml:id="id_5cfo">Installation</title>
+<table indent="half-indent">
+<caption></caption>
+<tgroup cols="2" align="left" char="" charoff="50"><colspec
+colwidth="60*"/><colspec colwidth="40*"/>
+<tbody valign="top"><row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, Customer Product
+Information Installation</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>4/1531-AOM 901 050
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>EBID, Ericsson Business
+Intelligence Deployment Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>155 34-CNA 403 1452
+Uen AM</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>EMC Clariion Configuration
+for OSS and ENIQ</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>1/1531-AOM 901 070
+Uen H26</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>FOSS CPI Report</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>0962-AOM901204 Uen
+B</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>OSS Configuration
+Required for ENIQ</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>2/1546-AOM 901 076
+Uen K1</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ Events Configuration
+for ENIQ Statistics</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>1/127 01-AOM 901 076
+Uen X</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>Ericsson Network IQ
+Security Admin Guide</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>4/0400-CRA 119 1493
+Uen H6</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ Statistics Configuration
+for EWM</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>2/102 72-AOM 901 109
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>System Administration
+Guide - ENIQ Node Hardening Guide</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>4/1543-CNA 403 2613
+Uen AM12</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ Statistics Commissioning
+of Network Analytics Server Blade</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>1/1531-CSA 113 63/1
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>Node Hardening for
+BIS, OCS and NetAn</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>3/1543-CNA 403 2613
+Uen BG9</tp>
+</entry>
+</row>
+<row>
+<entry rotate="0"><tp>ENIQ-S 20.4 FOSS CPI Report</tp>
+</entry>
+<entry rotate="0"><tp>0962-AOM901208 Uen A</tp>
+</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</chl>
+<chl role=" "><title xml:id="id_mxzi">Operation &amp; Maintenance</title>
+<chl role=" "><title xml:id="id_0dd6">User Guides</title>
+<table indent="half-indent">
+<caption></caption>
+<tgroup cols="2" align="left" char="" charoff="50"><colspec
+colwidth="60*"/><colspec colwidth="40*"/>
+<tbody valign="top"><row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, Ericsson Network
+IQ Alarm Module User Guide</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>2/1553-CSA113144 Uen
+L</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, Ericsson Network
+IQ Report Developer Guide</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>1553-CRA 119 1037
+Uen Y</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, Ericsson Network
+IQ Universe User Guide</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>6/1553-CSA 113 63/1
+Uen F</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, Ericsson Network
+IQ Radio Node Handling User Guide</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>10/1553-CRA 119 1037
+Uen B</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, MRS UTIL PM
+Tech Pack, User Guide </tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>2/1553-COA 252 492/2
+Uen C</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, TSS-AXE PM Tech
+Pack , User Guide</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>3/1553-COA252154/5
+Uen B</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, IS-MGW PM Tech
+Pack , User Guide </tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>3/1553-COA252153/5-A2
+Uen B</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, TSS TGC PM Tech
+Pack, User Guide</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>3/1553-COA252162/5
+Uen B</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, TSS-AXD PM Tech
+Pack, User Guide </tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>1/1553-COA252163/5
+Uen D</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, Network IQ FFAX-LTE
+User Guide</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>6/1553-COA 252 452
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, Core Network
+Topology Userguide</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>3/1553-COA252127/1
+Uen B</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>Ericsson LTE Network
+Topology User Guide</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>11/1553-COA252158/1
+Uen B</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>Ericsson FFAXW Tech
+Pack User Guide</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>2/1553-COA252546 Uen
+C</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>Ericsson IPRAN Topology
+Technology Package , User Guide</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>3/1553-COA252388/1
+Uen C</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>Ericsson UTRAN Topology
+Technology Package,User Guide</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>14/1553-COA252121/1
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, IPPROBE Commissioning
+Guide</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>2/1553-COA 252 426
+Uen B</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ Statistics Feature
+Version Manager</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>2/1553-CXP 903 5104
+Uen H</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>Ericsson Bulk CM Technology
+Package User Guide</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>11/1553-COA 252 292
+Uen D</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>Ericsson AXD 301 PM
+Tech Pack User Guide</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>3/1553-COA 252 163/5
+Uen C</tp>
+</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</chl>
+<chl role=" "><title xml:id="id_r3a6">System Administrator Guides</title>
+<table indent="half-indent">
+<caption></caption>
+<tgroup cols="2" align="left" char="" charoff="50"><colspec
+colwidth="60*"/><colspec colwidth="40*"/>
+<tbody valign="top"><row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, Ericsson Network
+IQ System Administrator Guide	</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>11/1543-CSA 113 63/1
+Uen AM</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, Ericsson Network
+IQ Business Intelligence Reports System Administrator Guide</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>1543-CRA 119 1037
+Uen U</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>LTE RAN Load Expert
+KPI Configuration System Administrator Guide</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>4/1543-COA 252 456
+Uen B</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>FFAX-LTE System Administrator
+Guide</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>3/1543-COA 252 452
+Uen B</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>EBID, Ericsson Business
+Intelligence Deployment System Administrator Guide</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>1/1543-CNA 403 1452
+Uen EM4</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>Management Workstation
+System Administration Guide</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>5/1543-AOM 901 071
+Uen AG</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>IP RAN KPI Configuration
+System Administrator Guide</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>2/1543-COA 252 388
+Uen D</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>Service On Element
+Manager Configuration for ENIQ</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>1/1553-CNA 403 2463
+Uen G</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, FFAXW System
+Administrator Guide</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>2/1543-COA 252 546
+Uen B</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>Information Store
+Configuration System Administrator Guide</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>1/1543-CNA 403 3397
+Uen D</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>Information Store
+Configuration User Guide - Data Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>1/1553-CNA 403 3397
+Uen F</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>Storage Manager NAS
+API, System Administration Guide</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>1/1543-CNA 403 2104
+Uen H</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>SSO Configuration
+for Network Analytics Server and Ericsson Business Intelligence Deployment,
+System Administrator Guide</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>1543-CNA 403 2826
+Uen AV2</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>Management Workstation
+System Administration Guide for RHEL</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>1/1543-AOM 901 171
+Uen AD</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>Veritas Access System
+Administration Guide</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>1/1543-CNA4033335/1
+Uen AK</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>Network Analytics
+Server, System Administrator Guide</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>5/1543-CNA4032940
+Uen K</tp>
+</entry>
+</row>
+<row>
+<entry rotate="0"><tp>ENIQ Statistics Data Collection Guidelines for
+20.4 and 21.1</tp>
+</entry>
+<entry rotate="0"><tp>1/1543-AOM 901 208 Uen B</tp>
+</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</chl>
+<chl role=" "><title xml:id="id_tcp2">Technology Package Descriptions and Universe References</title>
+<table indent="half-indent">
+<caption></caption>
+<tgroup cols="2" align="left" char="" charoff="50"><colspec
+colwidth="60*"/><colspec colwidth="40*"/>
+<tbody valign="top"><row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, Ericsson Network
+IQ Area Functionality</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>8/1551-CRA 119 0482/1
+Uen D</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, Daylight Saving
+Reference Guide</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>6/1551-CRA 119 0482
+Uen B</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, SGSN Counter
+Mapping Information</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>1/1555-COA252129 
+Uen C</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>Technology Package
+Description, Information Store</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>1/1551-COA 252 564
+Uen T</tp>
+</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<table indent="half-indent">
+<caption></caption>
+<tgroup cols="2" align="left" char="" charoff="50"><colspec
+colwidth="60.11*"/><colspec colwidth="39.89*"/>
+<thead valign="bottom">
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>UTRAN TECHNOLOGY PACKAGES</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp> </tp>
+</entry>
+</row>
+</thead>
+<tbody valign="top"><row>
+<entry morerows="0" rotate="0" valign="top"><tp>Mapping of Database
+Objects in SO EM and IPT NMS Technology Packages	</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>006 51-COA 252 514
+Uen D</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, UTRAN Topology
+Technology Package Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>9/1553-COA 252 121/1
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, CPP Technology
+Package Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>24/1551-COA 252 124/1
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, CPP PM Technology
+Package Standard Universe Reference</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>70/1550-COA 252 124/1
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, CPP PM Technology
+Package Extended Universe Reference</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>71/1550-COA 252 124/1
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, RBS Technology
+Package Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>21/1551-COA252123/1
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, RBS PM Technology
+Package Universe Reference</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>20/1550-COA252123/1
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, RNC Technology
+Package Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>21/1551-COA252122/1
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, RNC PM Technology
+Package Universe Reference</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>22/1550-COA252122/1
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, RBSG2 Technology
+Package Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>18/1551-COA 252 513
+Uen A</tp>
+</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<table indent="half-indent">
+<caption></caption>
+<tgroup cols="2" align="left" char="" charoff="50"><colspec
+colwidth="60*"/><colspec colwidth="40*"/>
+<thead valign="bottom">
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>GRAN TECHNOLOGY PACKAGES</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp> </tp>
+</entry>
+</row>
+</thead>
+<tbody valign="top"><row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, GRAN Topology
+Technology Package Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>11/1551-COA 252 142/1
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, BSS Technology
+Package Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>21/1551-COA 252 139/1
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, BSS Technology
+Package Universe Reference</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>20/1550-COA 252 139/1
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, Common AXE Technology
+Package Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>6/1551-COA 252 140/1
+Uen B</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, Common AXE Technology
+Package Universe Reference</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>4/1550-COA 252 140/1
+Uen A</tp>
+</entry>
+</row>
+</tbody>
+</tgroup>
+<tgroup cols="2" align="left" char="" charoff="50"><colspec
+colname="col1" colwidth="60.00*"/><colspec colname="col2"
+colwidth="40.00*"/>
+<tbody valign="top"><row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, BTSG2 PM Technology
+Package Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>15/1551-COA 252 526
+Uen B</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, BTSG2 PM Technology
+Package Universe Reference</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>15/1550-COA 252 526
+Uen B</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, NETOP Technology
+Package Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>3/1551-COA 252 0027
+Uen B</tp>
+</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<table indent="half-indent">
+<caption></caption>
+<tgroup cols="2" align="left" char="" charoff="50"><colspec
+colwidth="59.69*"/><colspec colwidth="40.31*"/>
+<thead valign="bottom">
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>CORE NETWORK TECHNOLOGY
+PACKAGES</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp> </tp>
+</entry>
+</row>
+</thead>
+<tbody valign="top"><row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, Core Network
+Topology Technology Package Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>12/1551-COA 252 127/1
+Uen B</tp>
+</entry>
+</row>
+<row>
+<entry rotate="0"><tp>ENIQ, CCSM Technology Package Description</tp>
+</entry>
+<entry rotate="0"><tp>7/1551-COA252653 Uen B</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, GGSN Technology
+Package Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>24/1551-COA252130/1
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, GGSN Technology
+Package Universe Reference</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>24/1550-COA252130/1
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, Core Network
+AXE Technology Package Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>18/1551-COA 252 128/1
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, Core Network
+AXE PM Technology Package Standard Universe Reference</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>35/1550-COA 252 128/1
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, Core Network
+AXE PM Technology Package Extended Universe Reference</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>36/1550-COA 252 128/1
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, Technology Package
+Description, Ericsson CUDB</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>22/1551-COA 252 177/1
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, Technology Package
+Universe Reference, Ericsson CUDB</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>21/1550-COA 252 177/1
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, Technology Package
+Description, Ericsson SAPC PM</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>17/1551-COA 252 188/1
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, Technology Package
+Universe Reference, Ericsson SAPC PM</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>17/1550-COA 252 188/1
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, IMS PM Technology
+Package Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>11/1551-COA 252 150/7
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, IMS PM Technology
+Package Universe Reference</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>10/1550-COA252150/7
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, IMS IPWorks
+Technology Package Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>19/1551-COA252146/7
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, IMS IPWorks
+PM Technology Package Universe Reference</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>18/1550-COA252146/7
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, IMS Messaging
+Technology Package Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>3/1551-COA 252 157/1
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, IMS Messaging
+Technology Package Universe Reference</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>1/1550-COA 252 157/1
+Uen D</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, IMS PTT Technology
+Package Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>2/1551-COA 252 151/1
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, IMS PTT Technology
+Package Universe Reference</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>1/1550-COA 252 151/1
+Uen B</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, IMSGW SBG Technology
+Package Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>18/1551-COA 252 152/7
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, IMSGW SBG PM
+Technology Package Universe Reference</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>17/1550-COA 252 152/7
+Uen B</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, IS MGW Technology
+Package Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>4/1551-COA 252 153/5-A2
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, IS MGW PM Technology
+Package Universe Reference</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>1/1550-COA 252 153/5
+Uen F1</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, MGW Technology
+Package Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>22/1551-COA 252 133/1
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, MGW PM Technology
+Package Standard Universe Reference</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>44/1550-COA 252 133/1
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, MGW PM Technology
+Package Extended Universe Reference</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>43/1550-COA 252 133/1
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, MRS UTIL PM
+Technology Package Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>16/1551-COA 252 492/1
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, MRS UTIL PM
+Technology Package Universe Reference</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>1550-COA 252 492/1
+Uen D</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, MTAS Technology
+Package Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>19/1551-COA 252 161/7
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, MTAS Technology
+Package Universe Reference</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>19/1550-COA 252 161/7
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, SASN PM Technology
+Package Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>6/1551-COA 252 132/1
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, SASN Technology
+Package Universe Reference</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>5/1550-COA 252 132/1
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, SASN SARA Technology
+Package Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>2/1551-COA 252 160/1
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, SASN SARA Technology
+Package Universe Reference</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>1/1550-COA 252 160/1
+Uen D</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, SGSN Technology
+Package Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>5/1551-COA 252 129/1
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, SGSN PM Technology
+Package Universe Reference</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>5/1550-COA 252 129/1
+Uen F</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, SGSN MME Technology
+Package Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>19/1551-COA252503
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, SGSN MME PM
+Technology Package Universe Reference</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>19/1550-COA252503
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, EPDG Technology
+Package Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>5/1551-COA 252 493
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, EPDG PM Technology
+Package Universe Reference</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>2/1550-COA 252 493
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, IS-MGC  Technology
+Package Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>2/1551-COA 252 293/3
+Uen B</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, IS-MGC  PM Technology
+Package Universe Reference</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>2/1550-COA 252 293/3
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, CSCF  Technology
+Package Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>17/1551-COA 252 505
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, CSCF PM Technology
+Package Universe Reference</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>15/1550-COA 252 505
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, BBSC Technology
+Package Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>4/1551-COA 252 509
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, BBSC PM Technology
+Package Universe Reference</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>1/1550-COA 252 509
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, DSC Technology
+Package Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>16/1551-COA 252 441/3
+Uen B</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, DSC  Technology
+Package Universe Reference</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>16/1550-COA 252 441
+Uen B</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, SDNCP Technology
+Package Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>2/1551-COA 252 510
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, SDNCP PM Technology
+Package Universe Reference</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>1/1550-COA 252 510
+Uen B</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, UPG Technology
+Package Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>11/1551-COA 252 521
+Uen B</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, UPG PM Technology
+Package Universe Reference</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>12/1550-COA 252 521
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, WMG Technology
+Package Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>10/1551-COA 252 512
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, WMG Technology
+Package Universe Reference</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>9/1550-COA 252 512
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, HSS PM Technology
+Package Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>18/1551-COA 252 214
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, HSS PM  Technology
+Package Universe Reference</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>18/1550-COA 252 214
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, WCG Technology
+Package Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>5/1551-COA 252 520
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, WCG PM Technology
+Package Universe Reference, </tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>4/1550-COA 252 520
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>Ericsson MRS PM, Technology
+Package Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>18/1551-COA 252 532
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>Ericsson MRS PM, Technology
+Package Universe Reference</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>20/1550-COA 252 532
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, vEME PM ,Technology
+Package Universe Reference</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>10/1550-COA 252 576
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>TP Description Ericsson
+vEME</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>10/1551-COA 252 576
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>CISCO, Technology
+Package Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>2/1551-COA252577 Uen
+B</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>CISCO, Technology
+Package Universe Reference</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>1/1550-COA252577 Uen
+B</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, Common STS PC,
+Technology Package Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>3/1551-COA 252 336/3
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, Common STS PC
+PM, Technology Package Universe Reference</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>3/1550-COA252336/3
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, AFG Technology
+Package Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>6/1551-COA1011196
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, AFG PM Technology
+Package Universe Reference</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>5/1550-COA1011196
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, BSP Technology
+Package Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>6/1551-COA 252 0009
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, BSP PM Technology
+Package Universe Reference</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>6/1550-COA 252 0009
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry rotate="0"><tp>ENIQ, PCC Technology Package Description</tp>
+</entry>
+<entry rotate="0"><tp>4/1551-COA252636 Uen A</tp>
+</entry>
+</row>
+<row>
+<entry rotate="0"><tp>ENIQ, CCDM Technology Package Description</tp>
+</entry>
+<entry rotate="0"><tp>5/1551-COA 252 650 Uen A</tp>
+</entry>
+</row>
+<row>
+<entry rotate="0"><tp>ENIQ, CCRC Technology Package Description</tp>
+</entry>
+<entry rotate="0"><tp>7/1551-COA252649 Uen A</tp>
+</entry>
+</row>
+<row>
+<entry rotate="0"><tp>ENIQ, CCES Technology Package Description</tp>
+</entry>
+<entry rotate="0"><tp>3/1551-COA252654 Uen B</tp>
+</entry>
+</row>
+<row>
+<entry rotate="0"><tp>ENIQ, NRFAGENT Technology Package Description</tp>
+</entry>
+<entry rotate="0"><tp>5/1551-COA252652 Uen A</tp>
+</entry>
+</row>
+<row>
+<entry rotate="0"><tp>ENIQ, SCEF Technology Package Description</tp>
+</entry>
+<entry rotate="0"><tp>3/1551-COA 252 637  Uen A</tp>
+</entry>
+</row>
+<row>
+<entry rotate="0"><tp>ENIQ, SC Technology Package Description</tp>
+</entry>
+<entry rotate="0"><tp>4/1551-COA 252 656 Uen A</tp>
+</entry>
+</row>
+<row>
+<entry rotate="0"><tp>ENIQ, NSDS Technology Package Description</tp>
+</entry>
+<entry rotate="0"><tp>3/1551-COA 252 655 Uen A</tp>
+</entry>
+</row>
+<row>
+<entry rotate="0"><tp>ENIQ, PCG Technology Package Description</tp>
+</entry>
+<entry rotate="0"><tp>2/1551-COA 252 658 Uen A</tp>
+</entry>
+</row>
+<row>
+<entry rotate="0"><tp>ENIQ, CCPC Technology Package Description</tp>
+</entry>
+<entry rotate="0"><tp>1/1551-COA 252 661 Uen B</tp>
+</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<table indent="half-indent">
+<caption></caption>
+<tgroup cols="2" align="left" char="" charoff="50"><colspec
+colwidth="60*"/><colspec colwidth="40*"/>
+<thead valign="bottom">
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>EBS TECHNOLOGY PACKAGES</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp> </tp>
+</entry>
+</row>
+</thead>
+<tbody valign="top"><row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, EBSG Technology
+Package Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>2/1551-COA 252 165/1
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, EBSG Technology
+Package Universe Reference</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>1/1550-COA 252 165/1
+Uen J</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, EBSS Technology
+Package Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>2/1551-COA 252 166/1
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, EBSS PM Technology
+Package Universe Reference</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>1/1550-COA 252 166/1
+Uen G</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, EBSW Technology
+Package Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>2/1551-COA 252 164/1
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, EBSW Technology
+Package Universe Reference</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>1/1550-COA 252 164/1
+Uen D</tp>
+</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<table indent="half-indent">
+<caption></caption>
+<tgroup cols="2" align="left" char="" charoff="50"><colspec
+colwidth="60*"/><colspec colwidth="40*"/>
+<thead valign="bottom">
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>WIRELINE TECHNOLOGY
+PACKAGES</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp> </tp>
+</entry>
+</row>
+</thead>
+<tbody valign="top"><row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, TSS Topology
+Tech Pack Technology Package Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>1/1551-COA 252 155/5
+Uen E</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, TSS-AXE Technology
+Package Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>5/1551-COA 252 154/5
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, TSS-AXE PM Technology
+Package Universe Reference</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>4/1550-COA 252 154/5
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, TSS TGC Technology
+Package Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>2/1551-COA252162/5
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, TSS TGC PM Technology
+Package Universe Reference</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>1/1550-COA252162/5
+Uen E</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, TSS AXD 301
+Technology Package Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>1/1551-COA 252 163/5
+Uen D</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, TSS AXD 301PM
+Technology Package Universe Reference</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>1/1550-COA 252 163/5
+Uen D</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, Common AXE Technology
+Package Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>6/1551-COA 252 140/1
+Uen B</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, Common AXE Technology
+Package Universe Reference</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>4/1550-COA 252 140/1
+Uen A</tp>
+</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<table indent="half-indent">
+<caption></caption>
+<tgroup cols="2" align="left" char="" charoff="50"><colspec
+colwidth="59.88*"/><colspec colwidth="40.12*"/>
+<thead valign="bottom">
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>LTE TECHNOLOGY PACKAGES</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp> </tp>
+</entry>
+</row>
+</thead>
+<tbody valign="top"><row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, LTE Topology
+Technology Package Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>15/1551-COA252158/1
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, ERBS Technology
+Package Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>19/1551-COA 252 159/1
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, ERBS Technology
+Package Universe Reference</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>19/1550-COA 252 159/1
+Uen A</tp>
+</entry>
+</row>
+</tbody>
+</tgroup>
+<tgroup cols="2" align="left" char="" charoff="50"><colspec
+colname="col1" colwidth="59.88*"/><colspec colname="col2"
+colwidth="40.12*"/>
+<tbody valign="top"><row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, ERBSG2 Technology
+Package Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>18/1551-COA 252 504
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, LLE Technology
+Package Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>19/1551-COA 252 456
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, LLE Technology
+Package Universe Reference</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>15/1550-COA 252 456
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, VoWI-FI Technology
+Package Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>2/1551-COA 252 530
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp> Ericsson LTE Optimization,Technology
+Package Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>1/1551-COA 252 537
+Uen D</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>TP Description Ericsson
+vPP</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>14/1551-COA 252 582
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>Universe Reference
+TP Ericsson vPP PM</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>14/1550-COA 252 582
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>TP Description Ericsson
+NR</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>11/1551-COA252612
+Uen A</tp>
+</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<table indent="half-indent">
+<caption></caption>
+<tgroup cols="2" align="left" char="" charoff="50"><colspec
+colwidth="60*"/><colspec colwidth="40*"/>
+<thead valign="bottom">
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>FFAX TECHNOLOGY PACKAGES</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp> </tp>
+</entry>
+</row>
+</thead>
+<tbody valign="top"><row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, FFAX Technology
+Package Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>14/1551-COA 252 452
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, FFAX Technology
+Package Universe Reference</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>14/1550-COA 252 452
+Uen B</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, FFAXW Technology
+Package Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>17/1551-COA 252 546
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, FFAXW Technology
+Package Universe Reference</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>10/1550-COA 252 546
+Uen A</tp>
+</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<table indent="half-indent">
+<caption></caption>
+<tgroup cols="2" align="left" char="" charoff="50"><colspec
+colwidth="60*"/><colspec colwidth="40*"/>
+<thead valign="bottom">
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ERICSSON COMMON PM
+TECHNOLOGY PACKAGES</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp> </tp>
+</entry>
+</row>
+</thead>
+<tbody valign="top"><row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, SNMP MIB II
+Technology Package Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>2/1551-COA 252 189/1
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, SNMP MIB II
+Technology Package Universe Reference</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>1/1550-COA 252 189/1
+Uen K</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, IPRAN PM Technology
+Package Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>6/1551-COA 252 388
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, IPRAN PM Technology
+Package Universe Reference</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>4/1550-COA 252 388
+Uen B</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, STN PM Technology
+Package Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>6/1551-COA 252 143/1
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, STN PM Technology
+Package Universe Reference</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>4/1550-COA 252 143/1
+Uen B</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, TCU PM Technology
+Package Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>20/1551-COA252490
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, TCU PM Technology
+Package Universe Reference</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>20/1550-COA252490
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, Energy Performance
+Technology Package Description </tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>1/1551-COA 252 543
+Uen D</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, UTRAN Base Technology
+Package Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>3/1551-COA 252 135/1
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, GRAN Base Technology
+Package Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>3/1551-COA 252 136
+Uen A</tp>
+</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<table indent="half-indent">
+<caption></caption>
+<tgroup cols="2" align="left" char="" charoff="50"><colspec
+colwidth="60*"/><colspec colwidth="40*"/>
+<thead valign="bottom">
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>REDBACK TECHNOLOGY
+PACKAGES</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp> </tp>
+</entry>
+</row>
+</thead>
+<tbody valign="top"><row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, Redback Technology
+Package Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>4/1551-COA252173/1
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, Redback Technology
+Package Universe Reference</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>2/1550-COA 252 173/1
+Uen D</tp>
+</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<table indent="half-indent">
+<caption></caption>
+<tgroup cols="2" align="left" char="" charoff="50"><colspec
+colwidth="60*"/><colspec colwidth="40*"/>
+<thead valign="bottom">
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ERICSSON REDBACK CPG
+TECHNOLOGY PACKAGES</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp> </tp>
+</entry>
+</row>
+</thead>
+<tbody valign="top"><row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, CPG PM Technology
+Package Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>1/1551-COA 252 175/1
+Uen M</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, CPG PM Technology
+Package Universe Reference</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>2/1550-COA 252 175
+Uen A</tp>
+</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<table indent="half-indent">
+<caption></caption>
+<tgroup cols="2" align="left" char="" charoff="50"><colspec
+colwidth="59.69*"/><colspec colwidth="40.31*"/>
+<thead valign="bottom">
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ERICSSON  TECHNOLOGY
+PACKAGES</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp> </tp>
+</entry>
+</row>
+</thead>
+<tbody valign="top"><row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, Bulk CM Technology
+Package Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>21/1551-COA252292
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, Bulk CM Technology
+Package Transport Universe Reference</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>64/1550-COA 252 292/1
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, Bulk CM RNC
+Radio Technology Package Universe Reference</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>69/1550-COA 252 292
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, Bulk CM RBS
+Radio Technology Package Universe Reference</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>59/1550-COA 252 292/1
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, Bulk CM O_M
+Technology Package Universe Reference</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>61/1550-COA 252 292/4
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, Bulk CM Reference
+Equipment Technology Package Universe Reference</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>60/1550-COA 252 292
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, Bulk CM LTE
+Radio Technology Package Universe Reference</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>63/1550-COA 252 292/7
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, Bulk CM Core
+Technology Package Universe Reference</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>47/1550-COA252292/10
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, Bulk CM Technology
+Package Universe Reference, Transport Ext</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>68/1550-COA 252 292/1
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, LTE Radio Ext
+Technology Package Universe Reference</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>64/1550-COA 252 292
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, Bulk CM O_M
+Ext Technology Package Universe Reference</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>13/1550-COA 252 292/1
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, Bulk CM GSM
+Radio Technology Package Universe Reference</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>13/1550-COA 252 292/5
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, Bulk CM Reference
+Equipment Ext Technology Package Universe Reference </tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>8/1550-COA 252 292/5
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, Bulk CM Reference
+NR Technology Package Universe Reference </tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>8/1550-COA 252 292/6
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry rotate="0"><tp>ENIQ, Bulk CM O_M Ext1 Technology Package Universe
+Reference</tp>
+</entry>
+<entry rotate="0"><tp>1/1550-COA 252 292/12 Uen A</tp>
+</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<table indent="half-indent">
+<caption></caption>
+<tgroup cols="2" align="left" char="" charoff="50"><colspec
+colwidth="60*"/><colspec colwidth="40*"/>
+<thead valign="bottom">
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>IP AND TRANSPORT TECHNOLOGY
+PACKAGES</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp> </tp>
+</entry>
+</row>
+</thead>
+<tbody valign="top"><row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, IPTNMS Topology
+Technology Package Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>2/1551-COA 252 393/2
+Uen G</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, SOEM MBH Technology
+Package Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>12/1551-COA252514
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, SOEM MBH Technology
+Package Universe Reference Transport</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>11/1550-COA252514
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>Ericsson IPTRANSPORT
+PM, Technology Package Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>22/1551-COA 252 544
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>Ericsson IPTRANSPORT
+PM , Technology Package Universe Reference</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>24/1550-COA 252 544
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>TP Description Ericsson
+IPTRANSPORT Topology</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>8/1551-COA 252 560
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>Mapping of Database
+Objects in SOEM and IPTNMS Technology Packages</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>00651-COA252514 Uen
+D</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>Juniper, Technology
+Package Description </tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>7/1551-COA 252 621
+Uen B</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>Juniper, Universe
+Reference Technology Package </tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>6/1550-COA 252 621
+Uen B</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, ESC PM Technology
+Package Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>7/1551-COA 252 616
+Uen B</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, ESC PM  Technology
+Package Universe Reference</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>5/1550-COA 252 616
+Uen B</tp>
+</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<table indent="half-indent">
+<caption></caption>
+<source>z</source>
+<tgroup cols="2" align="left" char="" charoff="50"><colspec
+colwidth="60*"/><colspec colwidth="40*"/>
+<thead valign="bottom">
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ERICSSON PRBS PM TECHNOLOGY
+PACKAGES</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp> </tp>
+</entry>
+</row>
+</thead>
+<tbody valign="top"><row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, PRBS RBS Technology
+Package Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>11/1551-COA 252 436
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, PRBS RBS Technology
+Package Universe Reference Transport</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>10/1550-COA 252 436
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, PRBS CPP Technology
+Package Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>11/1551-COA 252 437
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, PRBS CPP Technology
+Package Universe Reference Transport</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>9/1550-COA 252 437
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, PRBS ERBS Technology
+Package Universe Reference</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>14/1550-COA 252 447
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, PRBS ERBS Technology
+Package Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>15/1551-COA 252 447
+Uen A</tp>
+</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<table indent="half-indent">
+<caption></caption>
+<tgroup cols="2" align="left" char="" charoff="50"><colspec
+colwidth="60*"/><colspec colwidth="40*"/>
+<thead valign="bottom">
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ERICSSON IPPROBE TECHNOLOGY
+PACKAGES</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp> </tp>
+</entry>
+</row>
+</thead>
+<tbody valign="top"><row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, IPPROBE Technology
+Package Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>2/1551-COA 252 426
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, IPPROBE  Technology
+Package Universe Reference Transport</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>1/1550-COA 252 426
+Uen D</tp>
+</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</chl>
+<chl role=" "><title xml:id="id_ly5i">Business Intelligence Reports User Guides</title>
+<table indent="half-indent">
+<caption></caption>
+<tgroup cols="2" align="left" char="" charoff="50"><colspec
+colwidth="60*"/><colspec colwidth="40*"/>
+<tbody valign="top"><row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, RNC Business
+Intelligence Reports</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>1553-CNA 403 1645
+ Uen AE</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, M-MGw Business
+Intelligence Reports</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>1553-CNA 403 1648
+Uen X</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, IS-MGw Business
+Intelligence Reports</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>3/1553-COA 252 278
+Uen C</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, TSS AXE Business
+Intelligence Reports</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>2/1553-COA 252 337/1
+Uen C</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, IS-MGC Business
+Intelligence Reports</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>3/1553-COA 252 279
+Uen C</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, MSC  Business
+Intelligence Reports</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>8/1553-CNA 403 1649
+Uen B</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, BSC Business
+Intelligence Reports</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>1553-CNA 403 1650
+Uen Z</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, SGSN Business
+Intelligence Reports</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>1553-CNA 403 1651
+Uen X</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, SASN SARA Business
+Intelligence Reports</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>1553-CNA 403 1653
+Uen H</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, TSS Business
+Intelligence Reports</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>1553-CNA 403 1654
+Uen E</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, UDC Business
+Intelligence Reports</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>1553-CNA 403 1655
+Uen F</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, GGSN Business
+Intelligence Reports</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>1553-CNA 403 1965
+Uen AE</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, RBS Channel
+Element License Utilization Report</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>1553-CNA 403 1994
+ Uen G</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, ERBS Business
+Intelligence Reports</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>1553-CNA 403 2059
+Uen BN</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, MSC Capacity
+Licensing Business Intelligence Reports</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>1553-CNA 403 2105
+Uen H</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, ERBS Transport
+Network  Business Intelligence Reports</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>1553-CNA 403 2229
+ Uen Y</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, SGSN MME Business
+Intelligence Reports</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>1553-CNA 403 2227
+Uen AE</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, CPG Business
+Intelligence Reports</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>2/1553-CNA 403 2228
+Uen B</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, MSC-S BC Load
+Statistics Business Intelligence Reports</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>1553-CNA 403 2264
+Uen J</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, SO EM Business
+Intelligence Reports</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>5/1553-CNA 403 3062
+Uen B</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, CSCF Business
+Intelligence Reports</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>1553-CNA 403 2506
+Uen AH</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, MTAS Business
+Intelligence Reports</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>1553-CNA 403 2507
+Uen AM</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, PGM Business
+Intelligence Reports</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>1553-CNA 403 2508
+Uen F</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, HSS Business
+Intelligence Reports</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>8/1553-CNA 403 2509
+Uen C</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, MRFC Business
+Intelligence Reports</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>1553-CNA 403 2510
+Uen F</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, IPWorks Business
+Intelligence Reports</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>1553-CNA 403 2522
+Uen L</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, SBG Business
+Intelligence Reports</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>1553-CNA 403 2523
+Uen AJ</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, DSC Business
+Intelligence Reports</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>1553-CNA 403 2605
+Uen L</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, IP RAN Business
+Intelligence Reports</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>1553-CNA 403 2658
+Uen V</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, LTE RAN Load
+Expert Business Intelligence Reports</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>2/1553-CNA 403 2680
+Uen B</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, IS-TGC KPI Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>1/1553-COA252385 Uen
+D</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, TSS-AXD KPI
+Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>2/1553-COA252440 Uen
+C</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, WCG KPI Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>1553-CNA 403 3157
+Uen G</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, WMG KPI Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>5/1553-COA 252 515
+Uen A</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, IPPROBE KPI
+Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>1553-CNA118144 Uen
+E</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, MRSv KPI Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>1553-CNA 403 3175
+Uen J</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, SAPC KPI Description</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>1553-CNA 403 3267
+Uen K</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ_EIR-FE_Business_Intelligence_Reports</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>1553-CNA 403 3348
+Uen H</tp>
+</entry>
+</row>
+<row>
+<entry morerows="0" rotate="0" valign="top"><tp>ENIQ, vEME Business
+Intelligence Reports</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>1553-CNA 403 3442
+Uen G</tp>
+</entry>
+</row>
+<row>
+<entry rotate="0"><tp>ENIQ, CUDB Business Intelligence Reports</tp>
+</entry>
+<entry rotate="0"><tp>1553-CNA 403 3696 Uen B</tp>
+</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</chl>
+</chl>
+<chl role=" "><title xml:id="id_qm3k">Interface</title>
+<table indent="half-indent">
+<caption></caption>
+<tgroup cols="2" align="left" char="" charoff="50"><colspec
+colwidth="60*"/><colspec colwidth="40*"/>
+<tbody valign="top"><row>
+<entry morerows="0" rotate="0" valign="top"><tp>Summary of External
+Interfaces for Ericsson Network IQ for 20.4</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>1/15519-AOM901208
+Uen B</tp>
+</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</chl>
+<chl role="fetch_only"><title xml:id="id_5woj">Third Party Products</title>
+<table indent="half-indent">
+<caption></caption>
+<tgroup cols="2" align="left" char="" charoff="50"><colspec
+colwidth="60*"/><colspec colwidth="40*"/>
+<tbody valign="top"><row>
+<entry morerows="0" rotate="0" valign="top"><tp>Third Party Products</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>190 89-LZN 708 0540
+Uen AV</tp>
+</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</chl>
+<chl role="fetch_only"><title xml:id="id_cshy">Additional Documents</title>
+<table indent="half-indent">
+<caption></caption>
+<tgroup cols="2" align="left" char="" charoff="50"><colspec
+colwidth="60*"/><colspec colwidth="40*"/>
+<tbody valign="top"><row>
+<entry morerows="0" rotate="0" valign="top"><tp>COMInf, Network Integration
+Guide</tp>
+</entry>
+<entry morerows="0" rotate="0" valign="top"><tp>9/1555-APR 901 0124
+Uen DZ</tp>
+</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</chl>
+</body>
+</doc>

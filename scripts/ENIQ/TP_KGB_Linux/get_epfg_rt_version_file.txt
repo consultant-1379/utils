@@ -1,0 +1,17 @@
+/usr/sfw/bin/wget --user=statsjenki --password=Apriil@2019 -O - http://clearcase-oss.lmera.ericsson.se/view/www_eniq/vobs/ossrc/del--mgt/html/eniqdel/ENIQ_S19.1/19.1.FDM/SOLARIS_baseline.html | grep epfg_rt | grepp '.zip' 
+--2019-05-23 11:59:55--  http://clearcase-oss.lmera.ericsson.se/view/www_eniq/vobs/ossrc/del-mgt/html/eniqdel/ENIQ_S19.1/19.1.FDM/SOLARIS_baseline.html
+Resolving clearcase-oss.lmera.ericsson.se (clearcase-oss.lmera.ericsson.se)... 150.132.181.253
+Connecting to clearcase-oss.lmera.ericsson.se (clearcase-oss.lmera.ericsson.se)|150.132.181.253|:80... connected.
+HTTP request sent, awaiting response... 401 Authorization Required
+Authentication selected: Basic realm="[ Enter Windows Password: ]"
+Reusing existing connection to clearcase-oss.lmera.ericsson.se:80.
+HTTP request sent, awaiting response... 200 OK
+Length: 524101 (512K) [text/html]
+Saving to: 'STDOUT'
+
+-                     0%[                    ]       0  --.-KB/s               -                    11%[=>                  ]  58.13K   278KB/s               -                    61%[===========>        ] 314.56K   750KB/s               -                   100%[===================>] 511.82K  1.05MB/s    in 0.5s    
+
+2019-05-23 11:59:56 (1.05 MB/s) - written to stdout [524101/524101]
+
+<tr><td><a href="http://clearcase-oss.lmera.ericsson.se/view/www_eniq/vobs/ossrc/del-mgt/html/eniqdel/ENIQ_S19.1/19.1.FDM/epfg_rt_R8C03.zip">epfg_rt</a></td><!epfg_rt_NAME>
+eniqs[eniq_stats] {dcuser} #: 

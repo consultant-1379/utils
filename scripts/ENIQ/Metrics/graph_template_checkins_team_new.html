@@ -1,0 +1,201 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Metrics</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+  <script language="JavaScript">
+  function displayLineChart() {
+    var chart = new Chart(ctx, {
+   type: 'bar',
+   data: {
+      //Date Start
+      labels: ['18-02-19', '19-02-19','20-02-19','21-02-19','22-02-19' ],
+	  //Date End
+      datasets: [{
+         label: 'Techpacks',
+		 //Techpack_checkin Start
+         data: [2, 8, 3, 4, 1],
+		 //Techpack_checkin End
+         backgroundColor: '#22aa99'
+      }]
+   },
+   options: {
+      responsive: false,
+      legend: {
+        position: 'bottom' // place legend on the right side of chart
+      },
+	  title: {
+        display: true,
+        text: 'Techpacks',
+		fontSize: 20
+    },
+      scales: {
+         xAxes: [{
+			barPercentage: 0.5,
+			
+         }],
+         yAxes: [{
+			barPercentage: 0.2,
+         }]
+      }
+   }
+});
+
+var chart2 = new Chart(ctx2, {
+   type: 'bar',
+   data: {
+	  //Date Start
+      labels: ['18-02-19', '19-02-19','20-02-19','21-02-19','22-02-19'], 
+	  //Date End
+      datasets: [{
+         label: 'Platform',
+		 //Platform_checkin Start
+         data: [0, 2, 3, 2, 3],
+		 //Platform_checkin End
+         backgroundColor: '#994499'
+      }]
+   },
+   options: {
+      responsive: false,
+      legend: {
+        position: 'bottom' // place legend on the right side of chart
+      },
+	  title: {
+        display: true,
+        text: 'Platform',
+		fontSize: 20
+    },
+      scales: {
+         xAxes: [{
+			barPercentage: 0.5,
+			
+         }],
+         yAxes: [{
+			barPercentage: 0.2,
+         }]
+      }
+   }
+});
+
+var chart3 = new Chart(ctx3, {
+   type: 'bar',
+   data: {
+      //Date Start
+      labels: ['18-02-19', '19-02-19','20-02-19','21-02-19','22-02-19' ],
+	  //Date End
+      datasets: [{
+         label: 'KPI',
+		 //Kpi_checkin Start
+         data: [2, 8, 3, 4, 1],
+		 //Kpi_checkin End
+         backgroundColor: '#b82e2e'
+      }]
+   },
+   options: {
+      responsive: false,
+      legend: {
+        position: 'bottom' // place legend on the right side of chart
+      },
+	  title: {
+        display: true,
+        text: 'KPI',
+		fontSize: 20
+    },
+      scales: {
+         xAxes: [{
+			barPercentage: 0.5,
+			
+         }],
+         yAxes: [{
+			barPercentage: 0.2,
+         }]
+      }
+   }
+});
+
+var chart4 = new Chart(ctx4, {
+   type: 'bar',
+   data: {
+      //Date Start
+      labels: ['18-02-19', '19-02-19','20-02-19','21-02-19','22-02-19' ],
+	  //Date End
+      datasets: [{
+         label: 'Infra',
+		 //Infra_checkin Start
+		 data: [],
+		 //Infra_checkin End
+         backgroundColor: '#316395'
+      }]
+   },
+   options: {
+      responsive: false,
+      legend: {
+        position: 'bottom' // place legend on the right side of chart
+      },
+	  title: {
+        display: true,
+        text: 'Infra',
+		fontSize: 20
+    },
+      scales: {
+         xAxes: [{
+			barPercentage: 0.5,
+         }],
+         yAxes: [{
+			barPercentage: 0.2,
+         }]
+      }
+   }
+});
+
+var chart5 = new Chart(ctx5, {
+   type: 'bar',
+   data: {
+      //Date Start
+      labels: ['18-02-19', '19-02-19','20-02-19','21-02-19','22-02-19' ],
+	  //Date End
+      datasets: [{
+         label: 'NMI',
+		 //Nmi_checkin Start
+		 data: [],
+		 //Nmi_checkin End
+         backgroundColor: '#FFFF00'
+      }]
+   },
+   options: {
+      responsive: false,
+      legend: {
+        position: 'bottom' // place legend on the right side of chart
+      },
+	  title: {
+        display: true,
+        text: 'NMI',
+		fontSize: 20
+    },
+      scales: {
+         xAxes: [{
+			barPercentage: 0.5,
+         }],
+         yAxes: [{
+			barPercentage: 0.2,
+         }]
+      }
+   }
+});
+  }
+</script>
+</head>
+<body onload="displayLineChart();">
+<a href="http://eniqdmt.lmera.ericsson.se/graph_template.html"> Back to Main Page </a><!-- Main Page link -->
+<h2 align="center"> 19.2.13_Linux </h2>  <!-- Shipment -->
+<h2 align="center"> Commits </h2>
+  <div class="box">
+    <canvas id="ctx" style="height: 250px; width: 40%; float:left; padding-left:20px"></canvas>
+	<canvas id="ctx2" style="height: 250px; width: 40%; float:right; padding-right:100px"></canvas>
+	<canvas id="ctx3" style="height: 250px; width: 40%; float:left; padding-left:20px"></canvas>
+	<canvas id="ctx4" style="height: 250px; width: 40%; float:right; padding-right:100px"></canvas>
+	<canvas id="ctx5" style="height: 250px; width: 40%; float:left; padding-left:20px"></canvas>
+  </div>
+</body>
+</html>

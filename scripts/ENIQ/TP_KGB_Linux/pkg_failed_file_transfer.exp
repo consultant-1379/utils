@@ -1,0 +1,29 @@
+#!/usr/bin/expect
+
+set timeout 150
+
+spawn sftp root@eniqs
+while 1 {
+        expect {
+                "yes/no" {
+                        send "yes\r" }
+                "Password:" {
+                        send "shroot12\r"
+                        break  }
+
+                }
+        }
+expect "sftp> " { send "cd /tmp \r" }
+expect "sftp> " { send "mget installation_failed.txt \r" }
+expect "sftp> " { send "exit \r" }
+
+set timeout 150
+
+spawn scp installation_failed.txt statsjenki@eselivm1v106l.lmera.ericsson.se:/proj/wipba/stats_eniq/
+
+expect "Enter*password:" { send "October@2018\r" }
+expect "100%" {
+    send "exit\r"
+    expect "*installation_failed.txt:*" { send "exit\r" }
+    } "*installation_failed.txt: No such file or directory* " { send "exit\r" }
+

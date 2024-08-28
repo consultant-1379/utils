@@ -1,0 +1,21 @@
+#!/app/expect/5.45/LMWP3/bin/expect
+
+set user [lindex $argv 0]
+set pass [lindex $argv 1]
+set IPADDRESS [lindex $argv 2]
+
+set spass October@2018
+ 
+set timeout 15000 
+
+#spawn ssh statsjenki@eselivm1v106l.lmera.ericsson.se
+spawn ssh statsjenki@eselivm2v578l.lmera.ericsson.se
+
+expect "Enter*password" { send "$spass\r" }
+#expect "Your*possible." {send "\r"}
+expect "ese*106l*>" {send "cd /proj/eiffel004_config_fem160/eiffel_home/bin\r"}
+
+expect "ese*106l*>" {send "/bin/bash /proj/eiffel004_config_fem160/eiffel_home/bin/transfer.sh $user $pass $IPADDRESS\r" }
+expect "ese*106l*>" {send "exit\r"}
+close
+ 

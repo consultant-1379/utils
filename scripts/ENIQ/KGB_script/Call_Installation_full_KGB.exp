@@ -1,0 +1,36 @@
+#!/usr/bin/expect
+
+set user "root"
+set pass "shroot12"
+set IPADDRESS [lindex $argv 0]
+set CHECKIN_BUILD_NUMBER [lindex $argv 1]
+set WORKSPACE [lindex $argv 2]
+
+set HUBPROMPT "ese*106l*>"
+set FEMPROMPT "seliius28403*"
+
+set statspass Sep#2021 
+#set statspass1 EStAts(iDec$2()18 
+ 
+set timeout 15000 
+
+#spawn ssh statsjenki@eselivm1v106l.lmera.ericsson.se
+#spawn ssh statsjenki@seliius26955.seli.gic.ericsson.se
+#spawn ssh statsjenki@eselivm2v578l.lmera.ericsson.se
+
+#expect "*assword" { send "$statspass\r" }
+
+#expect $HUBPROMPT { send "ssh eselivm2v578l.lmera.ericsson.se\r"}
+#expect $HUBPROMPT { send "ssh statsjenki@seliius28403.seli.gic.ericsson.se\r"}
+spawn ssh statsjenki@seliius28403.seli.gic.ericsson.se
+expect "*assword" { send "$statspass\r" }
+
+expect $FEMPROMPT { send "\r"}
+expect $FEMPROMPT { send "cd /proj/eiffel013_config_fem5s11/eiffel_home/bin;module load perl/5.16.2\r"}
+
+#expect $FEMPROMPT { send "/app/perl/5.16.2/RHEL6/bin/perl /proj/eiffel004_config_fem160/eiffel_home/bin/Install_Upgrade.pl 10.36.255.38 32 $WORKSPACE\r" }
+expect $FEMPROMPT { send "/app/perl/5.16.2/RHEL6/bin/perl /proj/eiffel004_config_fem156/eiffel_home/bin/Install_Upgrade_fullTP_KGB.pl $IPADDRESS $CHECKIN_BUILD_NUMBER $WORKSPACE \r" }
+
+expect $FEMPROMPT { send "exit\r"}
+
+close

@@ -1,0 +1,1049 @@
+#!/afs/seli.gic.ericsson.se/app/perl/5.8.9/bin/perl
+# ********************************************************************
+# Script Name:   buildit.pl
+# Author:        zpunvai
+# Function:      To perform builds of the ENIQ deliverables
+#
+# ********************************************************************
+#       Library Section
+#
+# ********************************************************************
+# ********************************************************************
+#       Determine OS and include proper Expect module
+# ********************************************************************
+#
+
+if( `uname -a` =~ /Linux/){
+        $OS="Linux";
+        #$EXPECT1="/vobs/cello/cade_A_tools_perl/Linux/i686/lib/site_perl/5.10.0";
+        #$EXPECT2="/vobs/cello/cade_A_tools_perl/Linux/i686/lib/5.10.0";
+
+        #$LIB1=" /vobs/cello/cade_A_tools_perl/Linux/i686/lib/site_perl/5.8.8";
+        #$LIB2=" /vobs/cello/cade_A_tools_perl/Linux/i686/lib/site_perl";
+        #$IO1="/vobs/cello/cade_A_tools_perl/Linux/i686/lib/site_perl/5.10.0/i686-linux-thread-multi";
+        #$IO2="/vobs/cello/cade_A_tools_perl/Linux/i686/lib/5.10.0/i686-linux-thread-multi";
+}
+
+use Getopt::Long;   # Standard Perl Library for getopts
+use File::Copy;     # to use the copy command (similar to Unix's cp )
+use Expect;         # used to run commands on servers in BETE network
+use Net::FTP;
+use Net::Ping;
+# ********************************************************************
+#       File/Variable Declarations
+#
+# ********************************************************************
+$CWD=`pwd`;
+$HOME="/var/tmp/nmi_git/";
+$BUILD_OUT="/var/tmp/nmi_git/output";
+
+my $SCRIPTNAME=$0;
+my ($PERMS_FILE,$EXP,$IDENTIFIER,$PRODNUM,$INFO_FILE,$LOCK_F,$TAR_FILE,$ELEMENT_FILE_CC);
+my $FOUND=0;
+my $lbl_count=0;
+my $cleanup_check;
+
+my $red="\e[1;31m";
+my $blue="\e[1;34m";
+my $normal="\e[0m";
+
+$SIG{INT}=\&myhand;
+
+# ********************************************************************
+## VARIABLES REQUIRED FOR CONNECTION TO BETE SERVER
+# ********************************************************************
+$CREATION_DIR="/var/tmp/NMI/ENIQ/BUILDS";
+my $LOCAL_LOC="/var/tmp/NMI/ENIQ/BUILDS";
+my $POI=`/usr/ucb/whoami`;
+my $TAR="/usr/bin/tar";
+
+if($OS eq "Linux"){
+        #$TAR="/bin/tar";
+        $POI=`/usr/bin/whoami`;
+}
+
+# ********************************************************************
+#       Functions
+#
+# ********************************************************************
+#.....................................................................
+#  Function Name:  myhand
+#  Function Desc:  Handles user CTRL+C inputs to the script
+#                  and closes correctly
+#.....................................................................
+sub myhand
+{
+        print "\nCrtl-C entered by user. Caught $SIG{INT}",@_,"\n";
+        print "Cleaning up!";
+        cleanup();
+}
+
+#.....................................................................
+#  Function Name:  The very first check of the system.
+#  Function Desc:  does a precheck on conditions before starting
+#                  and report any errors
+#  Return:         1 or 0
+#.....................................................................
+
+sub alpha_check()
+{
+        # do some checks if necessary ( future proofing )
+        if ( ! -d $HOME )    { error ( "Unable to find home directory $HOME: discontinuing.", __LINE__ ) };
+        #ping_host( $ENIQ_SVR );
+}
+
+#.....................................................................
+#  Function Name:  get_product_list
+#  Function Desc:  List the CXP's that could be built
+#
+#.....................................................................
+sub get_product_list()
+{
+        my @cleanlist;
+        my $pronumber=0;
+        my @list = `$CLEARTOOL ls -vob_only -s -nxn $HOME | grep -v etc | grep -v NMI_TC_automation | grep -v lost | grep -v config_specs | grep -v buildit |grep -v cc_list | grep -v perms | grep -v output`;
+        print "enter loop";
+        foreach my $lines (@list){
+                chomp $lines;
+                $lines =~ s/$HOME//;
+                #print "$lines";
+                push (@cleanlist, "$lines");
+        }
+
+        chomp @cleanlist;
+        my @sortedlist = sort ({lc($a) cmp lc($b)} @cleanlist);
+        print "\t\tNumber \t\t\tProduct\n";
+        print "\t\t***************************************\n\n";
+        foreach my $proline (@sortedlist){
+                $pronumber=$pronumber+1;
+                print "\t\t${pronumber}) \t\t\t$proline\n";
+        }
+        print "\nPlease choose a number: ";
+        my $prochoice = <STDIN>;
+        my $protype;
+        chomp $prochoice;
+        print "\nchoose a number:$prochoice ";
+        if (($prochoice > 0)&&($prochoice <= ${pronumber})){
+                $prochoice=$prochoice-1;
+                $protype = $sortedlist[$prochoice];
+        }
+        else{
+                print "\n${red}WARNING!!${normal} - Please choose a number between 1~${pronumber}\n";
+                get_product_list();
+                return;
+        }
+        $CXP=$protype;
+}
+
+#.....................................................................
+#  Function Name:  get_rstate
+#  Function Desc:  get rstate info
+#
+#  Return:         1 or 0
+#.....................................................................
+sub get_rstate()
+{
+        my $prev_info=`cat $INFO_FILE | grep VERSION`;
+        my ($rest,$prev_rstate) = split(/=/,$prev_info);
+        chomp $prev_rstate;
+        print "\nPrevious R-State built was $prev_rstate\n";
+        if ($RSTATE eq ""){
+                my $n = length($prev_rstate);
+                my $num;
+                my $rst = substr($prev_rstate,0,n-2);
+                my $buildno = substr($prev_rstate,n-2);
+
+                if (substr($buildno,0,1) == '0'){
+                        $num = int(substr($buildno,-1));
+                        $num = $num + 1;
+                        if ($num < 10){
+				$num = "0".$num;
+                        }
+		}
+                else {
+                        $num =  int($buildno);
+                        $num = $num + 1;
+                        }
+
+                $RSTATE = $rst.$num;
+
+        }
+        if ($RSTATE !~ /^R([0-9])+([A-Z])+([0-9])+/){
+            print "\n${red}$rstate is not a valid rstate${normal}";
+                        last;
+    }
+    print "\nNew R-State : $RSTATE\n";
+}
+
+#................................................................................
+#  Function Name:  create_lock
+#  Function Desc:  Create a lock so no other build can kick off at the same time
+#................................................................................
+sub create_lock
+{
+        `echo "Running ${RSTATE} build for ${CXP}" > $LOCK_F`;
+}
+
+#........................................................................
+#  Function Name:  rm_lock
+#  Function Desc:  Remove the lock file so another build can be performed
+#........................................................................
+sub rm_lock
+{
+        if(-e $LOCK_F){
+                unlink $LOCK_F;
+        }
+
+}
+#.....................................................................
+#  Function Name:  check_lock
+#  Function Desc:  Check that another build is not already on going
+#.....................................................................
+sub check_lock
+{
+        if(-e $LOCK_F){
+                $cleanup_check="false";
+                error ( "Build running for ${CXP} ${RSTATE}\n  LOCK! $LOCK_F", __LINE__ );
+        }else{
+                create_lock();
+        }
+}
+
+#.....................................................................
+#  Function Name:  bash_n
+#  Function Desc:  bash -n the lib and sh ending files
+#
+#  Return:
+#.....................................................................
+sub bash_n()
+{
+        my @bash_files=`find $CXP -type f | grep -v ${CXP}/perms.mode | grep -v ${CXP}/perms`;
+        foreach my $lines (@bash_files){
+                if($lines =~ m/(lib|sh)$/i)
+                 {
+                        my $systemCommand="bash -n $lines";
+                        my $bash_n_ret = system( $systemCommand );
+                        if ( $bash_n_ret != 0 )
+                        {
+                                print "EXITING...\n";
+                                error("Failed executing [$systemCommand]\n");
+                        }
+
+                 }
+
+                }
+}
+
+#.....................................................................
+#  Function Name:  cc_list
+#  Function Desc:  gets the Clearcase list of elements with there versions
+#
+#  Return:
+#.....................................................................
+sub cc_list()
+{
+        my @ELEMENT_LIST_CC=`find $CXP -print | grep -v ${CXP}/perms.mode | grep -v ${CXP}/perms`;
+        my @LIST_CHECKSUM=`find $CXP -type f | grep -v ${CXP}/perms.mode | grep -v ${CXP}/perms | xargs cksum`;
+        open ( CC_INFO_FILE, ">$ELEMENT_FILE_CC" ) or error ( "unable to open/write to $ELEMENT_FILE_CC", __LINE__ ) ;
+                foreach ( @ELEMENT_LIST_CC )
+                {
+                         $LINE=$_;
+                         printf CC_INFO_FILE "$LINE\n" ;
+                }
+                foreach ( @LIST_CHECKSUM )
+                {
+                         $CKSUM=$_;
+                         printf CC_INFO_FILE "$CKSUM\n" ;
+                }
+        close ( CC_INFO_FILE );
+}
+
+#.....................................................................
+#  Function Name:  perms_check
+#  Function Desc:  does a check on the contents for the tar
+#
+#  Return:
+#.....................................................................
+sub perms_check()
+{
+        $PERMS_FILE=`find $CXP -name perms.mode`;
+        chomp $PERMS_FILE;
+        my @ELEMENT_LIST=`find $CXP | grep -v perms.mode| grep -v */.git*| grep -v ${CXP}/perms | grep -v git`;
+
+        my $srch;
+        my $lookup;
+        ## Check each item in Clearcase to make sure that it's in the permissions file
+        foreach $item (@ELEMENT_LIST)
+        {
+                $FOUND=0;
+                $item =~ s/^${CXP}//g;
+                $item =~ s/^\///g;
+                chomp $item;
+                $lookup = $item;
+
+                if ($item ne ""){
+                        $srch=`cat ${PERMS_FILE} | grep ${item} | head -1`;
+                        chomp $srch;
+                        if ($srch ne ""){
+                                $FOUND=0;
+                                next;
+                        }
+                        else{
+                                $FOUND=1;
+                                last;
+                        }
+                }
+        }
+        if ($FOUND ne 0){
+                print "EXITING...\n";
+                error("Can't find permissions for $lookup in file:$PERMS_FILE \n \t\tPlease update the file to proceed with the build", __LINE__);
+        }
+
+        ## Now Check each item in the file to make sure that it's in Clearcase !!
+        header_1( "Checking Clearcase files" );
+        if (!(open(PERMISSIONS, "$PERMS_FILE")))
+        {
+                error("Can't open file:$PERMS_FILE $!", __LINE__);
+                return;
+        }
+        while (<PERMISSIONS>)
+        {
+                my ($FILENAME, @THEREST) = split(/ /,$_);
+                chomp $FILENAME;
+                if ($FILENAME !~ /##/){
+                        if ($FILENAME ne ""){
+                                my $CHECK=`find ${HOME}/${CXP}/${FILENAME}`;
+                                chomp $CHECK;
+                                if ($CHECK eq ""){
+                                        print "EXITING...\n";
+                                        error("Can't find $FILENAME in Clearcase\n\t\tPlease either add the file to Clearcase OR\n\t\tUpdate the file ($PERMS_FILE) to proceed with the build", __LINE__);
+                                }
+                        }
+                }
+        }
+        close(PERMISSIONS);
+}
+
+#.....................................................................
+#  Function Name:  update_version
+#  Function Desc:  update_version info file with an RSTATE
+#
+#  Return:         0, 1 on error.
+#.....................................................................
+sub update_version
+{
+  my @TMP_INFO = ();
+  open ( INFO_FILE, "$INFO_FILE" ) or error ( "unable to open/write to $INFO_FILE", __LINE__ ) ;
+        chomp ( @INFO=( <INFO_FILE> ) );
+  close ( INFO_FILE );
+        # Parse and change RSTATE.
+        foreach ( @INFO )
+        {
+                $LINE=$_;
+                if  ( /\bVERSION=/ )
+                {
+                     $LINE="VERSION=$RSTATE";
+                }
+                push ( @TMP_INFO, $LINE );
+        }
+        @INFO=@TMP_INFO;
+        move ( "$INFO_FILE", "$INFO_FILE.backup" ) or error ( "unable to move $INFO_FILE to $INFO_FILE.backup", __LINE__ );
+
+        open ( INFO_FILE, ">$INFO_FILE" ) or error ( "unable to open/write to $INFO_FILE", __LINE__ ) ;
+                foreach ( @INFO )
+                {
+                         $LINE=$_;
+                         printf INFO_FILE "$LINE\n" ;
+                }
+        close ( INFO_FILE );
+        unlink ( "$INFO_FILE.backup" ) or error ( "Error - unable to delete $INFO_FILE.backup", __LINE__ );
+}
+
+#.....................................................................
+#  Function Name:  compress_cxp
+#  Function Desc:  compress the chosen CXP into the desired format
+#
+#  Return:         0, 1 on error.
+#.....................................................................
+sub compress_cxp
+{
+        my $LOC = shift;
+        chomp $DM_RT_STORE;
+        my $OUT = $CXP;
+        my $TIMEOUT = 5;
+        my $ZIP="true";
+
+        $LOC = "$LOC/${CXP}_${RSTATE}";
+
+        if ( -d "$HOME/$CXP" )
+        {
+                chdir $HOME;
+                `pwd`;
+                # Tar CC files
+                print "TESTING $TAR_FILE $CXP\n";
+                header_1( "Creating clearcase tar ball" );
+                `$TAR -chf $TAR_FILE $CXP`;
+                if (-e ${TAR_FILE}) {
+                        `chmod 777  $TAR_FILE`;
+        }
+
+
+
+                # CLEAN OUT THE known_hosts file in case of corruption
+                chomp $POI;
+                # CLEAN OUT THE known_hosts file in case of corruption
+                `echo "" > /home/${POI}/.ssh/known_hosts`;
+
+                # Transfer to BETE network to perform correct permission on the CC files
+                # Make a build directory
+
+                        header_1( "Removing Previous build dir $CREATION_DIR" );
+                        #### Expect connect to remove as root !
+                        # $EXP = Expect->spawn("/usr/bin/ssh eniq\@$ENIQ_SVR" ) or die "Unable to spawn ssh to $ENIQ_SVR.\n";
+
+                        # if ($EXP->expect($TIMEOUT, 'Are you sure you want to continue connecting (yes/no)?')) {
+                                # $EXP->send('yes' . "\n");
+                        # }
+
+                        # $EXP->expect($TIMEOUT,
+                                # [ 'Password: $' => sub {
+                                        # $EXP->send("$DM_RT_STORE\r");
+                                        # exp_continue; }
+                                # ],
+                                # '-re', qr'[^.*->#] $' => sub {
+                                # exp_continue; }
+                        # );
+
+
+                        $EXP = Expect->spawn("/usr/bin/bash");
+                        $EXP->expect(3);
+                        $EXP->send("/usr/bin/sudo sudo -u root -i\r");
+                        $EXP->expect(1);
+                        $EXP->send("mkdir -p ${LOC}\r");
+                        $EXP->expect(1);
+                        $EXP->send("chmod 777 ${LOC}\r");
+                        $EXP->soft_close();
+                        sleep 3;
+
+                print"\n";
+                header_1( "Copying Clearcase Files to test network" );
+                scp_file("${LOC}","${TAR_FILE}","${HOME}","put");
+                sleep 3;
+
+                header_1( "Untarring Clearcase Files on test server" );
+
+                # Open another expect connection to change the permissions on the clearcase files
+                header_1( "
+                                Permissions on file on the test server" );
+                # $EXP = Expect->spawn("/usr/bin/ssh eniq\@$ENIQ_SVR" ) or die "Unable to spawn ssh to $ENIQ_SVR.\n";
+
+                # if ($EXP->expect($TIMEOUT, 'Are you sure you want to continue connecting (yes/no)?')) {
+                        # $EXP->send('yes' . "\n");
+                # }
+
+                # $EXP->expect($TIMEOUT,
+                        # [ 'Password: $' => sub {
+                                # $EXP->send("$DM_RT_STORE\r");
+                                # exp_continue; }
+                        # ],
+                        # '-re', qr'[^.*->#] $' => sub {
+                        # exp_continue; }
+                # );
+                $EXP = Expect->spawn("/usr/bin/bash");
+                $EXP->expect(4);
+                $EXP->send("cd ${LOCAL_LOC}/${CXP}_${RSTATE}\r");
+                $EXP->expect(1);
+                $EXP->send("/usr/bin/gtar --exclude=*/.git* -xf ${TAR_FILE}\r");
+                if($CXP eq "install"){
+                        $OUT = "ENIQ_Installation";
+
+                        $EXP->expect(4);
+                        $EXP->send("/usr/bin/sudo sudo -u root -i\r");
+                        $EXP->expect(1);
+                        $EXP->send("cd ${LOCAL_LOC}/${CXP}_${RSTATE}/\r");
+                        $EXP->expect(1);
+                        $EXP->send("chown root *\r");
+                        $EXP->expect(1);
+                        $EXP->send("chgrp root *\r");
+                        $EXP->expect(1);
+                        $EXP->send("chmod 777 *\r");
+                        $EXP->expect(1);
+                        $EXP->send("cd ${LOCAL_LOC}/${CXP}_${RSTATE}/${CXP}\r");
+                        $EXP->expect(1);
+                        $EXP->send("./perms perms.mode\r");
+                        $EXP->expect(5);
+                        $EXP->send("/usr/bin/gtar --exclude=*/.git* -zcf eniq_core_inst_sw_bundle.tar.gz core_install\r");
+                        $EXP->expect(5);
+                        $EXP->send("cd ${LOCAL_LOC}/${CXP}_${RSTATE}\r");
+                        $EXP->expect(1);
+                        $EXP->send("/usr/bin/gtar --exclude=*/.git* -zcf ${OUT}_${RSTATE}.tar.gz ${CXP}/eniq_core_inst_sw_bundle.tar.gz\r");
+                        $EXP->expect(5);
+
+                        $ZIP="false";
+                }elsif($CXP eq "cep"){
+                        $OUT = "CEP_Installation";
+                        my $install_name="install";
+
+                        $EXP->expect(4);
+                        $EXP->send("/usr/bin/sudo sudo -u root -i\r");
+                        $EXP->expect(1);
+                        $EXP->send("cd ${LOCAL_LOC}/${CXP}_${RSTATE}/\r");
+                        $EXP->expect(1);
+                        $EXP->send("chown root *\r");
+                        $EXP->expect(1);
+                        $EXP->send("chgrp root *\r");
+                        $EXP->expect(1);
+                        $EXP->send("chmod 777 *\r");
+                        $EXP->expect(1);
+                        $EXP->send("cd ${LOCAL_LOC}/${CXP}_${RSTATE}/${CXP}\r");
+                        $EXP->expect(1);
+                        $EXP->send("echo '***********'");
+                                                $EXP->send("./perms perms.mode\r");
+                        $EXP->expect(5);
+                        $EXP->send("cd ${LOCAL_LOC}/${CXP}_${RSTATE}/${CXP}/${install_name}\r");
+                        $EXP->expect(1);
+                        $EXP->send("/usr/bin/gtar -zcf cep_mediation_core_install.tar.gz core_install\r");
+                        $EXP->expect(1);
+                        $EXP->send("cd ${LOCAL_LOC}/${CXP}_${RSTATE}\r");
+                        $EXP->expect(1);
+                        $EXP->send("/usr/bin/gtar -zcf ${OUT}_${RSTATE}.tar.gz ${CXP}/post.bsh ${CXP}/part.inc ${CXP}/${install_name}/cep_mediation_core_install.tar.gz\r");
+                        $EXP->expect(1);
+
+                        $ZIP="false";
+                }elsif($CXP eq "frh"){
+                        $OUT = "FRH_Installation";
+                        my $install_name="install";
+
+                        $EXP->expect(4);
+                        $EXP->send("/usr/bin/sudo sudo -u root -i\r");
+                        $EXP->expect(1);
+                        $EXP->send("cd ${LOCAL_LOC}/${CXP}_${RSTATE}/\r");
+                        $EXP->expect(1);
+                        $EXP->send("chown root *\r");
+                        $EXP->expect(1);
+                        $EXP->send("chgrp root *\r");
+                        $EXP->expect(1);
+                        $EXP->send("chmod 777 *\r");
+                        $EXP->expect(1);
+                        $EXP->send("cd ${LOCAL_LOC}/${CXP}_${RSTATE}/${CXP}\r");
+                        $EXP->expect(1);
+                        $EXP->send("./perms perms.mode\r");
+                        $EXP->expect(5);
+                        $EXP->send("cd ${LOCAL_LOC}/${CXP}_${RSTATE}/${CXP}/${install_name}\r");
+                        $EXP->expect(1);
+                        $EXP->send("/usr/bin/gtar -zcf frh_core_install.tar.gz core_install\r");
+                        $EXP->expect(1);
+                        $EXP->send("mkdir ${LOCAL_LOC}/${CXP}_${RSTATE}/${install_name}\r");
+                        $EXP->expect(1);
+                        $EXP->send("cp -r ../${install_name}/frh_core_install.tar.gz /${LOCAL_LOC}/${CXP}_${RSTATE}/${install_name}\r");
+                        $EXP->expect(1);
+                        $EXP->send("cp ../post.bsh /${LOCAL_LOC}/${CXP}_${RSTATE}\r");
+                        $EXP->expect(1);
+                        $EXP->send("cd ${LOCAL_LOC}/${CXP}_${RSTATE}\r");
+                        $EXP->expect(1);
+                        $EXP->send("/usr/bin/gtar -zcf ${OUT}_${RSTATE}.tar.gz post.bsh ${install_name}/frh_core_install.tar.gz\r");
+                        $EXP->expect(1);
+
+                        $ZIP="false";
+                }
+                elsif($CXP eq "bootstrap"){
+                        $OUT = "ENIQ_Bootstrap";
+                }
+                elsif($CXP eq "om_linux"){
+                        $OUT = "om_linux";
+                        $EXP->expect(4);
+                        $EXP->send("/usr/bin/sudo sudo -u root -i\r");
+                        $EXP->expect(1);
+                        $EXP->send("cd ${LOCAL_LOC}/${CXP}_${RSTATE}/\r");
+                        $EXP->expect(1);
+                        $EXP->send("chown root *\r");
+                        $EXP->expect(1);
+                        $EXP->send("chgrp root *\r");
+                        $EXP->expect(1);
+                        $EXP->send("chmod 777 *\r");
+                        $EXP->expect(1);
+                        $EXP->send("cd ${LOCAL_LOC}/${CXP}_${RSTATE}/${CXP}\r");
+                        $EXP->expect(1);
+                        $EXP->send("./perms perms.mode\r");
+                        $EXP->expect(5);
+                        $EXP->send("cd ${LOCAL_LOC}/${CXP}_${RSTATE}/${CXP}\r");
+                        $EXP->expect(1);
+                        $EXP->send("/usr/bin/gtar -zcf ${CXP}_${RSTATE}.tar.gz Drivers RHEL\r");
+                        $EXP->expect(1);
+                        $EXP->send("cp ${CXP}_${RSTATE}.tar.gz ${LOCAL_LOC}/${CXP}_${RSTATE}\r");
+                        $EXP->expect(1);
+                        $EXP->send("cd ${LOCAL_LOC}/${CXP}_${RSTATE}\r");
+                        $EXP->expect(1);
+                        $ZIP="false";
+
+                }
+                elsif($CXP eq "data_migration"){
+                        $OUT = "ENIQ_Data_Migration";
+                        $EXP->expect(4);
+                        $EXP->send("/usr/bin/sudo sudo -u root -i\r");
+                        $EXP->expect(1);
+                        $EXP->send("cd ${LOCAL_LOC}/${CXP}_${RSTATE}/\r");
+                        $EXP->expect(1);
+                        $EXP->send("chown root *\r");
+                        $EXP->expect(1);
+                        $EXP->send("chgrp root *\r");
+                        $EXP->expect(1);
+                        $EXP->send("chmod 777 *\r");
+                        $EXP->expect(1);
+                        $EXP->send("cd ${LOCAL_LOC}/${CXP}_${RSTATE}/${CXP}\r");
+                        $EXP->expect(1);
+                        $EXP->send("./perms perms.mode\r");
+                        $EXP->expect(5);
+                        $EXP->send("cd ${LOCAL_LOC}/${CXP}_${RSTATE}/${CXP}\r");
+                        $EXP->expect(1);
+                        $EXP->send("/usr/bin/gtar --exclude=perms* --exclude=*/.git* -zcf ${OUT}_${RSTATE}.tar.gz *\r");
+                        $EXP->expect(1);
+                        $EXP->send("cp ${OUT}_${RSTATE}.tar.gz ${LOCAL_LOC}/${CXP}_${RSTATE}\r");
+                        $EXP->expect(1);
+                        $EXP->send("cd ${LOCAL_LOC}/${CXP}_${RSTATE}\r");
+                        $EXP->expect(1);
+                        $ZIP="false";
+
+                }
+		elsif($CXP eq "counter_statistics_tool"){
+                        $OUT = "Counter_Statistics_Tool";
+                        $EXP->expect(4);
+                        $EXP->send("/usr/bin/sudo sudo -u root -i\r");
+                        $EXP->expect(1);
+                        $EXP->send("cd ${LOCAL_LOC}/${CXP}_${RSTATE}/\r");
+                        $EXP->expect(1);
+                        $EXP->send("chown root *\r");
+                        $EXP->expect(1);
+                        $EXP->send("chgrp root *\r");
+                        $EXP->expect(1);
+                        $EXP->send("chmod 777 *\r");
+                        $EXP->expect(1);
+                        $EXP->send("cd ${LOCAL_LOC}/${CXP}_${RSTATE}/${CXP}\r");
+                        $EXP->expect(1);
+                        $EXP->send("./perms perms.mode\r");
+                        $EXP->expect(5);
+                        $EXP->send("cd ${LOCAL_LOC}/${CXP}_${RSTATE}/${CXP}\r");
+                        $EXP->expect(1);
+                        $EXP->send("/usr/bin/gtar --exclude=perms*  --exclude=*/.git* -zcf ${OUT}_${RSTATE}.tar.gz *\r");
+                        $EXP->expect(1);
+                        $EXP->send("cp ${OUT}_${RSTATE}.tar.gz ${LOCAL_LOC}/${CXP}_${RSTATE}\r");
+                        $EXP->expect(1);
+                        $EXP->send("cd ${LOCAL_LOC}/${CXP}_${RSTATE}\r");
+                        $EXP->expect(1);
+                        $ZIP="false";
+
+                }
+                elsif($CXP eq "ebr"){
+                        $OUT = "ENIQ_EBR";
+                        $EXP->expect(3);
+                        $EXP->send("/usr/bin/sudo sudo -u root -i\r");
+                        $EXP->expect(1);
+                        $EXP->send("cd ${LOCAL_LOC}/${CXP}_${RSTATE}/\r");
+                        $EXP->expect(1);
+                        $EXP->send("chown root *\r");
+                        $EXP->expect(1);
+                        $EXP->send("chgrp root *\r");
+                        $EXP->expect(1);
+                        $EXP->send("chmod 777 *\r");
+                        $EXP->expect(1);
+                        $EXP->send("cd ${LOCAL_LOC}/${CXP}_${RSTATE}/${CXP}\r");
+                        $EXP->expect(1);
+                        $EXP->send("./perms perms.mode\r");
+                        $EXP->expect(2);
+                        $EXP->send("cd ${LOCAL_LOC}/${CXP}_${RSTATE}/${CXP}\r");
+                        $EXP->expect(1);
+                        $EXP->send("/usr/bin/gtar --exclude=${CXP}/perms* --exclude=*/.git* -zcf eniq_${CXP}.tar.gz bin/* etc/* version/*\r");
+                        $EXP->expect(2);
+                        $EXP->send("cd ${LOCAL_LOC}/${CXP}_${RSTATE}\r");
+                        $EXP->send("/usr/bin/gtar -zcf ${OUT}_${RSTATE}.tar.gz ${CXP}/eniq_${CXP}.tar.gz ${CXP}/*.sh\r");
+                        $EXP->expect(1);
+
+                        $ZIP="false";
+                }
+                elsif($CXP eq "NASd"){
+                        $OUT = "NASd";
+
+                        $EXP->expect(3);
+                        $EXP->send("/usr/bin/sudo sudo -u root -i\r");
+                        $EXP->expect(1);
+                        $EXP->send("cd ${LOCAL_LOC}/${CXP}_${RSTATE}/\r");
+                        $EXP->expect(1);
+                        $EXP->send("chown root *\r");
+                        $EXP->expect(1);
+                        $EXP->send("chgrp root *\r");
+                        $EXP->expect(1);
+                        $EXP->send("chmod 777 *\r");
+                        $EXP->expect(1);
+                        $EXP->send("cd ${LOCAL_LOC}/${CXP}_${RSTATE}/${CXP}\r");
+                        $EXP->expect(1);
+                        $EXP->send("./perms perms.mode\r");
+                        $EXP->expect(2);
+                        $EXP->send("cd ${LOCAL_LOC}/${CXP}_${RSTATE}/${CXP}\r");
+                        $EXP->expect(1);
+                        $EXP->send("/usr/bin/gtar --exclude=${CXP}/perms* --exclude=*/.git* -zcf ENIQ_${OUT}.tar.gz *\r");
+                        $EXP->expect(2);
+                        $EXP->send("cd ${LOCAL_LOC}/${CXP}_${RSTATE}\r");
+                        $EXP->send("/usr/bin/gtar --exclude=*/.git* -zcf ${OUT}_${RSTATE}.tar.gz ${CXP}/ENIQ_${OUT}.tar.gz\r");
+                        $EXP->expect(1);
+
+                        $ZIP="false";
+                }
+                else{
+                        $OUT = $CXP;
+                }
+
+                if ($ZIP ne "false"){
+                        $EXP->expect(10);
+                        $EXP->send("/usr/bin/sudo sudo -u root -i\r");
+                        $EXP->expect(1);
+                        $EXP->send("cd ${LOCAL_LOC}/${CXP}_${RSTATE}/\r");
+                        $EXP->expect(1);
+                        $EXP->send("chown root *\r");
+                        $EXP->expect(1);
+                        $EXP->send("chgrp root *\r");
+                        $EXP->expect(1);
+                        $EXP->send("chmod 777 *\r");
+                        $EXP->expect(1);
+                        $EXP->send("cd ${LOCAL_LOC}/${CXP}_${RSTATE}/${CXP}\r");
+                        $EXP->expect(1);
+                        $EXP->send("./perms perms.mode\r");
+                        $EXP->expect(2);
+                        $EXP->send("cd ${LOCAL_LOC}/${CXP}_${RSTATE}\r");
+                        $EXP->expect(1);
+                        $EXP->send("/usr/bin/gtar --exclude=${CXP}/perms* --exclude=*/.git* -zcf ${OUT}_${RSTATE}.tar.gz ${CXP}\r");
+                        if ( $CXP eq "sql_anywhere" ){
+                                $EXP->expect(55);
+                        }
+                        elsif ( $CXP eq "sybase_iq" ){
+                                $EXP->expect(150);
+                        }
+                        elsif ( $CXP eq "sentinel" ){
+                                $EXP->expect(10);
+                        }
+                        else{
+                                $EXP->expect(2);
+                        }
+
+                }
+                print"\n";
+
+                header_1( "Copying deliverable to clearcase build output folder" );
+                #chdir $BUILD_OUT;
+                scp_file("${LOC}","${OUT}_${RSTATE}.tar.gz","${BUILD_OUT}","get");
+                sleep 3;
+                $EXP->send("cd ..\r");
+                header_1( "Removing  build dir $LOC" );
+                $EXP->send("/usr/bin/rm -rf ${LOC}\r");
+                $EXP->soft_close();
+                sleep 2;
+
+        }
+        else
+        {
+                error ( "No directory relating to CXP $CXP exists in the $HOME directory",__LINE__ );
+        }
+        chdir $HOME;
+}
+
+#.....................................................................
+#  Function Name:  cleanup
+#  Function Desc:  The very last function of the script.
+#
+#  Return:         1 or 0
+#.....................................................................
+sub cleanup()
+{
+        # Cleanup anything that needs cleaning
+        if(-e $TAR_FILE){
+                unlink $TAR_FILE;
+        }
+        if(-e $LOCK_F){
+                unlink $LOCK_F;
+        }
+        if(-e $ELEMENT_FILE_CC){
+                unlink $ELEMENT_FILE_CC;
+        }
+        print "Finished!!!\n\n";
+        exit();
+}
+
+#..........................................
+#  Function Name:  parameters
+#  Function Desc:  take parameters as input
+#  Return:         0
+#..........................................
+sub parameters{
+        usage() if ( @ARGV < 1 or ! GetOptions('help|?' => \$HELP, 'zid|z=s' => \$zid, 'cxp|p=s' => \$cxp, 'ship|sh=s' => \$ship, 'branch|b=s' => \$branch, 'rstate|r=s' => \$rstate)or defined $HELP);
+
+        print "Product: $cxp\n";
+        #print "Rstate: $rstate\n";
+        $CXP = $cxp;
+        $RSTATE = $rstate;
+		$Shipment = $ship;
+		$Branch = $branch;
+        print "Rstate: $RSTATE";
+}
+
+#..........................................
+#  Function Name:  usage
+#  Function Desc:  Display user help
+#  Return:         0
+#..........................................
+sub usage
+{
+        print("Usage: $SCRIPTNAME [-p product] [-r Rstate] \n\n" );
+        print (" -p             : Specify product bname \n");
+        print (" -r             : Specify the Rstate \n");
+        print("  -help          :    Prints this message \n"  );
+        print("  -force :    Forces a rebuild of a Rstate previously used \n"  );
+
+        cleanup();
+}
+#..........................................
+#  Function Name:  error
+#  Function Desc:  Show a uniform modern error message
+#  Return:         1
+#..........................................
+sub error
+{
+        $ERROR = $_[0] ;                   # $HEADER is the first string past to the header function
+        $LINE_NUMBER=$_[1] ;            # __LINE__ is the Line number of a prog.
+        print "------------------------------------------------------------------------------\n";
+        print "  ${red}ERROR!\t\t$ERROR \n${normal}";
+        print "  Line Number:\t$LINE_NUMBER \n";
+        print "------------------------------------------------------------------------------\n";
+        if ($cleanup_check eq "false"){
+                exit;
+        }
+        else{
+                cleanup();
+        }
+}
+
+#..........................................
+#  Function Name:  warning
+#  Function Desc:  Show a uniform modern warning message
+#  Return:         0
+#..........................................
+sub warning
+{
+        $WARN = $_[0] ;                   # $HEADER is the first string past to the header function
+        print "\nWarning: $WARN \n";
+        return 0;
+}
+#..........................................
+#  Function Name:  header
+#  Function Desc:  Show a nice modern header
+#  Return:         0
+#..........................................
+sub header
+{
+        $HEADER = $_[0] ;                   # $HEADER is the first string past to the header function
+
+        print "------------------------------------------------------------------------------\n";
+        print "    $HEADER \n";
+        print "------------------------------------------------------------------------------\n";
+        return 0
+}
+#..........................................
+#  Function Name:  header_1
+#  Function Desc:  Show an app  header
+#  Return:         0
+#..........................................
+sub header_1
+{
+        $HEADER = $_[0] ;                   # $HEADER is the first string past to the header function
+        print "------------<   $HEADER    >------------\n";
+        return 0
+}
+
+#.....................................................................
+#  Function Name:  get_options
+#  Function Desc:  uses the GetOpts library to gather script options
+#
+#  Return:         0, 1 on error.
+#.....................................................................
+sub get_options
+{
+
+        GetOptions(
+            "help"       =>\$HELP,
+            "force"      =>\$FORCE
+        ) or die usage();
+        if ( $HELP )
+        {
+             print ("\n");
+             usage();
+             exit 1;
+        }
+}
+
+#.....................................................................
+#  Function Name:  scp_file
+#  Function Desc:  cpa file to a location
+#
+#  Return:         0, 1 on error.
+#.....................................................................
+sub scp_file{
+
+my $dir = shift;
+my $filename = shift;
+my $home = shift;
+my $option = shift;
+my $TIMEOUT=20;
+my $EXP="";
+
+if($option eq "put"){
+       $EXP = Expect->spawn("/usr/bin/cp ${home}${filename} $dir");
+}else{
+       $EXP = Expect->spawn("/usr/bin/cp $dir/${filename} ${home}");
+}
+
+$EXP->soft_close();
+};
+
+#.....................................................................
+#  Function Name:  handle_inputs
+#  Function Desc:  handle all the options passed to the script
+#  Return:         1 on error
+#.....................................................................
+sub handle_inputs
+{
+  if ( $HELP ){
+                header_1( "Display User help" );
+    usage();
+  }
+        #Get the list of potential build candidates
+        #get_product_list();
+
+        # Find info file
+        $INFO_FILE = `find $HOME/$CXP -name pkginfo`;
+        chomp $INFO_FILE;
+        $ELEMENT_FILE_CC = $INFO_FILE;
+        $ELEMENT_FILE_CC =~ s/pkginfo$/cc_list/g;
+        #@RSTATES = get_rstate();
+        get_rstate();
+        #foreach $RSTATE (@RSTATES){
+
+    $LOCK_F="/var/tmp/NMI/ENIQ/LOCKS/build_${CXP}_${RSTATE}.lck";
+    check_lock();
+    if ( $CXP && $RSTATE ){
+      $TAR_FILE="${CXP}_${RSTATE}_cc.tar";
+      #header_1( "Checking clearcase information" );
+      # Create a new label type for the Build
+      # my $lbl = create_label($RSTATE);
+      # my $check = check_label($lbl);
+
+      # # If the label exists already in Clearcase exit and print usage
+      # if ($check eq "true"){
+        # usage();
+        # last;
+      # }
+      # # If label doesn't exist in Clearcase then create it and continue on
+      # elsif ($check eq "false"){
+        # if (!$FORCE) {
+          # print "\nCreating new Label type ($lbl) in Clearcase\n";
+          # `$CLEARTOOL mklbtype -c "Automated label for build of $CXP" $lbl`;
+        # }
+      # }
+      header_1( "Checking $CXP bash -n" );
+          bash_n();
+
+      header_1( "Checking $CXP Permissions file" );
+      perms_check();
+      header_1( "Updating $CXP Version file with $RSTATE " );
+      update_version();
+
+          header_1( "Getting Clearcase element version " );
+          cc_list();
+      header_1( "Compressing $CXP" );
+      compress_cxp($CREATION_DIR);
+      #header_1( "Labelling $CXP" );
+      #label($lbl);
+      # List any potential checkouts
+      #checkouts();
+	  #*************Uploading Package to nexus***********
+	  nexus_upload();
+	  git_push();
+	  `rm -rf /var/tmp/nmi_git/*`; 
+      header_1( "Cleanup" );
+      unlink $TAR_FILE;
+      unlink $LOCK_F;
+          unlink $ELEMENT_FILE_CC;
+    }
+    else
+    {
+      usage();
+      last;
+    }
+  cleanup();
+}
+#.....................................................................
+#  Function Name:  nexus_upload
+#  Function Desc:  upload the latest build package to nexus
+#.....................................................................
+sub nexus_upload{
+        chdir("/var/tmp/nmi_git/output/");
+        $Package = `ls`;
+        $Package =~ s/^\s+|\s+$//g ;
+        print $Package.(" is getting uploaded to nexus");
+	if ( $CXP eq "counter_statistics_tool"){
+			my $cmd = "curl -v -u esjkadm100:Naples\!0512 --upload-file ".$Package." https://arm1s11-eiffel013.eiffel.gic.ericsson.se:8443/nexus/content/repositories/eniq_nmi/".$CXP."/".$Package;
+			system($cmd);
+        }else{
+			my $Release = substr( $Shipment, 0, 4 );
+			my $cmd = "curl -v -u esjkadm100:Naples\!0512 --upload-file ".$Package." https://arm1s11-eiffel013.eiffel.gic.ericsson.se:8443/nexus/content/repositories/eniq_nmi/".$CXP."/".$Release."/".$Shipment."/".$RSTATE."/".$Package;
+			system($cmd);
+	}
+        print "Package successfully uploaded to Nexus";
+}
+
+#.....................................................................
+#  Function Name:  git_push
+#  Function Desc:  update latest pkginfo file to git repo
+#.....................................................................
+sub git_push{
+	print "\n********************************************\n";
+        if (($CXP eq "sybase_iq")||($CXP eq "sql_anywhere")){
+                print "Repo only available in Nexus";
+        }else{
+		chdir("/var/tmp/nmi_git/");
+                if($CXP == "install"){
+			system("rm -rf install/core_install/version/cc_list");
+		}
+		system("rm -rf */version/cc_list");
+		chdir("/var/tmp/nmi_git/".$CXP);
+		system("git add -A .");
+                system("git commit -m 'update pkginfo'");
+                #system("git push origin $Branch");
+		my $cmd = "git push origin $Branch";
+		my $EXP = Expect->spawn($cmd);
+		if($EXP->expect(5, 'Are you sure you want to continue connecting (yes/no)? ')){
+                	$EXP->send("yes\r");
+        	}
+		if($CXP eq "install"){
+                        $Pnum = "CXP9019948";
+                }elsif($CXP eq "NASd"){
+                        $Pnum = "CXP9019998";
+                }elsif($CXP eq "sentinel"){
+                        $Pnum = "CXP9019551";
+                }elsif($CXP eq "bootstrap"){
+                        $Pnum = "CXP9019555";
+                }elsif($CXP eq "counter_statistics_tool"){
+                        $Pnum = "CXP9039443";
+                }
+                my $cmd1 = "git tag -a ".$Pnum."_".$RSTATE." -m '$Pnum-$RSTATE label is used'";
+                system($cmd1);
+                my $cmd2 = "git push origin ".$Pnum."_".$RSTATE;
+                system($cmd2);
+        	$EXP->soft_close();
+	}
+}
+#-------------------------------------------------------------------
+#MAIN
+#-------------------------------------------------------------------
+alpha_check();
+#get_options();
+parameters();
+handle_inputs();
+

@@ -1,0 +1,374 @@
+#!/usr/bin/bash
+
+
+cd /var/tmp
+rm -rf II_TC_Result.html
+fail=0
+pass=0
+total=30
+
+# #SERVER SANITY
+
+echo "******Server SANITY TC ******" >> /var/tmp/II_TC_Result.html
+Log_path=`ls /var/tmp/*_mbupgrade.log`
+echo "LOG Path $Log_path"
+var="${Log_path:30:-12}"
+echo "${var}" >> /var/tmp/II_TC_Result.html
+
+echo "<html><head><title>NMI TestCase Results</title></head><body><table border=\"2\"><tr><th><b> TestCase Name </th><th><b> TestCase </th><th><b>PASS/FAIL</th></tr>" >> /var/tmp/II_TC_Result.html
+
+tc=`df -hk | grep nas | wc -l | grep 22`
+if [[ $tc =~ "22" ]]
+then
+        status="<td style=\"color:green;\"> PASS"
+                pass=$((pass+1))
+else
+        status="<td style=\"color:red;\"> FAIL"
+                fail=$((fail+1))
+fi
+echo "<tr> <td> df -hk for NAS </td> <td> df -hk | grep nas | wc -l | grep 22 </td> $status </td> </tr>" >> /var/tmp/II_TC_Result.html
+
+tc2=`systemctl stop eniq-dwhdb; systemctl show -p ActiveState eniq-dwhdb | cut -f2 -d'=' | grep inactive`
+if [[ $tc2 =~ "inactive" ]]
+then
+        status="<td style=\"color:green;\"> PASS"
+                pass=$((pass+1))
+else
+        status="<td style=\"color:red;\"> FAIL"
+                fail=$((fail+1))
+fi
+echo "<tr> <td> dwhdb inactive Check </td> <td> systemctl stop eniq-dwhdb; systemctl show -p ActiveState eniq-dwhdb | cut -f2 -d'=' | grep inactive </td> $status </td> </tr>" >> /var/tmp/II_TC_Result.html
+
+tc3=`systemctl restart eniq-dwhdb; systemctl show -p ActiveState eniq-dwhdb | cut -f2 -d'=' | grep active`
+if [[ $tc3 =~ "active" ]]
+then
+        status="<td style=\"color:green;\"> PASS"
+                pass=$((pass+1))
+else
+        status="<td style=\"color:red;\"> FAIL"
+                fail=$((fail+1))
+fi
+echo "<tr> <td> dwhdb active Check </td> <td> systemctl restart eniq-dwhdb; systemctl show -p ActiveState eniq-dwhdb | cut -f2 -d'=' | grep active </td> $status </td> </tr>" >> /var/tmp/II_TC_Result.html
+
+tc4=`systemctl show -p ActiveState NASd | cut -f2 -d'=' | grep active`
+if [[ $tc4 =~ "active" ]]
+then
+        status="<td style=\"color:green;\"> PASS"
+                pass=$((pass+1))
+else
+        status="<td style=\"color:red;\"> FAIL"
+                fail=$((fail+1))
+fi
+echo "<tr> <td> NASd </td> <td> services -s NASd | grep active </td> $status </td> </tr>" >> /var/tmp/II_TC_Result.html
+
+tc5=`systemctl show -p ActiveState NAS-online | cut -f2 -d'=' | grep active`
+if [[ $tc5 =~ "active" ]]
+then
+        status="<td style=\"color:green;\"> PASS"
+                pass=$((pass+1))
+else
+        status="<td style=\"color:red;\"> FAIL"
+                fail=$((fail+1))
+fi
+echo "<tr> <td> NAS-online </td> <td> services -s NAS-online | grep active </td> $status </td> </tr>" >> /var/tmp/II_TC_Result.html
+
+tc6=`cat /eniq/log/sw_log/tp_installer/*_tp_installer.log | grep -i error`
+if [[ $tc6 =~ "error" ]]
+then
+        status="<td style=\"color:red;\"> FAIL"
+                fail=$((fail+1))
+else
+        status="<td style=\"color:green;\"> PASS"
+                pass=$((pass+1))
+fi
+echo "<tr> <td> Techpack Error Check </td> <td> cat /eniq/log/sw_log/tp_installer/*_tp_installer.log | grep -i error </td> $status </td> </tr>" >> /var/tmp/II_TC_Result.html
+
+tc7=`cat /eniq/log/sw_log/tp_installer/*_tp_installer.log | grep -i warn`
+if [[ $tc7 =~ "warn" ]]
+then
+        status="<td style=\"color:red;\"> FAIL"
+                fail=$((fail+1))
+else
+        status="<td style=\"color:green;\"> PASS"
+                pass=$((pass+1))
+fi
+echo "<tr> <td> Techpack warn Check </td> <td> cat /eniq/log/sw_log/tp_installer/*_tp_installer.log | grep -i warn </td> $status </td> </tr>" >> /var/tmp/II_TC_Result.html
+
+tc8=`cat /eniq/log/sw_log/tp_installer/*_tp_installer.log | grep -i failed`
+if [[ $tc8 =~ "failed" ]]
+then
+        status="<td style=\"color:red;\"> FAIL"
+                fail=$((fail+1))
+else
+        status="<td style=\"color:green;\"> PASS"
+                pass=$((pass+1))
+fi
+echo "<tr> <td> Techpack fail Check </td> <td> cat /eniq/log/sw_log/tp_installer/*_tp_installer.log | grep -i failed </td> $status </td> </tr>" >> /var/tmp/II_TC_Result.html
+
+
+
+
+
+
+#LOG SANITY
+
+Log=`ls /var/tmp/*_mbupgrade.log`
+echo "LOG $Log"
+
+tc9=`cat $Log | egrep -i "ERROR"`
+if [[ $tc9 =~ "ERROR" ]]
+then
+        status="<td style=\"color:red;\"> FAIL"
+                fail=$((fail+1))
+else
+        status="<td style=\"color:green;\"> PASS"
+                pass=$((pass+1))
+fi
+echo "<tr> <td> ERROR CHECK </td> <td> cat $Log | egrep -i \"ERROR\" </td> $status </td> </tr>" >> /var/tmp/II_TC_Result.html
+
+tc10=`cat $Log | egrep -i "warning"`
+if [[ $tc10 =~ "warning" ]]
+then
+        status="<td style=\"color:red;\"> FAIL"
+                fail=$((fail+1))
+else
+        status="<td style=\"color:green;\"> PASS"
+                pass=$((pass+1))
+fi
+echo "<tr> <td> WARNING CHECK </td> <td> cat $Log | egrep -i \"warning\" </td> $status </td> </tr>" >> /var/tmp/II_TC_Result.html
+
+tc11=`cat $Log | egrep -i "permission denied"`
+if [[ $tc11 =~ "permission denied" ]]
+then
+        status="<td style=\"color:red;\"> FAIL"
+                fail=$((fail+1))
+else
+        status="<td style=\"color:green;\"> PASS"
+                pass=$((pass+1))
+fi
+echo "<tr> <td> PERMISSION CHECK </td> <td> cat $Log | egrep -i \"permission denied\" </td> $status </td> </tr>" >> /var/tmp/II_TC_Result.html
+
+tc12=`cat $Log | egrep -i "cannot"`
+if [[ $tc12 =~ "cannot" ]]
+then
+        status="<td style=\"color:red;\"> FAIL"
+                fail=$((fail+1))
+else
+        status="<td style=\"color:green;\"> PASS"
+                pass=$((pass+1))
+fi
+echo "<tr> <td> Cannot CHECK </td> <td> cat $Log | egrep -i \"cannot\" </td> $status </td> </tr>" >> /var/tmp/II_TC_Result.html
+
+tc13=`cat $Log | egrep -i "couldn"`
+if [[ $tc13 =~ "couldn" ]]
+then
+        status="<td style=\"color:red;\"> FAIL"
+                fail=$((fail+1))
+else
+        status="<td style=\"color:green;\"> PASS"
+                pass=$((pass+1))
+fi
+echo "<tr> <td> Could not CHECK </td> <td> cat $Log | egrep -i \"couldn\" </td> $status </td> </tr>" >> /var/tmp/II_TC_Result.html
+
+tc14=`cat $Log | egrep -i "could not"`
+if [[ $tc14 =~ "could not" ]]
+then
+        status="<td style=\"color:red;\"> FAIL"
+                fail=$((fail+1))
+else
+        status="<td style=\"color:green;\"> PASS"
+                pass=$((pass+1))
+fi
+echo "<tr> <td> Could not CHECK </td> <td> cat $Log | egrep -i \"could not\" </td> $status </td> </tr>" >> /var/tmp/II_TC_Result.html
+
+tc15=`cat $Log | egrep -i "can.t open"`
+if [[ $tc15 =~ "can.t open" ]]
+then
+        status="<td style=\"color:red;\"> FAIL"
+                fail=$((fail+1))
+else
+        status="<td style=\"color:green;\"> PASS"
+                pass=$((pass+1))
+fi
+echo "<tr> <td> Can.t open CHECK </td> <td> cat $Log | egrep -i \"can.t open\" </td> $status </td> </tr>" >> /var/tmp/II_TC_Result.html
+
+tc16=`cat $Log | egrep -i "no such"`
+if [[ $tc16 =~ "no such" ]]
+then
+        status="<td style=\"color:red;\"> FAIL"
+                fail=$((fail+1))
+else
+        status="<td style=\"color:green;\"> PASS"
+                pass=$((pass+1))
+fi
+echo "<tr> <td> no such CHECK </td> <td> cat $Log | egrep -i \"no such\" </td> $status </td> </tr>" >> /var/tmp/II_TC_Result.html
+
+tc17=`cat $Log | egrep -i "Successfully installed NAS API"`
+if [[ $tc17 =~ "Successfully installed NAS API" ]]
+then
+        status="<td style=\"color:green;\"> PASS"
+                pass=$((pass+1))
+else
+        status="<td style=\"color:red;\"> FAIL"
+                fail=$((fail+1))
+fi
+echo "<tr> <td> NAS API CHECK </td> <td> cat $Log | egrep -i \"Successfully installed NAS API\" </td> $status </td> </tr>" >> /var/tmp/II_TC_Result.html
+
+tc18=`cat $Log | egrep -i "Successfully updated ERICstorapi package"`
+if [[ $tc18 =~ "Successfully updated ERICstorapi package" ]]
+then
+        status="<td style=\"color:green;\"> PASS"
+                pass=$((pass+1))
+else
+        status="<td style=\"color:red;\"> FAIL"
+                fail=$((fail+1))
+fi
+echo "<tr> <td> ERICstorapi CHECK </td> <td> cat $Log | egrep -i \"Successfully updated ERICstorapi package\" </td> $status </td> </tr>" >> /var/tmp/II_TC_Result.html
+
+tc19=`cat $Log | egrep -i "Successfully installed hostsyncd"`
+if [[ $tc19 =~ "Successfully installed hostsyncd" ]]
+then
+        status="<td style=\"color:green;\"> PASS"
+                pass=$((pass+1))
+else
+        status="<td style=\"color:red;\"> FAIL"
+                fail=$((fail+1))
+fi
+echo "<tr> <td> hostsyncd CHECK </td> <td> cat $Log | egrep -i \"Successfully installed hostsyncd\" </td> $status </td> </tr>" >> /var/tmp/II_TC_Result.html
+
+tc20=`cat $Log | egrep -i "Successfully installed SW to /eniq/smf"`
+if [[ $tc20 =~ "Successfully installed SW to /eniq/smf" ]]
+then
+        status="<td style=\"color:green;\"> PASS"
+                pass=$((pass+1))
+else
+        status="<td style=\"color:red;\"> FAIL"
+                fail=$((fail+1))
+fi
+echo "<tr> <td> SMF install CHECK </td> <td> cat $Log | egrep -i \"Successfully installed SW to /eniq/smf\" </td> $status </td> </tr>" >> /var/tmp/II_TC_Result.html
+
+
+tc21=`cat $Log | egrep -i "Successfully populated /eniq/admin directory"`
+if [[ $tc21 =~ "Successfully populated /eniq/admin directory" ]]
+then
+        status="<td style=\"color:green;\"> PASS"
+                pass=$((pass+1))
+else
+        status="<td style=\"color:red;\"> FAIL"
+                fail=$((fail+1))
+fi
+echo "<tr> <td> Admin Directory creation CHECK </td> <td> cat $Log | egrep -i \"Successfully populated /eniq/admin directory\" </td> $status </td> </tr>" >> /var/tmp/II_TC_Result.html
+
+tc22=`cat $Log | egrep -i "Successfully completed configuration for ENIQ user roles"`
+if [[ $tc22 =~ "Successfully completed configuration for ENIQ user roles" ]]
+then
+        status="<td style=\"color:green;\"> PASS"
+                pass=$((pass+1))
+else
+        status="<td style=\"color:red;\"> FAIL"
+                fail=$((fail+1))
+fi
+echo "<tr> <td> User Role CHECK </td> <td> cat $Log | egrep -i \"Successfully completed configuration for ENIQ user roles\" </td> $status </td> </tr>" >> /var/tmp/II_TC_Result.html
+
+
+tc23=`cat $Log | egrep -i "Successfully updated ENIQ ENV file"`
+if [[ $tc23 =~ "Successfully updated ENIQ ENV file" ]]
+then
+        status="<td style=\"color:green;\"> PASS"
+                pass=$((pass+1))
+else
+        status="<td style=\"color:red;\"> FAIL"
+                fail=$((fail+1))
+fi
+echo "<tr> <td> ENIQ ENV CHECK </td> <td> cat $Log | egrep -i \"Successfully updated ENIQ ENV file\" </td> $status </td> </tr>" >> /var/tmp/II_TC_Result.html
+
+tc24=`cat $Log | egrep -i "Successfully updated home areas and profiles"`
+if [[ $tc24 =~ "Successfully updated home areas and profiles" ]]
+then
+        status="<td style=\"color:green;\"> PASS"
+                pass=$((pass+1))
+else
+        status="<td style=\"color:red;\"> FAIL"
+                fail=$((fail+1))
+fi
+echo "<tr> <td> Profile Update CHECK </td> <td> cat $Log | egrep -i \"Successfully updated home areas and profiles\" </td> $status </td> </tr>" >> /var/tmp/II_TC_Result.html
+
+tc25=`cat $Log | egrep -i "Successfully updated NAS alias information in /etc/hosts"`
+if [[ $tc25 =~ "Successfully updated NAS alias information in /etc/hosts" ]]
+then
+        status="<td style=\"color:green;\"> PASS"
+                pass=$((pass+1))
+else
+        status="<td style=\"color:red;\"> FAIL"
+                fail=$((fail+1))
+fi
+echo "<tr> <td> NAS alias update CHECK </td> <td> cat $Log | egrep -i \"Successfully updated NAS alias information in /etc/hosts\" </td> $status </td> </tr>" >> /var/tmp/II_TC_Result.html
+
+tc26=`cat $Log | egrep -i "Successfully installed Service scripts"`
+if [[ $tc26 =~ "Successfully installed Service scripts" ]]
+then
+        status="<td style=\"color:green;\"> PASS"
+                pass=$((pass+1))
+else
+        status="<td style=\"color:red;\"> FAIL"
+                fail=$((fail+1))
+fi
+echo "<tr> <td> Service script CHECK </td> <td> cat $Log | egrep -i \"Successfully installed Service scripts\" </td> $status </td> </tr>" >> /var/tmp/II_TC_Result.html
+
+tc27=`cat $Log | egrep -i "Successfully created rolling snapshots"`
+if [[ $tc27 =~ "Successfully created rolling snapshots" ]]
+then
+        status="<td style=\"color:green;\"> PASS"
+                pass=$((pass+1))
+else
+        status="<td style=\"color:red;\"> FAIL"
+                fail=$((fail+1))
+fi
+echo "<tr> <td> Rolling Snap CHECK </td> <td> cat $Log | egrep -i \"Successfully created rolling snapshots\" </td> $status </td> </tr>" >> /var/tmp/II_TC_Result.html
+
+
+tc28=`cat $Log | egrep -i "Successfully Installed ENIQ Platform"`
+if [[ $tc28 =~ "Successfully installed ENIQ Platform" ]]
+then
+        status="<td style=\"color:green;\"> PASS"
+                pass=$((pass+1))
+else
+        status="<td style=\"color:red;\"> FAIL"
+                fail=$((fail+1))
+fi
+echo "<tr> <td> Platform Installation CHECK</td> <td> cat $Log | egrep -i \"Successfully Installed ENIQ Platform\" </td> $status </td> </tr>" >> /var/tmp/II_TC_Result.html
+
+tc29=`cat $Log | egrep -i "/eniq/admin/version/eniq_history file updated correctly"`
+if [[ $tc29 =~ "/eniq/admin/version/eniq_history file updated correctly" ]]
+then
+        status="<td style=\"color:green;\"> PASS"
+                pass=$((pass+1))
+else
+        status="<td style=\"color:red;\"> FAIL"
+                fail=$((fail+1))
+fi
+echo "<tr> <td> ENIQ History file update CHECK</td> <td> cat $Log | egrep -i \"/eniq/admin/version/eniq_history file updated correctly\" </td> $status </td> </tr>" >> /var/tmp/II_TC_Result.html
+
+tc30=`cat $Log | egrep -i "/eniq/admin/version/eniq_status file updated correctly"`
+if [[ $tc30 =~ "/eniq/admin/version/eniq_status file updated correctly" ]]
+then
+        status="<td style=\"color:green;\"> PASS"
+                pass=$((pass+1))
+else
+        status="<td style=\"color:red;\"> FAIL"
+                fail=$((fail+1))
+fi
+echo "<tr> <td> Status file update CHECK</td> <td> cat $Log | egrep -i \"/eniq/admin/version/eniq_status file updated correctly\" </td> $status </td> </tr>" >> /var/tmp/II_TC_Result.html
+
+
+
+echo "</table></body></html>" >> /var/tmp/II_TC_Result.html
+echo "Total: $total"  >> /var/tmp/II_TC_Result.html
+echo "Pass: $pass"  >> /var/tmp/II_TC_Result.html
+echo "Fail: $fail"  >> /var/tmp/II_TC_Result.html
+echo "*********************************************************************************"
+
+echo "Total: $total"
+echo "Pass: $pass"
+echo "Fail: $fail"
+

@@ -1,0 +1,17 @@
+<p 'RT_KGB_Delivery' | grep clearcase | grep '.tar' 
+--2019-05-23 12:35:15--  http://clearcase-oss.lmera.ericsson.se/view/www_eniq/vobs/ossrc/del-mgt/html/eniqdel/ENIQ_S19.1/19.1.FDM/SOLARIS_baseline.html
+Resolving clearcase-oss.lmera.ericsson.se (clearcase-oss.lmera.ericsson.se)... 150.132.181.253
+Connecting to clearcase-oss.lmera.ericsson.se (clearcase-oss.lmera.ericsson.se)|150.132.181.253|:80... connected.
+HTTP request sent, awaiting response... 401 Authorization Required
+Authentication selected: Basic realm="[ Enter Windows Password: ]"
+Reusing existing connection to clearcase-oss.lmera.ericsson.se:80.
+HTTP request sent, awaiting response... 200 OK
+Length: 524101 (512K) [text/html]
+Saving to: 'STDOUT'
+
+-                     0%[                    ]       0  --.-KB/s               -                    12%[=>                  ]  66.13K   319KB/s               -                    61%[===========>        ] 315.81K   772KB/s               -                   100%[===================>] 511.82K  1.08MB/s    in 0.5s    
+
+2019-05-23 12:35:18 (1.08 MB/s) - written to stdout [524101/524101]
+
+<tr><td><a href="http://clearcase-oss.lmera.ericsson.se/view/www_eniq/vobs/ossrc/del-mgt/html/eniqdel/ENIQ_S19.1/19.1.FDM/RT_KGB_Delivery_R1Ab10.tar">RT_KGB_Delivery</a></td><!RT_KGB_Delivery_NAME>
+eniqs[eniq_stats] {root} #: 

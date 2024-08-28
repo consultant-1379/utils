@@ -1,0 +1,513 @@
+Log Sanity
+---------------
+failed
+warning
+error
+cannot
+could not 
+no such 
+Building stage list from /eniq/installation/core_install/etc/stats_eniq_stats_stagelist
+Entering core install stage - install_sentinel
+Successfully completed ENIQ SentinelLM installation script
+Entering core install stage - install_service_scripts
+Updating license manager
+ENIQ services stopped correctly
+ENIQ services started correctly
+Unpacking core sw started
+PRECHECK -- ALL SERVER
+Precheck started for NAS_ONLINE
+Precheck completed for NAS_ONLINE
+Precheck started for CORE_DUMP_CHECK
+Precheck completed for CORE_DUMP_CHECK
+Precheck started for ENGINE_PROFILE
+Precheck completed for ENGINE_PROFILE
+Precheck started for CHECK_LOCKFILE
+Precheck completed for CHECK_LOCKFILE
+Precheck started for ENIQ_SERVICES
+Precheck completed for ENIQ_SERVICES
+Precheck started for FILESYSTEM
+Precheck completed for FILESYSTEM
+Precheck started for STARTER_LICENSE
+Precheck completed for STARTER_LICENSE
+Precheck started for SSH_CHECK
+Precheck completed for SSH_CHECK
+Precheck started for OSS_MOUNT
+Precheck completed for OSS_MOUNT
+Precheck started for INODES
+Precheck completed for INODES
+Precheck started for FEATURE_LICENSE
+Precheck completed for FEATURE_LICENSE
+Precheck started for SNAPSHOT_CACHE
+Precheck completed for SNAPSHOT_CACHE
+Precheck started for DROP_LEAK
+Precheck completed for DROP_LEAK
+Precheck started for DB_IQ_USAGE
+Precheck completed for DB_IQ_USAGE
+Precheck started for DB_MULTIPLEX_MODE
+Precheck completed for DB_MULTIPLEX_MODE
+Precheck started for DB_HUNG_CONNECTION
+Precheck completed for DB_HUNG_CONNECTION
+Precheck started for CRASH_DUMP
+Precheck completed for CRASH_DUMP
+Precheck started for VG_STATUS
+Precheck completed for VG_STATUS
+Precheck started for DIRECTORY_PERMS
+Precheck completed for DIRECTORY_PERMS
+Precheck started for ENGINE_LOGS
+Precheck completed for ENGINE_LOGS
+Precheck started for MESSAGES_LOGS
+Precheck completed for MESSAGES_LOGS
+Precheck started for CHECK_PORT
+Precheck completed for CHECK_PORT
+Precheck started for CAPACITY_LICENSE
+Precheck completed for CAPACITY_LICENSE
+Precheck started for SNAPSHOT_CACHE_FS
+Precheck completed for SNAPSHOT_CACHE_FS
+Entering Upgrade stage - create_snapshots
+Entering Upgrade stage - update_dwh_reader
+INFO: Skipping Upgrade Stage - update_dwh_reader for Blade
+Entering upgrade stage - disable_oss_mounts
+Completed Stage - disabled OSS Mounts on all required Servers
+Entering Upgrade stage - core_sw_upgrade
+Checking if upgrade is required
+Creating rollback check file
+Checking for required files and scripts
+Entering core install stage - install_nas_sw
+Successfully Installed new package ERICstmnas
+Successfully installed NAS API
+Starting to update ERICstorapi package
+Successfully updated ERICstorapi package
+Entering core install stage - install_nasd
+Successfully installed NASd
+Entering core install stage - create_directories
+Successfully created required directories
+Changing filesystem eniq_stats_pool-rep_main ownership to dcuser:dc5000
+Changing fileSystem eniq_stats_pool-rep_main permissions to 0755
+Changing filesystem eniq_stats_pool-rep_temp ownership to dcuser:dc5000
+Changing fileSystem eniq_stats_pool-rep_temp permissions to 0755
+Changing filesystem eniq_stats_pool-dwh_main ownership to dcuser:dc5000
+Changing fileSystem eniq_stats_pool-dwh_main permissions to 0755
+Changing filesystem eniq_stats_pool-dwh_reader ownership to dcuser:dc5000
+Changing fileSystem eniq_stats_pool-dwh_reader permissions to 0755
+Changing filesystem eniq_stats_pool-dwh_main_dbspace ownership to dcuser:dc5000
+Changing fileSystem eniq_stats_pool-dwh_main_dbspace permissions to 0755
+Changing filesystem eniq_stats_pool-dwh_temp_dbspace ownership to dcuser:dc5000
+Changing fileSystem eniq_stats_pool-dwh_temp_dbspace permissions to 0755
+Changing filesystem eniq_stats_pool-misc ownership to dcuser:dc5000
+Changing fileSystem eniq_stats_pool-misc permissions to 0755
+Changing filesystem eniq_stats_pool-bkup_sw ownership to dcuser:dc5000
+Changing fileSystem eniq_stats_pool-bkup_sw permissions to 0755
+Changing filesystem eniq_stats_pool-connectd ownership to dcuser:dc5000
+Changing fileSystem eniq_stats_pool-connectd permissions to 0755
+Creating directory /eniq/admin
+Changing ownership of /eniq/admin to dcuser:dc5000
+Changing permissions on /eniq/admin to 0755
+Creating directory /eniq/archive
+Changing ownership of /eniq/archive to dcuser:dc5000
+Changing permissions on /eniq/archive to 0755
+Creating directory /eniq/backup
+Changing ownership of /eniq/backup to dcuser:dc5000
+Changing permissions on /eniq/backup to 0755
+Creating directory /eniq/data
+Changing ownership of /eniq/data to dcuser:dc5000
+Changing permissions on /eniq/data to 0755
+Creating directory /eniq/data/etldata
+Changing ownership of /eniq/data/etldata to dcuser:dc5000
+Changing permissions on /eniq/data/etldata to 0755
+Creating directory /eniq/data/etldata_
+Changing ownership of /eniq/data/etldata_ to dcuser:dc5000
+Changing permissions on /eniq/data/etldata_ to 0755
+Creating directory /eniq/data/etldata_/00
+Changing ownership of /eniq/data/etldata_/00 to dcuser:dc5000
+Changing permissions on /eniq/data/etldata_/00 to 0755
+Creating directory /eniq/data/etldata_/01
+Changing ownership of /eniq/data/etldata_/01 to dcuser:dc5000
+Changing permissions on /eniq/data/etldata_/01 to 0755
+Creating directory /eniq/data/etldata_/02
+Changing ownership of /eniq/data/etldata_/02 to dcuser:dc5000
+Changing permissions on /eniq/data/etldata_/02 to 0755
+Creating directory /eniq/data/etldata_/03
+Changing ownership of /eniq/data/etldata_/03 to dcuser:dc5000
+Changing permissions on /eniq/data/etldata_/03 to 0755
+Creating directory /eniq/data/pmdata
+Changing ownership of /eniq/data/pmdata to dcuser:dc5000
+Changing permissions on /eniq/data/pmdata to 0755
+Creating directory /eniq/data/pmdata/eventdata
+Changing ownership of /eniq/data/pmdata/eventdata to dcuser:dc5000
+Changing permissions on /eniq/data/pmdata/eventdata to 0755
+Creating directory /eniq/data/pmdata/eventdata/00
+Changing ownership of /eniq/data/pmdata/eventdata/00 to dcuser:dc5000
+Changing permissions on /eniq/data/pmdata/eventdata/00 to 0755
+Creating directory /eniq/data/pmdata/eventdata/01
+Changing ownership of /eniq/data/pmdata/eventdata/01 to dcuser:dc5000
+Changing permissions on /eniq/data/pmdata/eventdata/01 to 0755
+Creating directory /eniq/data/pmdata/eventdata/02
+Changing ownership of /eniq/data/pmdata/eventdata/02 to dcuser:dc5000
+Changing permissions on /eniq/data/pmdata/eventdata/02 to 0755
+Creating directory /eniq/data/pmdata/eventdata/03
+Changing ownership of /eniq/data/pmdata/eventdata/03 to dcuser:dc5000
+Changing permissions on /eniq/data/pmdata/eventdata/03 to 0755
+Creating directory /eniq/data/pmdata/eventdata/04
+Changing ownership of /eniq/data/pmdata/eventdata/04 to dcuser:dc5000
+Changing permissions on /eniq/data/pmdata/eventdata/04 to 0755
+Creating directory /eniq/data/pmdata/eventdata/05
+Changing ownership of /eniq/data/pmdata/eventdata/05 to dcuser:dc5000
+Changing permissions on /eniq/data/pmdata/eventdata/05 to 0755
+Creating directory /eniq/data/pmdata/eventdata/06
+Changing ownership of /eniq/data/pmdata/eventdata/06 to dcuser:dc5000
+Changing permissions on /eniq/data/pmdata/eventdata/06 to 0755
+Creating directory /eniq/data/pmdata/eventdata/07
+Changing ownership of /eniq/data/pmdata/eventdata/07 to dcuser:dc5000
+Changing permissions on /eniq/data/pmdata/eventdata/07 to 0755
+Creating directory /eniq/data/pmdata/eventdata/08
+Changing ownership of /eniq/data/pmdata/eventdata/08 to dcuser:dc5000
+Changing permissions on /eniq/data/pmdata/eventdata/08 to 0755
+Creating directory /eniq/data/pmdata/eventdata/09
+Changing ownership of /eniq/data/pmdata/eventdata/09 to dcuser:dc5000
+Changing permissions on /eniq/data/pmdata/eventdata/09 to 0755
+Creating directory /eniq/data/pmdata/eventdata/10
+Changing ownership of /eniq/data/pmdata/eventdata/10 to dcuser:dc5000
+Changing permissions on /eniq/data/pmdata/eventdata/10 to 0755
+Creating directory /eniq/data/pmdata/eventdata/11
+Changing ownership of /eniq/data/pmdata/eventdata/11 to dcuser:dc5000
+Changing permissions on /eniq/data/pmdata/eventdata/11 to 0755
+Creating directory /eniq/data/pmdata/eventdata/12
+Changing ownership of /eniq/data/pmdata/eventdata/12 to dcuser:dc5000
+Changing permissions on /eniq/data/pmdata/eventdata/12 to 0755
+Creating directory /eniq/data/pmdata/eventdata/13
+Changing ownership of /eniq/data/pmdata/eventdata/13 to dcuser:dc5000
+Changing permissions on /eniq/data/pmdata/eventdata/13 to 0755
+Creating directory /eniq/data/pmdata/eventdata/14
+Changing ownership of /eniq/data/pmdata/eventdata/14 to dcuser:dc5000
+Changing permissions on /eniq/data/pmdata/eventdata/14 to 0755
+Creating directory /eniq/data/pmdata/eventdata/15
+Changing ownership of /eniq/data/pmdata/eventdata/15 to dcuser:dc5000
+Changing permissions on /eniq/data/pmdata/eventdata/15 to 0755
+Creating directory /eniq/data/rejected
+Changing ownership of /eniq/data/rejected to dcuser:dc5000
+Changing permissions on /eniq/data/rejected to 0755
+Creating directory /eniq/database/dwh_main
+Changing ownership of /eniq/database/dwh_main to dcuser:dc5000
+Changing permissions on /eniq/database/dwh_main to 0755
+Creating directory /eniq/glassfish
+Changing ownership of /eniq/glassfish to dcuser:dc5000
+Changing permissions on /eniq/glassfish to 0755
+Creating directory /eniq/home
+Changing ownership of /eniq/home to dcuser:dc5000
+Changing permissions on /eniq/home to 0755
+Creating directory /eniq/log
+Changing ownership of /eniq/log to dcuser:dc5000
+Changing permissions on /eniq/log to 0755
+Creating directory /eniq/mediation_sw
+Changing ownership of /eniq/mediation_sw to dcuser:dc5000
+Changing permissions on /eniq/mediation_sw to 0755
+Creating directory /eniq/mediation_inter
+Changing ownership of /eniq/mediation_inter to dcuser:dc5000
+Changing permissions on /eniq/mediation_inter to 0755
+Creating directory /eniq/sentinel
+Changing ownership of /eniq/sentinel to dcuser:dc5000
+Changing permissions on /eniq/sentinel to 0755
+Creating directory /eniq/smf
+Changing ownership of /eniq/smf to dcuser:dc5000
+Changing permissions on /eniq/smf to 0755
+Creating directory /eniq/snapshot
+Changing ownership of /eniq/snapshot to dcuser:dc5000
+Changing permissions on /eniq/snapshot to 0755
+Creating directory /eniq/sql_anywhere
+Changing ownership of /eniq/sql_anywhere to dcuser:dc5000
+Changing permissions on /eniq/sql_anywhere to 0755
+Creating directory /eniq/sybase_iq
+Changing ownership of /eniq/sybase_iq to dcuser:dc5000
+Changing permissions on /eniq/sybase_iq to 0755
+Creating directory /eniq/sw
+Changing ownership of /eniq/sw to dcuser:dc5000
+Changing permissions on /eniq/sw to 0755
+Creating directory /eniq/sw/bin
+Changing ownership of /eniq/sw/bin to dcuser:dc5000
+Changing permissions on /eniq/sw/bin to 0755
+Creating directory /eniq/sw/conf
+Changing ownership of /eniq/sw/conf to dcuser:dc5000
+Changing permissions on /eniq/sw/conf to 0755
+Creating directory /eniq/sw/installer
+Changing ownership of /eniq/sw/installer to dcuser:dc5000
+Changing permissions on /eniq/sw/installer to 0755
+Creating directory /eniq/sw/log
+Changing ownership of /eniq/sw/log to dcuser:dc5000
+Changing permissions on /eniq/sw/log to 0755
+Creating directory /eniq/sw/platform
+Changing ownership of /eniq/sw/platform to dcuser:dc5000
+Changing permissions on /eniq/sw/platform to 0755
+Creating directory /eniq/sw/runtime
+Changing ownership of /eniq/sw/runtime to dcuser:dc5000
+Changing permissions on /eniq/sw/runtime to 0755
+Creating directory /eniq/upgrade
+Changing ownership of /eniq/upgrade to dcuser:dc5000
+Changing permissions on /eniq/upgrade to 0755
+Creating directory /eniq/database/rep_main
+Changing ownership of /eniq/database/rep_main to dcuser:dc5000
+Changing permissions on /eniq/database/rep_main to 0755
+Creating directory /eniq/database/rep_temp
+Changing ownership of /eniq/database/rep_temp to dcuser:dc5000
+Changing permissions on /eniq/database/rep_temp to 0755
+Creating directory /eniq/data/reference
+Changing ownership of /eniq/data/reference to dcuser:dc5000
+Changing permissions on /eniq/data/reference to 0755
+Creating directory /eniq/northbound
+Changing ownership of /eniq/northbound to dcuser:dc5000
+Changing permissions on /eniq/northbound to 0755
+Creating directory /eniq/northbound/lte_event_stat_file
+Changing ownership of /eniq/northbound/lte_event_stat_file to dcuser:dc5000
+Changing permissions on /eniq/northbound/lte_event_stat_file to 0755
+Creating directory /eniq/data/pushData
+Changing ownership of /eniq/data/pushData to dcdata:dcdata
+Changing permissions on /eniq/data/pushData to 0775
+Creating directory /eniq/data/pushData/00
+Changing ownership of /eniq/data/pushData/00 to dcdata:dcdata
+Changing permissions on /eniq/data/pushData/00 to 0775
+Creating directory /eniq/data/pushData/01
+Changing ownership of /eniq/data/pushData/01 to dcdata:dcdata
+Changing permissions on /eniq/data/pushData/01 to 0775
+Creating directory /eniq/data/pushData/02
+Changing ownership of /eniq/data/pushData/02 to dcdata:dcdata
+Changing permissions on /eniq/data/pushData/02 to 0775
+Creating directory /eniq/data/pushData/03
+Changing ownership of /eniq/data/pushData/03 to dcdata:dcdata
+Changing permissions on /eniq/data/pushData/03 to 0775
+Creating directory /eniq/data/pushData/04
+Changing ownership of /eniq/data/pushData/04 to dcdata:dcdata
+Changing permissions on /eniq/data/pushData/04 to 0775
+Creating directory /eniq/data/pushData/05
+Changing ownership of /eniq/data/pushData/05 to dcdata:dcdata
+Changing permissions on /eniq/data/pushData/05 to 0775
+Creating directory /eniq/data/pushData/06
+Changing ownership of /eniq/data/pushData/06 to dcdata:dcdata
+Changing permissions on /eniq/data/pushData/06 to 0775
+Creating directory /eniq/data/pushData/07
+Changing ownership of /eniq/data/pushData/07 to dcdata:dcdata
+Changing permissions on /eniq/data/pushData/07 to 0775
+Creating directory /eniq/data/pushData/08
+Changing ownership of /eniq/data/pushData/08 to dcdata:dcdata
+Changing permissions on /eniq/data/pushData/08 to 0775
+Creating directory /eniq/data/pushData/09
+Changing ownership of /eniq/data/pushData/09 to dcdata:dcdata
+Changing permissions on /eniq/data/pushData/09 to 0775
+Creating directory /eniq/data/pushData/10
+Changing ownership of /eniq/data/pushData/10 to dcdata:dcdata
+Changing permissions on /eniq/data/pushData/10 to 0775
+Creating directory /eniq/data/pushData/11
+Changing ownership of /eniq/data/pushData/11 to dcdata:dcdata
+Changing permissions on /eniq/data/pushData/11 to 0775
+Creating directory /eniq/data/pushData/12
+Changing ownership of /eniq/data/pushData/12 to dcdata:dcdata
+Changing permissions on /eniq/data/pushData/12 to 0775
+Creating directory /eniq/data/pushData/13
+Changing ownership of /eniq/data/pushData/13 to dcdata:dcdata
+Changing permissions on /eniq/data/pushData/13 to 0775
+Creating directory /eniq/data/pushData/14
+Changing ownership of /eniq/data/pushData/14 to dcdata:dcdata
+Changing permissions on /eniq/data/pushData/14 to 0775
+Creating directory /eniq/data/pushData/15
+Changing ownership of /eniq/data/pushData/15 to dcdata:dcdata
+Changing permissions on /eniq/data/pushData/15 to 0775
+Creating directory /eniq/misc/ldap_db
+Changing ownership of /eniq/misc/ldap_db to dcuser:dc5000
+Changing permissions on /eniq/misc/ldap_db to 0755
+Creating directory /eniq/export
+Changing ownership of /eniq/export to dcuser:dc5000
+Changing permissions on /eniq/export to 0755
+Creating directory /eniq/fmdata
+Changing ownership of /eniq/fmdata to dcuser:dc5000
+Changing permissions on /eniq/fmdata to 0755
+Creating directory /eniq/database
+Changing ownership of /eniq/database to dcuser:dc5000
+Changing permissions on /eniq/database to 0755
+Creating directory /eniq/database/dwh_main_dbspace
+Changing ownership of /eniq/database/dwh_main_dbspace to dcuser:dc5000
+Changing permissions on /eniq/database/dwh_main_dbspace to 0755
+Creating directory /eniq/database/dwh_temp_dbspace
+Changing ownership of /eniq/database/dwh_temp_dbspace to dcuser:dc5000
+Changing permissions on /eniq/database/dwh_temp_dbspace to 0755
+Creating directory /eniq/database/dwh_reader
+Changing ownership of /eniq/database/dwh_reader to dcuser:dc5000
+Changing permissions on /eniq/database/dwh_reader to 0755
+Creating directory /eniq/database/dwh_main_dbspace/dbspace_dir_1
+Changing ownership of /eniq/database/dwh_main_dbspace/dbspace_dir_1 to dcuser:dc5000
+Changing permissions on /eniq/database/dwh_main_dbspace/dbspace_dir_1 to 0755
+Creating directory /eniq/database/dwh_main_dbspace/dbspace_dir_2
+Changing ownership of /eniq/database/dwh_main_dbspace/dbspace_dir_2 to dcuser:dc5000
+Changing permissions on /eniq/database/dwh_main_dbspace/dbspace_dir_2 to 0755
+Creating directory /eniq/database/dwh_main_dbspace/dbspace_dir_3
+Changing ownership of /eniq/database/dwh_main_dbspace/dbspace_dir_3 to dcuser:dc5000
+Changing permissions on /eniq/database/dwh_main_dbspace/dbspace_dir_3 to 0755
+Creating directory /eniq/database/dwh_main_dbspace/dbspace_dir_4
+Changing ownership of /eniq/database/dwh_main_dbspace/dbspace_dir_4 to dcuser:dc5000
+Changing permissions on /eniq/database/dwh_main_dbspace/dbspace_dir_4 to 0755
+Creating directory /eniq/database/dwh_main_dbspace/dbspace_dir_5
+Changing ownership of /eniq/database/dwh_main_dbspace/dbspace_dir_5 to dcuser:dc5000
+Changing permissions on /eniq/database/dwh_main_dbspace/dbspace_dir_5 to 0755
+Creating directory /eniq/database/dwh_main_dbspace/dbspace_dir_6
+Changing ownership of /eniq/database/dwh_main_dbspace/dbspace_dir_6 to dcuser:dc5000
+Changing permissions on /eniq/database/dwh_main_dbspace/dbspace_dir_6 to 0755
+Creating directory /eniq/database/dwh_main_dbspace/dbspace_dir_7
+Changing ownership of /eniq/database/dwh_main_dbspace/dbspace_dir_7 to dcuser:dc5000
+Changing permissions on /eniq/database/dwh_main_dbspace/dbspace_dir_7 to 0755
+Creating directory /eniq/database/dwh_main_dbspace/dbspace_dir_8
+Changing ownership of /eniq/database/dwh_main_dbspace/dbspace_dir_8 to dcuser:dc5000
+Changing permissions on /eniq/database/dwh_main_dbspace/dbspace_dir_8 to 0755
+Creating directory /eniq/database/dwh_main_dbspace/dbspace_dir_9
+Changing ownership of /eniq/database/dwh_main_dbspace/dbspace_dir_9 to dcuser:dc5000
+Changing permissions on /eniq/database/dwh_main_dbspace/dbspace_dir_9 to 0755
+Creating directory /eniq/database/dwh_main_dbspace/dbspace_dir_10
+Changing ownership of /eniq/database/dwh_main_dbspace/dbspace_dir_10 to dcuser:dc5000
+Changing permissions on /eniq/database/dwh_main_dbspace/dbspace_dir_10 to 0755
+Creating directory /eniq/database/dwh_temp_dbspace/dbspace_dir_1
+Changing ownership of /eniq/database/dwh_temp_dbspace/dbspace_dir_1 to dcuser:dc5000
+Changing permissions on /eniq/database/dwh_temp_dbspace/dbspace_dir_1 to 0755
+Creating directory /eniq/database/dwh_temp_dbspace/dbspace_dir_2
+Changing ownership of /eniq/database/dwh_temp_dbspace/dbspace_dir_2 to dcuser:dc5000
+Changing permissions on /eniq/database/dwh_temp_dbspace/dbspace_dir_2 to 0755
+Creating directory /eniq/database/dwh_temp_dbspace/dbspace_dir_3
+Changing ownership of /eniq/database/dwh_temp_dbspace/dbspace_dir_3 to dcuser:dc5000
+Changing permissions on /eniq/database/dwh_temp_dbspace/dbspace_dir_3 to 0755
+Creating directory /eniq/database/dwh_temp_dbspace/dbspace_dir_4
+Changing ownership of /eniq/database/dwh_temp_dbspace/dbspace_dir_4 to dcuser:dc5000
+Changing permissions on /eniq/database/dwh_temp_dbspace/dbspace_dir_4 to 0755
+Creating directory /eniq/database/dwh_temp_dbspace/dbspace_dir_5
+Changing ownership of /eniq/database/dwh_temp_dbspace/dbspace_dir_5 to dcuser:dc5000
+Changing permissions on /eniq/database/dwh_temp_dbspace/dbspace_dir_5 to 0755
+Creating directory /eniq/northbound/lte_event_ctrs_symlink
+Changing ownership of /eniq/northbound/lte_event_ctrs_symlink to dcuser:dc5000
+Changing permissions on /eniq/northbound/lte_event_ctrs_symlink to 0755
+Creating directory /eniq/data/pmdata_soem
+Changing ownership of /eniq/data/pmdata_soem to dcuser:dc5000
+Changing permissions on /eniq/data/pmdata_soem to 0755
+Changing ownership of /eniq/data/pmdata_sim to dcuser:dc5000
+Changing permissions on /eniq/data/pmdata_sim to 0755
+Changing ownership of /eniq/admin to dcuser:dc5000
+Changing ownership of /eniq/archive to dcuser:dc5000
+Changing ownership of /eniq/backup to dcuser:dc5000
+Changing ownership of /eniq/data/etldata to dcuser:dc5000
+Changing ownership of /eniq/data/etldata_/00 to dcuser:dc5000
+Changing ownership of /eniq/data/etldata_/01 to dcuser:dc5000
+Changing ownership of /eniq/data/etldata_/02 to dcuser:dc5000
+Changing ownership of /eniq/data/etldata_/03 to dcuser:dc5000
+Changing ownership of /eniq/fmdata to dcuser:dc5000
+Changing ownership of /eniq/home to dcuser:dc5000
+Changing ownership of /eniq/log to dcuser:dc5000
+Changing ownership of /eniq/data/pmdata to dcuser:dc5000
+Changing ownership of /eniq/data/reference to dcuser:dc5000
+Changing ownership of /eniq/data/rejected to dcuser:dc5000
+Changing ownership of /eniq/sentinel to dcuser:dc5000
+Changing ownership of /eniq/snapshot to dcuser:dc5000
+Changing ownership of /eniq/sql_anywhere to dcuser:dc5000
+Changing ownership of /eniq/sybase_iq to dcuser:dc5000
+Changing ownership of /eniq/sw to dcuser:dc5000
+Changing ownership of /eniq/upgrade to dcuser:dc5000
+Changing ownership of /eniq/data/pmdata_soem to dcuser:dc5000
+Changing ownership of /eniq/data/pmdata_sim to dcuser:dc5000
+Entering core install stage - install_host_syncd
+Successfully installed hostsync monitor scripts
+Successfully installed hostsync unit file
+Successfully loaded hostsync unit
+Successfully installed hostsyncd
+Entering core install stage - install_connectd_sw
+Successfully installed SW to /eniq/connectd
+Entering core install stage - install_backup_sw
+Successfully installed SW to /eniq/bkup_sw
+Entering core install stage - create_admin_dir
+Successfully populated /eniq/admin directory
+Entering core install stage - generate_keys
+Successfully completed core install stage - generate_keys
+Entering core install stage - create_rbac_roles
+Successfully completed configuration for ENIQ user roles
+Entering Core Install stage - update_ENIQ_env_files
+Successfully nullified the wtmp file
+Successfully updated ENIQ ENV file
+Entering core install stage - update_sysuser_file
+Successfully updated home areas and profiles
+Entering core install stage - install_ENIQ_platform
+Successfully installed ENIQ Platform
+Successfully installed ENIQ Platform
+Entering core install stage - setup_SMF_scripts
+Successfully installed Service scripts
+Entering core install stage - install_extra_fs
+Updating /eniq/installation/config/SunOS.ini with SunOS_ZFS_FS_10
+Updating /eniq/installation/config/SunOS.ini with SunOS_ZFS_FS_11
+Updating /eniq/installation/config/SunOS.ini with SunOS_ZFS_FS_12
+Successfully completed core install stage - install_extra_fs
+Entering core install stage - install_rolling_snapshot
+Successfully created rolling snapshots
+Crontab updated successfully
+Entering core install stage - validate_SMF_contracts
+Successfully validated SMF manifest files
+Entering core install stage - add_alias_details_to_service_names
+Successfully updated NAS alias information in /etc/hosts
+Entering core install stage - cleanup
+/eniq/admin/version/eniq_history file updated correctly
+/eniq/admin/version/eniq_status file updated correctly
+Server Sanity
+---------------
+cat /eniq/admin/version/eniq_status | head -1 | grep AOM
+ls /eniq/home | grep dcuser
+ls -lrt /eniq/database/rep_main/repdb.cfg | awk '{print $3}' | grep dcuser
+ls -lrt /eniq/database/rep_main/repdb.cfg | awk '{print $4}' | grep dc5000
+ls -lrt /eniq/database/dwh_main/dwhdb.cfg | awk '{print $3}' | grep dcuser
+ls -lrt /eniq/database/dwh_main/dwhdb.cfg | awk '{print $4}' | grep dc5000
+id dcuser | awk '{print $2}' | grep dc5000
+systemctl stop eniq-dwhdb; systemctl show -p ActiveState eniq-dwhdb | cut -f2 -d'=' | grep inactive
+systemctl restart eniq-dwhdb; systemctl show -p ActiveState eniq-dwhdb | cut -f2 -d'=' | grep active
+systemctl start NASd.service;systemctl status NASd.service | grep "active"
+systemctl stop NAS-online.service;systemctl status NAS-online.service | grep "Stopped Milestone NAS Service"
+systemctl start NAS-online.service;systemctl status NAS-online.service | grep "Started Milestone NAS Service"
+locale | grep -i posix
+ls -l /eniq/local_logs/sw_log/ | grep dcuser
+ls -l /eniq/home | grep dcdata
+ls -l /eniq/admin/ | grep bin
+ls -l /eniq/smf/ | grep bin
+ls -l /eniq/admin/bin/ | grep repdb
+ls -l /eniq/sw/ | grep bin
+ls -l /eniq/sw/bin/ | grep webserver
+ls -l /eniq/bkup_sw/ | grep bin
+ls -l /eniq/admin/bin/dwhdb | grep dcuser
+ls -l /eniq/database/ | grep dwh_main
+ls -l /eniq/database/ | grep dwh_reader
+ls -l /eniq/database/ | grep rep_main
+ls -l /eniq/admin/bin/repdb | grep dcuser
+ls -l /eniq/admin/bin/webserver | grep dcuser
+ls -l /eniq/sentinel/lic/ | grep lservrc
+df -hk | grep nas | wc -l | grep 22
+df -hk | grep -w pmdata_wifi | wc -l | grep 0
+bash /eniq/admin/bin/manage_eniq_services.bsh -a stop -s ALL -l /eniq/local_logs/autoft/auto_stop_services.log -N
+error=$( echo $? ); if (( $error != 0 )); then echo "Running of Previous command as outputted an return code of $error (Error/Warning)"; fi;
+ls -l /eniq/local_logs/autoft/ | grep auto_stop_services.log
+cat /eniq/local_logs/autoft/auto_stop_services.log | grep -i fail
+cat /eniq/local_logs/autoft/auto_stop_services.log | grep -i error
+cat /eniq/local_logs/autoft/auto_stop_services.log | grep -i warn
+cat /eniq/local_logs/autoft/auto_stop_services.log | grep -i "ENIQ Services stopped correctly"
+bash /eniq/admin/bin/manage_eniq_services.bsh -a start -s ALL -l /eniq/local_logs/autoft/auto_start_services.log -N
+error=$( echo $? ); if (( $error != 0 )); then echo "Running of Previous command as outputted an return code of $error (Error/Warning)"; fi;
+ls -l /eniq/local_logs/autoft/ | grep auto_start_services.log
+cat /eniq/local_logs/autoft/auto_start_services.log | grep -i error
+cat /eniq/local_logs/autoft/auto_start_services.log | grep -i fail
+cat /eniq/local_logs/autoft/auto_start_services.log | grep -i warn
+cat /eniq/local_logs/autoft/auto_start_services.log | grep -i "ENIQ services started correctly"
+cat /etc/systemd/journald.conf | grep SystemMaxUse | cut -f2 -d'=' | grep 8G
+ls -l /eniq/sentinel/log/ | grep usage.log
+cat /eniq/sentinel/log/usage.log | grep -i error
+cat /eniq/sentinel/log/usage.log | grep -i fail
+cat /eniq/sentinel/log/usage.log | grep -i warn
+cat `ls -t /eniq/log/sw_log/tp_installer/*_tp_installer.log | head -1` | egrep -v -i 'SError' | egrep -i 'error '
+cat /eniq/log/sw_log/tp_installer/*_tp_installer.log | grep -i error
+ cat `ls -t /eniq/log/sw_log/tp_installer/*_tp_installer.log | head -1` | egrep -i warn | grep -vi 'Supplied data could not be decrypted as a key|!!!!! WARNING'
+cat `ls -t /eniq/log/sw_log/tp_installer/*_tp_installer.log | head -1` | grep -i failed | grep -vi 'Failed to stop workflow-group'
+su - dcuser -c "/eniq/sw/bin/dwhdb status" | grep "dwhdb is running OK"
+su - dcuser -c "/eniq/sw/bin/dwhdb stop"
+su - dcuser -c "/eniq/sw/bin/dwhdb status" | grep "dwhdb is not running"
+su - dcuser -c "/eniq/sw/bin/dwhdb start"
+su - dcuser -c "/eniq/sw/bin/dwhdb status" | grep "dwhdb is running OK"
+su - dcuser -c "/eniq/sw/bin/repdb status" | grep "repdb is running OK"
+su - dcuser -c "/eniq/sw/bin/repdb stop"
+su - dcuser -c "/eniq/sw/bin/repdb status" | grep "repdb is not running"
+su - dcuser -c "/eniq/sw/bin/repdb start"
+su - dcuser -c "/eniq/sw/bin/repdb status" | grep "repdb is running OK"
+netstat -nr | grep -w "UG" | wc -l |grep 1

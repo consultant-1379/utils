@@ -1,0 +1,544 @@
+<!--Arbortext, Inc., 1988-2008, v.4002-->
+<!DOCTYPE SEIF PUBLIC "-//ERICSSON//DTD SEIF 1/FAD 110 02 R1//EN">
+<seif hytime="hydoc" toc-level="toc2" table-caption="tc-no"
+version="SEIF 1.0">
+<meta-data>
+<confidentiality class="internal">
+<doc-name id="sdieditor">DOCUMENT LIST</doc-name>
+<doc-id>
+<doc-no type="registration">00151-EN/LZN 701 0531</doc-no><language
+code="en">
+<rev>R2H</rev><date><y>2021</y><m>06</m><d>25</d></date></doc-id>
+<company-id>
+<business-unit></business-unit>
+<company-name></company-name>
+<company-symbol logotype="ericsson">
+</company-id>
+<part-of></part-of>
+<title>Ericsson Network IQ Statistics (ENIQ-S) 21.2.8.EU3 Installation
+and Support</title>
+<user-info id="v2.2">Source SDI IDs</user-info>
+<drafted-by>
+<person>
+<name>xkkklll</name><signature>xkkklll</signature>
+<location></location><company></company><department></department>
+</person>
+</drafted-by>
+<approved-by approved="no">
+<person>
+<name>xkkklll</name><initials>xkkklll</initials>
+<location></location><company></company><department></department>
+</person>
+</approved-by>
+<checked-by checked="no">
+<person>
+<name>xkkklll</name><signature>xkkklll</signature>
+<location></location><company></company><department></department>
+</person>
+</checked-by>
+<factual-supervisor responsible="person">
+<person>
+<name>xkkklll</name><signature>xkkklll</signature>
+<location></location><company></company><department></department>
+</person>
+</factual-supervisor>
+<translated-by>
+<person>
+<name></name><signature></signature>
+<location></location><company></company><department></department>
+</person>
+</translated-by>
+</meta-data>
+<front>
+<title-page><copyright><p>LM Ericsson (LMI) 2017. All rights reserved.
+No part of this document may be reproduced in any form without the
+written permission of the copyright owner.</p>
+</copyright><disclaimer><p>The contents of this document are subject
+to revision without notice due to continued progress in methodology,
+design and manufacturing. Ericsson shall have no liability for any
+error or damage of any kind resulting from the use of this document.</p>
+</disclaimer>
+<trademark-list>
+<tm-item><trademark></trademark><owner></owner></tm-item>
+</trademark-list>
+</title-page>
+</front>
+<body>
+<chl1 role=" "><title>Safety and Environment</title>
+<table l-r="half-indent">
+<caption></caption>
+<tgroup cols="2"><colspec colwidth="60*"><colspec colwidth="40*">
+<tbody>
+<row>
+<entry>Personal Health and Safety Information</entry>
+<entry>124 46-2885 Uen E</entry>
+</row>
+<row>
+<entry>System Safety Information</entry>
+<entry>124 46-2886 Uen H</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</chl1>
+<chl1 role=" "><title>Library Overview</title>
+<table l-r="half-indent">
+<caption></caption>
+<tgroup cols="2"><colspec colwidth="60*"><colspec colwidth="40*">
+<tbody>
+<row>
+<entry>How to Get Started with Active Library Explorer</entry>
+<entry>1/1553-CRAH 301 1061 Uen F</entry>
+</row>
+<row>
+<entry>Typographic Conventions</entry>
+<entry>1/154 43-AOM 901 017/4 Uen A</entry>
+</row>
+<row>
+<entry>Glossary of Terms</entry>
+<entry>0033-AOM 901 017/2 Uen CT</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</chl1>
+<chl1><title>Installation</title>
+<chl2><title>Dimensioning</title>
+<table l-r="half-indent">
+<caption></caption>
+<tgroup cols="2"><colspec colwidth="59.88*"><colspec colwidth="40.12*">
+<tbody>
+<row>
+<entry>FLARE and Firmware Handling guide for HP/EMC</entry>
+<entry>1/0225-AOM 901 092 Uen AK</entry>
+</row>
+<row>
+<entry>Site Engineering Data for ENIQ Stats on X86</entry>
+<entry>6/1057-AOM901092 Uen D	</entry>
+</row>
+<row>
+<entry>Configuration Direction Information</entry>
+<entry>18/127 01-CSA 113 63/1 Uen A</entry>
+</row>
+<row>
+<entry>ENM Installation Instructions</entry>
+<entry>5/1531-AOM 901 151 Uen DH</entry>
+</row>
+<row>
+<entry>OSS on Blades Cabling Installation Instruction</entry>
+<entry>2/1531-AOM 901 070 Uen AA</entry>
+</row>
+<row>
+<entry>HP Blade Enclosure Commissioning for OSS </entry>
+<entry>197 11-CNA 403 2087 Uen T</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</chl2>
+<chl2><title>Node Hardening</title>
+<table l-r="half-indent">
+<caption></caption>
+<tgroup cols="2"><colspec colwidth="59.88*"><colspec colwidth="40.12*">
+<tbody>
+<row>
+<entry>ENIQ-S Node Hardening Guide</entry>
+<entry>4/1543-CNA 403 2613 Uen BA8</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</chl2>
+<chl2><title>Initial Installation</title>
+<table l-r="half-indent">
+<caption></caption>
+<tgroup cols="2"><colspec colwidth="59.88*"><colspec colwidth="40.12*">
+<thead>
+<row>
+<entry>HP Rack DL380 </entry>
+<entry></entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>Cost Effective Rack Deployment Overview</entry>
+<entry>87/1531-AOM 901 114 Uen M</entry>
+</row>
+<row>
+<entry>ENIQ Statistics Rack Deployment Installation Overview	</entry>
+<entry>88/1531- AOM 901 111 Uen M</entry>
+</row>
+<row>
+<entry>ENIQ Statistics Rack Installation Instructions</entry>
+<entry>101/1531-CXP 901 9948 Uen H</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<table l-r="half-indent">
+<caption></caption>
+<tgroup cols="2"><colspec colwidth="60*"><colspec colwidth="40*">
+<thead>
+<row>
+<entry>Blade and Multi Blade </entry>
+<entry></entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>ENIQ Statistics Installation Overview Blade	</entry>
+<entry>92/1531-CXP 901 9948 Uen L</entry>
+</row>
+<row>
+<entry>ENIQ Statistics Blade Installation Instructions</entry>
+<entry>102/1531-CXP 901 9948 Uen H</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</chl2>
+<chl2><title>Infrastructure</title>
+<chl3><title>MWS Support</title>
+<table l-r="half-indent">
+<caption></caption>
+<tgroup cols="2"><colspec colwidth="59.88*"><colspec colwidth="40.12*">
+<tbody>
+<row>
+<entry>Management Workstation Initial Installation and Upgrade for
+RHEL</entry>
+<entry>1/1531-AOM 901 171 Uen BJ</entry>
+</row>
+<row>
+<entry>Management Workstation System Administration Guide for RHEL</entry>
+<entry>1/1543-AOM 901 171 Uen AD</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</chl3>
+<chl3><title>NAS</title>
+<table l-r="half-indent">
+<caption></caption>
+<tgroup cols="2"><colspec colwidth="59.88*"><colspec colwidth="40.12*">
+<tbody>
+<row>
+<entry>NAS Standalone Restore Procedure</entry>
+<entry>1/154 32-CNA 403 3335 Uen H</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</chl3>
+</chl2>
+<chl2><title>Upgrade</title>
+<table l-r="half-indent">
+<caption></caption>
+<tgroup cols="2">
+<?PubTbl tgroup rth="0.50pt">
+<colspec colname="col1" colwidth="59.84*"><colspec colname="col2"
+colwidth="40.16*">
+<tbody>
+<row>
+<entry> ENIQ Statistics Rack Upgrade Procedure</entry>
+<entry>104/15372-CXP 901 9948 Uen K2</entry>
+</row>
+<row>
+<entry>ENIQ Statistics X86 Blade Upgrade Procedure </entry>
+<entry>105/15372-CXP 901 9948 Uen S2</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</chl2>
+<chl2><title>Feature Handling</title>
+<table l-r="half-indent">
+<caption></caption>
+<tgroup cols="2"><colspec colwidth="59.88*"><colspec colwidth="40.12*">
+<tbody>
+<row>
+<entry>ENIQ Statistics Feature Version Manager</entry>
+<entry>2/1553-CXP 903 5104 Uen K</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</chl2>
+<chl2><title>Migration</title>
+<table l-r="half-indent">
+<caption></caption>
+<tgroup cols="2"><colspec colwidth="60*"><colspec colwidth="40*">
+<tbody>
+<row>
+<entry>ENIQ Statistics Blade Replacement Procedure</entry>
+<entry>3/000 21-AOM 901 154 Uen N2</entry>
+</row>
+<row>
+<entry>ENIQ Statistics Rack Replacement Procedure</entry>
+<entry>4/000 21-AOM 901 154 Uen H</entry>
+</row>
+<row>
+<entry>Hardware Migration Procedure for ENIQ</entry>
+<entry>1/109 21-CSA 114 137 Uen AD</entry>
+</row>
+<row>
+<entry>ENIQ Statistics Data Migration Procedure</entry>
+<entry>79/153 72-CXP 901 9948 Uen T</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</chl2>
+<chl2><title>VERITAS ACCESS</title>
+<table l-r="half-indent">
+<caption></caption>
+<tgroup cols="2">
+<?PubTbl tgroup rth="0.50pt">
+<colspec colname="col1" colwidth="59.88*"><colspec colname="col2"
+colwidth="40.12*">
+<tbody>
+<row>
+<entry>Veritas Access Deployment Instructions</entry>
+<entry>2/1531-CNA 403 3335/1 Uen AH</entry>
+</row>
+<row>
+<entry>VA 7.2 to VA 7.4 Migration Instructions</entry>
+<entry>000 21-CNA 403 3335 Uen M</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</chl2>
+<chl2><title>Expansion</title>
+<table l-r="half-indent">
+<caption></caption>
+<tgroup cols="2">
+<?PubTbl tgroup rth="0.50pt">
+<colspec colname="col1" colwidth="59.88*"><colspec colname="col2"
+colwidth="40.12*">
+<tbody>
+<row>
+<entry>ENIQ Statistics Expansion Procedure</entry>
+<entry>3/190 89-CXP 902 8403 Uen N</entry>
+</row>
+<row>
+<entry>ENIQ Statistics Single Blade to Multi-Blade Procedure</entry>
+<entry>5/1530-CXP 901 9948 Uen T</entry>
+</row>
+<row>
+<entry>ENIQ NAS Storage Pool Expansion Instruction</entry>
+<entry>1/1003-CSA 114 140 Uen J</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</chl2>
+<chl2><title>Integration</title>
+<table l-r="half-indent">
+<caption></caption>
+<tgroup cols="2">
+<?PubTbl tgroup rth="0.50pt">
+<colspec colname="col1" colwidth="59.88*"><colspec colname="col2"
+colwidth="40.12*">
+<tbody>
+<row>
+<entry>Ericsson Network IQ Interworking with ENM</entry>
+<entry>111/1531-AOM 901 144 Uen N</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</chl2>
+<chl2><title>Reporting Layer</title>
+<table l-r="half-indent">
+<caption></caption>
+<tgroup cols="2"><colspec colwidth="60*"><colspec colwidth="40*">
+<thead>
+<row>
+<entry>BUSINESS OBJECTS</entry>
+<entry></entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>Ericsson Business Intelligence Deployment (EBID) Installation
+&amp; Upgrade Instructions</entry>
+<entry>1/1531-CNA 403 1452 Uen LK2</entry>
+</row>
+<row>
+<entry>Node Hardening for BIS, OCS and NetAn</entry>
+<entry>3/1543-CNA 403 2613 Uen BZ1</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<table l-r="half-indent">
+<caption></caption>
+<tgroup cols="2"><colspec colwidth="60*"><colspec colwidth="40*">
+<thead>
+<row>
+<entry>ENIQ OCS</entry>
+<entry></entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>OCS Windows Installation and Migration</entry>
+<entry>1/1531-APR 901 0468-1 Uen CC1</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<table l-r="half-indent">
+<caption></caption>
+<tgroup cols="2"><colspec colwidth="60*"><colspec colwidth="40*">
+<thead>
+<row>
+<entry>NETWORK ANALYTICS SERVER</entry>
+<entry></entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>Co-Deployment of Network Analytics Server with Ericsson Business
+Intelligence Deployment (EBID)</entry>
+<entry>1/1531-CNA 403 2826 Uen A</entry>
+</row>
+<row>
+<entry>Installation and Upgrade Instructions for PM Explorer and PM
+Alarming</entry>
+<entry>2/1531-CNA 403 3668 Uen F</entry>
+</row>
+<row>
+<entry>Network Analytics Server Deployment Description</entry>
+<entry>7/155 34-CNA 403 294 Uen B</entry>
+</row>
+<row>
+<entry>Network Analytics Server Installation Instructions</entry>
+<entry>10/1531-CNA 403 2940 Uen H</entry>
+</row>
+<row>
+<entry>Network Analytics Server System Administrator Guide</entry>
+<entry>6/1543-CNA 403 2940 Uen K</entry>
+</row>
+<row>
+<entry>Network Analytics Server - Feature Installation Instructions</entry>
+<entry>8/1531-CNA4032940 Uen C</entry>
+</row>
+<row>
+<entry>Network Analytics Server - Feature Installation Instructions
+for Multi-System Access</entry>
+<entry>11/1531-CNA 403 2940 Uen E</entry>
+</row>
+<row>
+<entry>Network Analytics Server Upgrade Instruction</entry>
+<entry>5/153 72-CNA 403 2940 Uen L</entry>
+</row>
+<row>
+<entry>ENIQ Statistics Commissioning of Network Analytics Server Blade </entry>
+<entry>1/1531-CSA 113 63/1 Uen A</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</chl2>
+<chl2><title>Additional Documentation</title>
+<table l-r="half-indent">
+<caption></caption>
+<tgroup cols="2"><colspec colwidth="60*"><colspec colwidth="40*">
+<thead>
+<row>
+<entry>Additional Documentation</entry>
+<entry></entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>RHEL Patch Release Information for ENIQ-S</entry>
+<entry>1/174 67-CNA 403 3600 Uen AJ</entry>
+</row>
+<row>
+<entry>ENIQ Statistics Software RAID 1 to Hardware RAID 1 Conversion
+Procedure</entry>
+<entry>1/120 12-CSA 113 643 Uen L</entry>
+</row>
+<row>
+<entry>Tech Pack IDE Installation Guide</entry>
+<entry>3/1531-CNA4033600 Uen C</entry>
+</row>
+<row>
+<entry>CCI Product Classification</entry>
+<entry>155 02-AOM 901 208 Uen A</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</chl2>
+<chl2><title>Operation and Maintenance </title>
+<table l-r="half-indent">
+<caption></caption>
+<tgroup cols="2"><colspec colwidth="59.88*"><colspec colwidth="40.12*">
+<tbody>
+<row>
+<entry>ENIQ Statistics Health Check Instruction Guide</entry>
+<entry>1/1543-CSA113 178 Uen E</entry>
+</row>
+<row>
+<entry>Network Analytics Server Health Check Instruction</entry>
+<entry>7/1543-CNA 403 2940 Uen B</entry>
+</row>
+<row>
+<entry>OCS Health Check and Preventive Maintenance Guide</entry>
+<entry>6/1543-APR 901 0468 Uen E</entry>
+</row>
+<row>
+<entry>EBID Health Check and Preventive Maintenance Guide </entry>
+<entry>2/1543-CNA 403 1452 Uen D</entry>
+</row>
+<row>
+<entry>ENIQ Statistics Preventive Maintenance User Guide</entry>
+<entry>1/1541-CSA 113 178 Uen D</entry>
+</row>
+<row>
+<entry>E<?Pub Caret1>NIQ Statistics Advanced Trouble shooting Guideline</entry>
+<entry>2/154 51-CSA 113 178 Uen C</entry>
+</row>
+<row>
+<entry>Network Analytics Server Advanced Troubleshooting Guideline</entry>
+<entry>1/154 51-CNA 403 2940 Uen B</entry>
+</row>
+<row>
+<entry>OCS Advanced Troubleshooting Guideline</entry>
+<entry>4/154 51-APR 901 0468 Uen G</entry>
+</row>
+<row>
+<entry>EBID Advanced Troubleshooting Guideline</entry>
+<entry>1/154 51-CNA 403 1452 Uen F</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</chl2>
+<chl2><title>Emergency Procedure</title>
+<table l-r="half-indent">
+<caption></caption>
+<tgroup cols="2"><colspec colwidth="59.88*"><colspec colwidth="40.12*">
+<tbody>
+<row>
+<entry>ENIQ Statistics Emergency Recovery Procedure</entry>
+<entry>154 32-CXP 902 9948 Uen E</entry>
+</row>
+<row>
+<entry>EBID Emergency Recovery Procedure</entry>
+<entry>154 32-CNA 403 1452 Uen D</entry>
+</row>
+<row>
+<entry>OCS Emergency Recovery Procedure</entry>
+<entry>154 32-APR 901 0468 Uen E</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</chl2>
+</chl1>
+</body></seif>
+<?Pub *0000013960 0>

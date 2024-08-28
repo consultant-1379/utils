@@ -1,0 +1,1206 @@
+<html><head>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: url(http://www.shukatsu-note.com/wp-content/uploads/2014/12/computer-564136_1280.jpg) no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+h1 {
+  text-align: center;
+  font-family: Tahoma, Arial, sans-serif;
+  color: #06D85F;
+  margin: 80px 0;
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+.popup {
+  margin: 70px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 90%;
+  position: relative;
+  transition: all 5s ease-in-out;
+}
+.popup h2 {
+  margin-top: 0;
+  color: #333;
+  font-family: Tahoma, Arial, sans-serif;
+}
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.popup .content {
+  max-height: 30%;
+  overflow: auto;
+}
+@media screen and (max-width: 700px){
+  .box{
+    width: 30%;
+  }
+  .popup{
+    width: 30%;
+  }
+}
+.img__description {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(29, 106, 154, 0.72);
+  color: #fff;
+  visibility: hidden;
+  opacity: 0;
+ }
+.marginSpace {
+  margin: 10px;
+}
+</style>
+<script>
+n =  new Date();
+y = n.getFullYear();
+m = n.getMonth() + 1;
+d = n.getDate();
+document.getElementById("date").innerHTML = m + "/" + d + "/" + y;
+</script>
+<title>KGB Linux Maintrack</title>
+<style>a {text-decoration: none;} </style>
+<style>
+.collapsible {
+   background-color: transparent;
+  cursor: pointer;
+  padding: 18px;
+  width: 30%;
+  height: 10%;
+  border: none;
+  text-align: center;
+  outline: none;
+  font-size: 15px;
+}
+.active, .collapsible:hover {
+}
+.content {
+  padding: 0 18px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  background-color: transparent;
+  /* background-color: #f1f1f1; */
+}
+.flip-card {
+  background-color: transparent;
+  width: 50px;
+  height: 50px;
+  border: 1px solid ;
+  perspective: 1000px; /* Remove  #f1f1f1 this if you don't want the 3D effect */
+}
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+ /*  background-color: #bbb;
+  color: black; */
+}
+button {
+    display: inline-block;
+    height: 134px;
+    padding: 0;
+    margin: 0;
+    vertical-align: top;
+    width: 104px;
+}
+#close-image img {
+    display: block;
+    height: 50px;  
+    width: 50px;
+}
+/* Popup box BEGIN */
+.hover_bkgr_fricc{
+    background:rgba(0,0,0,.4);
+    cursor:pointer;
+    display:none;
+    height:100%;
+    position:fixed;
+    text-align:center;
+    top:0;
+    width:100%;
+    z-index:10000;
+}
+.hover_bkgr_fricc .helper{
+    display:inline-block;
+    height:100%;
+    vertical-align:middle;
+}
+.hover_bkgr_fricc > div {
+    background-color: #fff;
+    box-shadow: 10px 10px 60px #555;
+    display: inline-block;
+    height: auto;
+    max-width: 551px;
+    min-height: 100px;
+    vertical-align: middle;
+    width: 60%;
+    position: relative;
+    border-radius: 8px;
+    padding: 15px 5%;
+}
+.popupCloseButton {
+    background-color: #fff;
+    border: 3px solid #999;
+    border-radius: 50px;
+    cursor: pointer;
+    display: inline-block;
+    font-family: arial;
+    font-weight: bold;
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    font-size: 25px;
+    line-height: 30px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+}
+.popupCloseButton:hover {
+    background-color: #ccc;
+}
+.trigger_popup_fricc {
+    cursor: pointer;
+    font-size: 20px;
+    margin: 20px;
+    display: inline-block;
+    font-weight: bold;
+}
+/* Popup box BEGIN */
+#close-CSS {
+    background-image: url( 'http://thinkingstiff.com/images/matt.jpg' );
+    background-size: 100px 130px;
+    height: 134px;  
+    width: 104px;
+}
+/* Style the back side */
+.flip-card-back {
+  /* background-color: dodgerblue;
+  color: white; */
+  transform: rotateY(180deg);
+}
+table.roundedCorners { 
+  border-radius: 5px; 
+  border-spacing: 0;
+  }
+table.roundedCorners th { 
+  border-bottom: 1px solid white;
+  padding: 5px; 
+  }
+table.roundedCorners tr:last-child > td {
+  border-bottom: none;
+}
+</style>
+</head>
+</head>
+<body oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
+<table bgcolor="#15c415" class="roundedCorners" border="0" width="100%" height="19%"><!--maintrack_color-->
+                <tbody><tr>
+                        <td>
+                                <table border="0" width="100%" height="100" align="left">
+                                        <tbody><tr>
+<td align="center"><b><font color="white" face="Courier New" size="7" align="center">19.2.13.EU6_Linux LINUX MAINTRACK is OPEN</font></b><!--maintrack_status-->
+                                                </td>
+                                        </tr>
+                                </tbody></table>
+                        </td>
+                </tr>
+        </tbody></table>
+	<table border="0" width="100%" height="1%"> 
+	<tbody><tr>
+                        <td>
+                        </td>
+                </tr>
+</tbody></table>
+	<table bgcolor="black" class="roundedCorners" border="0" width="100%" height="80%">
+                <tbody>
+				<tr align="center"><td><b><font face="Courier New" size="6" color="white">KGB</font></b></td></tr>
+				<tr>
+                        <td>
+	<table border="0" width="100%" height="100%" align="left">
+        <tbody>
+				<tr class="marginSpace">
+                        <th align="center" width="14%"><b><font face="Courier New" size="5" color="white">DATE</font></b></th>
+                        <th align="center" width="14%"><b><font face="Courier New" size="5" color="white">PF KGB</font></b></th>
+						<th align="center" width="14%"><b><font face="Courier New" size="5" color="white">TP KGB</font></b></th>
+						<th align="center" width="14%"><b><font face="Courier New" size="5" color="white">INFRA KGB</font></b></th>
+						<th align="center" width="14%"><b><font face="Courier New" size="5" color="white">NMI KGB {II}</font></b></th>
+						<th align="center" width="14%"><b><font face="Courier New" size="5" color="white">NMI KGB {UG}</font></b></th>
+						<th align="center" width="14%"><b><font face="Courier New" size="5" color="white">NMI KGB {RB}</font></b></th>
+				</tr>
+		<!-- Start body -->
+<tr>	<!-- content start  -->
+<td border="1" align="center">
+<table class="roundedCorners" bgcolor="orange" width="80%" height="50%"><tbody><tr><td align="center">
+<font class="hoverEffectBox" face="Courier New" size="5" color="white">11/09<br></font><font id="date" face="Courier New" size="2" color="white"></font></td></tr></tbody></table></td><!--date-->
+<td class="hoverEffectIcon" border="1" align="center"><div class="box"><img id="_x0000_i1025" src="http://eniqdmt.lmera.ericsson.se/artifacts_icon.svg" alt="Minor Fault" title="Not Triggered" width="50" height="50"></a></div> <!-- pf_kgb icon-->
+<div class="content">
+<div id="popup61_pf_11/09" class="overlay">
+		<div class="popup">
+				<table bgcolor="Orange" class="roundedCorners" border="0" width="100%" height="19%">
+                <tbody><tr>	
+<td><table border="0" width="100%" height="100" align="left"><tbody><tr><td align="center"><b><font face="Courier New" size="7" align="center">19.2.13.EU6_Linux LINUX MAINTRACK is OPEN</font></b></td></tr></tbody></table></td><!--maintrack_status-->
+                </tr>
+				</tbody></table>
+				<table bgcolor="white" border="0" width="100%" height="1%"><tbody><tr><td></td></tr></tbody></table>
+				<table bgcolor="black" class="roundedCorners" border="0" width="100%" height="30%">
+				<tbody><tr>
+				<td>
+					<table border="0" width="100%" height="100" align="left">
+					<tbody>
+					<tr>
+						<td><b><font face="Courier New" size="4" color="white">Build Server</font></b></td>
+						<td align="center"><b><font face="Courier New" size="4" color="white">Test Cases</font></b></td>
+						<td align="center"><b><font face="Courier New" size="4" color="white">II PATH</font></b></td>
+					</tr>
+				<tr>
+					<td border="1" align="center">
+<table class="roundedCorners" bgcolor="orange" width="80%" height="50%"><tbody><tr><td align="left"><font face="Courier New" size="6" color="white"></font></td></tr></tbody></table><!-- pf_kgb server -->
+					</td>
+<td border="1" align="center"><a href=""><p><font face="Courier New" size="3" color="white">477/489 Cases Passed</font></p></a></td><!-- pf_kgb tc-->
+<td border="1" align="center"><table class="roundedCorners" bgcolor="orange" width="80%" height="50%"><tbody><tr><td align="center"><font face="Courier New" size="6" color="white">19.2.13.EU6_Linux</font></td></tr></tbody></table><!-- ii_path-->
+				</td></tr>
+			</tbody></table>
+		</td>
+		</tr>
+	</tbody></table>
+		<a class="close" href="" onclick="window.location.reload(true);"><img id="_x0000_i1025" src="http://eniqdmt.lmera.ericsson.se/close-window.png" alt="Minor Fault" width="30" height="30"></a>
+	</div>
+</div>
+</div>
+</td>
+<td class="hoverEffectIcon" border="1" align="center"><div class="box"><img id="_x0000_i1025" src="http://eniqdmt.lmera.ericsson.se/artifacts_icon.svg" alt="Minor Fault" title="Not Triggered" width="50" height="50"></a></div> <!-- pf_kgb icon-->
+<div class="content">
+<div id="popup61_tp_11/09" class="overlay">
+		<div class="popup">
+				<table bgcolor="Orange" class="roundedCorners" border="0" width="100%" height="19%">
+                <tbody><tr>	
+<td><table border="0" width="100%" height="100" align="left"><tbody><tr><td align="center"><b><font face="Courier New" size="7" align="center">19.2.13.EU6_Linux LINUX MAINTRACK is OPEN</font></b></td></tr></tbody></table></td><!--maintrack_status-->
+                </tr>
+				</tbody></table>
+				<table bgcolor="white" border="0" width="100%" height="1%"><tbody><tr><td></td></tr></tbody></table>
+				<table bgcolor="black" class="roundedCorners" border="0" width="100%" height="30%">
+				<tbody><tr>
+				<td>
+					<table border="0" width="100%" height="100" align="left">
+					<tbody>
+					<tr>
+						<td><b><font face="Courier New" size="4" color="white">Build Server</font></b></td>
+						<td align="center"><b><font face="Courier New" size="4" color="white">Test Cases</font></b></td>
+						<td align="center"><b><font face="Courier New" size="4" color="white">II PATH</font></b></td>
+					</tr>
+				<tr>
+					<td border="1" align="center">
+<table class="roundedCorners" bgcolor="orange" width="80%" height="50%"><tbody><tr><td align="left"><font face="Courier New" size="6" color="white"></font></td></tr></tbody></table><!-- tp_kgb server -->
+					</td>
+<td border="1" align="center"><p><font face="Courier New" size="3" color="white">0/0 Cases Passed</font></p></a></td><!--tp_kgb tc -->
+<td border="1" align="center"><table class="roundedCorners" bgcolor="orange" width="80%" height="50%"><tbody><tr><td align="center"><font face="Courier New" size="6" color="white">19.2.13.EU6_Linux</font></td></tr></tbody></table><!-- ii_path-->
+				</td></tr>
+			</tbody></table>
+		</td>
+		</tr>
+	</tbody></table>
+		<a class="close" href="" onclick="window.location.reload(true);"><img id="_x0000_i1025" src="http://eniqdmt.lmera.ericsson.se/close-window.png" alt="Minor Fault" width="30" height="30"></a>
+	</div>
+</div>
+</div>
+</td>
+<td class="hoverEffectIcon" border="1" align="center"><div class="box"><img id="_x0000_i1025" src="http://eniqdmt.lmera.ericsson.se/artifacts_icon.svg" alt="Minor Fault" title="Not Triggered" width="50" height="50"></a></div> <!-- infra_kgb icon-->
+<div class="content">
+<div id="popup61_infra_11/09" class="overlay">
+		<div class="popup">
+				<table bgcolor="Orange" class="roundedCorners" border="0" width="100%" height="19%">
+                <tbody><tr>	
+<td><table border="0" width="100%" height="100" align="left"><tbody><tr><td align="center"><b><font face="Courier New" size="7" align="center">19.2.13.EU6_Linux LINUX MAINTRACK is OPEN</font></b></td></tr></tbody></table></td><!--maintrack_status-->
+                </tr>
+				</tbody></table>
+				<table bgcolor="white" border="0" width="100%" height="1%"><tbody><tr><td></td></tr></tbody></table>
+				<table bgcolor="black" class="roundedCorners" border="0" width="100%" height="30%">
+				<tbody><tr>
+				<td>
+					<table border="0" width="100%" height="100" align="left">
+					<tbody>
+					<tr>
+						<td><b><font face="Courier New" size="4" color="white">Build Server</font></b></td>
+						<td align="center"><b><font face="Courier New" size="4" color="white">Test Cases</font></b></td>
+						<td align="center"><b><font face="Courier New" size="4" color="white">II PATH</font></b></td>
+					</tr>
+				<tr>
+					<td border="1" align="center">
+<table class="roundedCorners" bgcolor="orange" width="80%" height="50%"><tbody><tr><td align="left"><font face="Courier New" size="6" color="white"></font></td></tr></tbody></table><!-- infra_kgb server -->
+					</td>
+<td border="1" align="center"><a href=""><p><font face="Courier New" size="3" color="white">0/0 Cases passed Cases Passed</font></p></td><!-- infra_kgb tc-->
+<td border="1" align="center"><table class="roundedCorners" bgcolor="orange" width="80%" height="50%"><tbody><tr><td align="center"><font face="Courier New" size="6" color="white">19.2.13.EU6_Linux</font></td></tr></tbody></table><!-- ii_path-->
+				</td></tr>
+			</tbody></table>
+		</td>
+		</tr>
+	</tbody></table>
+		<a class="close" href="" onclick="window.location.reload(true);"><img id="_x0000_i1025" src="http://eniqdmt.lmera.ericsson.se/close-window.png" alt="Minor Fault" width="30" height="30"></a>
+	</div>
+</div>
+</div>
+</td>
+<td class="hoverEffectIcon" border="1" align="center"><div class="box"><img id="_x0000_i1025" src="http://eniqdmt.lmera.ericsson.se/artifacts_icon.svg" alt="Minor Fault" title="Not Triggered" width="50" height="50"></a></div> <!-- nmi_kgb_ii icon-->
+<div class="content">
+<div id="popup61_nmi_ii_11/09" class="overlay">
+		<div class="popup">
+				<table bgcolor="Orange" class="roundedCorners" border="0" width="100%" height="19%">
+                <tbody><tr>	
+<td><table border="0" width="100%" height="100" align="left"><tbody><tr><td align="center"><b><font face="Courier New" size="7" align="center">19.2.13.EU6_Linux LINUX MAINTRACK is OPEN</font></b></td></tr></tbody></table></td><!--maintrack_status-->
+                </tr>
+				</tbody></table>
+				<table bgcolor="white" border="0" width="100%" height="1%"><tbody><tr><td></td></tr></tbody></table>
+				<table bgcolor="black" class="roundedCorners" border="0" width="100%" height="30%">
+				<tbody><tr>
+				<td>
+					<table border="0" width="100%" height="100" align="left">
+					<tbody>
+					<tr>
+						<td><b><font face="Courier New" size="4" color="white">Build Server</font></b></td>
+						<td align="center"><b><font face="Courier New" size="4" color="white">Log Sanity Test</font></b></td>
+						<td align="center"><b><font face="Courier New" size="4" color="white">Server Sanity Test</font></b></td>
+						<td align="center"><b><font face="Courier New" size="4" color="white">II PATH</font></b></td>
+					</tr>
+				<tr>
+					<td border="1" align="center">
+<table class="roundedCorners" bgcolor="orange" width="80%" height="50%"><tbody><tr><td align="left"><font face="Courier New" size="6" color="white"></font></td></tr></tbody></table><!-- nmi_kgb_ii server -->
+					</td>
+<td border="1" align="center"><a href=""><p><font face="Courier New" size="3" color="white">0/0 Cases Passed</font></p></a></td><!-- nmi_kgb_ii log tc-->
+<td border="1" align="center"><a href=""><p><font face="Courier New" size="3" color="white">0/0 Cases Passed</font></p></a></td><!-- nmi_kgb_ii smoke tc-->
+<td border="1" align="center"><table class="roundedCorners" bgcolor="orange" width="80%" height="50%"><tbody><tr><td align="center"><font face="Courier New" size="6" color="white">19.2.13.EU6_Linux</font></td></tr></tbody></table><!-- ii_path-->
+				</td></tr>
+			</tbody></table>
+		</td>
+		</tr>
+	</tbody></table>
+		<a class="close" href="" onclick="window.location.reload(true);"><img id="_x0000_i1025" src="http://eniqdmt.lmera.ericsson.se/close-window.png" alt="Minor Fault" width="30" height="30"></a>
+	</div>
+</div>
+</div>
+</td>
+<td class="hoverEffectIcon" border="1" align="center"><div class="box"><img id="_x0000_i1025" src="http://eniqdmt.lmera.ericsson.se/artifacts_icon.svg" alt="Minor Fault" title="Not Triggered" width="50" height="50"></a></div> <!-- nmi_kgb_ug icon-->
+<div class="content">
+<div id="popup61_nmi_ug_11/09" class="overlay">
+		<div class="popup">
+				<table bgcolor="Orange" class="roundedCorners" border="0" width="100%" height="19%">
+                <tbody><tr>	
+<td><table border="0" width="100%" height="100" align="left"><tbody><tr><td align="center"><b><font face="Courier New" size="7" align="center">19.2.13.EU6_Linux LINUX MAINTRACK is OPEN</font></b></td></tr></tbody></table></td><!--maintrack_status-->
+                </tr>
+				</tbody></table>
+				<table bgcolor="white" border="0" width="100%" height="1%"><tbody><tr><td></td></tr></tbody></table>
+				<table bgcolor="black" class="roundedCorners" border="0" width="100%" height="30%">
+				<tbody><tr>
+				<td>
+					<table border="0" width="100%" height="100" align="left">
+					<tbody>
+					<tr>
+						<td><b><font face="Courier New" size="4" color="white">Build Server</font></b></td>
+						<td align="center"><b><font face="Courier New" size="4" color="white">Log Sanity Test</font></b></td>
+						<td align="center"><b><font face="Courier New" size="4" color="white">Server Sanity Test</font></b></td>
+						<td align="center"><b><font face="Courier New" size="4" color="white">II PATH</font></b></td>
+					</tr>
+				<tr>
+					<td border="1" align="center">
+<table class="roundedCorners" bgcolor="orange" width="80%" height="50%"><tbody><tr><td align="left"><font face="Courier New" size="6" color="white"></font></td></tr></tbody></table><!-- nmi_kgb_ug server -->
+					</td>
+<td border="1" align="center"><a href=""><p><font face="Courier New" size="3" color="white">0/0 Cases Passed</font></p></a></td><!-- nmi_kgb_ug log tc-->
+<td border="1" align="center"><a href=""><p><font face="Courier New" size="3" color="white">0/0 Cases Passed</font></p></a></td><!-- nmi_kgb_ug smoke tc-->
+<td border="1" align="center"><table class="roundedCorners" bgcolor="orange" width="80%" height="50%"><tbody><tr><td align="center"><font face="Courier New" size="6" color="white">19.2.13.EU6_Linux</font></td></tr></tbody></table><!-- ii_path-->
+				</td></tr>
+			</tbody></table>
+		</td>
+		</tr>
+	</tbody></table>
+		<a class="close" href="" onclick="window.location.reload(true);"><img id="_x0000_i1025" src="http://eniqdmt.lmera.ericsson.se/close-window.png" alt="Minor Fault" width="30" height="30"></a>
+	</div>
+</div>
+</div>
+</td>
+<td class="hoverEffectIcon" border="1" align="center"><div class="box"><img id="_x0000_i1025" src="http://eniqdmt.lmera.ericsson.se/artifacts_icon.svg" alt="Minor Fault" title="Not Triggered" width="50" height="50"></a></div> <!-- nmi_kgb_ug icon-->
+<div class="content">
+<div id="popup61_nmi_rb_11/09" class="overlay">
+		<div class="popup">
+				<table bgcolor="Orange" class="roundedCorners" border="0" width="100%" height="19%">
+                <tbody><tr>	
+<td><table border="0" width="100%" height="100" align="left"><tbody><tr><td align="center"><b><font face="Courier New" size="7" align="center">19.2.13.EU6_Linux LINUX MAINTRACK is OPEN</font></b></td></tr></tbody></table></td><!--maintrack_status-->
+                </tr>
+				</tbody></table>
+				<table bgcolor="white" border="0" width="100%" height="1%"><tbody><tr><td></td></tr></tbody></table>
+				<table bgcolor="black" class="roundedCorners" border="0" width="100%" height="30%">
+				<tbody><tr>
+				<td>
+					<table border="0" width="100%" height="100" align="left">
+					<tbody>
+					<tr>
+						<td><b><font face="Courier New" size="4" color="white">Build Server</font></b></td>
+						<td align="center"><b><font face="Courier New" size="4" color="white">Log Sanity Test</font></b></td>
+						<td align="center"><b><font face="Courier New" size="4" color="white">II PATH</font></b></td>
+					</tr>
+				<tr>
+					<td border="1" align="center">
+<table class="roundedCorners" bgcolor="orange" width="80%" height="50%"><tbody><tr><td align="left"><font face="Courier New" size="6" color="white"></font></td></tr></tbody></table><!-- nmi_kgb_rb server -->
+					</td>
+<td border="1" align="center"><a href=""><p><font face="Courier New" size="3" color="white">0/0 Cases Passed</font></p></a></td><!-- nmi_kgb_rb log tc-->
+<td border="1" align="center"><a href=""><p><font face="Courier New" size="3" color="white">0/0 Cases Passed</font></p></a></td><!-- nmi_kgb_rb smoke tc-->
+<td border="1" align="center"><table class="roundedCorners" bgcolor="orange" width="80%" height="50%"><tbody><tr><td align="center"><font face="Courier New" size="6" color="white">19.2.13.EU6_Linux</font></td></tr></tbody></table><!-- ii_path-->
+				</td></tr>
+			</tbody></table>
+		</td>
+		</tr>
+	</tbody></table>
+		<a class="close" href="" onclick="window.location.reload(true);"><img id="_x0000_i1025" src="http://eniqdmt.lmera.ericsson.se/close-window.png" alt="Minor Fault" width="30" height="30"></a>
+	</div>
+</div>
+</div>
+</td>
+</tr>	<!-- content end -->
+<tr>	<!-- content start  -->
+<td border="1" align="center">
+<table class="roundedCorners" bgcolor="orange" width="80%" height="50%"><tbody><tr><td align="center">
+<font class="hoverEffectBox" face="Courier New" size="5" color="white">10/09<br></font><font id="date" face="Courier New" size="2" color="white"></font></td></tr></tbody></table></td><!--date-->
+<td class="hoverEffectIcon" border="1" align="center"><div class="box"><a class="button" href="#popup61_pf_10/09"><img id="_x0000_i1025" src="http://eniqdmt.lmera.ericsson.se/tick.svg" alt="Minor Fault" width="50" height="50"></a></div> <!-- pf_kgb icon-->
+<div class="content">
+<div id="popup61_pf_10/09" class="overlay">
+		<div class="popup">
+				<table bgcolor="Orange" class="roundedCorners" border="0" width="100%" height="19%">
+                <tbody><tr>	
+<td><table border="0" width="100%" height="100" align="left"><tbody><tr><td align="center"><b><font face="Courier New" size="7" align="center">19.2.13.EU6_Linux LINUX MAINTRACK is OPEN</font></b></td></tr></tbody></table></td><!--maintrack_status-->
+                </tr>
+				</tbody></table>
+				<table bgcolor="white" border="0" width="100%" height="1%"><tbody><tr><td></td></tr></tbody></table>
+				<table bgcolor="black" class="roundedCorners" border="0" width="100%" height="30%">
+				<tbody><tr>
+				<td>
+					<table border="0" width="100%" height="100" align="left">
+					<tbody>
+					<tr>
+						<td><b><font face="Courier New" size="4" color="white">Build Server</font></b></td>
+						<td align="center"><b><font face="Courier New" size="4" color="white">Test Cases</font></b></td>
+						<td align="center"><b><font face="Courier New" size="4" color="white">II PATH</font></b></td>
+					</tr>
+				<tr>
+					<td border="1" align="center">
+<table class="roundedCorners" bgcolor="orange" width="80%" height="50%"><tbody><tr><td align="left"><font face="Courier New" size="6" color="white">atvts4100</font></td></tr></tbody></table><!-- pf_kgb server -->
+					</td>
+<td border="1" align="center"><a href="https://fem156-eiffel004.lmera.ericsson.se:8443/jenkins/view/PF_KGB/job/PF_KGB_TAF_TESTCASES/108/allure"><p><font face="Courier New" size="3" color="white">0/0 Cases Passed</font></p></a></td><!-- pf_kgb tc-->
+<td border="1" align="center"><table class="roundedCorners" bgcolor="orange" width="80%" height="50%"><tbody><tr><td align="center"><font face="Courier New" size="6" color="white">19.2.13.EU6_Linux</font></td></tr></tbody></table><!-- ii_path-->
+				</td></tr>
+			</tbody></table>
+		</td>
+		</tr>
+	</tbody></table>
+		<a class="close" href="" onclick="window.location.reload(true);"><img id="_x0000_i1025" src="http://eniqdmt.lmera.ericsson.se/close-window.png" alt="Minor Fault" width="30" height="30"></a>
+	</div>
+</div>
+</div>
+</td>
+<td class="hoverEffectIcon" border="1" align="center"><div class="box"><a class="button" href="#popup61_tp_10/09"><img id="_x0000_i1025" src="http://eniqdmt.lmera.ericsson.se/close-window.png" alt="Minor Fault" width="50" height="50"></a></div> <!-- pf_kgb icon-->
+<div class="content">
+<div id="popup61_tp_10/09" class="overlay">
+		<div class="popup">
+				<table bgcolor="Orange" class="roundedCorners" border="0" width="100%" height="19%">
+                <tbody><tr>	
+<td><table border="0" width="100%" height="100" align="left"><tbody><tr><td align="center"><b><font face="Courier New" size="7" align="center">19.2.13.EU6_Linux LINUX MAINTRACK is OPEN</font></b></td></tr></tbody></table></td><!--maintrack_status-->
+                </tr>
+				</tbody></table>
+				<table bgcolor="white" border="0" width="100%" height="1%"><tbody><tr><td></td></tr></tbody></table>
+				<table bgcolor="black" class="roundedCorners" border="0" width="100%" height="30%">
+				<tbody><tr>
+				<td>
+					<table border="0" width="100%" height="100" align="left">
+					<tbody>
+					<tr>
+						<td><b><font face="Courier New" size="4" color="white">Build Server</font></b></td>
+						<td align="center"><b><font face="Courier New" size="4" color="white">Test Cases</font></b></td>
+						<td align="center"><b><font face="Courier New" size="4" color="white">II PATH</font></b></td>
+					</tr>
+				<tr>
+					<td border="1" align="center">
+<table class="roundedCorners" bgcolor="orange" width="80%" height="50%"><tbody><tr><td align="left"><font face="Courier New" size="6" color="white">atvts4071</font></td></tr></tbody></table><!-- tp_kgb server -->
+					</td>
+<td border="1" align="center"><p><font face="Courier New" size="3" color="white">0/0 Cases Passed</font></p></a></td><!--tp_kgb tc -->
+<td border="1" align="center"><table class="roundedCorners" bgcolor="orange" width="80%" height="50%"><tbody><tr><td align="center"><font face="Courier New" size="6" color="white">19.2.13.EU6_Linux</font></td></tr></tbody></table><!-- ii_path-->
+				</td></tr>
+			</tbody></table>
+		</td>
+		</tr>
+	</tbody></table>
+		<a class="close" href="" onclick="window.location.reload(true);"><img id="_x0000_i1025" src="http://eniqdmt.lmera.ericsson.se/close-window.png" alt="Minor Fault" width="30" height="30"></a>
+	</div>
+</div>
+</div>
+</td>
+<td class="hoverEffectIcon" border="1" align="center"><div class="box"><img id="_x0000_i1025" src="http://eniqdmt.lmera.ericsson.se/artifacts_icon.svg" alt="Minor Fault" title="Not Triggered" width="50" height="50"></a></div> <!-- infra_kgb icon-->
+<div class="content">
+<div id="popup61_infra_10/09" class="overlay">
+		<div class="popup">
+				<table bgcolor="Orange" class="roundedCorners" border="0" width="100%" height="19%">
+                <tbody><tr>	
+<td><table border="0" width="100%" height="100" align="left"><tbody><tr><td align="center"><b><font face="Courier New" size="7" align="center">19.2.13.EU6_Linux LINUX MAINTRACK is OPEN</font></b></td></tr></tbody></table></td><!--maintrack_status-->
+                </tr>
+				</tbody></table>
+				<table bgcolor="white" border="0" width="100%" height="1%"><tbody><tr><td></td></tr></tbody></table>
+				<table bgcolor="black" class="roundedCorners" border="0" width="100%" height="30%">
+				<tbody><tr>
+				<td>
+					<table border="0" width="100%" height="100" align="left">
+					<tbody>
+					<tr>
+						<td><b><font face="Courier New" size="4" color="white">Build Server</font></b></td>
+						<td align="center"><b><font face="Courier New" size="4" color="white">Test Cases</font></b></td>
+						<td align="center"><b><font face="Courier New" size="4" color="white">II PATH</font></b></td>
+					</tr>
+				<tr>
+					<td border="1" align="center">
+<table class="roundedCorners" bgcolor="orange" width="80%" height="50%"><tbody><tr><td align="left"><font face="Courier New" size="6" color="white"></font></td></tr></tbody></table><!-- infra_kgb server -->
+					</td>
+<td border="1" align="center"><a href=""><p><font face="Courier New" size="3" color="white">0/0 Cases passed Cases Passed</font></p></td><!-- infra_kgb tc-->
+<td border="1" align="center"><table class="roundedCorners" bgcolor="orange" width="80%" height="50%"><tbody><tr><td align="center"><font face="Courier New" size="6" color="white">19.2.13.EU6_Linux</font></td></tr></tbody></table><!-- ii_path-->
+				</td></tr>
+			</tbody></table>
+		</td>
+		</tr>
+	</tbody></table>
+		<a class="close" href="" onclick="window.location.reload(true);"><img id="_x0000_i1025" src="http://eniqdmt.lmera.ericsson.se/close-window.png" alt="Minor Fault" width="30" height="30"></a>
+	</div>
+</div>
+</div>
+</td>
+<td class="hoverEffectIcon" border="1" align="center"><div class="box"><img id="_x0000_i1025" src="http://eniqdmt.lmera.ericsson.se/artifacts_icon.svg" alt="Minor Fault" title="Not Triggered" width="50" height="50"></a></div> <!-- nmi_kgb_ii icon-->
+<div class="content">
+<div id="popup61_nmi_ii_10/09" class="overlay">
+		<div class="popup">
+				<table bgcolor="Orange" class="roundedCorners" border="0" width="100%" height="19%">
+                <tbody><tr>	
+<td><table border="0" width="100%" height="100" align="left"><tbody><tr><td align="center"><b><font face="Courier New" size="7" align="center">19.2.13.EU6_Linux LINUX MAINTRACK is OPEN</font></b></td></tr></tbody></table></td><!--maintrack_status-->
+                </tr>
+				</tbody></table>
+				<table bgcolor="white" border="0" width="100%" height="1%"><tbody><tr><td></td></tr></tbody></table>
+				<table bgcolor="black" class="roundedCorners" border="0" width="100%" height="30%">
+				<tbody><tr>
+				<td>
+					<table border="0" width="100%" height="100" align="left">
+					<tbody>
+					<tr>
+						<td><b><font face="Courier New" size="4" color="white">Build Server</font></b></td>
+						<td align="center"><b><font face="Courier New" size="4" color="white">Log Sanity Test</font></b></td>
+						<td align="center"><b><font face="Courier New" size="4" color="white">Server Sanity Test</font></b></td>
+						<td align="center"><b><font face="Courier New" size="4" color="white">II PATH</font></b></td>
+					</tr>
+				<tr>
+					<td border="1" align="center">
+<table class="roundedCorners" bgcolor="orange" width="80%" height="50%"><tbody><tr><td align="left"><font face="Courier New" size="6" color="white"></font></td></tr></tbody></table><!-- nmi_kgb_ii server -->
+					</td>
+<td border="1" align="center"><a href=""><p><font face="Courier New" size="3" color="white">0/0 Cases Passed</font></p></a></td><!-- nmi_kgb_ii log tc-->
+<td border="1" align="center"><a href=""><p><font face="Courier New" size="3" color="white">0/0 Cases Passed</font></p></a></td><!-- nmi_kgb_ii smoke tc-->
+<td border="1" align="center"><table class="roundedCorners" bgcolor="orange" width="80%" height="50%"><tbody><tr><td align="center"><font face="Courier New" size="6" color="white">19.2.13.EU6_Linux</font></td></tr></tbody></table><!-- ii_path-->
+				</td></tr>
+			</tbody></table>
+		</td>
+		</tr>
+	</tbody></table>
+		<a class="close" href="" onclick="window.location.reload(true);"><img id="_x0000_i1025" src="http://eniqdmt.lmera.ericsson.se/close-window.png" alt="Minor Fault" width="30" height="30"></a>
+	</div>
+</div>
+</div>
+</td>
+<td class="hoverEffectIcon" border="1" align="center"><div class="box"><img id="_x0000_i1025" src="http://eniqdmt.lmera.ericsson.se/artifacts_icon.svg" alt="Minor Fault" title="Not Triggered" width="50" height="50"></a></div> <!-- nmi_kgb_ug icon-->
+<div class="content">
+<div id="popup61_nmi_ug_10/09" class="overlay">
+		<div class="popup">
+				<table bgcolor="Orange" class="roundedCorners" border="0" width="100%" height="19%">
+                <tbody><tr>	
+<td><table border="0" width="100%" height="100" align="left"><tbody><tr><td align="center"><b><font face="Courier New" size="7" align="center">19.2.13.EU6_Linux LINUX MAINTRACK is OPEN</font></b></td></tr></tbody></table></td><!--maintrack_status-->
+                </tr>
+				</tbody></table>
+				<table bgcolor="white" border="0" width="100%" height="1%"><tbody><tr><td></td></tr></tbody></table>
+				<table bgcolor="black" class="roundedCorners" border="0" width="100%" height="30%">
+				<tbody><tr>
+				<td>
+					<table border="0" width="100%" height="100" align="left">
+					<tbody>
+					<tr>
+						<td><b><font face="Courier New" size="4" color="white">Build Server</font></b></td>
+						<td align="center"><b><font face="Courier New" size="4" color="white">Log Sanity Test</font></b></td>
+						<td align="center"><b><font face="Courier New" size="4" color="white">Server Sanity Test</font></b></td>
+						<td align="center"><b><font face="Courier New" size="4" color="white">II PATH</font></b></td>
+					</tr>
+				<tr>
+					<td border="1" align="center">
+<table class="roundedCorners" bgcolor="orange" width="80%" height="50%"><tbody><tr><td align="left"><font face="Courier New" size="6" color="white"></font></td></tr></tbody></table><!-- nmi_kgb_ug server -->
+					</td>
+<td border="1" align="center"><a href=""><p><font face="Courier New" size="3" color="white">0/0 Cases Passed</font></p></a></td><!-- nmi_kgb_ug log tc-->
+<td border="1" align="center"><a href=""><p><font face="Courier New" size="3" color="white">0/0 Cases Passed</font></p></a></td><!-- nmi_kgb_ug smoke tc-->
+<td border="1" align="center"><table class="roundedCorners" bgcolor="orange" width="80%" height="50%"><tbody><tr><td align="center"><font face="Courier New" size="6" color="white">19.2.13.EU6_Linux</font></td></tr></tbody></table><!-- ii_path-->
+				</td></tr>
+			</tbody></table>
+		</td>
+		</tr>
+	</tbody></table>
+		<a class="close" href="" onclick="window.location.reload(true);"><img id="_x0000_i1025" src="http://eniqdmt.lmera.ericsson.se/close-window.png" alt="Minor Fault" width="30" height="30"></a>
+	</div>
+</div>
+</div>
+</td>
+<td class="hoverEffectIcon" border="1" align="center"><div class="box"><img id="_x0000_i1025" src="http://eniqdmt.lmera.ericsson.se/artifacts_icon.svg" alt="Minor Fault" title="Not Triggered" width="50" height="50"></a></div> <!-- nmi_kgb_ug icon-->
+<div class="content">
+<div id="popup61_nmi_rb_10/09" class="overlay">
+		<div class="popup">
+				<table bgcolor="Orange" class="roundedCorners" border="0" width="100%" height="19%">
+                <tbody><tr>	
+<td><table border="0" width="100%" height="100" align="left"><tbody><tr><td align="center"><b><font face="Courier New" size="7" align="center">19.2.13.EU6_Linux LINUX MAINTRACK is OPEN</font></b></td></tr></tbody></table></td><!--maintrack_status-->
+                </tr>
+				</tbody></table>
+				<table bgcolor="white" border="0" width="100%" height="1%"><tbody><tr><td></td></tr></tbody></table>
+				<table bgcolor="black" class="roundedCorners" border="0" width="100%" height="30%">
+				<tbody><tr>
+				<td>
+					<table border="0" width="100%" height="100" align="left">
+					<tbody>
+					<tr>
+						<td><b><font face="Courier New" size="4" color="white">Build Server</font></b></td>
+						<td align="center"><b><font face="Courier New" size="4" color="white">Log Sanity Test</font></b></td>
+						<td align="center"><b><font face="Courier New" size="4" color="white">II PATH</font></b></td>
+					</tr>
+				<tr>
+					<td border="1" align="center">
+<table class="roundedCorners" bgcolor="orange" width="80%" height="50%"><tbody><tr><td align="left"><font face="Courier New" size="6" color="white"></font></td></tr></tbody></table><!-- nmi_kgb_rb server -->
+					</td>
+<td border="1" align="center"><a href=""><p><font face="Courier New" size="3" color="white">0/0 Cases Passed</font></p></a></td><!-- nmi_kgb_rb log tc-->
+<td border="1" align="center"><a href=""><p><font face="Courier New" size="3" color="white">0/0 Cases Passed</font></p></a></td><!-- nmi_kgb_rb smoke tc-->
+<td border="1" align="center"><table class="roundedCorners" bgcolor="orange" width="80%" height="50%"><tbody><tr><td align="center"><font face="Courier New" size="6" color="white">19.2.13.EU6_Linux</font></td></tr></tbody></table><!-- ii_path-->
+				</td></tr>
+			</tbody></table>
+		</td>
+		</tr>
+	</tbody></table>
+		<a class="close" href="" onclick="window.location.reload(true);"><img id="_x0000_i1025" src="http://eniqdmt.lmera.ericsson.se/close-window.png" alt="Minor Fault" width="30" height="30"></a>
+	</div>
+</div>
+</div>
+</td>
+</tr>	<!-- content end -->
+<tr>	<!-- content start  -->
+<td border="1" align="center">
+<table class="roundedCorners" bgcolor="orange" width="80%" height="50%"><tbody><tr><td align="center">
+<font class="hoverEffectBox" face="Courier New" size="5" color="white">06/09<br></font><font id="date" face="Courier New" size="2" color="white"></font></td></tr></tbody></table></td><!--date-->
+<td class="hoverEffectIcon" border="1" align="center"><div class="box"><img id="_x0000_i1025" src="http://eniqdmt.lmera.ericsson.se/artifacts_icon.svg" alt="Minor Fault" title="Not Triggered" width="50" height="50"></a></div> <!-- pf_kgb icon-->
+<div class="content">
+<div id="popup61_pf_06/09" class="overlay">
+		<div class="popup">
+				<table bgcolor="Orange" class="roundedCorners" border="0" width="100%" height="19%">
+                <tbody><tr>	
+<td><table border="0" width="100%" height="100" align="left"><tbody><tr><td align="center"><b><font face="Courier New" size="7" align="center">19.2.13.EU6_Linux LINUX MAINTRACK is OPEN</font></b></td></tr></tbody></table></td><!--maintrack_status-->
+                </tr>
+				</tbody></table>
+				<table bgcolor="white" border="0" width="100%" height="1%"><tbody><tr><td></td></tr></tbody></table>
+				<table bgcolor="black" class="roundedCorners" border="0" width="100%" height="30%">
+				<tbody><tr>
+				<td>
+					<table border="0" width="100%" height="100" align="left">
+					<tbody>
+					<tr>
+						<td><b><font face="Courier New" size="4" color="white">Build Server</font></b></td>
+						<td align="center"><b><font face="Courier New" size="4" color="white">Test Cases</font></b></td>
+						<td align="center"><b><font face="Courier New" size="4" color="white">II PATH</font></b></td>
+					</tr>
+				<tr>
+					<td border="1" align="center">
+<table class="roundedCorners" bgcolor="orange" width="80%" height="50%"><tbody><tr><td align="left"><font face="Courier New" size="6" color="white"></font></td></tr></tbody></table><!-- pf_kgb server -->
+					</td>
+<td border="1" align="center"><a href=""><p><font face="Courier New" size="3" color="white">0/0 Cases Passed</font></p></a></td><!-- pf_kgb tc-->
+<td border="1" align="center"><table class="roundedCorners" bgcolor="orange" width="80%" height="50%"><tbody><tr><td align="center"><font face="Courier New" size="6" color="white">19.2.13.EU6_Linux</font></td></tr></tbody></table><!-- ii_path-->
+				</td></tr>
+			</tbody></table>
+		</td>
+		</tr>
+	</tbody></table>
+		<a class="close" href="" onclick="window.location.reload(true);"><img id="_x0000_i1025" src="http://eniqdmt.lmera.ericsson.se/close-window.png" alt="Minor Fault" width="30" height="30"></a>
+	</div>
+</div>
+</div>
+</td>
+<td class="hoverEffectIcon" border="1" align="center"><div class="box"><img id="_x0000_i1025" src="http://eniqdmt.lmera.ericsson.se/artifacts_icon.svg" alt="Minor Fault" title="Not Triggered" width="50" height="50"></a></div> <!-- pf_kgb icon-->
+<div class="content">
+<div id="popup61_tp_06/09" class="overlay">
+		<div class="popup">
+				<table bgcolor="Orange" class="roundedCorners" border="0" width="100%" height="19%">
+                <tbody><tr>	
+<td><table border="0" width="100%" height="100" align="left"><tbody><tr><td align="center"><b><font face="Courier New" size="7" align="center">19.2.13.EU6_Linux LINUX MAINTRACK is OPEN</font></b></td></tr></tbody></table></td><!--maintrack_status-->
+                </tr>
+				</tbody></table>
+				<table bgcolor="white" border="0" width="100%" height="1%"><tbody><tr><td></td></tr></tbody></table>
+				<table bgcolor="black" class="roundedCorners" border="0" width="100%" height="30%">
+				<tbody><tr>
+				<td>
+					<table border="0" width="100%" height="100" align="left">
+					<tbody>
+					<tr>
+						<td><b><font face="Courier New" size="4" color="white">Build Server</font></b></td>
+						<td align="center"><b><font face="Courier New" size="4" color="white">Test Cases</font></b></td>
+						<td align="center"><b><font face="Courier New" size="4" color="white">II PATH</font></b></td>
+					</tr>
+				<tr>
+					<td border="1" align="center">
+<table class="roundedCorners" bgcolor="orange" width="80%" height="50%"><tbody><tr><td align="left"><font face="Courier New" size="6" color="white"></font></td></tr></tbody></table><!-- tp_kgb server -->
+					</td>
+<td border="1" align="center"><p><font face="Courier New" size="3" color="white">1444/3114 Cases Passed</font></p></a></td><!--tp_kgb tc -->
+<td border="1" align="center"><table class="roundedCorners" bgcolor="orange" width="80%" height="50%"><tbody><tr><td align="center"><font face="Courier New" size="6" color="white">19.2.13.EU6_Linux</font></td></tr></tbody></table><!-- ii_path-->
+				</td></tr>
+			</tbody></table>
+		</td>
+		</tr>
+	</tbody></table>
+		<a class="close" href="" onclick="window.location.reload(true);"><img id="_x0000_i1025" src="http://eniqdmt.lmera.ericsson.se/close-window.png" alt="Minor Fault" width="30" height="30"></a>
+	</div>
+</div>
+</div>
+</td>
+<td class="hoverEffectIcon" border="1" align="center"><div class="box"><img id="_x0000_i1025" src="http://eniqdmt.lmera.ericsson.se/artifacts_icon.svg" alt="Minor Fault" title="Not Triggered" width="50" height="50"></a></div> <!-- infra_kgb icon-->
+<div class="content">
+<div id="popup61_infra_06/09" class="overlay">
+		<div class="popup">
+				<table bgcolor="Orange" class="roundedCorners" border="0" width="100%" height="19%">
+                <tbody><tr>	
+<td><table border="0" width="100%" height="100" align="left"><tbody><tr><td align="center"><b><font face="Courier New" size="7" align="center">19.2.13.EU6_Linux LINUX MAINTRACK is OPEN</font></b></td></tr></tbody></table></td><!--maintrack_status-->
+                </tr>
+				</tbody></table>
+				<table bgcolor="white" border="0" width="100%" height="1%"><tbody><tr><td></td></tr></tbody></table>
+				<table bgcolor="black" class="roundedCorners" border="0" width="100%" height="30%">
+				<tbody><tr>
+				<td>
+					<table border="0" width="100%" height="100" align="left">
+					<tbody>
+					<tr>
+						<td><b><font face="Courier New" size="4" color="white">Build Server</font></b></td>
+						<td align="center"><b><font face="Courier New" size="4" color="white">Test Cases</font></b></td>
+						<td align="center"><b><font face="Courier New" size="4" color="white">II PATH</font></b></td>
+					</tr>
+				<tr>
+					<td border="1" align="center">
+<table class="roundedCorners" bgcolor="orange" width="80%" height="50%"><tbody><tr><td align="left"><font face="Courier New" size="6" color="white"></font></td></tr></tbody></table><!-- infra_kgb server -->
+					</td>
+<td border="1" align="center"><a href=""><p><font face="Courier New" size="3" color="white">0/0 Cases passed Cases Passed</font></p></td><!-- infra_kgb tc-->
+<td border="1" align="center"><table class="roundedCorners" bgcolor="orange" width="80%" height="50%"><tbody><tr><td align="center"><font face="Courier New" size="6" color="white">19.2.13.EU6_Linux</font></td></tr></tbody></table><!-- ii_path-->
+				</td></tr>
+			</tbody></table>
+		</td>
+		</tr>
+	</tbody></table>
+		<a class="close" href="" onclick="window.location.reload(true);"><img id="_x0000_i1025" src="http://eniqdmt.lmera.ericsson.se/close-window.png" alt="Minor Fault" width="30" height="30"></a>
+	</div>
+</div>
+</div>
+</td>
+<td class="hoverEffectIcon" border="1" align="center"><div class="box"><img id="_x0000_i1025" src="http://eniqdmt.lmera.ericsson.se/artifacts_icon.svg" alt="Minor Fault" title="Not Triggered" width="50" height="50"></a></div> <!-- nmi_kgb_ii icon-->
+<div class="content">
+<div id="popup61_nmi_ii_06/09" class="overlay">
+		<div class="popup">
+				<table bgcolor="Orange" class="roundedCorners" border="0" width="100%" height="19%">
+                <tbody><tr>	
+<td><table border="0" width="100%" height="100" align="left"><tbody><tr><td align="center"><b><font face="Courier New" size="7" align="center">19.2.13.EU6_Linux LINUX MAINTRACK is OPEN</font></b></td></tr></tbody></table></td><!--maintrack_status-->
+                </tr>
+				</tbody></table>
+				<table bgcolor="white" border="0" width="100%" height="1%"><tbody><tr><td></td></tr></tbody></table>
+				<table bgcolor="black" class="roundedCorners" border="0" width="100%" height="30%">
+				<tbody><tr>
+				<td>
+					<table border="0" width="100%" height="100" align="left">
+					<tbody>
+					<tr>
+						<td><b><font face="Courier New" size="4" color="white">Build Server</font></b></td>
+						<td align="center"><b><font face="Courier New" size="4" color="white">Log Sanity Test</font></b></td>
+						<td align="center"><b><font face="Courier New" size="4" color="white">Server Sanity Test</font></b></td>
+						<td align="center"><b><font face="Courier New" size="4" color="white">II PATH</font></b></td>
+					</tr>
+				<tr>
+					<td border="1" align="center">
+<table class="roundedCorners" bgcolor="orange" width="80%" height="50%"><tbody><tr><td align="left"><font face="Courier New" size="6" color="white"></font></td></tr></tbody></table><!-- nmi_kgb_ii server -->
+					</td>
+<td border="1" align="center"><a href=""><p><font face="Courier New" size="3" color="white">0/0 Cases Passed</font></p></a></td><!-- nmi_kgb_ii log tc-->
+<td border="1" align="center"><a href=""><p><font face="Courier New" size="3" color="white">0/0 Cases Passed</font></p></a></td><!-- nmi_kgb_ii smoke tc-->
+<td border="1" align="center"><table class="roundedCorners" bgcolor="orange" width="80%" height="50%"><tbody><tr><td align="center"><font face="Courier New" size="6" color="white">19.2.13.EU6_Linux</font></td></tr></tbody></table><!-- ii_path-->
+				</td></tr>
+			</tbody></table>
+		</td>
+		</tr>
+	</tbody></table>
+		<a class="close" href="" onclick="window.location.reload(true);"><img id="_x0000_i1025" src="http://eniqdmt.lmera.ericsson.se/close-window.png" alt="Minor Fault" width="30" height="30"></a>
+	</div>
+</div>
+</div>
+</td>
+<td class="hoverEffectIcon" border="1" align="center"><div class="box"><img id="_x0000_i1025" src="http://eniqdmt.lmera.ericsson.se/artifacts_icon.svg" alt="Minor Fault" title="Not Triggered" width="50" height="50"></a></div> <!-- nmi_kgb_ug icon-->
+<div class="content">
+<div id="popup61_nmi_ug_06/09" class="overlay">
+		<div class="popup">
+				<table bgcolor="Orange" class="roundedCorners" border="0" width="100%" height="19%">
+                <tbody><tr>	
+<td><table border="0" width="100%" height="100" align="left"><tbody><tr><td align="center"><b><font face="Courier New" size="7" align="center">19.2.13.EU6_Linux LINUX MAINTRACK is OPEN</font></b></td></tr></tbody></table></td><!--maintrack_status-->
+                </tr>
+				</tbody></table>
+				<table bgcolor="white" border="0" width="100%" height="1%"><tbody><tr><td></td></tr></tbody></table>
+				<table bgcolor="black" class="roundedCorners" border="0" width="100%" height="30%">
+				<tbody><tr>
+				<td>
+					<table border="0" width="100%" height="100" align="left">
+					<tbody>
+					<tr>
+						<td><b><font face="Courier New" size="4" color="white">Build Server</font></b></td>
+						<td align="center"><b><font face="Courier New" size="4" color="white">Log Sanity Test</font></b></td>
+						<td align="center"><b><font face="Courier New" size="4" color="white">Server Sanity Test</font></b></td>
+						<td align="center"><b><font face="Courier New" size="4" color="white">II PATH</font></b></td>
+					</tr>
+				<tr>
+					<td border="1" align="center">
+<table class="roundedCorners" bgcolor="orange" width="80%" height="50%"><tbody><tr><td align="left"><font face="Courier New" size="6" color="white"></font></td></tr></tbody></table><!-- nmi_kgb_ug server -->
+					</td>
+<td border="1" align="center"><a href=""><p><font face="Courier New" size="3" color="white">0/0 Cases Passed</font></p></a></td><!-- nmi_kgb_ug log tc-->
+<td border="1" align="center"><a href=""><p><font face="Courier New" size="3" color="white">0/0 Cases Passed</font></p></a></td><!-- nmi_kgb_ug smoke tc-->
+<td border="1" align="center"><table class="roundedCorners" bgcolor="orange" width="80%" height="50%"><tbody><tr><td align="center"><font face="Courier New" size="6" color="white">19.2.13.EU6_Linux</font></td></tr></tbody></table><!-- ii_path-->
+				</td></tr>
+			</tbody></table>
+		</td>
+		</tr>
+	</tbody></table>
+		<a class="close" href="" onclick="window.location.reload(true);"><img id="_x0000_i1025" src="http://eniqdmt.lmera.ericsson.se/close-window.png" alt="Minor Fault" width="30" height="30"></a>
+	</div>
+</div>
+</div>
+</td>
+<td class="hoverEffectIcon" border="1" align="center"><div class="box"><img id="_x0000_i1025" src="http://eniqdmt.lmera.ericsson.se/artifacts_icon.svg" alt="Minor Fault" title="Not Triggered" width="50" height="50"></a></div> <!-- nmi_kgb_ug icon-->
+<div class="content">
+<div id="popup61_nmi_rb_06/09" class="overlay">
+		<div class="popup">
+				<table bgcolor="Orange" class="roundedCorners" border="0" width="100%" height="19%">
+                <tbody><tr>	
+<td><table border="0" width="100%" height="100" align="left"><tbody><tr><td align="center"><b><font face="Courier New" size="7" align="center">19.2.13.EU6_Linux LINUX MAINTRACK is OPEN</font></b></td></tr></tbody></table></td><!--maintrack_status-->
+                </tr>
+				</tbody></table>
+				<table bgcolor="white" border="0" width="100%" height="1%"><tbody><tr><td></td></tr></tbody></table>
+				<table bgcolor="black" class="roundedCorners" border="0" width="100%" height="30%">
+				<tbody><tr>
+				<td>
+					<table border="0" width="100%" height="100" align="left">
+					<tbody>
+					<tr>
+						<td><b><font face="Courier New" size="4" color="white">Build Server</font></b></td>
+						<td align="center"><b><font face="Courier New" size="4" color="white">Log Sanity Test</font></b></td>
+						<td align="center"><b><font face="Courier New" size="4" color="white">II PATH</font></b></td>
+					</tr>
+				<tr>
+					<td border="1" align="center">
+<table class="roundedCorners" bgcolor="orange" width="80%" height="50%"><tbody><tr><td align="left"><font face="Courier New" size="6" color="white"></font></td></tr></tbody></table><!-- nmi_kgb_rb server -->
+					</td>
+<td border="1" align="center"><a href=""><p><font face="Courier New" size="3" color="white">0/0 Cases Passed</font></p></a></td><!-- nmi_kgb_rb log tc-->
+<td border="1" align="center"><a href=""><p><font face="Courier New" size="3" color="white">0/0 Cases Passed</font></p></a></td><!-- nmi_kgb_rb smoke tc-->
+<td border="1" align="center"><table class="roundedCorners" bgcolor="orange" width="80%" height="50%"><tbody><tr><td align="center"><font face="Courier New" size="6" color="white">19.2.13.EU6_Linux</font></td></tr></tbody></table><!-- ii_path-->
+				</td></tr>
+			</tbody></table>
+		</td>
+		</tr>
+	</tbody></table>
+		<a class="close" href="" onclick="window.location.reload(true);"><img id="_x0000_i1025" src="http://eniqdmt.lmera.ericsson.se/close-window.png" alt="Minor Fault" width="30" height="30"></a>
+	</div>
+</div>
+</div>
+</td>
+</tr>	<!-- content end -->
+<tr>	<!-- content start  -->
+<td border="1" align="center">
+<table class="roundedCorners" bgcolor="orange" width="80%" height="50%"><tbody><tr><td align="center">
+<font class="hoverEffectBox" face="Courier New" size="5" color="white">05/09<br></font><font id="date" face="Courier New" size="2" color="white"></font></td></tr></tbody></table></td><!--date-->
+<td class="hoverEffectIcon" border="1" align="center"><div class="box"><img id="_x0000_i1025" src="http://eniqdmt.lmera.ericsson.se/artifacts_icon.svg" alt="Minor Fault" title="Not Triggered" width="50" height="50"></a></div> <!-- pf_kgb icon-->
+<div class="content">
+<div id="popup61_pf_05/09" class="overlay">
+		<div class="popup">
+				<table bgcolor="Orange" class="roundedCorners" border="0" width="100%" height="19%">
+                <tbody><tr>	
+<td><table border="0" width="100%" height="100" align="left"><tbody><tr><td align="center"><b><font face="Courier New" size="7" align="center">19.2.13.EU6_Linux LINUX MAINTRACK is OPEN</font></b></td></tr></tbody></table></td><!--maintrack_status-->
+                </tr>
+				</tbody></table>
+				<table bgcolor="white" border="0" width="100%" height="1%"><tbody><tr><td></td></tr></tbody></table>
+				<table bgcolor="black" class="roundedCorners" border="0" width="100%" height="30%">
+				<tbody><tr>
+				<td>
+					<table border="0" width="100%" height="100" align="left">
+					<tbody>
+					<tr>
+						<td><b><font face="Courier New" size="4" color="white">Build Server</font></b></td>
+						<td align="center"><b><font face="Courier New" size="4" color="white">Test Cases</font></b></td>
+						<td align="center"><b><font face="Courier New" size="4" color="white">II PATH</font></b></td>
+					</tr>
+				<tr>
+					<td border="1" align="center">
+<table class="roundedCorners" bgcolor="orange" width="80%" height="50%"><tbody><tr><td align="left"><font face="Courier New" size="6" color="white"></font></td></tr></tbody></table><!-- pf_kgb server -->
+					</td>
+<td border="1" align="center"><a href=""><p><font face="Courier New" size="3" color="white">0/0 Cases Passed</font></p></a></td><!-- pf_kgb tc-->
+<td border="1" align="center"><table class="roundedCorners" bgcolor="orange" width="80%" height="50%"><tbody><tr><td align="center"><font face="Courier New" size="6" color="white">19.2.13.EU6_Linux</font></td></tr></tbody></table><!-- ii_path-->
+				</td></tr>
+			</tbody></table>
+		</td>
+		</tr>
+	</tbody></table>
+		<a class="close" href="" onclick="window.location.reload(true);"><img id="_x0000_i1025" src="http://eniqdmt.lmera.ericsson.se/close-window.png" alt="Minor Fault" width="30" height="30"></a>
+	</div>
+</div>
+</div>
+</td>
+<td class="hoverEffectIcon" border="1" align="center"><div class="box"><img id="_x0000_i1025" src="http://eniqdmt.lmera.ericsson.se/artifacts_icon.svg" alt="Minor Fault" title="Not Triggered" width="50" height="50"></a></div> <!-- pf_kgb icon-->
+<div class="content">
+<div id="popup61_tp_05/09" class="overlay">
+		<div class="popup">
+				<table bgcolor="Orange" class="roundedCorners" border="0" width="100%" height="19%">
+                <tbody><tr>	
+<td><table border="0" width="100%" height="100" align="left"><tbody><tr><td align="center"><b><font face="Courier New" size="7" align="center">19.2.13.EU6_Linux LINUX MAINTRACK is OPEN</font></b></td></tr></tbody></table></td><!--maintrack_status-->
+                </tr>
+				</tbody></table>
+				<table bgcolor="white" border="0" width="100%" height="1%"><tbody><tr><td></td></tr></tbody></table>
+				<table bgcolor="black" class="roundedCorners" border="0" width="100%" height="30%">
+				<tbody><tr>
+				<td>
+					<table border="0" width="100%" height="100" align="left">
+					<tbody>
+					<tr>
+						<td><b><font face="Courier New" size="4" color="white">Build Server</font></b></td>
+						<td align="center"><b><font face="Courier New" size="4" color="white">Test Cases</font></b></td>
+						<td align="center"><b><font face="Courier New" size="4" color="white">II PATH</font></b></td>
+					</tr>
+				<tr>
+					<td border="1" align="center">
+<table class="roundedCorners" bgcolor="orange" width="80%" height="50%"><tbody><tr><td align="left"><font face="Courier New" size="6" color="white"></font></td></tr></tbody></table><!-- tp_kgb server -->
+					</td>
+<td border="1" align="center"><p><font face="Courier New" size="3" color="white">0/0 Cases Passed</font></p></a></td><!--tp_kgb tc -->
+<td border="1" align="center"><table class="roundedCorners" bgcolor="orange" width="80%" height="50%"><tbody><tr><td align="center"><font face="Courier New" size="6" color="white">19.2.13.EU6_Linux</font></td></tr></tbody></table><!-- ii_path-->
+				</td></tr>
+			</tbody></table>
+		</td>
+		</tr>
+	</tbody></table>
+		<a class="close" href="" onclick="window.location.reload(true);"><img id="_x0000_i1025" src="http://eniqdmt.lmera.ericsson.se/close-window.png" alt="Minor Fault" width="30" height="30"></a>
+	</div>
+</div>
+</div>
+</td>
+<td class="hoverEffectIcon" border="1" align="center"><div class="box"><img id="_x0000_i1025" src="http://eniqdmt.lmera.ericsson.se/artifacts_icon.svg" alt="Minor Fault" title="Not Triggered" width="50" height="50"></a></div> <!-- infra_kgb icon-->
+<div class="content">
+<div id="popup61_infra_05/09" class="overlay">
+		<div class="popup">
+				<table bgcolor="Orange" class="roundedCorners" border="0" width="100%" height="19%">
+                <tbody><tr>	
+<td><table border="0" width="100%" height="100" align="left"><tbody><tr><td align="center"><b><font face="Courier New" size="7" align="center">19.2.13.EU6_Linux LINUX MAINTRACK is OPEN</font></b></td></tr></tbody></table></td><!--maintrack_status-->
+                </tr>
+				</tbody></table>
+				<table bgcolor="white" border="0" width="100%" height="1%"><tbody><tr><td></td></tr></tbody></table>
+				<table bgcolor="black" class="roundedCorners" border="0" width="100%" height="30%">
+				<tbody><tr>
+				<td>
+					<table border="0" width="100%" height="100" align="left">
+					<tbody>
+					<tr>
+						<td><b><font face="Courier New" size="4" color="white">Build Server</font></b></td>
+						<td align="center"><b><font face="Courier New" size="4" color="white">Test Cases</font></b></td>
+						<td align="center"><b><font face="Courier New" size="4" color="white">II PATH</font></b></td>
+					</tr>
+				<tr>
+					<td border="1" align="center">
+<table class="roundedCorners" bgcolor="orange" width="80%" height="50%"><tbody><tr><td align="left"><font face="Courier New" size="6" color="white"></font></td></tr></tbody></table><!-- infra_kgb server -->
+					</td>
+<td border="1" align="center"><a href=""><p><font face="Courier New" size="3" color="white">0/0 Cases passed Cases Passed</font></p></td><!-- infra_kgb tc-->
+<td border="1" align="center"><table class="roundedCorners" bgcolor="orange" width="80%" height="50%"><tbody><tr><td align="center"><font face="Courier New" size="6" color="white">19.2.13.EU6_Linux</font></td></tr></tbody></table><!-- ii_path-->
+				</td></tr>
+			</tbody></table>
+		</td>
+		</tr>
+	</tbody></table>
+		<a class="close" href="" onclick="window.location.reload(true);"><img id="_x0000_i1025" src="http://eniqdmt.lmera.ericsson.se/close-window.png" alt="Minor Fault" width="30" height="30"></a>
+	</div>
+</div>
+</div>
+</td>
+<td class="hoverEffectIcon" border="1" align="center"><div class="box"><img id="_x0000_i1025" src="http://eniqdmt.lmera.ericsson.se/artifacts_icon.svg" alt="Minor Fault" title="Not Triggered" width="50" height="50"></a></div> <!-- nmi_kgb_ii icon-->
+<div class="content">
+<div id="popup61_nmi_ii_05/09" class="overlay">
+		<div class="popup">
+				<table bgcolor="Orange" class="roundedCorners" border="0" width="100%" height="19%">
+                <tbody><tr>	
+<td><table border="0" width="100%" height="100" align="left"><tbody><tr><td align="center"><b><font face="Courier New" size="7" align="center">19.2.13.EU6_Linux LINUX MAINTRACK is OPEN</font></b></td></tr></tbody></table></td><!--maintrack_status-->
+                </tr>
+				</tbody></table>
+				<table bgcolor="white" border="0" width="100%" height="1%"><tbody><tr><td></td></tr></tbody></table>
+				<table bgcolor="black" class="roundedCorners" border="0" width="100%" height="30%">
+				<tbody><tr>
+				<td>
+					<table border="0" width="100%" height="100" align="left">
+					<tbody>
+					<tr>
+						<td><b><font face="Courier New" size="4" color="white">Build Server</font></b></td>
+						<td align="center"><b><font face="Courier New" size="4" color="white">Log Sanity Test</font></b></td>
+						<td align="center"><b><font face="Courier New" size="4" color="white">Server Sanity Test</font></b></td>
+						<td align="center"><b><font face="Courier New" size="4" color="white">II PATH</font></b></td>
+					</tr>
+				<tr>
+					<td border="1" align="center">
+<table class="roundedCorners" bgcolor="orange" width="80%" height="50%"><tbody><tr><td align="left"><font face="Courier New" size="6" color="white"></font></td></tr></tbody></table><!-- nmi_kgb_ii server -->
+					</td>
+<td border="1" align="center"><a href=""><p><font face="Courier New" size="3" color="white">0/0 Cases Passed</font></p></a></td><!-- nmi_kgb_ii log tc-->
+<td border="1" align="center"><a href=""><p><font face="Courier New" size="3" color="white">0/0 Cases Passed</font></p></a></td><!-- nmi_kgb_ii smoke tc-->
+<td border="1" align="center"><table class="roundedCorners" bgcolor="orange" width="80%" height="50%"><tbody><tr><td align="center"><font face="Courier New" size="6" color="white">19.2.13.EU6_Linux</font></td></tr></tbody></table><!-- ii_path-->
+				</td></tr>
+			</tbody></table>
+		</td>
+		</tr>
+	</tbody></table>
+		<a class="close" href="" onclick="window.location.reload(true);"><img id="_x0000_i1025" src="http://eniqdmt.lmera.ericsson.se/close-window.png" alt="Minor Fault" width="30" height="30"></a>
+	</div>
+</div>
+</div>
+</td>
+<td class="hoverEffectIcon" border="1" align="center"><div class="box"><img id="_x0000_i1025" src="http://eniqdmt.lmera.ericsson.se/artifacts_icon.svg" alt="Minor Fault" title="Not Triggered" width="50" height="50"></a></div> <!-- nmi_kgb_ug icon-->
+<div class="content">
+<div id="popup61_nmi_ug_05/09" class="overlay">
+		<div class="popup">
+				<table bgcolor="Orange" class="roundedCorners" border="0" width="100%" height="19%">
+                <tbody><tr>	
+<td><table border="0" width="100%" height="100" align="left"><tbody><tr><td align="center"><b><font face="Courier New" size="7" align="center">19.2.13.EU6_Linux LINUX MAINTRACK is OPEN</font></b></td></tr></tbody></table></td><!--maintrack_status-->
+                </tr>
+				</tbody></table>
+				<table bgcolor="white" border="0" width="100%" height="1%"><tbody><tr><td></td></tr></tbody></table>
+				<table bgcolor="black" class="roundedCorners" border="0" width="100%" height="30%">
+				<tbody><tr>
+				<td>
+					<table border="0" width="100%" height="100" align="left">
+					<tbody>
+					<tr>
+						<td><b><font face="Courier New" size="4" color="white">Build Server</font></b></td>
+						<td align="center"><b><font face="Courier New" size="4" color="white">Log Sanity Test</font></b></td>
+						<td align="center"><b><font face="Courier New" size="4" color="white">Server Sanity Test</font></b></td>
+						<td align="center"><b><font face="Courier New" size="4" color="white">II PATH</font></b></td>
+					</tr>
+				<tr>
+					<td border="1" align="center">
+<table class="roundedCorners" bgcolor="orange" width="80%" height="50%"><tbody><tr><td align="left"><font face="Courier New" size="6" color="white"></font></td></tr></tbody></table><!-- nmi_kgb_ug server -->
+					</td>
+<td border="1" align="center"><a href=""><p><font face="Courier New" size="3" color="white">0/0 Cases Passed</font></p></a></td><!-- nmi_kgb_ug log tc-->
+<td border="1" align="center"><a href=""><p><font face="Courier New" size="3" color="white">0/0 Cases Passed</font></p></a></td><!-- nmi_kgb_ug smoke tc-->
+<td border="1" align="center"><table class="roundedCorners" bgcolor="orange" width="80%" height="50%"><tbody><tr><td align="center"><font face="Courier New" size="6" color="white">19.2.13.EU6_Linux</font></td></tr></tbody></table><!-- ii_path-->
+				</td></tr>
+			</tbody></table>
+		</td>
+		</tr>
+	</tbody></table>
+		<a class="close" href="" onclick="window.location.reload(true);"><img id="_x0000_i1025" src="http://eniqdmt.lmera.ericsson.se/close-window.png" alt="Minor Fault" width="30" height="30"></a>
+	</div>
+</div>
+</div>
+</td>
+<td class="hoverEffectIcon" border="1" align="center"><div class="box"><img id="_x0000_i1025" src="http://eniqdmt.lmera.ericsson.se/artifacts_icon.svg" alt="Minor Fault" title="Not Triggered" width="50" height="50"></a></div> <!-- nmi_kgb_ug icon-->
+<div class="content">
+<div id="popup61_nmi_rb_05/09" class="overlay">
+		<div class="popup">
+				<table bgcolor="Orange" class="roundedCorners" border="0" width="100%" height="19%">
+                <tbody><tr>	
+<td><table border="0" width="100%" height="100" align="left"><tbody><tr><td align="center"><b><font face="Courier New" size="7" align="center">19.2.13.EU6_Linux LINUX MAINTRACK is OPEN</font></b></td></tr></tbody></table></td><!--maintrack_status-->
+                </tr>
+				</tbody></table>
+				<table bgcolor="white" border="0" width="100%" height="1%"><tbody><tr><td></td></tr></tbody></table>
+				<table bgcolor="black" class="roundedCorners" border="0" width="100%" height="30%">
+				<tbody><tr>
+				<td>
+					<table border="0" width="100%" height="100" align="left">
+					<tbody>
+					<tr>
+						<td><b><font face="Courier New" size="4" color="white">Build Server</font></b></td>
+						<td align="center"><b><font face="Courier New" size="4" color="white">Log Sanity Test</font></b></td>
+						<td align="center"><b><font face="Courier New" size="4" color="white">II PATH</font></b></td>
+					</tr>
+				<tr>
+					<td border="1" align="center">
+<table class="roundedCorners" bgcolor="orange" width="80%" height="50%"><tbody><tr><td align="left"><font face="Courier New" size="6" color="white"></font></td></tr></tbody></table><!-- nmi_kgb_rb server -->
+					</td>
+<td border="1" align="center"><a href=""><p><font face="Courier New" size="3" color="white">0/0 Cases Passed</font></p></a></td><!-- nmi_kgb_rb log tc-->
+<td border="1" align="center"><a href=""><p><font face="Courier New" size="3" color="white">0/0 Cases Passed</font></p></a></td><!-- nmi_kgb_rb smoke tc-->
+<td border="1" align="center"><table class="roundedCorners" bgcolor="orange" width="80%" height="50%"><tbody><tr><td align="center"><font face="Courier New" size="6" color="white">19.2.13.EU6_Linux</font></td></tr></tbody></table><!-- ii_path-->
+				</td></tr>
+			</tbody></table>
+		</td>
+		</tr>
+	</tbody></table>
+		<a class="close" href="" onclick="window.location.reload(true);"><img id="_x0000_i1025" src="http://eniqdmt.lmera.ericsson.se/close-window.png" alt="Minor Fault" width="30" height="30"></a>
+	</div>
+</div>
+</div>
+</td>
+</tr>	<!-- content end -->
+		<!-- End body -->
+                                </tbody></table>
+                        </td>
+                </tr>
+        </tbody></table>
+<table border="0" width="100%" height="2%"> <tbody><tr>
+                        <td>
+                        </td>
+                </tr>
+</tbody></table>
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+    } 
+  });
+}
+</script>
+</body></html>

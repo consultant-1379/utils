@@ -1,0 +1,199 @@
+#!/bin/bash
+# ******************************************************************************************************
+# Ericsson Radio Systems AB                                     SCRIPT
+# ******************************************************************************************************
+#
+# (c) Ericsson Radio Systems AB 2020 - All rights reserved.
+#
+# The copyright to the computer program(s) herein is the property
+# of Ericsson Radio Systems AB, Sweden. The programs may be used
+# and/or copied only with the written permission from Ericsson Radio
+# Systems AB or in accordance with the terms and conditions stipulated
+# in the agreement/contract under which the program(s) have been
+# supplied.
+#
+# ******************************************************************************************************
+# Name                  : diff_cc_git_pkg.bsh
+# Date                  : 06/08/2020
+# Usage                 : ./diff_cc_git_pkg.bsh
+# input file format : engine
+#                                         repository
+# Created By    : XVIKHID
+# ******************************************************************************************************
+
+# ********************************************************************
+# Importing configurations
+# ********************************************************************
+
+read -p "Enter the file path having the list of pkgs:" pkg_list_file_path
+PKG_PATH=${pkg_list_file_path}
+if [ ! -f ${PKG_PATH} ]; then
+        echo "Given file ${PKG_PATH} does not exists... Aborting"
+        exit 1
+fi
+
+if [ ! -r ${PKG_PATH} ] ; then
+        echo "ERROR: ${PKG_PATH} file is not readable... Aborting"
+        exit 2
+fi
+
+file_pkg_count=`cat ${PKG_PATH} |wc -l`
+
+read -p "Enter the path having the Clear Case pkgs:" clear_case_pkg_path
+if [ ! -d ${clear_case_pkg_path} ]; then
+        echo "Given Clear case pkg path ${clear_case_pkg_path} does not exists... Aborting"
+        exit 3
+fi
+
+cc_pkg_count=`ls ${clear_case_pkg_path} |grep zip | wc -l`
+
+read -p "Enter the path having the GIT pkgs:" git_pkg_path
+if [ ! -d ${git_pkg_path} ]; then
+        echo "Given GIT pkg path ${git_pkg_path} does not exists... Aborting"
+        exit 4
+fi
+
+git_pkg_count=`ls ${git_pkg_path} |grep zip | wc -l`
+
+if [ ${cc_pkg_count} -ne ${git_pkg_count} ]; then
+        echo "Clear case pkg count and GIT package count are not matching... Aborting"
+        exit 5
+fi
+
+if [ ${file_pkg_count} -ne ${cc_pkg_count} ]; then
+        echo "Pkg file list count and Clear case package count are not matching... Aborting"
+        exit 6
+fi
+
+if [ ${file_pkg_count} -ne ${git_pkg_count} ]; then
+        echo "Pkg file list count and GIT package count are not matching... Aborting"
+        exit 7
+fi
+dir=`pwd`
+echo "`date '+%y%m%d_%H%M%S'` : Started differentiating the Clear Case pkgs with GIT pkgs"
+while read line; do
+        mkdir -p /var/tmp/cc_diff
+        mkdir -p /var/tmp/git_diff
+        cp ${clear_case_pkg_path}/${line}* /var/tmp/cc_diff/
+        cp ${git_pkg_path}/${line}* /var/tmp/git_diff/
+        cd /var/tmp/cc_diff/
+        unzip ${line}*zip > /dev/null
+        rm -f ${line}*zip
+        count_cc=`find . | grep -v .settings |wc -l`
+        cd /var/tmp/git_diff
+        unzip ${line}*zip > /dev/null
+        rm -f ${line}*zip
+        count_git=`find . |grep -v .gitkeep |grep -v .settings |wc -l`
+        if [ ${count_cc} -ne ${count_git} ]; then
+                echo "There is a total file count difference in GIT and CC pkgs for pkg ${line}, continuing to next pkg"
+                continue
+        else
+                echo "Verify the file content except jar, war, version.properties and .gitkeep files for pkg ${line}"
+                for file in `find . -type f |grep -v .gitkeep |grep -v .settings |grep -v "version.properties" |grep -v "TechPackIDE.properties" |grep -v "TPIDE_BOIntf.pdb" |grep -v "TPIDE_BOIntf.exe" |grep -v .jar |grep -v .war`; do
+                    cmp ${file} /var/tmp/cc_diff/${file} > /dev/null
+                    if [ $? -ne 0 ]; then
+                        echo "Difference found in file ${file} for pkg ${line}, continuing"
+                        continue
+                    fi
+                done
+                echo "Verify the jar file content"
+				if [ ! -d /var/tmp/git_diff/dclib ]; then
+					echo "dclib directory does not exists to check for the jar files for pkg ${line}"
+				else
+					cd /var/tmp/git_diff/dclib
+					mkdir -p /var/tmp/git_diff/jar_files
+					#jar xf *.jar
+					#rm -f *.jar
+					jar_git_count=`find . |grep -v .gitkeep |grep -v .settings|wc -l`
+					cd /var/tmp/cc_diff/dclib
+					mkdir -p /var/tmp/cc_diff/jar_files
+					#jar xf *.jar
+					#rm -f *.jar
+					jar_cc_count=`find . |grep -v .settings |wc -l`
+					if [ ${jar_cc_count} -ne ${jar_git_count} ]; then
+							echo "There is a jar file count difference in GIT and CC jar for pkg ${line}, continuing"
+							continue
+					else
+							for jarFile in `find . |grep -v .settings |grep .jar`; do
+									cp ${jarFile} /var/tmp/cc_diff/jar_files/${jarFile}
+									cd /var/tmp/cc_diff/jar_files/
+									jar xf ${jarFile}
+									rm -f *.jar
+									cp /var/tmp/git_diff/dclib/${jarFile} /var/tmp/git_diff/jar_files/${jarFile}
+									cd /var/tmp/git_diff/jar_files/
+									jar xf ${jarFile}
+									rm -f *.jar
+									for jar_data in `find . -type f | grep -v MANIFEST.MF |grep -v .gitkeep |grep -v .settings |grep -v "TechPackIDE.properties"`; do
+											cmp ${jar_data} /var/tmp/cc_diff/jar_files/${jar_data} > /dev/null
+											if [ $? -ne 0 ]; then
+													echo "Difference found in file ${jar_data} for pkg ${line} for jar ${jarFile}, continuing"
+													continue
+											fi
+									done
+									cd /var/tmp/cc_diff/dclib
+									rm -rf /var/tmp/cc_diff/jar_files/*
+									rm -rf /var/tmp/git_diff/jar_files/*
+							done
+							echo "Verified the jar for pkg ${line}"
+					fi
+                fi
+
+#################################### WAR file
+
+                echo "Verify the war file content"
+				if [ ! -d /var/tmp/git_diff/install ]; then
+					echo "install directory does not exists to check for the war files for pkg ${line}"
+				else
+					cd /var/tmp/git_diff/install
+					mkdir -p /var/tmp/git_diff/war_files
+					#jar xf *.jar
+					#rm -f *.jar
+					war_git_count=`find . |grep -v .gitkeep |grep -v .settings |wc -l`
+					cd /var/tmp/cc_diff/install
+					mkdir -p /var/tmp/cc_diff/war_files
+					#jar xf *.jar
+					#rm -f *.jar
+					war_cc_count=`find . |grep -v .settings |wc -l`
+					if [ ${war_cc_count} -ne ${war_git_count} ]; then
+						echo "There is a war file count difference in GIT and CC war for pkg ${line}, continuing"
+						continue
+					else
+						for warFile in `find . |grep -v .settings |grep .war`; do
+							cp ${warFile} /var/tmp/cc_diff/war_files/${warFile}
+							cd /var/tmp/cc_diff/war_files/
+							jar xf ${warFile}
+							rm -f *.war
+							cp /var/tmp/git_diff/install/${warFile} /var/tmp/git_diff/war_files/${warFile}
+							cd /var/tmp/git_diff/war_files/
+							jar xf ${warFile}
+							rm -f *.war
+							for war_data in `find . -type f |grep -v MANIFEST.MF |grep -v .gitkeep |grep -v .settings`; do
+								cmp ${war_data} /var/tmp/cc_diff/war_files/${war_data} > /dev/null
+								if [ $? -ne 0 ]; then
+									echo "Difference found in file ${war_data} for pkg ${line} for war ${warFile}, continuing"
+									continue
+								fi
+							done
+							cd /var/tmp/cc_diff/install
+							rm -rf /var/tmp/cc_diff/war_files/*
+							rm -rf /var/tmp/git_diff/war_files/*
+						done
+						echo "Verified the war for pkg ${line}"
+					fi
+				fi
+
+########################################## WAR file validation done
+
+
+
+        fi
+        rm -rf /var/tmp/cc_diff
+        rm -rf /var/tmp/git_diff
+done < ${PKG_PATH}
+
+cd ${dir}
+rm -rf /var/tmp/cc_diff
+rm -rf /var/tmp/git_diff
+
+echo "`date '+%y%m%d_%H%M%S'` : Finished differentiating the Clear Case pkgs with GIT pkgs"
+

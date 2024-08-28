@@ -1,0 +1,232 @@
+#!/usr/bin/bash
+
+
+cd /var/tmp
+rm -rf RACK_Mig_TC_Result.html
+fail=0
+pass=0
+total=18
+
+# #SERVER SANITY
+echo "******SERVER SANITY TC ******" >> /var/tmp/RACK_Mig_TC_Result.html
+echo "<html><head><title>NMI TestCase Results</title></head><body><table border=\"2\"><tr><th><b> TestCase Name </th><th><b> TestCase </th><th><b>PASS/FAIL</th></tr>" >> /var/tmp/RACK_Mig_TC_Result.html
+
+tc=`df -hk | grep -w pmdata_wifi | wc -l | grep 0`
+if [[ $tc =~ "0" ]]
+then
+        status="<td style=\"color:green;\"> PASS"
+                pass=$((pass+1))
+else
+        status="<td style=\"color:red;\"> FAIL"
+                fail=$((fail+1))
+fi
+echo "<tr> <td> PMDATA WIFI </td> <td> df -hk | grep -w pmdata_wifi | wc -l | grep 0 </td> $status </td> </tr>" >> /var/tmp/RACK_Mig_TC_Result.html
+
+tc2=`systemctl stop eniq-dwhdb; systemctl show -p ActiveState eniq-dwhdb | cut -f2 -d'=' | grep inactive`
+sleep 2m
+if [[ $tc2 =~ "inactive" ]]
+then
+        status="<td style=\"color:green;\"> PASS"
+                pass=$((pass+1))
+else
+        status="<td style=\"color:red;\"> FAIL"
+                fail=$((fail+1))
+fi
+echo "<tr> <td> STOP eniq-dwhdb Service </td> <td> systemctl stop eniq-dwhdb; systemctl show -p ActiveState eniq-dwhdb | cut -f2 -d'=' | grep inactive </td> $status </td> </tr>" >> /var/tmp/RACK_Mig_TC_Result.html
+
+tc3=`systemctl restart eniq-dwhdb; systemctl show -p ActiveState eniq-dwhdb | cut -f2 -d'=' | grep active`
+sleep 10m
+if [[ $tc3 =~ "active" ]]
+then
+        status="<td style=\"color:green;\"> PASS"
+                pass=$((pass+1))
+else
+        status="<td style=\"color:red;\"> FAIL"
+                fail=$((fail+1))
+fi
+echo "<tr> <td> RESTART eniq-dwhdb Service </td> <td> systemctl restart eniq-dwhdb; systemctl show -p ActiveState eniq-dwhdb | cut -f2 -d'=' | grep active </td> $status </td> </tr>" >> /var/tmp/RACK_Mig_TC_Result.html
+
+tc4=`id dcuser | awk "{print $2}" | grep dc5000`
+if [[ $tc4 =~ "dc5000" ]]
+then
+        status="<td style=\"color:green;\"> PASS"
+                pass=$((pass+1))
+else
+        status="<td style=\"color:red;\"> FAIL"
+                fail=$((fail+1))
+fi
+echo "<tr> <td> DCUSER </td> <td> id dcuser | awk "{print $2}" | grep dc5000 </td> $status </td> </tr>" >> /var/tmp/RACK_Mig_TC_Result.html
+
+tc5=`ls -l /eniq/home/ | grep dcuser`
+if [[ $tc5 =~ "dcuser" ]]
+then
+        status="<td style=\"color:green;\"> PASS"
+                pass=$((pass+1))
+else
+        status="<td style=\"color:red;\"> FAIL"
+                fail=$((fail+1))
+fi
+echo "<tr> <td> DCUSER </td> <td> ls -l /eniq/home/ | grep dcuser </td> $status </td> </tr>" >> /var/tmp/RACK_Mig_TC_Result.html
+
+tc6=`ls -l /eniq/home/ | grep dcdata`
+if [[ $tc6 =~ "dcdata" ]]
+then
+        status="<td style=\"color:green;\"> PASS"
+                pass=$((pass+1))
+else
+        status="<td style=\"color:red;\"> FAIL"
+                fail=$((fail+1))
+fi
+echo "<tr> <td> DCDATA </td> <td> ls -l /eniq/home/ | grep dcdata </td> $status </td> </tr>" >> /var/tmp/RACK_Mig_TC_Result.html
+
+tc7=`cat /etc/systemd/journald.conf | grep SystemMaxUse | cut -f2 -d'=' | grep 8G`
+if [[ $tc7 =~ "8G" ]]
+then
+        status="<td style=\"color:green;\"> PASS"
+                pass=$((pass+1))
+else
+        status="<td style=\"color:red;\"> FAIL"
+                fail=$((fail+1))
+fi
+echo "<tr> <td> 8G </td> <td> cat /etc/systemd/journald.conf | grep SystemMaxUse | cut -f2 -d'=' | grep 8G </td> $status </td> </tr>" >> /var/tmp/RACK_Mig_TC_Result.html
+
+#LOG SANITY
+Log=`ls /eniq/local_logs/migration/eniq_linux_rack_migration*`
+echo "LOG $Log"
+
+tc8=`cat $Log | egrep -i "ERROR"`
+if [[ $tc8 =~ "ERROR" ]]
+then
+        status="<td style=\"color:red;\"> FAIL"
+                fail=$((fail+1))
+else
+        status="<td style=\"color:green;\"> PASS"
+                pass=$((pass+1))
+fi
+echo "<tr> <td> ERROR CHECK </td> <td> cat $Log | egrep -i \"ERROR :\" </td> $status </td> </tr>" >> /var/tmp/RACK_Mig_TC_Result.html
+
+tc9=`cat $Log | egrep -i "warning"`
+if [[ $tc9 =~ "warning" ]]
+then
+        status="<td style=\"color:red;\"> FAIL"
+                fail=$((fail+1))
+else
+        status="<td style=\"color:green;\"> PASS"
+                pass=$((pass+1))
+fi
+echo "<tr> <td> Warning CHECK </td> <td> cat $Log | egrep -i \"warning\" </td> $status </td> </tr>" >> /var/tmp/RACK_Mig_TC_Result.html
+
+
+tc10=`cat $Log | egrep -i "permission denied"`
+if [[ $tc10 =~ "permission denied" ]]
+then
+        status="<td style=\"color:red;\"> FAIL"
+                fail=$((fail+1))
+else
+        status="<td style=\"color:green;\"> PASS"
+                pass=$((pass+1))
+fi
+echo "<tr> <td> Permission Denied </td> <td> cat $Log | egrep -i \"permission denied\" </td> $status </td> </tr>" >> /var/tmp/RACK_Mig_TC_Result.html
+
+
+tc11=`cat $Log | egrep -i 'Successfully completed - restore_migrate_data'`
+if [[ $tc11 =~ "Successfully completed - restore_migrate_data" ]]
+then
+        status="<td style=\"color:green;\"> PASS"
+                pass=$((pass+1))
+else
+        status="<td style=\"color:red;\"> FAIL"
+                fail=$((fail+1))
+fi
+echo "<tr> <td> CHECK restore_migrate_data </td> <td> cat $Log | egrep -i \"Successfully completed - restore_migrate_data\"  </td> $status </td> </tr>" >> /var/tmp/RACK_Mig_TC_Result.html
+
+
+tc12=`cat $Log | egrep -i "Successfully completed - merge_config_files"`
+if [[ $tc12 =~ "Successfully completed - merge_config_files" ]]
+then
+        status="<td style=\"color:green;\"> PASS"
+                pass=$((pass+1))
+else
+        status="<td style=\"color:red;\"> FAIL"
+                fail=$((fail+1))
+fi
+echo "<tr> <td> CHECK merge_config_files </td> <td> cat $Log | egrep -i \"Successfully completed - merge_config_files\"  </td> $status </td> </tr>" >> /var/tmp/RACK_Mig_TC_Result.html
+
+
+tc13=`cat $Log | egrep -i "Successfully completed - restore_iq_file"`
+if [[ $tc13 =~ "Successfully completed - restore_iq_file" ]]
+then
+        status="<td style=\"color:green;\"> PASS"
+                pass=$((pass+1))
+else
+        status="<td style=\"color:red;\"> FAIL"
+                fail=$((fail+1))
+fi
+echo "<tr> <td> CHECK restore_iq_file </td> <td> cat $Log | egrep -i \"Successfully completed - restore_iq_file\" </td> $status </td> </tr>" >> /var/tmp/RACK_Mig_TC_Result.html
+
+
+tc14=`cat $Log | egrep -i "Successfully completed - migrate_sap_asa"`
+if [[ $tc14 =~ "Successfully completed - migrate_sap_asa" ]]
+then
+        status="<td style=\"color:green;\"> PASS"
+                pass=$((pass+1))
+else
+        status="<td style=\"color:red;\"> FAIL"
+                fail=$((fail+1))
+fi
+echo "<tr> <td> CHECK migrate_sap_asa </td> <td> cat $Log | egrep -i \"Successfully completed - migrate_sap_asa\" </td> $status </td> </tr>" >> /var/tmp/RACK_Mig_TC_Result.html
+
+
+tc15=`cat $Log | egrep -i "Successfully completed - migrate_sap_iq"`
+if [[ $tc15 =~ "Successfully completed - migrate_sap_iq" ]]
+then
+        status="<td style=\"color:green;\"> PASS"
+                pass=$((pass+1))
+else
+        status="<td style=\"color:red;\"> FAIL"
+                fail=$((fail+1))
+fi
+echo "<tr> <td> CHECK migrate_sap_iq </td> <td> cat $Log | egrep -i \"Successfully completed - migrate_sap_iq\" </td> $status </td> </tr>" >> /var/tmp/RACK_Mig_TC_Result.html
+
+tc16=`cat $Log | egrep -i "Successfully completed - merge_crontab_files"`
+if [[ $tc16 =~ "Successfully completed - merge_crontab_files" ]]
+then
+        status="<td style=\"color:green;\"> PASS"
+                pass=$((pass+1))
+else
+        status="<td style=\"color:red;\"> FAIL"
+                fail=$((fail+1))
+fi
+echo "<tr> <td> CHECK merge_crontab_files </td> <td> cat $Log | egrep -i \"Successfully completed - merge_crontab_files\" </td> $status </td> </tr>" >> /var/tmp/RACK_Mig_TC_Result.html
+
+tc17=`cat $Log | egrep -i "Successfully completed - db_expansion"`
+if [[ $tc17 =~ "Successfully completed - db_expansion" ]]
+then
+        status="<td style=\"color:green;\"> PASS"
+                pass=$((pass+1))
+else
+        status="<td style=\"color:red;\"> FAIL"
+                fail=$((fail+1))
+fi
+echo "<tr> <td> CHECK db_expansion </td> <td> cat $Log | egrep -i \"Successfully completed - db_expansion\" </td> $status </td> </tr>" >> /var/tmp/RACK_Mig_TC_Result.html
+
+tc18=`cat $Log | egrep -i "Successfully completed procedure to migrate Linux OS"`
+if [[ $tc18 =~ "Successfully completed procedure to migrate Linux OS" ]]
+then
+        status="<td style=\"color:green;\"> PASS"
+                pass=$((pass+1))
+else
+        status="<td style=\"color:red;\"> FAIL"
+                fail=$((fail+1))
+fi
+echo "<tr> <td> CHECK procedure to migrate Linux OS </td> <td> cat $Log | egrep -i \"Successfully completed procedure to migrate Linux OS\" </td> $status </td> </tr>" >> /var/tmp/RACK_Mig_TC_Result.html
+
+echo "</table></body></html>" >> /var/tmp/RACK_Mig_TC_Result.html
+echo "*********************************************************************************"
+
+echo "Total: $total"
+echo "Pass: $pass"
+echo "Fail: $fail"
+
+#'
+

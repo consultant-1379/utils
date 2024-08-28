@@ -1,0 +1,16 @@
+<project basedir="." default="all" name="build">
+
+  <!-- Following include contains precompile, compile and postcompile target definitions -->
+  <import file="${package.build.file}"/>
+
+  <!-- This following line needs to be in xml file that <if> tags are in use -->
+  <taskdef classpath="/proj/eiffel013_config_fem6s11/tools/ant-contrib/ant-contrib-1.0b3.jar" resource="net/sf/antcontrib/antcontrib.properties"/>
+
+  <!-- javadoc removed from the list -->
+  <target depends="
+                  precompile,
+                  compile,
+                  all_sonar
+                  " name="all"/>
+
+</project>

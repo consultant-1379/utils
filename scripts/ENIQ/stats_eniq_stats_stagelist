@@ -1,0 +1,15 @@
+allow_root_access
+get_storage_type
+install_sentinel
+install_san_sw
+install_storage_api
+get_update_server_netmask
+get_ipmp_info
+setup_ipmp
+ip_plumb_bkup_intf
+update_netmasks_file
+configure_storage_api
+create_disk_partition
+create_lun_map
+install_nas_sw
+create_nas_users

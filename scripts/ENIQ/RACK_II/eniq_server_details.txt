@@ -1,0 +1,1074 @@
+#-----------------------------------------------------------
+# COPYRIGHT Ericsson Radio Systems  AB 2011
+#
+# The copyright to the computer program(s) herein is the
+# property of ERICSSON RADIO SYSTEMS AB, Sweden. The
+# programs may be usedand/or copied only with the written
+# permission from ERICSSON RADIO SYSTEMS AB or in accordance
+# with the terms and conditions stipulated in the agreement
+# contract under which the program(s)have been supplied.
+#-----------------------------------------------------------
+#-----------------------------------------------------------
+#
+#   PRODUCT      : Network Managment Integration
+#   CRA NUMBER
+#   CRA NUMBER
+#   PRODUCT REV  :
+#   Document REV :
+#   RESP         : ejohmci
+#   DATE         : 30/09/2011
+#
+#   REV          : PA1
+#
+#
+#--------------------------------------------------------------
+#
+# Server Details shall be in the following order seperated by ";"
+# Order Is important. If Detail is not relivent please use "NONE"
+# ie: FQDN question is only applicable on co-ordinator so NONE
+# should be used on any other server type
+#
+#--------------------------------------------------------------
+#
+#1.Hostname
+#2.MAC Address
+#3.Server IP Address
+#4.Architecture (sun4u, i86pc etc ..)
+#5.ILO Address
+#6.Deplaoyment (standalone, small, medium, large) 
+#7.Default Route
+#8.Clariion Hostname
+#9.Clariion SPA
+#10.Clariion SPAB
+#11.NAS MGMT IP (NAS ==> Network Attached Storage)
+#12.NAS IP1
+#13.NAS IP2
+#14.NAS IP3
+#15.NAS IP4
+#16.NAS IP5
+#17.NAS IP6
+#18.NAS IP7
+#19.NAS IP8
+#20.VC IP (VC==>Virtual Connect)
+#21.VC UN
+#22.VC PWD
+#23.Storage Pool
+#24.NAS Master PWD
+#25.NAS Support PWD
+#26.Installation Type
+#27.Licence File Location (must be shared out over network)
+#28.No Of SAN's (SAN==>Storage Area Network)
+#29.SAN UN 
+#30.SAN PWD
+#31.Storage Group
+#32.Storage Group Netmast
+#33.OSS Services
+#34.OSS Services Netmast
+#35.LDAP Domain Name
+#36.LDAP Server
+#37.LDAP PWD
+#38.Network Subs
+#39.End Users
+#40.Partition Plan
+#41.Storage Type 1 or 2 shall be used 1-->raw, 2-->zfs (Raw Blade, ZFS Rack)
+#42.OSS Server IP
+#43.FQDN (Coordinator question --> Presenation Server fully qualified domain name)
+#44.IQ Instance (Presenation Server Question, install Reader Yes|No)
+#45.DWH Reader Instance
+#46.Deployment
+#47.Storage Network Number
+#48.Storage Group Name
+#49.Storage Database Type
+#49.Operating system Type
+#49.SAN type Type
+#
+#-------------------------------------------------------------
+########### EXAMPLE ###################
+#hostname#MAC Address#Server IP Address##Arch#ILO Address#Vendor#Def Route#Clariion Hostname;Clariion SPA#Clariion SPAB#NAS MGMT IP#NAS IP1#NAS IP2#NAS IP3#NAS IP4#NAS IP5#NAS IP6#NAS IP7#NAS IP8#VC IP#VC UN#VC PWD#Storage Pool#NAS Master PWD#NAS Support PWD#INSTALL TYPE#Licence File#No Of SAN's#SAN UN#SAN PWD#Storage Group#Storage Group Netmast#OSS Services#OSS Services Netmast#LDAP Domain Name#LDAP Server#LDAP PWD#Network Subs#End Users#Partition Plan#Storage Type raw/zfs#OSS Sserver#FQDN#IQ Instance#dwh Reader#Deployment#Storage Network Number#Storage Group Name#Storage Database Type
+########### EOE     ###################
+#-------------------------------------------------------------
+###########
+#atrcx704 --> STATS
+###########
+atrcx704;00:14:4F:D2:56:9C;159.107.173.164;sun4u;10.0.7.3;standalone;159.107.173.1;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_FULL_License;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;2;2;1.1.1.1;NONE;NONE;NONE;NONE;159.107.173.0;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcx706 --> STATS
+###########
+atrcx706;00:14:4F:D2:66:50;159.107.173.98;sun4u;10.0.7.5;standalone;159.107.173.1;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_FULL_License;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;2;2;1.1.1.1;NONE;NONE;NONE;NONE;159.107.173.0;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcx707 --> STATS
+###########
+atrcx707;00:14:4F:D2:5B:50;159.107.173.154;sun4u;10.0.7.6;standalone;159.107.173.1;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_FULL_License;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;2;2;1.1.1.1;NONE;NONE;NONE;NONE;159.107.173.0;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb1867  --> STATS
+###########
+#atrcxb1360;00:17:A4:77:44:A8;10.44.95.38;i86pc;10.44.28.189;standalone;10.44.95.1;atcx4-29;10.44.201.46;10.44.201.47;10.44.194.90;10.44.194.
+#90;10.44.194.90;10.44.194.90;10.44.194.90;10.44.194.90;10.44.194.90;10.44.194.90;10.44.194.90;10.44.95.38;admin123;admin123;events1;master;s
+#ymantec;1;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_FULL_License;1;admin;password;10.44.194.19;255.255.255.0;10.44.95.38;255.255.255.
+#0;NONE;NONE;NONE;NONE;NONE;2;1;1.1.1.1;NONE;NONE;NONE;ft;10.44.194.0;atrcxb1360_STATS;bnxe4,bnxe5;bnxe0,bnxe1;1,2,3;1000;500;500;25;200;25;2
+#00;200;200;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb1617  --> STATS
+###########
+atrcxb1617;00:17:A4:77:A4:48;159.107.220.96;i86pc;10.44.92.138;standalone;10.44.95.1;atcx4-loaner2;10.44.200.209;10.44.200.210;10.59.131.37;10.59.131.42;10.59.131.43;10.59.131.44;10.59.131.45;10.59.131.42;10.59.131.43;10.59.131.44;10.59.131.45;10.44.79.92;admin123;admin123;sv1617;master;symantec;1;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_FULL_License;1;admin;password;10.44.95.130;255.255.255.0;10.45.18.0;255.255.255.0;NONE;NONE;NONE;NONE;NONE;2;1;1.1.1.1;NONE;NONE;NONE;ft;10.44.95.0;atrcxb1617_stats;bnxe4,bnxe5;bnxe0,bnxe1;1,2,3;1000;500;500;25;200;25;200;200;200;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcx902 --> STATS
+###########
+atrcx902;00:21:28:44:49:66;159.107.220.248;sun4u;10.0.7.210;standalone;159.107.220.1;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_FULL_License;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;2;2;1.1.1.1;NONE;NONE;NONE;NONE;159.107.220.0;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb1237 --> EVENTS
+###########
+atrcxb1237;00:17:a4:77:00:3e;10.44.194.35;i86pc;10.44.28.44;standalone;10.44.194.1;atcx4-12;10.44.193.161;10.44.193.162;10.44.193.75;10.44.193.82;10.44.193.83;10.44.193.84;10.44.193.85;10.44.193.82;10.44.193.83;10.44.193.84;10.44.193.85;10.44.28.33;root;shroot12;events4;master;symantec;1;/net/159.107.177.74/eniq/eniq_build/license/ENIQEvents_EOY;1;admin;password;10.44.193.63;255.255.255.0;10.44.194.35;255.255.255.0;athtem.eei.ericsson.se;atrcxb1237;ldap;1000;150;2;1;1.1.1.1;NONE;NONE;NONE;ft;10.44.194.0;atrcxb1237_STANDALONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb1236 --> EVENTS
+###########
+atrcxb1236;00:17:A4:77:00:2E;10.44.194.33;i86pc;10.44.28.43;standalone;10.44.194.1;atcx4-12;10.44.193.161;10.44.193.162;10.44.193.75;10.44.193.82;10.44.193.83;10.44.193.84;10.44.193.85;10.44.193.82;10.44.193.83;10.44.193.84;10.44.193.85;10.44.28.33;root;shroot12;events2;master;symantec;1;/net/159.107.177.74/eniq/eniq_build/license/ENIQEvents_EOY;1;admin;password;10.44.193.61;255.255.255.0;10.44.194.33;255.255.255.0;athtem.eei.ericsson.se;atrcxb1236;ldap;1000;150;2;1;1.1.1.1;NONE;NONE;NONE;small;10.44.194.0;atrcxb1236_STANDALONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb1563 --> EVENTS
+###########
+atrcxb1563;78:E7:D1:5C:B5:D8;10.44.194.37;i86pc;10.44.28.45;standalone;10.44.95.1;atcx4-12;10.44.193.161;10.44.193.162;10.44.193.75;10.44.193.82;10.44.193.83;10.44.193.84;10.44.193.85;10.44.193.82;10.44.193.83;10.44.193.84;10.44.193.85;10.44.28.33;root;shroot12;events3;master;symantec;1;/net/159.107.177.74/eniq/eniq_build/license/ENIQEvents_EOY;1;admin;password;10.44.193.65;255.255.255.0;10.44.194.37;255.255.255.0;athtem.eei.ericsson.se;atrcxb1238;ldap;1000;150;2;1;1.1.1.1;NONE;NONE;NONE;ft;10.44.194.0;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb1239  --> STATS
+###########
+atrcxb1239;0:17:a4:77:0:1a;10.44.194.39;i86pc;10.44.28.46;standalone;10.44.194.1;atcx4-12;10.44.193.161;10.44.193.162;10.45.21.239;10.45.21.242;10.45.21.243;10.45.21.242;10.45.21.243;10.45.21.242;10.45.21.243;10.45.21.242;10.45.21.243;10.44.194.39;admin;password;atsfsvp;master;symantec;1;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_FULL_License;1;admin;password;10.44.193.67;255.255.255.0;10.44.194.39;255.255.255.0;athtem.eei.ericsson.se;10.44.95.30;ldap;NONE;NONE;NONE;1;1.1.1.1;NONE;NONE;NONE;ft;10.44.193.0;atrcxb1239_stats;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb1240 --> STATS
+###########
+atrcxb1240;0:17:a4:77:0:6e;10.44.194.41;i86pc;10.44.28.47;standalone;10.44.194.1;atcx4-12;10.44.193.161;10.44.193.162;10.45.21.244;10.45.21.247;10.45.21.248;10.45.21.247;10.45.21.248;10.45.21.247;10.45.21.248;10.45.21.247;10.45.21.248;10.44.194.41;admin;password;atsfsvp;master;symantec;1;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_FULL_License;1;admin;password;10.44.193.69;255.255.255.0;10.44.194.41;255.255.255.0;athtem.eei.ericsson.se;10.44.95.39;ldap;NONE;NONE;NONE;1;1.1.1.1;NONE;NONE;NONE;ft;10.44.193.0;atrcxb1240_stats;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb1241 --> STATS
+###########
+atrcxb1241;0:17:a4:77:0:4a;10.44.194.43;i86pc;10.44.28.48;standalone;10.44.194.1;atcx4-12;10.44.193.161;10.44.193.162;10.45.21.249;10.45.21.252;10.45.21.253;10.45.21.252;10.45.21.253;10.45.21.252;10.45.21.253;10.45.21.252;10.45.21.253;10.44.194.43;root;shroot12;atsfsvp;master;symantec;1;/net/159.107.177.74/eniq/eniq_build/license/ENIQEvents_EOY;1;admin;password;10.44.193.71;255.255.255.0;10.44.194.43;255.255.255.0;athtem.eei.ericsson.se;10.44.194.43;ldap;1000000;150;2;1;1.1.1.1;NONE;NONE;NONE;ft;10.44.193.0;atrcxb1241_STANDALONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcx1298vm1 --> STATS
+###########
+atrcx1298vm1;NONE;159.107.177.151;sun4u;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_FULL_License;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;2;2;1.1.1.1;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;1,2,3;1000;500;500;25;200;25;200;200;200;N;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcx1298vm2 --> STATS
+###########
+atrcx1298vm2;NONE;159.107.177.201;sun4u;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_FULL_License;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;2;2;1.1.1.1;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;1,2,3;1000;500;500;25;200;25;200;200;200;N;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcx1298vm3 --> STATS
+###########
+atrcx1298vm3;NONE;159.107.177.234;sun4u;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_FULL_License;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;2;2;1.1.1.1;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;1,2,3;1000;500;500;25;200;25;200;200;200;N;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcx1299vm1 --> STATS
+###########
+atrcx1299vm1;NONE;159.107.177.68;sun4u;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_FULL_License;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;2;2;1.1.1.1;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;1,2,3;1000;500;500;25;200;25;200;200;200;N;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcx1299vm2 --> STATS
+###########
+atrcx1299vm2;NONE;159.107.177.174;sun4u;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_FULL_License;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;2;2;1.1.1.1;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;1,2,3;1000;500;500;25;200;25;200;200;200;Y;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcx1299vm3 --> STATS
+###########
+atrcx1299vm3;NONE;159.107.177.167;sun4u;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_FULL_License;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;2;2;1.1.1.1;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;1,2,3;1000;500;500;25;200;25;200;200;200;N;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcx1300vm1 --> STATS
+###########
+atrcx1300vm1;NONE;159.107.177.62;sun4u;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_FULL_License;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;2;2;1.1.1.1;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;1,2,3;1000;500;500;25;200;25;200;200;200;N;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcx1300vm2 --> STATS
+###########
+atrcx1300vm2;NONE;159.107.177.191;sun4u;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_FULL_License;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;2;2;1.1.1.1;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;1,2,3;1000;500;500;25;200;25;200;200;200;N;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcx1300vm3 --> STATS
+###########
+atrcx1300vm3;NONE;159.107.177.202;sun4u;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_FULL_License;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;2;2;1.1.1.1;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;1,2,3;1000;500;500;25;200;25;200;200;200;N;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb1642 --> EVENTS
+###########
+atrcxb1642;00:17:A4:77:00:9E;10.44.194.16;i86pc;10.44.28.51;standalone;10.44.194.1;atcx4-12;10.44.193.161;10.44.193.162;10.45.21.214;10.45.21.217;10.45.21.218;10.45.21.217;10.45.21.218;10.45.21.217;10.45.21.218;10.45.21.217;10.45.21.218;10.44.28.33;root;shroot12;atsfsv2;master;symantec;1;/net/159.107.177.74/eniq/eniq_build/license/ENIQEvents_EOY;1;admin;password;10.44.194.16;255.255.255.0;10.44.194.16;255.255.255.0;athtem.eei.ericsson.se;10.44.194.16;ldap;1000000;150;2;1;1.1.1.1;NONE;NONE;NONE;ft;10.44.194.0;atrcxb1642_STANDALONE;bnxe4,bnxe5;bnxe0,bnxe1;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;c1t0d0;c1t1d0;solaris;clariion;NONE,NONE;
+###########
+#atrcxb1310 --> STATS
+###########
+#atrcxb1310;00:17:A4:77:44:9C;10.44.95.37;i86pc;10.44.28.188;standalone;10.44.95.1;atcx4-29;10.44.201.46;10.44.201.47;10.45.31.237;10.45.31.240;10.45.31.241;10.45.31.240;10.45.31.241;10.45.31.240;10.45.31.241;10.45.31.240;10.45.31.241;10.44.95.37;admin123;admin123;atsfsvp;master;symantec;1;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_FULL_License;1;admin;password;10.44.194.103;255.255.255.0;10.44.95.37;255.255.255.0;NONE;NONE;NONE;NONE;NONE;2;1;1.1.1.1;NONE;NONE;NONE;ft;10.44.194.0;atrcxb1310_STATS;bnxe4,bnxe5;bnxe0,bnxe1;1,2,3;1000;500;500;25;200;25;200;200;200;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+atrcxb1310;00:17:A4:77:44:9C;10.44.95.37;i86pc;10.44.28.188;standalone;10.44.95.1;atcx4-29;10.44.201.46;10.44.201.47;10.59.140.239;10.59.140.244;10.59.140.245;10.59.140.246;10.59.140.247;10.59.140.244;10.59.140.245;10.59.140.246;10.59.140.247;10.44.95.37;admin123;admin123;ex1310;master;symantec;1;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_FULL_License;1;admin;password;10.44.194.103;255.255.255.0;10.44.95.37;255.255.255.0;NONE;NONE;NONE;NONE;NONE;2;1;1.1.1.1;NONE;NONE;NONE;ft;10.44.194.0;atrcxb1310_STATS;bnxe4,bnxe5;bnxe0,bnxe1;1,2,3;1000;500;500;25;200;25;200;200;200;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+atrcxb1297;00:17:a4:77:4:3c;10.45.25.67;i86pc;10.44.200.112;standalone;10.45.25.65;atcx4-23;10.45.26.247;10.45.26.248;10.45.26.163;10.45.26.176;10.45.26.177;10.45.26.178;10.45.26.179;10.45.26.180;10.45.26.181;10.45.26.182;10.45.26.184;10.45.26.185;10.45.25.67;root;SHroot@12;stats;master1;symantec1;1;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_FULL_License;1;admin;password;10.45.26.250;255.255.255.192;10.45.25.67;255.255.255.192;NONE;NONE;NONE;NONE;NONE;2;1;159.107.213.2;NONE;NONE;NONE;ft;10.45.26.64;atrcxb1297;oce8;oce0;1,2,3;1000;500;500;25;200;25;200;200;200;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+#############
+#atrcxb2286 --> STATS
+###########
+atrcxb2286;68:B5:99:BF:70:D0;10.45.192.215;i86pc;10.36.49.86;standalone;10.45.192.1;atcx4-40;10.44.93.102;10.44.93.103;10.45.206.169;10.45.206.174;10.45.206.175;10.45.206.176;10.45.206.177;10.45.206.174;10.45.206.175;10.45.206.176;10.45.206.177;10.36.49.86;root;shroot12;sv2286;master;symantec;1;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_S14.2;1;admin;password;atrcxb2286_STANDALONE;255.255.255.0;10.45.192.215;255.255.255.0;NONE;NONE;NONE;NONE;NONE;2;1;1.1.1.1;NONE;NONE;NONE;ft;NONE;atrcxb2286_STATS;bnxe4,bnxe5;bnxe0,bnxe1;1,2,3;1000;500;500;25;200;25;200;200;200;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb2128--> STATS
+###########
+atrcxb2128;44:1E:A1:4B:55:E8;10.45.192.163;i86pc;10.36.49.78;standalone;10.45.192.1;atcx4-40;10.44.93.102;10.44.93.103;10.45.23.189;10.45.23.179;10.45.23.180;10.45.23.181;10.45.23.182;10.45.23.183;10.45.23.184;10.45.23.185;10.45.23.186;10.45.192.163;admin123;admin123;stats1;master;symantec;1;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_FULL_License;1;admin;password;10.44.194.103;255.255.255.0;10.45.192.163;255.255.255.0;NONE;NONE;NONE;NONE;NONE;2;1;1.1.1.1;NONE;NONE;NONE;ft;10.44.194.0;atrcxb2128_STANDALONE;bnxe4,bnxe5;bnxe0,bnxe1;1,2,3;1000;500;500;25;200;25;200;200;200;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb1238 --> EVENTS
+###########
+atrcxb1238;78:E7:D1:5C:B5:D8;10.44.194.37;i86pc;10.44.28.45;standalone;10.44.95.1;atcx4-12;10.44.193.161;10.44.193.162;10.45.21.229;10.45.21.232;10.45.21.233;10.45.21.232;10.45.21.233;10.45.21.232;10.45.21.233;10.45.21.232;10.45.21.233;10.44.28.33;root;shroot12;atsfsv5;master;symantec;1;/net/159.107.177.74/eniq/eniq_build/license/ENIQEvents_EOY;1;admin;password;10.44.193.65;255.255.255.0;10.44.194.37;255.255.255.0;athtem.eei.ericsson.se;atrcxb1238;ldap;1000;150;2;1;1.1.1.1;NONE;NONE;NONE;ft;10.44.194.0;atrcxb1238_STANDALONE;bnxe4,bnxe5;bnxe0,bnxe1;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb1929 --> EVENTS
+###########
+atrcxb1929;00:17:A4:77:60:18;10.44.79.86;i86pc;10.36.48.59;reader;10.44.79.1;atcx4-40;10.44.93.102;10.44.93.103;10.45.21.151;10.45.21.139;10.45.21.140;10.45.21.141;10.45.21.142;10.45.21.143;10.45.21.144;10.45.21.145;10.45.21.146;10.36.48.73;root;shroot12;events1;master;symantec;5;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E12.2;1;admin;password;10.45.22.44;255.255.252.0;10.44.79.86;255.255.255.0;athtem.eei.ericsson.se;10.44.79.86;ldap;1000000;150;3;1;none;none;Yes;dwh_reader_3;medium;10.45.20.0;atrcxb1929_RD_3;bnxe0,bnxe1;bnxe2,bnxe3;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb1026 --> EVENTS
+###########
+atrcxb1026;00:17:a4:77:08:00;10.44.194.110;i86pc;10.44.200.124;coordinator;10.44.194.1;atcx4-27;10.44.194.108;10.44.194.109;10.44.194.134;10.44.194.126;10.44.194.127;10.44.194.128;10.44.194.129;10.44.194.130;10.44.194.131;10.44.194.132;10.44.194.133;10.44.200.122;root;shroot12;events1;master;symantec;2;/net/159.107.177.67/export/ENIQ_FT/LIC/ENIQ_Events_12.1_License;1;admin;password;10.44.194.110;255.255.255.0;10.44.194.110;255.255.255.0;athtem.eei.ericsson.se;10.44.194.110;password;1000000;150;4;1;1.1.1.1;atrcxb1027.athtem.ericsson.se;Yes;dwh_reader_1;small;10.44.194.0;atrcxb1026_CO;bnxe0,bnxe1;bnxe2,bnxe3;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;c3t0d0;c3t1d0;solaris;clariion;NONE,NONE;
+#atrcxb1735;98:4B:E1:68:0C:B8;10.44.95.76;i86pc;10.44.94.237;mediation;linux;10.44.95.1;atcx4-29;10.44.201.46;10.44.201.47;10.44.194.82;10.44.194.84;10.44.194.85;10.44.194.84;10.44.194.85;10.44.194.84;10.44.194.85;10.44.194.84;10.44.194.85;10.44.94.222;Administrator;shroot12;events2;master;symantec;5;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E12.2;1;admin;password;10.44.194.190;255.255.255.0;10.44.95.76;255.255.255.0;athtem.eei.ericsson.se;10.44.95.76;password;1000000;150;4;1;1.1.1.1;NONE;No;dwh_reader_1;small;10.44.194.0;atrcxb1735_RD_1;bnxe0,bnxe1;bnxe4,bnxe5;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;c1t0d0;c1t1d0;solaris;clariion;NONE,NONE;
+###########
+#atrcxb1643 --> STATS
+###########
+atrcxb1643;00:17:A4:77:00:5A;10.44.194.114;i86pc;10.44.28.52;standalone;10.44.194.1;atcx4-12;10.44.193.161;10.44.193.162;10.45.21.209;10.45.21.212;10.45.21.213;10.45.21.212;10.45.21.213;10.45.21.212;10.45.21.213;10.45.21.212;10.45.21.213;10.44.28.33;root;shroot12;atsfsv1;master;symantec;1;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_FULL_License;1;admin;password;10.44.194.114;255.255.255.1;10.44.194.114;255.255.255.0;NONE;NONE;NONE;NONE;NONE;2;1;1.1.1.1;NONE;NONE;NONE;ft;10.44.194.0;atrcxb1643_STANDALONE;bnxe4,bnxe5;bnxe0,bnxe1;1,2,3;1000;500;500;25;200;25;200;200;200;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb1335 --> STATS
+###########
+atrcxb1335;00:17:A4:77:44:B4;10.44.95.44;i86pc;10.44.28.195;standalone;10.44.95.1;atcx4-29;10.44.201.46;10.44.201.47;10.45.31.242;10.45.31.245;10.45.31.246;10.45.31.245;10.45.31.246;10.45.31.245;10.45.31.246;10.45.31.245;10.45.31.246;10.44.95.134;admin;password;atsfsvp;master;symantec;1;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_FULL_License;1;admin;password;10.44.194.51;255.255.255.0;10.44.95.44;255.255.255.0;NONE;NONE;NONE;NONE;NONE;2;1;1.1.1.1;NONE;NONE;NONE;ft;10.44.194.0;atrcxb1335_STATS;bnxe4,bnxe5;bnxe0,bnxe1;1,2,3;1000;500;500;25;200;25;200;200;200;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+#atrcxb1335;00:17:A4:77:44:B4;10.44.95.44;i86pc;10.44.28.195;standalone;10.44.95.1;atcx4-29;10.44.201.46;10.44.201.47;10.59.140.239;10.59.140.244;10.59.140.245;10.59.140.246;10.59.140.247;10.59.140.244;10.59.140.245;10.59.140.246;10.59.140.247;10.44.95.134;admin;password;ex1335;master;symantec;1;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_FULL_License;1;admin;password;10.44.194.51;255.255.255.0;10.44.95.44;255.255.255.0;NONE;NONE;NONE;NONE;NONE;2;1;1.1.1.1;NONE;NONE;NONE;ft;10.44.194.0;atrcxb1335_STATS;bnxe4,bnxe5;bnxe0,bnxe1;1,2,3;1000;500;500;25;200;25;200;200;200;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+#atrcxb1335;00:17:A4:77:44:B4;10.44.95.44;i86pc;10.44.28.195;standalone;10.44.95.1;atcx4-29;10.44.201.46;10.44.201.47;10.59.140.239;10.59.140.244;10.59.140.245;10.59.140.246;10.59.140.247;10.59.140.244;10.59.140.245;10.59.140.246;10.59.140.247;10.44.95.134;admin;password;ex1335;master;symantec;1;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_FULL_License;1;admin;password;10.44.194.51;255.255.255.0;10.44.95.44;255.255.255.0;NONE;NONE;NONE;NONE;NONE;2;1;1.1.1.1;NONE;NONE;NONE;ft;10.44.194.0;atrcxb1335_STATS;net4,net5;net0,net1;1,2,3;1000;500;500;25;200;25;200;200;200;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#ieatrcxb6104 --> STATS
+###########
+ieatrcxb6104;00:17:A4:77:00:9A;10.45.193.114;i86pc;10.44.28.159;standalone;10.45.192.1;ieatvnx-139;10.148.8.32;10.148.8.33;10.148.8.24;10.148.8.12;10.148.8.13;10.148.8.14;10.148.8.15;10.148.8.16;10.148.8.17;10.148.8.18;10.148.8.19;10.44.28.32;root;shroot12;ossrc1;master1;symantec;1;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_FULL_License;1;admin;password;10.45.193.114;255.255.248.0;10.45.193.114;255.255.248.0;NONE;NONE;NONE;NONE;NONE;2;1;1.1.1.1;NONE;NONE;NONE;ft;10.44.194.0;ENIQSTATS_ieatrcxb6104;eno51,eno52;eno49,eno50;1,2,3;1000;500;500;25;200;25;200;200;200;NONE;NONE;NONE;linux;vnx;NONE;NONE
+###########
+#ieatrcxb6105 --> STATS
+###########
+ieatrcxb6105;00:17:A4:77:00:5E;10.45.193.160;i86pc;10.44.28.53;standalone;10.45.192.1;ieatvnx-139;10.148.8.32;10.148.8.33;10.148.8.24;10.148.8.12;10.148.8.13;10.148.8.14;10.148.8.15;10.148.8.16;10.148.8.17;10.148.8.18;10.148.8.19;10.44.28.32;root;shroot12;ossrc2;master1;symantec;1;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_FULL_License;1;admin;password;10.45.193.160;255.255.248.0;10.45.193.160;255.255.248.0;NONE;NONE;NONE;NONE;NONE;2;1;1.1.1.1;NONE;NONE;NONE;ft;10.44.194.0;ENIQSTATS_ieatrcxb6105;eno51,eno52;eno49,eno50;1,2,3;1000;500;500;25;200;25;200;200;200;NONE;NONE;NONE;linux;vnx;NONE;NONE
+###########
+#ieatrcxb6506 --> STATS 
+###########
+ieatrcxb6506;EC:B1:D7:B7:22:F0;10.45.199.90;i86pc;10.82.17.10;coordinator;10.45.192.1;ieatvnx-149;10.82.16.9;10.82.16.10;10.148.9.128;10.148.9.116;10.148.9.117;10.148.9.118;10.148.9.119;10.148.9.120;10.148.9.121;10.148.9.122;10.148.9.123;10.82.17.227;root;shroot12;s_eniq;master1;symantic1;2;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_FULL_License;1;admin;password;NONE;NONE;10.45.199.90;NONE;NONE;NONE;NONE;NONE;NONE;2;1;1.1.1.1;NONE;NONE;NONE;ft;NONE;GENERIC_CO_MB1;net0,net1;net0,net1;1,2,3;1000;500;1000;500;1000;500;200;200;200;NONE;NONE;NONE;solaris;vnx;NONE,NONE;
+###########
+#ieatrcxb6507 --> STATS
+###########
+ieatrcxb6507;EC:B1:D7:B7:3D:C0;10.45.199.93;i86pc;10.82.17.11;engine;10.45.192.1;ieatvnx-149;10.82.16.9;10.82.16.10;10.148.9.128;10.148.9.116;10.148.9.117;10.148.9.118;10.148.9.119;10.148.9.120;10.148.9.121;10.148.9.122;10.148.9.123;10.82.17.227;root;shroot12;s_eniq;master1;symantic1;2;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_FULL_License;1;admin;password;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;2;1;1.1.1.1;NONE;NONE;NONE;ft;NONE;GENERIC_ENG_MB1;net0,net1;net0,net1;1,2,3;1000;500;1000;500;1000;500;200;200;200;NONE;NONE;NONE;solaris;vnx;NONE,NONE;
+###########
+#ieatrcxb6508 --> STATS
+###########
+ieatrcxb6508;EC:B1:D7:B7:3D:F8;10.45.199.96;i86pc;10.82.17.11;reader;10.45.192.1;ieatvnx-149;10.82.16.9;10.82.16.10;10.148.9.128;10.148.9.116;10.148.9.117;10.148.9.118;10.148.9.119;10.148.9.120;10.148.9.121;10.148.9.122;10.148.9.123;10.82.17.227;root;shroot12;s_eniq;master1;symantic1;2;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_FULL_License;1;admin;password;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;2;1;1.1.1.1;NONE;NONE;NONE;ft;NONE;GENERIC_RD1_MB1;net0,net1;net0,net1;1,2,3;1000;500;1000;500;1000;500;200;200;200;NONE;NONE;NONE;solaris;vnx;NONE,NONE;
+###########
+#ieatrcxb6509 --> STATS
+###########
+ieatrcxb6509;EC:B1:D7:B7:27:20;a;i86pc;10.82.17.11;reader;10.45.192.1;ieatvnx-149;10.82.16.9;10.82.16.10;10.148.9.128;10.148.9.116;10.148.9.117;10.148.9.118;10.148.9.119;10.148.9.120;10.148.9.121;10.148.9.122;10.148.9.123;10.82.17.227;root;shroot12;s_eniq;master1;symantic1;2;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_FULL_License;1;admin;password;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;2;1;1.1.1.1;NONE;NONE;NONE;ft;NONE;GENERIC_RD2_MB1;net0,net1;net0,net1;1,2,3;1000;500;1000;500;1000;500;200;200;200;NONE;NONE;NONE;solaris;vnx;NONE,NONE;
+
+        
+
+###########
+#atrcx2162 --> STATS
+###########
+atrcx2162;00:21:28:f1:28:a6;10.0.3.5;sun4u;10.45.208.112;NONE;10.0.3.1;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;1;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_FULL_License;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;2;2;1.1.1.1;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;1,2,3;1000;500;500;25;200;25;200;200;200;N;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcx1328 --> STATS
+###########
+atrcx1328;00:21:28:a5:7a:7e;159.107.177.35;sun4u;10.44.85.43;NONE;159.107.177.1;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;1;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_FULL_License;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;2;2;1.1.1.1;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;1,2,3;1000;500;500;25;200;25;200;200;200;N;NONE;NONE;solaris;clariion;NONE,NONE;
+#
+ieatrcx6527;1c:98:ec:1b:72:cc;10.45.192.78;i86pc;10.45.208.103;NONE;10.45.192.1;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;1;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_FULL_License;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;2;2;1.1.1.1;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;1,2,3;1000;500;500;25;200;25;200;200;200;N;NONE;NONE;solaris;clariion;NONE,NONE;
+ieatrcx6575;1c:98:ec:1b:72:cc;10.45.192.78;i86pc;10.45.208.103;NONE;10.45.192.1;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;1;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_FULL_License;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;2;2;1.1.1.1;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;1,2,3;1000;500;500;25;200;25;200;200;200;N;NONE;NONE;linux;vnx;NONE,NONE;
+##########
+atrcx3371
+#########
+atrcx3371;F0:92:1C:0C:AF:F8;10.45.25.190;sun4u;10.82.16.255;NONE;10.45.24.0;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;1;
+/net/159.107.177.74/eniq/eniq_build/license/ENIQ_FULL_License;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;2;2;1.1.1.1;NONE;NONE;NONE;NONE;NONE;NONE;NONE
+;NONE;1,2,3;1000;500;500;25;200;25;200;200;200;N;NONE;NONE;solaris;clariion;NONE,NONE;
+##########
+#ieatrcx4711 --> STATS
+###########
+ieatrcx4711;28:80:23:a2:83:f0;159.107.177.44;sun4u;10.45.208.111;NONE;10.44.194.1;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;1;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_FULL_License;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;2;2;1.1.1.1;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;1,2,3;1000;500;500;25;200;25;200;200;200;N;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#ieatrcx4710 --> STATS
+###########
+ieatrcx4710;28:80:23:a2:94:78;10.44.194.10;sun4u;10.45.208.110;NONE;10.44.194.1;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;
+NONE;NONE;NONE;NONE;1;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_FULL_License;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;2;2;1.
+1.1.1;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;1,2,3;1000;500;500;25;200;25;200;200;200;N;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#ieatrcx4712 --> STATS
+###########
+ieatrcx4712;28:80:23:a2:62:c0;10.44.194.12;sun4u;10.45.208.108;NONE;10.44.194.1;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;
+NONE;NONE;NONE;NONE;1;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_FULL_License;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;2;2;1.
+1.1.1;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;1,2,3;1000;500;500;25;200;25;200;200;200;N;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#ieatrcx4398 --> STATS
+###########
+ieatrcx4398;40:a8:f0:2f:54:d0;10.45.25.187;sun4u;159.107.220.164;NONE;10.45.25.128;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;1;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_FULL_License;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;2;2;1.1.1.1;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;1,2,3;1000;500;500;25;200;25;200;200;200;N;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb1722 --> EVENTS
+###########
+atrcxb1722;98:4B:E1:68:AC:88;10.44.79.170;i86pc;10.36.48.125;standalone;10.44.79.1;atcx4-40;10.44.93.102;10.44.93.103;10.45.22.224;10.45.22.212;10.45.22.213;10.45.22.214;10.45.22.215;10.45.22.216;10.45.22.217;10.45.22.218;10.45.22.219;10.36.48.115;root;shroot12;events1;master;symantec;1;/net/159.107.220.96/export/rootftp/osslic/ENIQ/12.2_license_04Jan2012;1;admin;password;NONE;NONE;10.44.79.170;255.255.255.0;athtem.eei.ericsson.se;10.44.79.170;ldap;1000000;150;2;1;1.1.1.1;NONE;No;NONE;ft;NONE;atrcxb1722_STANDALONE;bnxe0,bnxe1;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcx1017 --> STATS
+###########
+atrcx1017;00:21:28:6f:ff:f2;159.107.177.236;sun4u;10.44.200.95;NONE;159.107.177.1;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;1;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_FULL_License;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;2;2;1.1.1.1;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;1,2,3;1000;500;500;25;200;25;200;200;200;N;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcx1057 --> STATS
+###########
+atrcx1057;00:21:28:6b:c4:4a;159.107.207.11;sun4u;10.0.9.131;NONE;159.107.207.1;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;1;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_FULL_License;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;2;2;1.1.1.1;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;1,2,3;1000;500;500;25;200;25;200;200;200;N;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb1930 --> EVENTS
+###########
+atrcxb1930;00:17:A4:77:60:40;10.45.192.121;i86pc;10.36.48.57;mediation;10.45.192.1;atcx4-40;10.44.93.102;10.44.93.103;10.45.21.151;10.45.21.139;10.45.21.140;10.45.21.141;10.45.21.142;10.45.21.143;10.45.21.144;10.45.21.145;10.45.21.146;10.36.48.73;root;shroot12;events1;master;symantec;3;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E12.2;1;admin;password;10.45.22.48;255.255.252.0;10.45.192.121;255.255.255.0;athtem.eei.ericsson.se;10.45.192.121;ldap;1000000;150;4;1;none;none;No;none;small;10.45.20.0;atrcxb1930_MZ;bnxe0,bnxe1;bnxe2,bnxe3;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb1931 --> EVENTS
+###########
+atrcxb1931;00:17:A4:77:60:48;10.45.192.122;i86pc;10.36.48.65;presentation;10.45.192.1;atcx4-40;10.44.93.102;10.44.93.103;10.45.21.151;10.45.21.139;10.45.21.140;10.45.21.141;10.45.21.142;10.45.21.143;10.45.21.144;10.45.21.145;10.45.21.146;10.36.48.73;root;shroot12;events1;master;symantec;4;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E12.2;1;admin;password;10.45.22.49;255.255.252.0;10.45.192.122;255.255.255.0;athtem.eei.ericsson.se;10.45.192.122;ldap;1000000;150;4;1;none;none;No;none;small;10.45.20.0;atrcxb1931_PR;bnxe0,bnxe1;bnxe2,bnxe3;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb1860 --> EVENTS
+###########
+atrcxb1860;98:4B:E1:68:5B:F0;10.44.79.38;i86pc;10.36.48.7;standalone;10.44.79.1;atcx4-40;10.44.93.102;10.44.93.103;10.45.21.34;10.45.21.22;10.45.21.23;10.45.21.24;10.45.21.25;10.45.21.26;10.45.21.27;10.45.21.28;10.45.21.29;10.36.48.115;root;shroot12;events2;master;symantec;1;/net/159.107.220.96/export/rootftp/osslic/ENIQ/12.2_license_04Jan2012;1;admin;password;NONE;NONE;10.44.79.38;255.255.255.0;athtem.eei.ericsson.se;10.44.79.38;ldap;1000000;150;2;1;1.1.1.1;NONE;No;NONE;ft;NONE;atrcxb1860_STANDALONE;bnxe0,bnxe1;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb1884 --> EVENTS
+###########
+atrcxb1884;98:4B:E1:69:61:00;10.44.79.49;i86pc;10.36.48.18;standalone;10.44.79.1;atcx4-40;10.44.93.102;10.44.93.103;10.45.21.72;10.45.21.60;10.45.21.61;10.45.21.62;10.45.21.63;10.45.21.64;10.45.21.65;10.45.21.66;10.45.21.67;10.36.48.22;root;shroot12;events4;master;symantec;1;/net/159.107.220.96/export/rootftp/osslic/ENIQ/ENIQ_E12.2_09May2012;1;admin;password;10.44.79.49;255.255.255.0;10.44.79.49;255.255.255.0;athtem.eei.ericsson.se;10.44.79.49;ldap;1000000;150;2;1;1.1.1.1;none;No;none;ft;none;atrcxb1884_STANDALONE;bnxe0,bnxe1;none;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb1882 --> EVENTS
+###########
+atrcxb1882;98:4b:e1:68:1b:0;10.44.79.47;i86pc;10.36.48.16;standalone;10.44.79.1;atcx4-40;10.44.93.102;10.44.93.103;10.45.21.53;10.45.21.41;10.45.21.42;10.45.21.43;10.45.21.44;10.45.21.45;10.45.21.46;10.45.21.47;10.45.21.48;10.36.48.22;root;shroot12;events2;master;symantec;1;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E13.0;1;admin;password;NONE;NONE;10.44.79.47;255.255.255.0;athtem.eei.ericsson.se;10.44.79.47;ldap;1000000;150;2;1;1.1.1.1;NONE;No;NONE;ft;NONE;atrcxb1882_STANDALONE;bnxe0,bnxe1;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb1883 --> EVENTS
+###########
+atrcxb1883;98:4b:e1:69:71:b0;10.44.79.48;i86pc;10.36.48.17;standalone;10.44.79.1;atcx4-40;10.44.93.102;10.44.93.103;10.45.21.53;10.45.21.41;10.45.21.42;10.45.21.43;10.45.21.44;10.45.21.45;10.45.21.46;10.45.21.47;10.45.21.48;10.36.48.22;root;shroot12;events3;master;symantec;1;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E13.0;1;admin;password;NONE;NONE;10.44.79.48;255.255.255.0;athtem.eei.ericsson.se;10.44.79.48;ldap;1000000;150;2;1;1.1.1.1;NONE;No;NONE;ft;NONE;atrcxb1883_STANDALONE;bnxe0;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb1863 --> EVENTS
+###########
+atrcxb1863;98:4B:E1:68:3B:50;10.44.79.41;i86pc;10.36.48.10;standalone;10.44.79.1;atcx4-40;10.44.93.102;10.44.93.103;10.45.21.91;10.45.21.79;10.45.21.80;10.45.21.81;10.45.21.82;10.45.21.83;10.45.21.84;10.45.21.85;10.45.21.86;10.36.48.22;root;shroot12;events5;master;symantec;1;NONE;1;admin;password;10.44.79.41;255.255.255.0;10.44.79.41;255.255.255.0;athtem.eei.ericsson.se;10.44.79.41;ldap;1000000;150;2;1;1.1.1.1;none;No;none;ft;none;atrcxb1863_STANDALONE;none;none;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;none;none;solaris;clariion;NONE,NONE;
+###########
+#atrcxb1878 --> EVENTS
+###########
+atrcxb1878;98:4b:e1:69:60:f8;10.44.79.43;i86pc;10.36.48.12;standalone;10.44.79.1;atcx4-40;10.44.93.102;10.44.93.103;10.45.21.91;10.45.21.79;10.45.21.80;10.45.21.81;10.45.21.82;10.45.21.83;10.45.21.84;10.45.21.85;10.45.21.86;10.36.48.22;root;shroot12;events7;master;symantec;1;/net/159.107.220.96/export/rootftp/osslic/ENIQ/SON_Visualisation_License_File;1;admin;password;NONE;NONE;10.44.79.43;255.255.255.0;athtem.eei.ericsson.se;10.44.79.43;ldap;1000000;150;2;1;1.1.1.1;NONE;No;NONE;ft;NONE;atrcxb1878_STANDALONE;bnxe0;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb1274 --> STATS
+###########
+atrcxb1274;00:17:A4:77:78:1C;10.44.194.186;i86pc;10.44.28.142;standalone;10.44.194.1;atcx4-18;10.44.28.150;10.44.28.151;10.45.18.27;10.45.18.23;10.45.18.24;10.45.18.23;10.45.18.24;10.45.18.23;10.45.18.24;10.45.18.23;10.45.1824;none;none;none;events1;master;symantec;1;/net/159.107.177.67/export/ENIQ_FT/LIC/ENIQ_FULL_License_Stats;1;admin;password;10.44.194.186;255.255.255.0;10.44.194.186;255.255.255.0;NONE;NONE;NONE;NONE;NONE;4;1;1.1.1.1;NONE;NONE;NONE;ft;1.1.1.0;atrcxb1274_STANDALONE;none;bnxe0;1,2,3;1000;500;200;500;200;500;200;200;200;NONE;c2t0d0;c2t1d0;solaris;clariion;NONE,NONE;
+###########
+#atrcxb1275 --> EVENTS
+###########
+atrcxb1275;00:17:A4:77:78:28;10.44.194.187;i86pc;10.44.28.143;standalone;10.44.194.1;atcx4-18;10.44.28.150;10.44.28.151;10.45.18.27;10.45.18.23;10.45.18.24;10.45.18.23;10.45.18.24;10.45.18.23;10.45.18.24;10.45.18.23;10.45.18.24;10.44.28.132;root;shroot12;events2;master;symantec;1;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E11.2;1;admin;password;10.44.194.187;255.255.255.0;10.44.194.187;255.255.255.0;athtem.eei.ericsson.se;10.44.194.187;ldap;1000;150;4;1;1.1.1.1;NONE;No;NONE;ft;NONE;atrcxb1275_STANDALONE;bnxe0;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;c1t0d0;c1t1d0;solaris;clariion;NONE,NONE;
+###########
+#atrcxb2241 --> EVENTS
+###########
+atrcxb2241;3c:4a:92:f0:2e:b0;10.45.192.34;i86pc;10.36.49.77;standalone;10.42.33.1;atcx4-40;10.44.93.102;10.44.93.103;10.45.23.189;10.45.23.179;10.45.23.180;10.45.23.181;10.45.23.182;10.45.23.183;10.45.23.184;10.45.23.185;10.45.23.186;10.44.93.131;root;shroot12;events4;master;symantec;1;/net/159.107.220.96/export/rootftp/osslic/ENIQ/ENIQ_Events_13/ENIQ_FULL_License_Events_13;1;admin;password;None;None;10.45.192.34;255.255.255.0;athtem.eei.ericsson.se;10.45.192.34;ldap;1000000;150;2;1;1.1.1.1;None;No;None;ft;None;atrcxb2241_STANDALONE;bnxe0;None;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;None;None;solaris;clariion;NONE,NONE;
+###########
+#atrcxb1880 --> EVENTS
+###########
+atrcxb1880;98:4B:E1:63:54:88;10.44.79.45;i86pc;10.36.48.14;standalone;10.44.79.1;atcx4-40;10.44.93.102;10.44.93.103;10.45.21.53;10.45.21.41;10.45.21.42;10.45.21.43;10.45.21.44;10.45.21.45;10.45.21.46;10.45.21.47;10.45.21.48;10.36.48.22;root;shroot12;events9;master;symantec;1;/net/159.107.220.96/export/rootftp/osslic/ENIQ/12.2_license_04Jan2012;1;admin;password;NONE;NONE;10.44.79.45;255.255.255.0;athtem.eei.ericsson.se;10.44.79.45;ldap;1000000;150;2;1;1.1.1.1;NONE;No;NONE;ft;NONE;atrcxb1880_STANDALONE;bnxe0,bnxe1;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb2142 --> EVENTS
+###########
+atrcxb2142;44:1E:A1:52:49:00;10.45.192.35;i86pc;10.36.49.85;standalone;10.42.33.1;atcx4-40;10.44.93.102;10.44.93.103;10.45.21.189;10.45.206.183;10.45.206.184;10.45.206.185;10.45.206.186;10.45.206.183;10.45.206.184;10.45.206.185;10.45.206.186;10.44.93.131;root;shroot12;ev2142;master;symantec;1;/net/159.107.220.96/export/rootftp/osslic/ENIQ/ENIQ_FULL_License_Events;1;admin;password;NONE;NONE;10.45.192.35;255.255.248.0;athtem.eei.ericsson.se;10.45.192.35;ldap;1000000;150;2;1;1.1.1.1;NONE;No;NONE;ft;NONE;atrcxb2142_STANDALONE;bnxe0;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb1879 --> EVENTS
+###########
+atrcxb1879;98:4B:E1:69:E0:58;10.44.79.44;i86pc;10.36.48.13;standalone;10.42.33.1;atcx4-40;10.44.93.102;10.44.93.103;10.45.21.91;10.45.21.79;10.45.21.80;10.45.21.81;10.45.21.82;10.45.21.83;10.45.21.84;10.45.21.85;10.45.21.86;10.36.48.22;root;shroot12;events8;master;symantec;1;/net/159.107.220.96/export/rootftp/osslic/ENIQ/ENIQ_FULL_License_Events;1;admin;password;NONE;NONE;10.44.79.44;255.255.255.0;athtem.eei.ericsson.se;10.44.79.44;ldap;1000000;150;2;1;1.1.1.1;NONE;No;NONE;ft;NONE;atrcxb1879_STANDALONE;bnxe0;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb1023 --> EVENTS
+###########
+atrcxb1023;F4:CE:46:BB:E3:F0;10.44.79.198;i86pc;10.36.49.41;standalone;10.44.79.1;atcx4-40;10.44.93.102;10.44.93.103;10.45.207.38;10.45.207.34;10.45.207.35;10.45.207.36;10.45.207.37;10.45.207.34;10.45.207.35;10.45.207.36;10.45.207.37;10.36.49.29;root;shroot12;eb1023;master;symantec;1;/net/159.107.220.96/export/rootftp/osslic/ENIQ/ENIQ_E12.2_09May2012;1;admin;password;NONE;NONE;10.44.79.198;255.255.255.0;athtem.eei.ericsson.se;10.44.79.198;ldap;1000000;150;2;1;1.1.1.1;NONE;No;NONE;ft;NONE;atrcxb1023_STANDALONE;bnxe0,bnxe1;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb1871 --> EVENTS
+###########
+atrcxb1871;00:17:A4:77:60:68;10.44.79.96;i86pc;10.36.48.69;standalone;10.44.79.1;atcx4-40;10.44.93.102;10.44.93.103;10.45.21.170;10.45.21.158;10.45.21.159;10.45.21.160;10.45.21.161;10.45.21.162;10.45.21.163;10.45.21.164;10.45.21.165;10.36.48.73;root;shroot12;events4;master;symantec;1;/net/159.107.220.96/export/rootftp/osslic/ENIQ/ENIQ_E12.2_09May2012;1;admin;password;NONE;NONE;10.44.79.96;255.255.255.0;athtem.eei.ericsson.se;10.44.79.96;ldap;1000000;150;2;1;1.1.1.1;NONE;No;NONE;ft;NONE;atrcxb1871_STANDALONE;bnxe0,bnxe1;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb1025 --> EVENTS
+###########
+atrcxb1025;F4:CE:46:BB:A4:D0;10.45.192.115;i86pc;10.36.49.46;standalone;10.45.192.1;atcx4-40;10.44.93.102;10.44.93.103;10.45.207.92;10.45.207.88;10.45.207.89;10.45.207.90;10.45.207.91;10.45.207.88;10.45.207.89;10.45.207.90;10.45.207.91;10.36.49.29;root;shroot12;eb1025;master;symantec;1;/net/159.107.220.96/export/rootftp/osslic/ENIQ/12.2_license_04Jan2012;1;admin;password;NONE;NONE;10.45.192.115;255.255.255.0;athtem.eei.ericsson.se;10.45.192.115;ldap;1000000;150;2;1;1.1.1.1;NONE;No;NONE;ft;NONE;atrcxb1025_STANDALONE;bnxe0,bnxe1;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb2285 --> EVENTS
+###########
+atrcxb2285;E8:39:35:B5:B8:E8;10.45.192.36;i86pc;10.36.49.50;standalone;10.42.33.1;atcx4-40;10.44.93.102;10.44.93.103;10.45.207.110;10.45.207.106;10.45.207.107;10.45.207.108;10.45.207.109;10.45.207.106;10.45.207.107;10.45.207.108;10.45.207.109;10.36.49.27;root;shroot12;eb2285;master;symantec;1;/net/159.107.220.96/export/rootftp/osslic/ENIQ/ENIQ_FULL_License_Events;1;admin;password;atrcxb2285_STANDALONE;NONE;10.45.192.36;255.255.255.0;athtem.eei.ericsson.se;10.45.192.36;ldap;1000000;150;2;1;1.1.1.1;NONE;No;NONE;ft;NONE;atrcxb2285_STANDALONE;bnxe0;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb1885 --> EVENTS
+###########
+atrcxb1885;98:4B:E1:68:3B:B8;10.44.79.50;i86pc;10.36.48.19;standalone;10.44.79.1;atcx4-40;10.44.93.102;10.44.93.103;10.45.207.128;10.45.207.124;10.45.207.125;10.45.207.126;10.45.207.127;10.45.207.124;10.45.207.125;10.45.207.126;10.45.207.127;10.36.48.22;root;shroot12;ev1885;master;symantec;1;/net/159.107.220.96/export/rootftp/osslic/ENIQ/12.2_license_04Jan2012;1;admin;password;NONE;NONE;10.44.79.50;255.255.255.0;athtem.eei.ericsson.se;10.44.79.50;ldap;1000000;150;2;1;1.1.1.1;NONE;No;NONE;ft;NONE;atrcxb1885_STANDALONE;bnxe0,bnxe1;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb1022 --> EVENTS
+###########
+atrcxb1022;F4:CE:46:BB:BA:F8;10.44.79.197;i86pc;10.36.49.40;standalone;10.44.79.1;atcx4-40;10.44.93.102;10.44.93.103;10.45.207.74;10.45.207.70;10.45.207.71;10.45.207.72;10.45.207.73;10.45.207.70;10.45.207.71;10.45.207.72;10.45.207.73;10.36.49.29;root;shroot12;eb1022;master;symantec;1;/net/159.107.220.96/export/rootftp/osslic/ENIQ/12.2_license_04Jan2012;1;admin;password;NONE;NONE;10.44.79.197;255.255.255.0;athtem.eei.ericsson.se;10.44.79.197;ldap;1000000;150;2;1;1.1.1.1;NONE;No;NONE;ft;NONE;atrcxb1022_STANDALONE;bnxe0,bnxe1;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb1485 --> EVENTS
+###########
+atrcxb1485;98:4B:E1:61:7B:E8;10.45.193.108;i86pc;10.36.49.84;standalone;10.45.192.1;atcx4-40;10.44.93.102;10.44.93.103;10.45.206.142;10.45.206.147;10.45.206.148;10.45.206.149;10.45.206.150;10.45.206.147;10.45.206.148;10.45.206.149;10.45.206.150;10.36.49.90;root;shroot12;events1;master;symantec;1;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E11.2;1;admin;password;10.45.193.108;255.255.255.0;10.45.193.108;255.255.255.0;athtem.eei.ericsson.se;10.45.193.108;ldap;1000;150;4;1;1.1.1.1;NONE;No;NONE;ft;NONE;atrcxb1485_STANDALONE;bnxe0;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;c1t0d0;c1t1d0;solaris;clariion;NONE,NONE;
+###########
+#atrcxb1309 --> STATS
+###########
+#atrcxb1309;00:17:A4:77:44:90;10.44.95.36;i86pc;10.44.28.187;standalone;10.44.95.1;atcx4-29;10.44.201.46;10.44.201.47;10.45.31.232;10.45.31.235;10.45.31.236;10.45.31.235;10.45.31.236;10.45.31.235;10.45.31.236;10.45.31.235;10.45.31.236;10.44.95.36;admin123;admin123;atsfsvp;master;symantec;1;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_FULL_License;1;admin;password;10.44.194.102;255.255.255.0;10.44.95.36;255.255.255.0;NONE;NONE;NONE;NONE;NONE;2;1;1.1.1.1;NONE;NONE;NONE;ft;10.44.194.0;atrcxb1309_STATS;bnxe4,bnxe5;bnxe0,bnxe1;1,2,3;1000;500;500;25;200;25;200;200;200;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+#atrcxb1309;00:17:A4:77:44:90;10.44.95.36;i86pc;10.44.28.187;standalone;10.44.95.1;atcx4-29;10.44.201.46;10.44.201.47;10.59.140.239;10.59.140.244;10.59.140.245;10.59.140.246;10.59.140.247;10.59.140.244;10.59.140.245;10.59.140.246;10.59.140.247;10.44.95.36;admin123;admin123;ex1309;master;symantec;1;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_FULL_License;1;admin;password;10.44.194.102;255.255.255.0;10.44.95.36;255.255.255.0;NONE;NONE;NONE;NONE;NONE;2;1;1.1.1.1;NONE;NONE;NONE;ft;10.44.194.0;atrcxb1309_STATS;bnxe4,bnxe5;bnxe0,bnxe1;1,2,3;1000;500;500;25;200;25;200;200;200;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+atrcxb1309;00:17:A4:77:44:90;10.44.95.36;i86pc;10.44.28.187;standalone;10.44.95.1;atcx4-29;10.44.201.46;10.44.201.47;10.59.140.239;10.59.140.244;10.59.140.245;10.59.140.246;10.59.140.247;10.59.140.244;10.59.140.245;10.59.140.246;10.59.140.247;10.44.95.36;admin123;admin123;ex1309;master;symantec;1;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_FULL_License;1;admin;password;10.44.194.102;255.255.255.0;10.44.95.36;255.255.255.0;NONE;NONE;NONE;NONE;NONE;2;1;1.1.1.1;NONE;NONE;NONE;ft;10.44.194.0;atrcxb1309_STATS;net4,net5;net0,net1;1,2,3;1000;500;500;25;200;25;200;200;200;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb2146 --> STATS E2E
+###########
+atrcxb2146;44:1E:A1:52:D9:D8;10.45.192.128;i86pc;10.36.49.48;standalone;10.45.192.1;atcx4-40;10.44.93.102;10.44.93.103;10.45.207.56;10.45.207.52;10.45.207.53;10.45.207.54;10.45.207.56;10.45.207.52;10.45.207.53;10.45.207.54;10.45.207.56;10.45.192.128;admin123;admin123;sv2146;master;symantec;1;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_FULL_License;1;admin;password;10.44.194.102;255.255.255.0;10.44.95.36;255.255.255.0;NONE;NONE;NONE;NONE;NONE;2;1;1.1.1.1;NONE;NONE;NONE;ft;10.44.194.0;atrcxb2146_STANDALONE;bnxe4,bnxe5;bnxe0,bnxe1;1,2,3;1000;500;500;25;200;25;200;200;200;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb1021 --> EVENTS
+###########
+atrcxb1021;F4:CE:46:BB:3C:60;10.44.79.196;i86pc;10.36.49.39;standalone;10.44.79.1;atcx4-40;10.44.93.102;10.44.93.103;10.45.207.65;10.45.207.61;10.45.207.62;10.45.207.63;10.45.207.64;10.45.207.61;10.45.207.62;10.45.207.63;10.45.207.64;10.36.49.29;root;shroot12;eb1021;master;symantec;1;/net/159.107.220.96/export/rootftp/osslic/ENIQ/12.2_license_04Jan2012;1;root;shroot12;10.44.79.196;NONE;10.44.79.196;255.255.255.0;athtem.eei.ericsson.se;10.44.79.196;ldap;1000000;150;2;1;1.1.1.1;NONE;No;NONE;ft;NONE;atrcxb1021_STANDALONE;bnxe0,bnxe1;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb1028 --> EVENTS
+###########
+atrcxb1028;00:17:A4:77:08:0C;10.44.194.112;i86pc;10.44.200.132;mediation;10.44.194.1;atcx4-27;10.44.194.108;10.44.194.109;10.45.23.214;10.45.23.202;10.45.23.203;10.45.23.204;10.45.23.205;10.45.23.206;10.45.23.207;10.45.23.208;10.45.23.209;10.44.200.122;root;shroot12;events2;master;symantec;3;/net/159.107.220.96/export/rootftp/osslic/ENIQ/SON_Visualisation_License_File;1;admin;password;10.44.194.112;255.255.255.0;10.44.194.112;255.255.252.0;athtem.eei.ericsson.se;10.44.194.112;ldap;1000000;150;4;1;none;none;Yes;none;small;10.45.20.0;atrcxb1028_MZ;bnxe2;bnxe0;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;none;none;solaris;clariion;NONE,NONE;
+###########
+#atrcxb1027 --> EVENTS
+###########
+atrcxb1027;0:17:a4:77:8:8;10.44.194.111;i86pc;10.44.200.125;presentation;10.44.194.1;atcx4-27;10.44.194.108;10.44.194.109;10.45.23.214;10.45.23.202;10.45.23.203;10.45.23.204;10.45.23.205;10.45.23.206;10.45.23.207;10.45.23.208;10.45.23.209;10.44.200.122;root;shroot12;events2;master;symantec;4;/net/159.107.220.96/export/rootftp/osslic/ENIQ/SON_Visualisation_License_File;1;admin;password;10.44.194.111;255.255.255.0;10.45.23.222;255.255.252.0;athtem.eei.ericsson.se;10.44.194.111;ldap;1000000;150;4;1;none;none;Yes;none;small;10.45.20.0;atrcxb1027_PR;bnxe2;bnxe0;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;none;none;solaris;clariion;NONE,NONE;
+###########
+#atrcxb1020 --> EVENTS
+###########
+atrcxb1020;F4:CE:46:BB:E7:E0;10.44.79.195;i86pc;10.36.49.38;standalone;10.44.79.1;atcx4-40;10.44.93.102;10.44.93.103;10.45.207.83;10.45.207.79;10.45.207.80;10.45.207.81;10.45.207.82;10.45.207.79;10.45.207.80;10.45.207.81;10.45.207.82;10.36.49.29;root;shroot12;eb1020;master;symantec;1;/net/159.107.220.96/export/rootftp/osslic/ENIQ/12.2_license_04Jan2012;1;root;shroot12;NONE;NONE;10.44.79.195;255.255.255.0;athtem.eei.ericsson.se;10.44.79.195;ldap;1000000;150;2;1;1.1.1.1;NONE;No;NONE;ft;NONE;atrcxb1020_STANDALONE;bnxe0,bnxe1;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb2238 --> EVENTS
+###########
+atrcxb2238;0:17:a4:77:8:38;10.44.194.115;i86pc;10.44.200.137;coordinator;10.44.194.1;atcx4-27;10.44.194.108;10.44.194.109;10.45.23.214;10.45.23.202;10.45.23.203;10.45.23.204;10.45.23.205;10.45.23.206;10.45.23.207;10.45.23.208;10.45.23.209;10.44.200.122;root;shroot12;events2;master;symantec;2;/net/159.107.220.96/export/rootftp/osslic/ENIQ/SON_Visualisation_License_File;1;admin;password;10.45.23.221;255.255.252.0;10.44.194.115;255.255.255.0;athtem.eei.ericsson.se;10.44.194.115;ldap;1000000;150;4;1;none;atrcxb1027.athtem.eei.ericsson.se;No;none;small;none;atrcxb2039_CO;bnxe2;bnxe0;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;none;none;solaris;clariion;NONE,NONE;
+###########
+#atrcxb1923 --> EVENTS
+###########
+atrcxb1923;98:4B:E1:62:0D:C0;10.44.79.141;i86pc;10.36.48.122;standalone;10.44.79.1;atcx4-40;10.44.93.102;10.44.93.103;10.45.207.20;10.45.207.16;10.45.207.17;10.45.207.18;10.45.207.19;10.45.207.16;10.45.207.17;10.45.207.18;10.45.207.19;10.36.48.115;root;shroot12;ex1923;master;symantec;1;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E12.2;1;admin;password;NONE;NONE;10.44.79.141;255.255.255.0;athtem.eei.ericsson.se;10.44.79.141;ldap;1000000;150;2;1;1.1.1.1;NONE;No;NONE;ft;NONE;atrcxb1923_STANDALONE;bnxe0;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb2012 --> EVENTS
+###########
+atrcxb2012;F4:CE:46:83:4B:08;10.44.79.194;i86pc;10.36.49.43;standalone;10.42.33.1;atcx4-40;10.44.93.102;10.44.93.103;10.42.39.238;10.42.39.234;10.42.39.235;10.42.39.236;10.42.39.237;10.42.39.234;10.42.39.235;10.42.39.236;10.42.39.237;10.44.79.194;Administrator;ericsson12;events8;master;symantec;1;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E12.2/net/159.107.177.74/eniq/eniq_build/license/;1;admin;password;NONE;NONE;10.44.79.194;255.255.255.0;athtem.eei.ericsson.se;10.44.79.194;ldap;1000000;150;2;1;1.1.1.1;NONE;No;NONE;ft;NONE;atrcxb2012_STANDALONE;bnxe0,bnxe1;NONE,NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb1128 --> EVENTS
+###########
+atrcxb1128;00:24:81:AF:5E:BC;10.42.38.127;i86pc;10.36.49.80;standalone;10.42.38.1;atcx4-40;10.44.93.102;10.44.93.103;10.45.23.189;10.45.23.179;10.45.23.180;10.45.23.181;10.45.23.182;10.45.23.183;10.45.23.184;10.45.23.185;10.45.23.186;10.36.49.90;root;shroot12;events2;master;symantec;1;net/159.107.220.96/export/rootftp/osslic/ENIQ/SON_Visualisation_License_File;1;admin;password;NONE;NONE;10.42.38.127;255.255.255.0;athtem.eei.ericsson.se;10.42.38.127;ldap;1000000;150;2;1;1.1.1.1;NONE;No;NONE;ft;NONE;atrcxb1128_STANDLONE;bnxe0,bnxe1;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb1869 --> EVENTS
+###########
+atrcxb1869;00:17:A4:77:60:58;10.44.79.94;i86pc;10.36.48.67;standalone;10.44.79.1;atcx4-40;10.44.93.102;10.44.93.103;10.45.21.170;10.45.21.158;10.45.21.159;10.45.21.160;10.45.21.161;10.45.21.162;10.45.21.163;10.45.21.164;10.45.21.165;10.36.48.73;root;shroot12;events3;master;symantec;1;/net/159.107.220.96/export/rootftp/osslic/ENIQ/12.2_license_04Jan2012;1;root;shroot;NONE;NONE;10.44.79.94;255.255.255.0;athtem.eei.ericsson.se;10.44.79.94;ldap;1000000;150;2;1;1.1.1.1;NONE;No;NONE;ft;NONE;atrcxb1869_STANDALONE;bnxe0,bnxe1;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb1881 --> EVENTS
+###########
+atrcxb1881;98:4B:E1:68:9C:F8;10.44.79.46;i86pc;10.36.48.15;standalone;10.42.33.1;atcx4-40;10.44.93.102;10.44.93.103;10.45.21.53;10.45.21.41;10.45.21.42;10.45.21.43;10.45.21.44;10.45.21.45;10.45.21.46;10.45.21.47;10.45.21.48;10.44.79.46;root;shroot12;events1;master;symantec;1;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E12.2;1;admin;password;NONE;255.255.255.0;10.44.79.46;255.255.255.0;athtem.eei.ericsson.se;10.44.79.192;ldap;1000000;150;2;1;1.1.1.1;NONE;No;NONE;ft;NONE;atrcxb1881_STANDALONE;bnxe0,bnxe1;NONE,NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb1927 --> EVENTS
+###########
+atrcxb1927;00:17:A4:77:60:18;10.45.192.118;i86pc;10.36.48.59;reader;10.45.192.1;atcx4-40;10.44.93.102;10.44.93.103;10.45.21.151;10.45.21.139;10.45.21.140;10.45.21.141;10.45.21.142;10.45.21.143;10.45.21.144;10.45.21.145;10.45.21.146;10.36.48.73;root;shroot12;events1;master;symantec;5;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E12.2;1;admin;password;10.45.22.45;255.255.252.0;10.45.192.118;255.255.255.0;athtem.eei.ericsson.se;10.45.192.118;ldap;1000000;150;4;1;none;none;Yes;dwh_reader_1;small;10.45.20.0;atrcxb1927_RD_1;bnxe0,bnxe1;bnxe2,bnxe3;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcx1299esx --> STATS
+###########
+atrcx1299esx;00:21:28:a3:2e:fa;159.107.177.150;sun4u;10.42.39.196;NONE;159.107.177.1;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;1;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_FULL_License;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;2;zfs;1.1.1.1;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;1,2,3;1000;500;500;25;200;25;200;200;200;N;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb1201 --> EVENTS
+###########
+atrcxb1201;78:E7:D1:56:FD:A8;10.44.79.184;i86pc;10.36.48.131;standalone;10.44.79.1;atcx4-40;10.44.93.102;10.44.93.103;10.45.22.169;10.45.22.157;10.45.22.158;10.45.22.159;10.45.22.160;10.45.22.161;10.45.22.162;10.45.22.163;10.45.22.164;10.36.48.115;root;shroot12;events3;master;symantec;1;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E13.0;1;root;shroot;NONE;NONE;10.44.79.184;255.255.255.0;athtem.eei.ericsson.se;10.44.79.184;ldap;1000000;150;2;1;1.1.1.1;NONE;No;NONE;ft;NONE;atrcxb1201_STANDALONE;bnxe0,bnxe1;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb1641 --> STATS
+###########
+#atrcxb1641;00:17:A4:77:00:96;10.44.194.15;i86pc;10.44.28.50;coordinator;10.44.194.1;atcx4-12;10.44.193.161;10.44.193.162;10.59.130.210;10.59.130.215;10.59.130.216;10.59.130.217;10.59.130.218;10.59.130.215;10.59.130.216;10.59.130.217;10.59.130.218;10.44.28.30;root;shroot12;stats1;master;symantec;2;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_FULL_License;1;admin;password;10.44.194.15;255.255.255.0;10.44.194.15;255.255.255.0;NONE;NONE;NONE;NONE;NONE;2;1;1.1.1.1;NONE;NONE;NONE;ft;10.44.194.0;Stats_MultiB_1641;bnxe0,bnxe1;bnxe0,bnxe1;1,2,3;1000;500;1000;500;1000;500;200;200;200;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+atrcxb1641;00:17:A4:77:00:96;10.44.194.15;i86pc;10.44.28.50;coordinator;10.44.194.1;atcx4-12;10.44.193.161;10.44.193.162;10.59.130.183;10.59.130.188;10.59.130.189;10.59.130.190;10.59.130.191;10.59.130.188;10.59.130.189;10.59.130.190;10.59.130.191;10.44.28.30;root;shroot12;ev1641;master;symantec;2;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_FULL_License;1;admin;password;10.44.194.15;255.255.255.0;10.44.194.15;255.255.255.0;NONE;NONE;NONE;NONE;NONE;2;1;1.1.1.1;NONE;NONE;NONE;ft;10.44.194.0;Stats_MultiB_1641;bnxe0,bnxe1;bnxe0,bnxe1;1,2,3;1000;500;1000;500;1000;500;200;200;200;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+#atrcxb1641;00:17:A4:77:00:96;10.44.194.15;i86pc;10.44.28.50;coordinator;10.44.194.1;atcx4-12;10.44.193.161;10.44.193.162;10.59.130.183;10.59.130.188;10.59.130.189;10.59.130.190;10.59.130.191;10.59.130.188;10.59.130.189;10.59.130.190;10.59.130.191;10.44.28.30;root;shroot12;ev1641;master;symantec;2;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_FULL_License;1;admin;password;10.44.194.15;255.255.255.0;10.44.194.15;255.255.255.0;NONE;NONE;NONE;NONE;NONE;2;1;1.1.1.1;NONE;NONE;NONE;ft;10.44.194.0;Stats_MultiB_1641;net0,net1;net0,net1;1,2,3;1000;500;1000;500;1000;500;200;200;200;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb2006 --> EVENTS
+###########
+atrcxb2006;F4:CE:46:83:8C:A8;10.44.79.188;i86pc;10.36.49.37;standalone;10.42.33.1;atcx4-40;10.44.93.102;10.44.93.103;10.59.130.120;10.59.130.40;10.59.130.41;10.59.130.42;10.59.130.43;10.59.130.40;10.59.130.41;10.59.130.42;10.59.130.43;10.44.79.188;root;shroot12;ev2006;master;symantec;1;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E12.2/net/159.107.177.74/eniq/eniq_build/license/;1;admin;password;NONE;NONE;10.44.79.188;255.255.255.0;athtem.eei.ericsson.se;10.44.79.188;ldap;1000000;150;2;1;1.1.1.1;NONE;No;NONE;ft;NONE;atrcxb2006_STANDALONE;bnxe0,bnxe1;NONE,NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb1029 --> EVENTS
+###########
+atrcxb1029;00:17:A4:77:08:10;10.44.194.113;i86pc;10.44.200.133;standalone;10.44.194.1;atcx4-27;10.44.194.108;10.44.194.109;10.45.23.214;10.45.23.202;10.45.23.203;10.45.23.204;10.45.23.205;10.45.23.206;10.45.23.207;10.45.23.208;10.45.23.209;10.44.200.122;root;shroot12;events2;master;symantec;1;/net/159.107.220.96/export/rootftp/osslic/ENIQ/SON_Visualisation_License_File;1;admin;password;10.44.194.113;255.255.252.0;10.45.23.224;255.255.255.0;athtem.eei.ericsson.se;10.44.194.113;ldap;1000000;150;4;1;none;none;Yes;dwh_reader_1;small;10.45.20.0;atrcxb1029_SON;bnxe2;bnxe0;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;none;none;solaris;clariion;NONE,NONE;
+###########
+#atrcxb1199 --> EVENTS
+###########
+atrcxb1199;0:17:a4:77:a4:44;10.44.192.198;i86pc;10.44.92.135;standalone;10.44.192.1;atloanercx2;10.44.200.209;10.44.200.210;10.59.131.55;10.59.131.60;10.59.131.61;10.59.131.62;10.59.131.63;10.59.131.60;10.59.131.61;10.59.131.62;10.59.131.63;10.44.92.122;root;shroot12;ev1199;master;symantec;1;/net/159.107.220.96/export/rootftp/osslic/ENIQ/SV_nomap;1;admin;password;NONE;NONE;10.44.192.198;255.255.255.0;athtem.eei.ericsson.se;10.44.192.198;ldap;1000000;150;2;1;1.1.1.1;NONE;No;NONE;ft;NONE;atrcxb1199_STANDALONE;bge0;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb1664 --> EVENTS
+###########
+atrcxb1664;98:4B:E1:63:C2:98;10.45.192.56;i86pc;10.36.48.129;standalone;10.45.192.1;atcx4-40;10.44.93.102;10.44.93.103;10.59.131.64;10.59.131.69;10.59.131.70;10.59.131.71;10.59.131.72;10.59.131.69;10.59.131.70;10.59.131.71;10.59.131.72;10.36.48.115;root;shroot12;ev1664;master;symantec;1;/net/159.107.220.96/export/rootftp/osslic/ENIQ/ENIQ_E12.2_09May2012;1;admin;password;NONE;NONE;10.45.192.56;255.255.255.0;athtem.eei.ericsson.se;10.45.192.56;ldap;1000000;150;2;1;1.1.1.1;NONE;No;NONE;ft;NONE;atrcxb1664_STANDALONE;bnxe0,bnxe1;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb2010 --> EVENTS
+###########
+atrcxb2010;F4:CE:46:83:5C:38;10.44.79.192;i86pc;10.36.49.35;standalone;10.42.33.1;atcx4-40;10.44.93.102;10.44.93.103;10.45.207.101;10.45.207.97;10.45.207.98;10.45.207.99;10.45.207.100;10.45.207.97;10.45.207.98;10.45.207.99;10.45.207.100;10.44.79.192;root;shroot12;ev2010;master;symantec;1;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E12.2/net/159.107.177.74/eniq/eniq_build/license/;1;admin;password;NONE;NONE;10.44.79.192;255.255.255.0;athtem.eei.ericsson.se;10.44.79.192;ldap;1000000;150;2;1;1.1.1.1;NONE;No;NONE;ft;NONE;atrcxb2010_STANDALONE;bnxe0,bnxe1;NONE,NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb2008 --> EVENTS
+###########
+atrcxb2008;F4:CE:46:83:5B:28;10.44.79.190;i86pc;10.36.49.45;standalone;10.42.33.1;atcx4-40;10.44.93.102;10.44.93.103;10.42.39.121;10.59.130.48;10.59.130.49;10.59.130.50;10.59.130.51;10.59.130.48;10.59.130.49;10.59.130.50;10.59.130.51;10.44.79.190;Administrator;ericsson12;ev2008;master;symantec;1;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E12.2/net/159.107.177.74/eniq/eniq_build/license/;1;admin;password;NONE;NONE;10.44.79.190;255.255.255.0;athtem.eei.ericsson.se;10.44.79.190;ldap;1000000;150;2;1;1.1.1.1;NONE;No;NONE;ft;NONE;atrcxb2008_STANDALONE;bnxe0,bnxe1;NONE,NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb2314 --> STATS
+###########
+#atrcxb2314;00:17:A4:77:00:D8;10.44.194.28;i86pc;10.44.28.53;reader;10.44.194.1;atcx4-12;10.44.193.161;10.44.193.162;10.59.130.210;10.59.130.215;10.59.130.216;10.59.130.217;10.59.130.218;10.59.130.215;10.59.130.216;10.59.130.217;10.59.130.218;10.44.28.30;root;shroot12;stats1;master;symantec;4;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_FULL_License;1;admin;password;10.44.194.28;255.255.255.0;10.44.194.28;255.255.255.0;NONE;NONE;NONE;NONE;NONE;2;1;1.1.1.1;NONE;No;dwh_reader_2;ft;10.44.194.0;Stats_MultiB_2314;bnxe0,bnxe1;bnxe0,bnxe1;1,2,3;1000;500;1000;500;1000;500;200;200;200;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+atrcxb2314;00:17:A4:77:00:D8;10.44.194.28;i86pc;10.44.28.158;reader;10.44.194.1;atcx4-12;10.44.193.161;10.44.193.162;10.59.130.183;10.59.130.188;10.59.130.189;10.59.130.190;10.59.130.191;10.59.130.188;10.59.130.189;10.59.130.190;10.59.130.191;10.44.28.30;root;shroot12;ev1641;master;symantec;4;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_FULL_License;1;admin;password;10.44.194.28;255.255.255.0;10.44.194.28;255.255.255.0;NONE;NONE;NONE;NONE;NONE;2;1;1.1.1.1;NONE;No;dwh_reader_2;ft;10.44.194.0;Stats_MultiB_2314;bnxe0,bnxe1;bnxe0,bnxe1;1,2,3;1000;500;1000;500;1000;500;200;200;200;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+#atrcxb2314;00:17:A4:77:00:D8;10.44.194.28;i86pc;10.44.28.158;reader;10.44.194.1;atcx4-12;10.44.193.161;10.44.193.162;10.59.130.183;10.59.130.188;10.59.130.189;10.59.130.190;10.59.130.191;10.59.130.188;10.59.130.189;10.59.130.190;10.59.130.191;10.44.28.30;root;shroot12;ev1641;master;symantec;4;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_FULL_License;1;admin;password;10.44.194.28;255.255.255.0;10.44.194.28;255.255.255.0;NONE;NONE;NONE;NONE;NONE;2;1;1.1.1.1;NONE;No;dwh_reader_2;ft;10.44.194.0;Stats_MultiB_2314;net0,net1;net0,net1;1,2,3;1000;500;1000;500;1000;500;200;200;200;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb2468 --> EVENTS
+###########
+atrcxb2468;AC:16:2D:AC:EE:98;10.45.239.182;i86pc;10.45.210.67;mediation_cep;10.45.239.1;atvnx-14;10.45.233.117;10.45.233.118;10.45.233.219;10.45.233.143;10.45.233.144;10.45.233.145;10.45.233.146;10.45.233.147;10.45.233.148;10.45.233.143;10.45.233.144;10.45.210.54;root;shroot12;events3;master;symantec;3;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E12.2;1;cifwkadm;CI1012Adm;10.45.233.135;255.255.252.0;10.45.239.182;255.255.252.0;athtem.eei.ericsson.se;10.45.239.182;password;1000000;150;4;1;1.1.1.1;NONE;No;NONE;small;10.45.232.0;atrcxb2468_CEP_MZ;bnxe0,NONE;bnxe1,NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;linux;vnx;NONE,10.45.239.175;
+###########
+#atrcxb2462 --> EVENTS
+###########
+atrcxb2462;AC:16:2D:AC:BD:B8;10.45.239.176;i86pc;10.45.210.61;presentation;10.45.239.1;atvnx-14;10.45.233.117;10.45.233.118;10.45.233.219;10.45.233.143;10.45.233.144;10.45.233.145;10.45.233.146;10.45.233.147;10.45.233.148;10.45.233.143;10.45.233.144;10.45.210.54;root;shroot12;events3;master;symantec;4;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E12.2;1;cifwkadm;CI1012Adm;10.45.233.123;255.255.252.0;10.45.239.176;255.255.252.0;athtem.eei.ericsson.se;10.45.239.176;password;1000000;150;4;1;1.1.1.1;NONE;No;NONE;small;10.45.232.0;atrcxb2462_PR;bnxe0,NONE;bnxe1,NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;vnx;NONE,NONE;
+###########
+#atrcxb2464 --> EVENTS
+###########
+atrcxb2464;AC:16:2D:AD:20:60;10.45.239.178;i86pc;10.45.210.63;mediation;10.45.239.1;atvnx-14;10.45.233.117;10.45.233.118;10.45.233.219;10.45.233.143;10.45.233.144;10.45.233.145;10.45.233.146;10.45.233.147;10.45.233.148;10.45.233.143;10.45.233.144;10.45.210.54;root;shroot12;events3;master;symantec;3;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E13.0;1;cifwkadm;CI1012Adm;10.45.233.127;255.255.252.0;10.45.239.178;255.255.252.0;athtem.eei.ericsson.se;10.45.239.178;password;1000000;150;4;1;1.1.1.1;atrcxb2462.athtem.eei.ericsson.se;No;NONE;small;10.45.232.0;atrcxb2464_MZ;bnxe0,NONE;bnxe1,NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;vnx;NONE,NONE;
+###########
+#atrcxb2461 --> EVENTS
+###########
+atrcxb2461;AC:16:2D:AC:2E:20;10.45.239.175;i86pc;10.45.210.60;coordinator;10.45.239.1;atvnx-14;10.45.233.117;10.45.233.118;10.45.233.219;10.45.233.143;10.45.233.144;10.45.233.145;10.45.233.146;10.45.233.147;10.45.233.148;10.45.233.143;10.45.233.144;10.45.210.54;root;shroot12;events3;master;symantec;2;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E13.0;1;cifwkadm;CI1012Adm;10.45.233.121;255.255.252.0;10.45.239.175;255.255.252.0;athtem.eei.ericsson.se;10.45.239.175;password;1000000;150;4;1;1.1.1.1;atrcxb2462.athtem.eei.ericsson.se;No;NONE;small;10.45.232.0;atrcxb2461_CO;bnxe0,NONE;bnxe1,NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;vnx;atrcxb2468,NONE;
+###########
+#atrcxb1665 --> EVENTS
+###########
+atrcxb1665;98:4B:E1:63:C6:F0;10.45.192.124;i86pc;10.36.48.130;standalone;10.42.33.1;atcx4-40;10.44.93.102;10.44.93.103;10.59.131.46;10.59.131.51;10.59.131.52;10.59.131.53;10.59.131.54;10.59.131.51;10.59.131.52;10.59.131.53;10.59.131.54;10.45.192.124;root;shroot;ev1665;master;symantec;1;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E12.2/;1;admin;password;10.45.192.124;255.255.255.0;10.45.192.124;255.255.255.0;athtem.eei.ericsson.se;10.45.192.124;ldap;1000000;150;2;1;1.1.1.1;NONE;No;NONE;ft;NONE;atrcxb1665_STANDALONE;bnxe0;bnxe0;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb1305 --> EVENTS
+###########
+#atrcxb1305;00:17:A4:77:44:18;10.44.95.32;i86pc;10.44.28.183;standalone;10.59.130.1;atcx4-29;10.44.201.46;10.44.201.47;10.59.131.185;10.59.131.190;10.59.131.191;10.59.131.192;10.59.131.193;10.59.131.190;10.59.131.191;10.59.131.192;10.59.131.193;10.44.95.32;admin123;admin123;evm1305;master;master;1;/net/159.107.177.74/eniq/eniq_build/license/ENIQEvents_EOY;1;admin;password;10.44.95.32;255.255.254.0;10.44.95.32;255.255.255.0;athtem.eei.ericsson.se;10.44.95.32;ldap;1000000;150;2;1;1.1.1.1;NONE;NONE;NONE;ft;10.44.194.0;atrcxb1305_STANDALONE;bnxe0,bnxe1;bnxe4,bnxe5;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb1305 --> EVENTS
+###########
+#atrcxb1305;00:17:A4:77:44:18;10.44.95.32;i86pc;10.44.28.183;standalone;10.59.130.1;atcx4-29;10.44.201.46;10.44.201.47;10.59.131.185;10.59.131.190;10.59.131.191;10.59.131.192;10.59.131.193;10.59.131.190;10.59.131.191;10.59.131.192;10.59.131.193;10.44.95.32;admin123;admin123;evm1305;master;master;1;/net/159.107.177.74/eniq/eniq_build/license/ENIQEvents_EOY;1;admin;password;10.44.95.32;255.255.254.0;10.44.95.32;255.255.255.0;athtem.eei.ericsson.se;10.44.95.32;ldap;1000000;150;2;1;1.1.1.1;NONE;NONE;NONE;ft;10.44.194.0;atrcxb1305_STANDALONE;net0,net1;net4,net5;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb1305 --> TEMP
+###########
+atrcxb1305;00:17:A4:77:44:18;10.44.95.32;i86pc;10.44.28.183;coordinator;10.59.130.1;atcx4-29;10.44.201.46;10.44.201.47;10.59.131.185;10.59.131.190;10.59.131.191;10.59.131.192;10.59.131.193;10.59.131.190;10.59.131.191;10.59.131.192;10.59.131.193;10.44.95.32;admin123;admin123;evm1305;master;master;1;/net/159.107.177.74/eniq/eniq_build/license/ENIQEvents_EOY;1;admin;password;10.44.95.32;255.255.254.0;10.44.95.32;255.255.255.0;athtem.eei.ericsson.se;10.44.95.32;ldap;1000000;150;2;1;1.1.1.1;NONE;NONE;NONE;ft;10.44.194.0;atrcxb1305_STANDALONE;bnxe0,bnxe1;bnxe4,bnxe5;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb1111 --> EVENTS DUMMY SERVER FOR ECREPAT
+###########
+atrcxb1111;10:17:A4:77:44:24;10.40.90.33;i86pc;10.44.23.114;standalone;10.59.130.1;atcx4-29;10.44.201.46;10.44.201.47;10.59.131.203;10.59.131.208;10.59.131.209;10.59.131.210;10.59.131.211;10.59.131.208;10.59.131.209;10.59.131.210;10.59.131.211;10.44.95.33;admin123;admin123;evm1306;master;master;1;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_EVENTS_12.1;1;admin;password;10.44.95.33;255.255.254.0;10.44.95.33;255.255.255.0;athtem.eei.ericsson.se;10.44.95.33;ldap;1000000;150;2;1;1.1.1.1;NONE;NONE;NONE;ft;10.44.194.0;atrcxb1306_STANDALONE;bnxe0,bnxe1;bnxe4,bnxe5;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb1304 --> EVENTS
+###########
+atrcxb1304;00:17:A4:77:44:0C;10.44.95.31;i86pc;10.44.28.182;standalone;10.59.130.1;atcx4-29;10.44.201.46;10.44.201.47;10.59.131.212;10.59.131.217;10.59.131.218;10.59.131.219;10.59.131.220;10.59.131.217;10.59.131.218;10.59.131.219;10.59.131.220;10.44.95.31;admin123;admin123;evm1304;symantec;symantec;1;/net/159.107.177.74/eniq/eniq_build/license/ENIQEvents_EOY;1;admin;password;10.44.194.31;255.255.254.0;10.44.95.31;255.255.255.0;athtem.eei.ericsson.se;10.44.95.31;ldap;1000000;150;2;1;1.1.1.1;NONE;NONE;NONE;ft;10.44.194.0;atrcxb1304_STANDALONE;bnxe0,bnxe1;bnxe4,bnxe5;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb2465 --> EVENTS
+###########
+atrcxb2465;AC:16:2D:AC:9D:78;10.45.239.179;i86pc;10.45.210.64;reader;10.45.239.1;atvnx-14;10.45.233.117;10.45.233.118;10.45.233.219;10.45.233.143;10.45.233.144;10.45.233.145;10.45.233.146;10.45.233.147;10.45.233.148;10.45.233.143;10.45.233.144;10.45.210.54;root;shroot12;events3;master;symantec;5;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E12.2;1;cifwkadm;CI1012Adm;10.45.233.129;255.255.252.0;10.45.239.179;255.255.252.0;athtem.eei.ericsson.se;10.45.239.179;password;1000000;150;4;1;1.1.1.1;NONE;No;dwh_reader_1;small;10.45.232.0;atrcxb2465_RD_1;bnxe0,NONE;bnxe1,NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;vnx;NONE,NONE;
+###########
+#atrcxb1198 --> EVENTS
+###########
+atrcxb1198;0:17:a4:77:a4:3c;10.44.192.197;i86pc;10.44.92.134;standalone;10.44.192.1;atloanercx2;10.44.200.209;10.44.200.210;10.59.131.28;10.59.131.33;10.59.131.34;10.59.131.35;10.59.131.36;10.59.131.33;10.59.131.34;10.59.131.35;10.59.131.36;10.44.92.122;root;shroot12;ev1198;master;symantec;1;/net/159.107.177.74/eniq/eniq_build/license/SON_13A;1;admin;password;NONE;NONE;10.44.192.197;255.255.255.0;athtem.eei.ericsson.se;10.44.192.197;ldap;1000000;150;2;1;1.1.1.1;NONE;No;NONE;ft;NONE;atrcxb1198_STANDALONE;bge0;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE,NONE;
+###########
+#atrcxb1303 --> EVENTS
+###########
+#atrcxb1303;00:17:A4:77:44:00;10.44.95.30;i86pc;10.44.28.181;standalone;10.59.130.1;atcx4-29;10.44.201.46;10.44.201.47;10.59.131.221;10.59.131.226;10.59.131.227;10.59.131.228;10.59.131.229;10.59.131.226;10.59.131.227;10.59.131.228;10.59.131.229;10.44.95.30;admin123;admin123;evm1303;symantec;symantec;1;/net/159.107.177.74/eniq/eniq_build/license/ENIQEvents_EOY;1;admin;password;10.44.95.30;255.255.254.0;10.44.95.30;255.255.255.0;athtem.eei.ericsson.se;10.44.95.30;ldap;1000000;150;2;1;1.1.1.1;NONE;NONE;NONE;ft;10.44.194.0;atrcxb1303_STANDALONE;net0,net1;net4,net5;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+atrcxb1303;00:17:A4:77:44:00;10.44.95.30;i86pc;10.44.28.181;coordinator;10.59.130.1;atcx4-29;10.44.201.46;10.44.201.47;10.59.131.221;10.59.131.226;10.59.131.227;10.59.131.228;10.59.131.229;10.59.131.226;10.59.131.227;10.59.131.228;10.59.131.229;10.44.95.30;admin123;admin123;evm1303;symantec;symantec;1;/net/159.107.177.74/eniq/eniq_build/license/ENIQEvents_EOY;1;admin;password;10.44.95.30;255.255.254.0;10.44.95.30;255.255.255.0;athtem.eei.ericsson.se;10.44.95.30;ldap;1000000;150;2;1;1.1.1.1;NONE;NONE;NONE;ft;10.44.194.0;atrcxb1303_STANDALONE;net0,net1;net4,net5;1,2,3;1000;500;1000;500;1000;500;200;200;200;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+#ieatrcxb5997 --> EVENTS
+###########
+#ieatrcxb5997;00:17:A4:77:44:00;10.44.95.30;i86pc;10.44.28.181;standalone;10.59.130.1;atcx4-29;10.44.201.46;10.44.201.47;10.59.131.221;10.59.131.226;10.59.131.227;10.59.131.228;10.59.131.229;10.59.131.226;10.59.131.227;10.59.131.228;10.59.131.229;10.44.95.30;admin123;admin123;evm1303;symantec;symantec;1;/net/159.107.177.74/eniq/eniq_build/license/ENIQEvents_EOY;1;admin;password;10.44.95.30;255.255.254.0;10.44.95.30;255.255.255.0;athtem.eei.ericsson.se;10.44.95.30;ldap;1000000;150;2;1;1.1.1.1;NONE;NONE;NONE;ft;10.44.194.0;atrcxb1303_STANDALONE;net0,net1;net4,net5;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+
+ieatrcxb5997;C4:34:6B:C0:09:B0;10.45.195.47;i86pc;10.45.208.222;standalone;10.45.192.1;atvnx-132;10.32.230.223;10.32.231.59;10.148.9.79;10.148.9.55;10.148.9.56;10.148.9.57;10.148.9.58;10.148.9.55;10.148.9.56;10.148.9.57;10.148.9.58;10.45.208.222;root;shroot12;ie3954;master;symantec;1;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_S17.0;1;admin;password;10.45.195.47;255.255.248.0;10.45.195.47;255.255.255.0;athtem.eei.ericsson.se;10.45.195.47;ldap;1000000;150;2;1;1.1.1.1;NONE;NONE;NONE;ft;10.44.194.0;ES_5997;bnxe0,bnxe1;bnxe2,bnxe3;1,2,3;1000;500;1000;25;1000;25;200;200;200;NONE;NONE;NONE;solaris;vnx;NONE,NONE;
+
+###########
+#atrcxb1303 --> EVENTS
+###########
+#atrcxb1303;00:17:A4:77:44:00;10.44.95.30;i86pc;10.44.28.181;standalone;10.59.130.1;atcx4-29;10.44.201.46;10.44.201.47;10.59.131.221;10.59.131.226;10.59.131.227
+#;10.59.131.228;10.59.131.229;10.59.131.226;10.59.131.227;10.59.131.228;10.59.131.229;10.44.95.30;admin123;admin123;evm1303;symantec;symantec;1;/net/159.107.177
+#.74/eniq/eniq_build/license/ENIQEvents_EOY;1;admin;password;10.44.95.30;255.255.254.0;10.44.95.30;255.255.255.0;athtem.eei.ericsson.se;10.44.95.30;ldap;1000000
+#;150;2;1;1.1.1.1;NONE;NONE;NONE;ft;10.44.194.0;atrcxb1303_STANDALONE;bnxe0,bnxe1;bnxe4,bnxe5;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;s
+#olaris;clariion;NONE,NONE;
+###########
+#atrcxb1726 --> EVENTS
+###########
+atrcxb1726;98:4b:e1:61:3c:a8;10.44.79.171;i86pc;10.36.48.126;standalone;10.44.79.1;atcx4-40;10.44.93.102;10.44.93.103;10.59.131.174;10.59.131.179;10.59.131.180;10.59.131.181;10.59.131.182;10.59.131.179;10.59.131.180;10.59.131.181;10.59.131.182;10.36.48.115;root;shroot12;ev1726;master;symantec;1;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E13.0;1;admin;password;10.44.79.171;255.255.255.0;10.44.79.171;255.255.255.0;athtem.eei.ericsson.se;10.44.79.171;ldap;1000000;150;2;1;none;none;No;none;ft;none;atrcxb1726_STANDALONE;bnxe0,bnxe1;bnxe2,bnxe3;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb1468 --> EVENTS
+###########
+atrcxb1468;00:17:a4:77:60:0e;10.45.193.209;i86pc;10.45.208.41;reader;10.45.192.1;ieatvnx-75;10.44.93.1;10.44.93.2;10.42.39.186;10.42.39.182;10.42.39.183;10.42.39.184;10.42.39.185;10.42.39.182;10.42.39.183;10.42.39.184;10.42.39.185;10.45.208.47;root;shroot12;events1;master;symantec;5;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E13.0;1;admin;password;10.42.39.188;255.255.248.0;10.45.193.209;255.255.255.0;athtem.eei.ericsson.se;10.45.193.209;ldap;1000000;150;4;1;none;atrcxb1132.athtem.eei.ericsson.se;Yes;dwh_reader_1;small;10.42.36.0;atrcxb1468_RD;bnxe0,bnxe1;bnxe2,bnxe3;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;vnx;NONE,NONE;
+###########
+#atrcxb1465 --> EVENTS
+###########
+atrcxb1465;00:17:a4:77:60:12;10.45.193.208;i86pc;10.45.208.40;mediation;10.45.192.1;ieatvnx-75;10.44.93.1;10.44.93.2;10.42.39.186;10.42.39.182;10.42.39.183;10.42.39.184;10.42.39.185;10.42.39.182;10.42.39.183;10.42.39.184;10.42.39.185;10.45.208.47;root;shroot12;events1;master;symantec;3;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E13.0;1;admin;password;10.42.39.191;255.255.248.0;10.45.193.208;255.255.255.0;athtem.eei.ericsson.se;10.45.193.208;ldap;1000000;150;4;1;none;atrcxb1132.athtem.eei.ericsson.se;No;none;small;10.42.36.0;atrcxb1465_MZ;bnxe0,bnxe1;bnxe2,bnxe3;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;vnx;NONE,NONE;
+###########
+#atrcxb2039 --> EVENTS
+###########
+atrcxb2039;44:1e:a1:45:6:c0;10.42.38.181;i86pc;10.36.49.81;standalone;10.42.38.1;atcx4-40;10.44.93.102;10.44.93.103;10.45.21.189;10.45.21.177;10.45.21.178;10.45.21.179;10.45.21.180;10.45.21.181;10.45.21.182;10.45.21.183;10.45.21.184;10.36.49.90;root;shroot12;ex2039;master;symantec;1;/net/159.107.220.96/export/rootftp/osslic/ENIQ/SON_Visualisation_License_File;1;admin;password;NONE;NONE;10.42.38.181;255.255.255.0;athtem.eei.ericsson.se;10.42.38.181;ldap;1000000;150;2;1;1.1.1.1;NONE;No;NONE;ft;NONE;atrcxb2039_STANDALONE;bnxe0,bnxe1;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb1307 --> EVENTS
+###########
+atrcxb1307;00:17:A4:77:60:34;10.44.95.34;i86pc;10.45.208.31;standalone;10.59.130.1;atcx4-29;10.44.201.46;10.44.201.47;10.59.131.194;10.59.131.199;10.59.131.200;10.59.131.201;10.59.131.202;10.59.131.199;10.59.131.200;10.59.131.201;10.59.131.202;10.44.95.34;admin123;admin123;evm1307;master;symantec;1;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_EVENTS_12.1;1;admin;password;10.44.95.34;255.255.254.0;10.44.95.34;255.255.255.0;athtem.eei.ericsson.se;10.44.95.34;ldap;1000000;150;2;1;1.1.1.1;NONE;NONE;NONE;ft;10.44.194.0;atrcxb1307_STANDALONE;bnxe0,bnxe1;bnxe4,bnxe5;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb2127 --> STATS
+###########
+#atrcxb2127;00:17:A4:77:00:A6;10.44.194.33;i86pc;10.44.28.43;engine;10.44.194.1;atcx4-12;10.44.193.161;10.44.193.162;10.59.130.210;10.59.130.215;10.59.130.216;10.59.130.217;10.59.130.218;10.59.130.215;10.59.130.216;10.59.130.217;10.59.130.218;10.44.28.30;root;shroot12;stats1;master;symantec;3;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_FULL_License;1;admin;password;10.44.194.33;255.255.255.0;10.44.194.33;255.255.255.0;NONE;NONE;NONE;NONE;NONE;2;1;1.1.1.1;NONE;NONE;NONE;ft;10.44.194.0;Stats_MultiB_2127;bnxe0,bnxe1;bnxe0,bnxe1;1,2,3;1000;500;1000;500;1000;500;200;200;200;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+atrcxb2127;00:17:A4:77:00:A6;10.44.194.33;i86pc;10.44.28.43;engine;10.44.194.1;atcx4-12;10.44.193.161;10.44.193.162;10.59.130.183;10.59.130.188;10.59.130.189;10.59.130.190;10.59.130.191;10.59.130.188;10.59.130.189;10.59.130.190;10.59.130.191;10.44.28.30;root;shroot12;ev1641;master;symantec;3;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_FULL_License;1;admin;password;10.44.194.33;255.255.255.0;10.44.194.33;255.255.255.0;NONE;NONE;NONE;NONE;NONE;2;1;1.1.1.1;NONE;NONE;NONE;ft;10.44.194.0;Stats_MultiB_2127;bnxe0,bnxe1;bnxe0,bnxe1;1,2,3;1000;500;1000;500;1000;500;200;200;200;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+#atrcxb2127;00:17:A4:77:00:A6;10.44.194.33;i86pc;10.44.28.43;engine;10.44.194.1;atcx4-12;10.44.193.161;10.44.193.162;10.59.130.183;10.59.130.188;10.59.130.189;10.59.130.190;10.59.130.191;10.59.130.188;10.59.130.189;10.59.130.190;10.59.130.191;10.44.28.30;root;shroot12;ev1641;master;symantec;3;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_FULL_License;1;admin;password;10.44.194.33;255.255.255.0;10.44.194.33;255.255.255.0;NONE;NONE;NONE;NONE;NONE;2;1;1.1.1.1;NONE;NONE;NONE;ft;10.44.194.0;Stats_MultiB_2127;net0,net1;net0,net1;1,2,3;1000;500;1000;500;1000;500;200;200;200;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb2126 --> STATS
+###########
+#atrcxb2126;00:17:A4:77:00:C6;10.45.224.9;i86pc;10.44.28.42;reader;10.45.224.1;atcx4-12;10.44.193.161;10.44.193.162;10.59.130.210;10.59.130.215;10.59.130.216;10.59.130.217;10.59.130.218;10.59.130.215;10.59.130.216;10.59.130.217;10.59.130.218;10.44.28.30;root;shroot12;stats1;master;symantec;4;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_FULL_License;1;admin;password;10.45.224.9;255.255.255.0;10.45.224.9;255.255.255.0;NONE;NONE;NONE;NONE;NONE;2;1;1.1.1.1;NONE;No;dwh_reader_1;ft;10.45.224.0;Stats_MultiB_2126;bnxe0,bnxe1;bnxe0,bnxe1;1,2,3;1000;500;1000;500;1000;500;200;200;200;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+atrcxb2126;00:17:A4:77:00:C6;10.45.224.9;i86pc;10.44.28.42;reader;10.45.224.1;atcx4-12;10.44.193.161;10.44.193.162;10.59.130.183;10.59.130.188;10.59.130.189;10.59.130.190;10.59.130.191;10.59.130.188;10.59.130.189;10.59.130.190;10.59.130.191;10.44.28.30;root;shroot12;ev1641;master;symantec;4;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_FULL_License;1;admin;password;10.45.224.9;255.255.255.0;10.45.224.9;255.255.255.0;NONE;NONE;NONE;NONE;NONE;2;1;1.1.1.1;NONE;No;dwh_reader_1;ft;10.45.224.0;Stats_MultiB_2126;bnxe0,bnxe1;bnxe0,bnxe1;1,2,3;1000;500;1000;500;1000;500;200;200;200;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+#atrcxb2126;00:17:A4:77:00:C6;10.45.224.9;i86pc;10.44.28.42;reader;10.45.224.1;atcx4-12;10.44.193.161;10.44.193.162;10.59.130.183;10.59.130.188;10.59.130.189;10.59.130.190;10.59.130.191;10.59.130.188;10.59.130.189;10.59.130.190;10.59.130.191;10.44.28.30;root;shroot12;ev1641;master;symantec;4;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_FULL_License;1;admin;password;10.45.224.9;255.255.255.0;10.45.224.9;255.255.255.0;NONE;NONE;NONE;NONE;NONE;2;1;1.1.1.1;NONE;No;dwh_reader_1;ft;10.45.224.0;Stats_MultiB_2126;net0,net1;net0,net1;1,2,3;1000;500;1000;500;1000;500;200;200;200;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb2210 --> EVENTS
+###########
+atrcxb2210;44:1E:A1:52:09:A0;10.45.236.221;i86pc;10.45.209.162;standalone;10.45.209.1;atcx4-60;10.45.193.35;10.45.193.36;10.45.192.232;10.45.192.228;10.45.192.229;10.45.192.230;10.45.192.231;10.45.192.228;10.45.192.229;10.45.192.230;10.45.192.231;10.45.209.177;root;shroot12;2210;master;symantec;1;/net/159.107.177.74/eniq/eniq_build/license/LTEES_13A;1;admin;password;10.45.236.221;255.255.255.0;10.45.236.221;255.255.255.0;athtem.eei.ericsson.se;10.45.236.221;ldap;1000;150;4;1;1.1.1.1;NONE;No;NONE;ft;NONE;atrcxb2210;none;bnxe0;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;Solaris;clariion;NONE;
+###########
+#atrcxb1132 --> EVENTS
+###########
+atrcxb1132;00:17:a4:77:60:08;10.45.193.207;i86pc;10.45.208.39;presentation;10.45.192.1;ieatvnx-75;10.44.93.1;10.44.93.2;10.42.39.186;10.42.39.182;10.42.39.183;10.42.39.184;10.42.39.185;10.42.39.182;10.42.39.183;10.42.39.184;10.42.39.185;10.45.208.47;root;shroot12;events1;master;symantec;4;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E13.0;1;admin;password;10.42.39.200;255.255.255.0;10.45.193.207;255.255.248.0;athtem.eei.ericsson.se;10.45.193.207;ldap;1000000;150;4;1;none;atrcxb1132.athtem.eei.ericsson.se;No;none;small;10.42.36.0;atrcxb1132_PR;bnxe0,bnxe1;bnxe2,bnxe3;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;vnx;NONE,NONE;
+###########
+#atrcxb2537 --> EVENTS
+###########
+atrcxb2537;AC:16:2D:B4:23:B8;10.45.195.14;i86pc;10.45.209.175;standalone;10.45.195.1;atcx4-27;10.45.194.228;10.45.194.229;10.45.194.251;10.45.194.238;10.45.194.239;10.45.194.240;10.45.194.241;10.45.194.242;10.45.194.243;10.45.194.245;10.45.194.246;10.45.209.177;root;shroot12;2537;master;symantec;1;/net/159.107.177.74/eniq/eniq_build/license/LTEES_13A;1;admin;password;10.45.195.14;255.255.255.0;10.45.195.14;255.255.255.0;NONE;NONE;NONE;NONE;150;4;1;NONE;NONE;No;NONE;small;NONE;atrcxb2537_STANDALONE;bnxe6;bnxe1;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE;
+###########
+#atrcxb2338 --> EVENTS
+###########
+atrcxb2338;80:C1:6E:64:D0:08;10.45.192.190;i86pc;10.45.209.83;standalone;10.45.192.1;atcx4-40;10.44.93.102;10.44.93.103;10.45.22.188;10.45.22.176;10.45.22.177;10.45.22.178;10.45.22.179;10.45.22.180;10.45.22.181;10.45.22.182;10.45.22.183;10.45.209.67;root;shroot12;ex2338;master;symantec;1;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E13.2;1;admin;password;10.45.192.190;255.255.248.0;10.45.192.190;255.255.248.0;athtem.eei.ericsson.se;10.45.192.190;ldap;1000000;150;2;1;NONE;none;No;NONE;ft;none;atrcxb2338_STANDALONE;bnxe0,bnxe1;bnxe2,bnxe3;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb2952 --> EVENTS
+###########
+atrcxb2952;6C:3B:E5:AB:91:48;10.45.196.2;i86pc;10.44.94.241;mediation_cep;10.45.192.1;atcx4-29;10.44.201.46;10.44.201.47;10.44.194.90;10.44.194.86;10.44.194.87;10.44.194.88;10.44.194.89;10.44.194.86;10.44.194.87;10.44.194.88;10.44.194.89;10.44.94.222;Administrator;shroot12;events2;symantec;symantec;mediation_cep;NONE;1;admin;password;10.44.194.180;255.255.248.0;10.45.195.2;255.255.248.0;athtem.eei.ericsson.se;10.45.196.45;password;1000000;150;4;1;1.1.1.1;atrcxb1734.athtem.eei.ericsson.se;No;NONE;small;10.44.194.0;atrcxb2952_CEP_MZ;bnxe0,bnxe1;eth4;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;c2t0d0;c2t1d0;linux;clariion;Coord-0.000000E+00CEPIP;
+###########
+#atrcxb1732 --> EVENTS
+###########
+atrcxb1732;98:4B:E1:63:94:C0;10.45.196.45;i86pc;10.44.94.230;coordinator;10.45.192.1;atcx4-29;10.44.201.46;10.44.201.47;10.44.194.90;10.44.194.86;10.44.194.87;10.44.194.88;10.44.194.89;10.44.194.86;10.44.194.87;10.44.194.88;10.44.194.89;10.44.94.222;Administrator;shroot12;events2;symantec;symantec;2;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E12.2;1;admin;password;10.44.194.159;255.255.248.0;10.45.196.45;255.255.248.0;athtem.eei.ericsson.se;10.45.196.45;password;1000000;150;4;1;1.1.1.1;atrcxb1734.athtem.eei.ericsson.se;No;NONE;small;10.44.194.0;atrcxb1732_CO;bnxe0,bnxe1;bnxe4,bnxe5;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;c2t0d0;c2t1d0;solaris;clariion;atrcxb2952,atrcxb1732;
+###########
+#atrcxb1734 --> EVENTS
+###########
+atrcxb1734;98:4B:E1:68:0C:E8;10.45.196.46;i86pc;10.44.94.236;presentation;10.45.192.1;atcx4-29;10.44.201.46;10.44.201.47;10.44.194.90;10.44.194.86;10.44.194.87;10.44.194.88;10.44.194.89;10.44.194.86;10.44.194.87;10.44.194.88;10.44.194.89;10.44.94.222;Administrator;shroot12;events2;symantec;symantec;4;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E12.2;1;admin;password;10.44.194.189;255.255.248.0;10.45.196.46;255.255.248.0;athtem.eei.ericsson.se;10.45.196.46;password;1000000;150;4;1;1.1.1.1;NONE;No;NONE;small;10.44.194.0;atrcxb1734_PR;bnxe0,bnxe1;bnxe4,bnxe5;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;c2t0d0;c2t1d0;solaris;clariion;atrcxb2952;
+###########
+#atrcxb1735 --> EVENTS
+###########
+atrcxb1735;98:4B:E1:68:0C:B8;10.45.196.48;i86pc;10.44.94.237;reader;10.45.192.1;atcx4-29;10.44.201.46;10.44.201.47;10.44.194.90;10.44.194.86;10.44.194.87;10.44.194.88;10.44.194.89;10.44.194.86;10.44.194.87;10.44.194.88;10.44.194.89;10.44.94.222;Administrator;shroot12;events2;symantec;symantec;5;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E12.2;1;admin;password;10.44.194.190;255.255.248.0;10.45.196.48;255.255.248.0;athtem.eei.ericsson.se;10.45.196.48;password;1000000;150;4;1;1.1.1.1;NONE;No;dwh_reader_1;small;10.44.194.0;atrcxb1735_RD_1;bnxe0,bnxe1;bnxe4,bnxe5;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;c1t0d0;c1t1d0;solaris;clariion;atrcxb2952;
+###########
+#atrcxb1733 --> EVENTS
+###########
+atrcxb1733;98:4B:E1:68:BC:08;10.45.196.47;i86pc;10.44.94.231;mediation;10.45.192.1;atcx4-29;10.44.201.46;10.44.201.47;10.44.194.90;10.44.194.86;10.44.194.87;10.44.194.88;10.44.194.89;10.44.194.86;10.44.194.87;10.44.194.88;10.44.194.89;10.44.94.222;Administrator;shroot12;events2;symantec;symantec;3;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E12.2;1;admin;password;10.44.194.188;255.255.248.0;10.45.196.47;255.255.248.0;athtem.eei.ericsson.se;10.45.196.47;password;1000000;150;4;1;1.1.1.1;NONE;No;NONE;small;10.44.194.0;atrcxb1733_MZ;bnxe0,bnxe1;bnxe4,bnxe5;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;c2t0d0;c2t1d0;solaris;clariion;atrcxb2952;
+###########
+#atrcxb1926 --> EVENTS
+###########
+atrcxb1926;00:17:A4:77:60:00;10.45.192.117;i86pc;10.36.48.56;coordinator;10.45.192.1;atcx4-40;10.44.93.102;10.44.93.103;10.45.21.151;10.45.21.139;10.45.21.140;10.45.21.141;10.45.21.142;10.45.21.143;10.45.21.144;10.45.21.145;10.45.21.146;10.36.48.73;root;shroot12;events1;master;symantec;2;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E12.2;1;admin;password;10.45.22.44;255.255.252.0;10.45.192.117;255.255.255.0;athtem.eei.ericsson.se;10.45.192.117;ldap;1000000;150;4;1;none;atrcxb1931.athtem.eei.ericsson.se;No;none;small;10.45.20.0;atrcxb1926_CO;bnxe0,bnxe1;bnxe2,bnxe3;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;atrcxb1928;
+###########
+#atrcxb1469 --> EVENTS
+###########
+atrcxb1469;00:17:a4:77:60:16;10.45.193.210;i86pc;10.45.208.42;coordinator;10.45.192.1;ieatvnx-75;10.44.93.1;10.44.93.2;10.42.39.186;10.42.39.182;10.42.39.183;10.42.39.184;10.42.39.185;10.42.39.182;10.42.39.183;10.42.39.184;10.42.39.185;10.45.208.47;root;shroot12;events1;master;symantec;2;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E13.0;1;admin;password;10.42.39.119;255.255.255.0;10.45.193.210;255.255.248.0;athtem.eei.ericsson.se;10.45.193.210;ldap;1000000;150;4;1;none;atrcxb1132.athtem.eei.ericsson.se;No;none;small;10.42.36.0;atrcxb1469_CO;bnxe0,bnxe1;bnxe2,bnxe3;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;vnx;atrcxb2345;
+;
+###########
+#atrcxb2704 --> EVENTS
+###########
+atrcxb2704;B4:B5:2F:6E:ED:C8;10.45.195.166;i86pc;10.82.16.125;standalone;10.45.192.1;atvnx-18;10.82.16.144;10.82.16.145;10.45.195.167;10.45.195.157;10.45.195.158;10.45.195.159;10.45.195.160;10.45.195.161;10.45.195.162;10.45.195.163;10.45.195.164;10.82.16.118;root;shroot12;ev2704;master;symantec;1;/net/159.107.177.74/eniq/eniq_build/license/SON_13A;1;admin;password;10.45.195.166;255.255.255.0;10.45.195.166;255.255.255.0;NONE;NONE;NONE;1000;150;2;1;1.1.1.1;NONE;No;NONE;ft;NONE;atrcxb2704_STANDALONE;bnxe0;bnxe0;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;c0t0d0;NONE;Solaris;vnx;NONE;
+###########
+#atvts --> EVENTS
+###########
+atvts;00:50:56:0:0:50;192.168.0.50;i86pc;;standalone;192.168.0.1;;;;172.16.30.18;172.16.30.14;172.16.30.16;172.16.30.14;172.16.30.16;172.16.30.14;172.16.30.16;172.16.30.14;172.16.30.16;;;;eniqe;master;symantec;1;;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E14.0;none;none;none;none;none;none;none;none;none;none;none;none;1;1;none;none;;;;;;;;;;;;;none;none;none;none;none;none;none;Solaris;;;
+###########
+#eniqe --> EVENTS
+###########
+eniqe;00:50:56:0:0:50;192.168.0.50;i86pc;;standalone;192.168.0.1;;;;172.16.30.18;172.16.30.14;172.16.30.16;172.16.30.14;172.16.30.16;172.16.30.14;172.16.30.16;172.16.30.14;172.16.30.16;;;;eniqe;master;symantec;1;;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E14.0;none;none;none;none;none;none;none;none;none;none;none;none;1;1;none;none;;;;;;;;;;;;;none;none;none;none;none;none;none;Solaris;none:cep,eniqe;
+###########
+#cep --> EVENTS
+###########
+cep;00:50:56:00:01:0F;192.168.0.211;i86pc;;mediation_cep;192.168.0.1;;;;172.16.30.18;172.16.30.14;172.16.30.16;172.16.30.14;172.16.30.16;172.16.30.14;172.16.30.16;172.16.30.14;172.16.30.16;;;;eniqe;master;symantec;1;;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E14.0;none;none;none;172.16.30.38;none;192.168.0.211;none;none;none;none;none;none;1;1;none;none;;;;;;;;;;;;;none;none;none;none;none;none;none;linux;none;cep,eniqe;
+###########
+#atrcxb1360 --> STATS
+###########
+atrcxb1360;00:17:A4:77:44:A8;10.44.95.38;i86pc;10.44.28.189;standalone;10.44.95.1;atcx4-29;10.44.201.46;10.44.201.47;10.44.194.90;10.44.194.88;10.44.194.89;10.44.194.86;10.44.194.87;10.44.194.90;10.44.194.88;10.44.194.89;10.44.194.86;10.44.95.38;admin123;admin123;events1;master;symantec;1;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_FULL_License;1;admin;password;10.44.194.19;255.255.255.0;10.44.95.38;255.255.255.0;NONE;NONE;NONE;NONE;NONE;2;1;1.1.1.1;NONE;NONE;NONE;ft;10.44.194.0;atrcxb1360_STATS;bnxe4,bnxe5;bnxe0,bnxe1;1,2,3;1000;500;500;25;200;25;200;200;200;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb2952 --> EVENTS
+###########
+###########
+#atrcxb2345 --> EVENTS
+###########
+####atrcxb2345;00:17:A4:77:60:04;10.45.192.120;i86pc;10.45.208.30;mediation_cep;10.45.192.1;ieatvnx-75;10.44.93.1;10.44.93.2;10.42.39.186;10.42.39.182;10.42.39.183;10.42.39.184;10.42.39.185;10.42.39.182;10.42.39.183;10.42.39.184;10.42.39.185;10.45.208.47;root;shroot12;events1;master;symantec;7;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E13.0;1;admin;password;10.42.39.169;255.255.255.0;10.45.192.120;255.255.248.0;athtem.eei.ericsson.se;10.45.193.210;ldap;1000000;150;4;1;none;atrcxb1132.athtem.eei.ericsson.se;No;none;small;10.42.36.0;atrcxb2345_CEP;bnxe0,bnxe1;eth2;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;linux;vnx;NONE,NONE;
+
+atrcxb2345;00:17:A4:77:60:04;10.45.192.120;i86pc;10.45.208.30;mediation;10.45.192.1;atcx4-40;10.44.93.102;10.44.93.103;10.42.39.186;10.42.39.182;10.42.39.183;10.42.39.184;10.42.39.185;10.42.39.182;10.42.39.183;10.42.39.184;10.42.39.185;10.45.208.47;root;shroot12;events1;master;symantec;3;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E15.0;1;admin;password;10.42.39.169;255.255.255.0;10.45.192.120;255.255.248.0;athtem.eei.ericsson.se;10.45.193.210;ldap;1000000;150;4;1;1.1.1.1;atrcxb1132.athtem.eei.ericsson.se;No;none;small;10.42.36.0;atrcxb2345_CEP;bnxe0,bnxe1;bnxe2,bnxe3;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+
+###########
+#atrcxb1928 --> EVENTS
+###########
+atrcxb1928;00:17:A4:77:60:10;10.45.192.119;i86pc;10.36.48.58;mediation_cep;10.45.192.1;atcx4-40;10.44.93.102;10.44.93.103;10.45.21.151;10.45.21.139;10.45.21.140;10.45.21.141;10.45.21.142;10.45.21.143;10.45.21.144;10.45.21.145;10.45.21.146;10.36.48.73;root;shroot12;events1;master;symantec;CEPMediation;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E12.2;1;admin;password;10.45.22.46;255.255.252.0;10.45.192.119;255.255.255.0;athtem.eei.ericsson.se;10.45.192.117;ldap;1000000;150;4;1;none;atrcxb1931.athtem.eei.ericsson.se;No;none;small;10.45.20.0;atrcxb1928_STANDALONE;bnxe0,bnxe1;eth2;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;linux;clariion;NONE,NONE;
+###########
+# --> EVENTS
+###########
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;;;;;;
+###########
+#atrcxb1727 --> EVENTS
+###########
+atrcxb1727;98:4B:E1:68:5B:D8;10.44.79.201;i86pc;10.36.49.44;standalone;10.44.79.1;atcx4-40;10.44.93.102;10.44.93.103;10.42.39.238;10.42.39.234;10.42.39.235;10.42.39.236;10.42.39.237;10.42.39.234;10.42.39.235;10.42.39.236;10.42.39.237;10.36.49.29;root;shroot12;events6;master;symantec;1;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E13.2;1;admin;password;10.44.79.201;255.255.255.0;10.44.79.201;255.255.255.0;athtem.eei.ericsson.se;10.44.79.201;ldap;1000000;150;2;1;none;none;No;none;ft;none;atrcxb1727_STANDALONE;bnxe0;bnxe0;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;atrcxb1024;
+###########
+#atrcxb1861 --> EVENTS
+###########
+atrcxb1861;98:4B:E1:68:CC:20;10.44.79.39;i86pc;10.36.48.8;standalone;10.44.79.1;atcx4-40;10.44.93.102;10.44.93.103;10.45.21.34;10.45.21.22;10.45.21.23;10.45.21.24;10.45.21.25;10.45.21.26;10.45.21.27;10.45.21.28;10.45.21.29;10.36.48.22;root;shroot12;events3;master;symantec;1;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E13.2;1;admin;password;NONE;NONE;10.44.79.39;255.255.255.0;athtem.eei.ericsson.se;10.44.79.39;ldap;1000000;150;2;1;1.1.1.1;NONE;No;NONE;ft;NONE;atrcxb1861_STANDALONE;bnxe0,bnxe1;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb1308 --> EVENTS 
+###########
+atrcxb1308;00:17:A4:77:44:84;10.44.95.35;i86pc;10.44.28.186;mediation_cep;10.44.95.1;atcx4-29;10.44.201.46;10.44.201.47;10.45.17.188;10.45.17.181;10.45.17.182;10.45.17.183;10.45.17.184;10.45.17.181;10.45.17.182;10.45.17.183;10.45.17.184;10.44.95.35;admin123;admin123;events1;symantec;symantec;mediation_cep;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_FULL_License;1;admin;password;10.45.17.116;255.255.255.0;10.44.95.35;255.255.255.0;NONE;10.44.95.39;NONE;NONE;NONE;2;1;1.1.1.1;NONE;NONE;NONE;ft;10.44.194.0;atrcxb1308_STATS;bnxe4,bnxe5;eth4;1,2,3;1000;500;500;25;200;25;200;200;200;NONE;NONE;NONE;linux;clariion;NONE,NONE;
+###########
+#atrcxb1024 --> EVENTS
+###########
+atrcxb1024;78:E7:D1:5C:F8:D0;10.44.79.199;i86pc;10.36.49.47;standalone;10.44.79.1;atcx4-40;10.44.93.102;10.44.93.103;10.42.39.238;10.42.39.234;10.42.39.235;10.42.39.236;10.42.39.237;10.42.39.234;10.42.39.235;10.42.39.236;10.42.39.237;10.36.49.29;root;shroot;events5;master;symantec;1;/net/159.107.220.96/export/rootftp/osslic/ENIQ/ENIQ_E13.0;1;admin;password;10.44.79.199;255.255.255.0;10.44.79.199;255.255.255.0;athtem.eei.ericsson.se;10.44.79.199;ldap;1000000;150;2;1;1.1.1.1;none;No;none;ft;none;atrcxb1024_STANDALONE;bnxe0,bnxe1;none;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb2953 --> STATS
+###########
+#atrcxb2953;6c:3b:e5:ab:d2:a0;10.45.196.4;i86pc;10.82.17.231;coordinator;10.44.194.1;atvnx-35;10.82.17.247;10.82.17.248;10.45.56.147;10.45.56.139;10.45.56.140;10.45.56.141;10.45.56.142;10.45.56.139;10.45.56.140;10.45.56.141;10.45.56.142;10.82.17.227;root;shroot12;stats;master;symantic1;2;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_FULL_License;1;admin;password;10.45.56.173;255.255.252.0;10.45.196.4;255.255.252.0;NONE;NONE;NONE;NONE;NONE;2;1;1.1.1.1;NONE;NONE;NONE;ft;10.45.56.0;GENERIC_CO;bnxe0,bnxe1;bnxe0,bnxe1;1,2,3;1000;500;1000;500;1000;500;200;200;200;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+atrcxb2953;6c:3b:e5:ab:d2:a0;10.45.196.4;i86pc;10.82.17.231;coordinator;10.44.194.1;atvnx-35;10.82.17.247;10.82.17.248;10.45.56.147;10.45.56.139;10.45.56.140;10.45.56.141;10.45.56.142;10.45.56.139;10.45.56.140;10.45.56.141;10.45.56.142;10.82.17.227;root;shroot12;stats;master;symantic1;2;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_FULL_License;1;admin;password;10.45.56.173;255.255.248.0;10.45.196.4;255.255.248.0;NONE;NONE;NONE;NONE;NONE;2;1;1.1.1.1;NONE;NONE;NONE;ft;10.45.56.0;GENERIC_CO;net0,net1;net0,net1;1,2,3;1000;500;1000;500;1000;500;200;200;200;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb1868 --> STATS
+###########
+atrcxb1868;00:17:a4:77:00:7a;10.45.24.165;i86pc;10.44.28.82;coordinator;10.45.24.161;atcx4-13;10.45.26.51;10.45.26.52;10.45.26.26;10.45.26.14;10.45.26.15;10.45.26.16;10.45.26.17;10.45.26.18;10.45.26.19;10.45.26.20;10.45.26.21;10.44.28.62;root;shroot12;stats1;master123;support123;2;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_FULL_License;1;admin;password;10.45.26.40;255.255.255.192;10.45.24.165;255.255.255.240;NONE;NONE;NONE;NONE;NONE;2;1;1.1.1.1;NONE;NONE;NONE;ft;10.45.26.0;GENERIC_CO;bnxe0,bnxe1;bnxe0,bnxe1;1,2,3;1000;500;1000;500;1000;500;200;200;200;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb2954 --> STATS
+###########
+#atrcxb2954;6c:3b:e5:ab:c3:50;10.45.196.7;i86pc;10.82.17.232;engine;10.44.194.1;atvnx-35;10.82.17.247;10.82.17.248;10.45.56.147;10.45.56.139;10.45.56.140;10.45.56.141;10.45.56.142;10.45.56.139;10.45.56.140;10.45.56.141;10.45.56.142;10.82.17.227;root;shroot12;stats;master;symantic1;3;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_FULL_License;1;admin;password;10.45.196.7;255.255.252.0;10.45.196.7;255.255.252.0;NONE;NONE;NONE;NONE;NONE;2;1;1.1.1.1;NONE;NONE;NONE;ft;10.45.56.0;GENERIC_ENG;bnxe0,bnxe1;bnxe0,bnxe1;1,2,3;1000;500;1000;500;1000;500;200;200;200;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+atrcxb2954;6c:3b:e5:ab:c3:50;10.45.196.7;i86pc;10.82.17.232;engine;10.44.194.1;atvnx-35;10.82.17.247;10.82.17.248;10.45.56.147;10.45.56.139;10.45.56.140;10.45.56.141;10.45.56.142;10.45.56.139;10.45.56.140;10.45.56.141;10.45.56.142;10.82.17.227;root;shroot12;stats;master;symantic1;3;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_FULL_License;1;admin;password;10.45.196.7;255.255.252.0;10.45.196.7;255.255.252.0;NONE;NONE;NONE;NONE;NONE;2;1;1.1.1.1;NONE;NONE;NONE;ft;10.45.56.0;GENERIC_ENG;net0,net1;net0,net1;1,2,3;1000;500;1000;500;1000;500;200;200;200;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb2955 --> STATS
+###########
+#atrcxb2955;6c:3b:e5:ab:a3:88;10.45.196.10;i86pc;10.82.17.233;reader;10.44.194.1;atvnx-35;10.82.17.247;10.82.17.248;10.45.56.147;10.45.56.139;10.45.56.140;10.45.56.141;10.45.56.142;10.45.56.139;10.45.56.140;10.45.56.141;10.45.56.142;10.82.17.227;root;shroot12;stats;master;symantic1;4;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_FULL_License;1;admin;password;10.45.196.10;255.255.252.0;10.45.196.10;255.255.252.0;NONE;NONE;NONE;NONE;NONE;2;1;1.1.1.1;NONE;No;dwh_reader_1;ft;10.45.56.0;GENERIC_RD1;bnxe0,bnxe1;bnxe0,bnxe1;1,2,3;1000;500;1000;500;1000;500;200;200;200;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+atrcxb2955;6c:3b:e5:ab:a3:88;10.45.196.10;i86pc;10.82.17.233;reader;10.44.194.1;atvnx-35;10.82.17.247;10.82.17.248;10.45.56.147;10.45.56.139;10.45.56.140;10.45.56.141;10.45.56.142;10.45.56.139;10.45.56.140;10.45.56.141;10.45.56.142;10.82.17.227;root;shroot12;stats;master;symantic1;4;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_FULL_License;1;admin;password;10.45.196.10;255.255.252.0;10.45.196.10;255.255.252.0;NONE;NONE;NONE;NONE;NONE;2;1;1.1.1.1;NONE;No;dwh_reader_1;ft;10.45.56.0;GENERIC_RD1;net0,net1;net0,net1;1,2,3;1000;500;1000;500;1000;500;200;200;200;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb2956 --> STATS
+###########
+#atrcxb2956;6c:3b:e5:ab:72:e0;10.45.196.13;i86pc;10.82.17.234;reader;10.44.194.1;atvnx-35;10.82.17.247;10.82.17.248;10.45.56.147;10.45.56.139;10.45.56.140;10.45.56.141;10.45.56.142;10.45.56.139;10.45.56.140;10.45.56.141;10.45.56.142;10.82.17.227;root;shroot12;stats;master;symantic1;4;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_FULL_License;1;admin;password;10.45.196.13;255.255.252.0;10.45.196.13;255.255.252.0;NONE;NONE;NONE;NONE;NONE;2;1;1.1.1.1;NONE;No;dwh_reader_2;ft;10.45.56.0;GENERIC_RD2;bnxe0,bnxe1;bnxe0,bnxe1;1,2,3;1000;500;1000;500;1000;500;200;200;200;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+atrcxb2956;6c:3b:e5:ab:72:e0;10.45.196.13;i86pc;10.82.17.234;reader;10.44.194.1;atvnx-35;10.82.17.247;10.82.17.248;10.45.56.147;10.45.56.139;10.45.56.140;10.45.56.141;10.45.56.142;10.45.56.139;10.45.56.140;10.45.56.141;10.45.56.142;10.82.17.227;root;shroot12;stats;master;symantic1;4;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_FULL_License;1;admin;password;10.45.196.13;255.255.252.0;10.45.196.13;255.255.252.0;NONE;NONE;NONE;NONE;NONE;2;1;1.1.1.1;NONE;No;dwh_reader_2;ft;10.45.56.0;GENERIC_RD2;net0,net1;net0,net1;1,2,3;1000;500;1000;500;1000;500;200;200;200;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb2703 --> EVENTS
+###########
+atrcxb2703;B4:B5:2F:6E:B9:E8;10.45.195.165;i86pc;10.82.16.124;standalone;10.45.192.1;atvnx-18;10.82.16.144;10.82.16.145;10.45.195.167;10.45.195.157;10.45.195.158;10.45.195.159;10.45.195.160;10.45.195.161;10.45.195.162;10.45.195.163;10.45.195.164;10.82.16.118;root;shroot12;ev2703;master;symantec;1;/net/159.107.177.74/eniq/eniq_build/license/SON_14A_backup;1;admin;password;10.45.195.165;255.255.248.0;10.45.195.165;255.255.248.0;NONE;NONE;NONE;1000;150;2;1;1.1.1.1;NONE;No;NONE;ft;NONE;atrcxb2703_STANDALONE;bnxe0;bnxe0;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;vnx;NONE;
+###########
+#atrcxb1837 --> EVENTS
+###########
+atrcxb1837;00:17:A4:77:78:2C;10.45.19.201;i86pc;10.44.28.141;coordinator;10.45.19.1;atcx4-18;10.44.28.150;10.44.28.151;10.45.22.37;10.45.22.13;10.45.22.14;10.45.22.15;10.45.22.16;10.45.22.17;10.45.22.18;10.45.22.19;10.45.22.20;10.44.28.135;root;shroot12;events1;master;symantec;2;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E13.2;1;admin;password;10.45.21.57;255.255.252.0;10.45.19.201;255.255.255.0;athtem.eei.ericsson.se;10.45.19.201;ldap;1000000;150;4;1;NONE;atrcxb1840.athtem.eei.ericsson.se;No;none;small;10.45.20.0;atrcxb1837_CO;bnxe0;bnxe2;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;atrcxb1852;
+###########
+#atrcxb1838 --> EVENTS
+###########
+atrcxb1838;00:17:A4:77:78:3C;10.45.19.202;i86pc;10.44.28.145;reader;10.45.19.1;atcx4-18;10.44.28.150;10.44.28.151;10.45.22.37;10.45.22.13;10.45.22.14;10.45.22.15;10.45.22.16;10.45.22.17;10.45.22.18;10.45.22.19;10.45.22.20;10.44.28.135;root;shroot12;events1;master;symantec;5;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E13.2;1;admin;password;10.45.21.58;255.255.252.0;10.45.19.202;255.255.255.0;athtem.eei.ericsson.se;10.45.19.201;ldap;1000000;150;4;1;none;none;Yes;dwh_reader_1;small;10.45.20.0;atrcxb1838_RD;bnxe0;bnxe2;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb1852 --> EVENTS
+###########
+atrcxb1852;00:17:A4:77:78:04;10.45.193.74;i86pc;10.44.28.139;mediation_cep;10.45.192.1;atcx4-18;10.44.28.150;10.44.28.151;10.45.22.37;10.45.22.13;10.45.22.14;10.45.22.15;10.45.22.16;10.45.22.17;10.45.22.18;10.45.22.19;10.45.22.20;10.44.28.135;root;shroot12;events1;master;symantec;mediation_cep;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E13.2;1;admin;password;10.45.20.242;255.255.252.0;10.45.193.74;255.255.255.0;athtem.eei.ericsson.se;10.45.19.201;ldap;1000000;150;4;1;none;atrcxb1840.athtem.eei.ericsson.se;No;none;small;10.45.20.0;atrcxb1852;eth0;eth2;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;linux;clariion;NONE,NONE;
+###########
+#atrcxb1840 --> EVENTS
+###########
+atrcxb1840;00:17:A4:77:78:28;10.45.19.204;i86pc;10.44.28.143;presentation;10.45.19.1;atcx4-18;10.44.28.150;10.44.28.151;10.45.22.37;10.45.22.13;10.45.22.14;10.45.22.15;10.45.22.16;10.45.22.17;10.45.22.18;10.45.22.19;10.45.22.20;10.44.28.135;root;shroot12;events1;master;symantec;4;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E13.2;1;admin;password;10.45.21.60;255.255.252.0;10.45.19.204;255.255.255.0;athtem.eei.ericsson.se;10.45.19.201;ldap;1000000;150;4;1;none;none;No;none;small;10.45.20.0;atrcxb1840_PR;bnxe0;bnxe2;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;none;none;solaris;clariion;NONE,NONE;
+###########
+#atrcxb1839 --> EVENTS
+###########
+atrcxb1839;00:17:A4:77:78:34;10.45.19.203;i86pc;10.44.28.144;mediation;10.45.19.1;atcx4-18;10.44.28.150;10.44.28.151;10.45.22.37;10.45.22.13;10.45.22.14;10.45.22.15;10.45.22.16;10.45.22.17;10.45.22.18;10.45.22.19;10.45.22.20;10.44.28.135;root;shroot12;events1;master;symantec;3;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E13.2;1;admin;password;10.45.21.59;255.255.252.0;10.45.19.203;255.255.255.0;athtem.eei.ericsson.se;10.45.19.201;ldap;1000000;150;4;1;none;atrcxb1840.athtem.eei.ericsson.se;No;none;small;10.45.20.0;atrcxb1839_MZ;bnxe0;bnxe2;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb1859 --> EVENTS
+###########
+atrcxb1859;98:4B:E1:69:D0:88;10.44.79.37;i86pc;10.36.48.6;standalone;10.44.79.1;atcx4-40;10.44.93.102;10.44.93.103;10.45.21.34;10.45.21.22;10.45.21.23;10.45.21.24;10.45.21.25;10.45.21.26;10.45.21.27;10.45.21.28;10.45.21.29;10.36.48.22;root;shroot12;events1;master;symantec;1;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E14.0;1;admin;password;10.44.79.37;255.255.255.0;10.44.79.37;255.255.255.0;athtem.eei.ericsson.se;10.44.79.37;ldap;1000000;150;2;1;1.1.1.1;none;No;none;ft;none;atrcxb1859_STANDALONE;bnxe0;bnxe0;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;none;
+###########
+#atrcxb1842 --> EVENTS
+###########
+atrcxb1842;00:17:a4:77:04:b0;10.45.196.189;i86pc;10.44.95.62;coordinator;10.45.192.1;atcx4-45;10.44.81.35;10.44.81.36;10.42.37.101;10.42.37.102;10.42.37.103;10.42.37.104;10.42.37.105;10.42.37.106;10.42.37.107;10.42.37.108;10.42.37.109;10.44.95.59;root;shroot12;events1;master;symantec;2;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E13.2;2;admin;password;10.42.37.83;255.255.255.128;10.45.196.189;255.255.248.0;athtem.eei.ericsson.se;10.45.196.189;ldap;1000000;150;3;1;159.107.177.56;atrcxb1846.athtem.eei.ericsson.se;No;NONE;medium;10.42.37.0;GENERIC_CO;bnxe0,bnxe1;bnxe3,bnxe5;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;atrcxb2450,atrcxb1842;atcx4-46;10.44.81.37;10.44.81.38;
+#atrcxb1842;00:17:a4:77:04:00;10.45.196.189;i86pc;10.44.95.62;coordinator;10.45.192.1;atcx4-45;10.44.81.35;10.44.81.36;10.42.37.101;10.42.37.102;10.42.37.103;10.42.37.104;10.42.37.105;10.42.37.106;10.42.37.107;10.42.37.108;10.42.37.109;10.44.95.59;root;shroot12;events1;master;symantec;2;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E13.2;2;admin;password;10.42.37.83;255.255.255.128;10.45.196.189;255.255.248.0;athtem.eei.ericsson.se;10.45.196.189;ldap;1000000;150;3;1;159.107.177.56;atrcxb1846.athtem.eei.ericsson.se;No;NONE;medium;10.42.37.0;GENERIC_CO;bnxe0,bnxe1;bnxe3,bnxe5;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;atrcxb2450,atrcxb1842;atcx4-46;10.44.81.37;10.44.81.38;
+###########
+#atrcxb1843 --> EVENTS
+###########
+atrcxb1843;00:17:A4:77:04:10;10.45.196.192;i86pc;10.44.95.63;reader;10.45.192.1;atcx4-45;10.44.81.35;10.44.81.36;10.42.37.101;10.42.37.102;10.42.37.103;10.42.37.104;10.42.37.105;10.42.37.106;10.42.37.107;10.42.37.108;10.42.37.109;10.44.95.59;root;shroot12;events4;master;symantec;5;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E13.2;2;admin;password;10.42.37.84;255.255.255.128;10.45.196.192;255.255.248.0;athtem.eei.ericsson.se;10.45.196.192;ldap;1000000;150;3;1;159.107.177.56;NONE;No;dwh_reader_1;medium;10.42.37.0;atrcxb1843_RD_1;bnxe0,bnxe1;bnxe3,bnxe5;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;atcx4-46;10.44.81.37;10.44.81.38
+###########
+#atrcxb1845 --> EVENTS
+###########
+atrcxb1845;00:17:A4:77:04:30;10.45.196.198;i86pc;10.44.95.69;reader;10.45.192.1;atcx4-45;10.44.81.35;10.44.81.36;10.42.37.101;10.42.37.102;10.42.37.103;10.42.37.104;10.42.37.105;10.42.37.106;10.42.37.107;10.42.37.108;10.42.37.109;10.44.95.59;root;shroot12;events2;master;symantec;5;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E13.2;2;admin;password;10.42.37.86;255.255.255.128;10.45.196.198;255.255.248.0;athtem.eei.ericsson.se;10.45.196.198;ldap;1000000;150;3;1;159.107.177.56;NONE;No;dwh_reader_3;medium;10.42.37.0;GENERIC_RD_3;bnxe0,bnxe1;bnxe3,bnxe5;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;atcx4-46;10.44.81.37;10.44.81.38
+###########
+#atrcxb1844 --> EVENTS
+###########
+atrcxb1844;00:17:A4:77:04:20;10.45.196.195;i86pc;10.44.95.64;reader;10.45.192.1;atcx4-45;10.44.81.35;10.44.81.36;10.42.37.101;10.42.37.102;10.42.37.103;10.42.37.104;10.42.37.105;10.42.37.106;10.42.37.107;10.42.37.108;10.42.37.109;10.44.95.59;root;shroot12;events3;master;symantec;5;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E13.2;2;admin;password;10.42.37.85;255.255.255.128;10.45.196.195;255.255.248.0;athtem.eei.ericsson.se;10.45.196.195;ldap;1000000;150;3;1;159.107.177.56;NONE;No;dwh_reader_2;medium;10.42.37.0;GENERIC_RD_2;bnxe0,bnxe1;bnxe3,bnxe5;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;atcx4-46;10.44.81.37;10.44.81.38
+###########
+#atrcxb1846 --> EVENTS
+###########
+atrcxb1846;00:17:A4:77:04:A0;10.45.196.201;i86pc;10.44.95.70;presentation;10.45.192.1;atcx4-45;10.44.81.35;10.44.81.36;10.42.37.101;10.42.37.102;10.42.37.103;10.42.37.104;10.42.37.105;10.42.37.106;10.42.37.107;10.42.37.108;10.42.37.109;10.44.95.59;root;shroot12;events1;master;symantec;4;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E13.2;2;admin;password;10.42.37.87;255.255.255.128;10.45.196.201;255.255.248.0;athtem.eei.ericsson.se;10.45.196.201;ldap;1000000;150;3;1;159.107.177.56;NONE;No;NONE;medium;10.42.37.0;GENERIC_PR;bnxe0,bnxe1;bnxe3,bnxe5;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;atcx4-46;10.44.81.37;10.44.81.38
+###########
+#atrcxb2449 --> EVENTS
+###########
+atrcxb2449;00:17:A4:77:04:C0;10.45.196.207;i86pc;10.44.95.65;mediation;10.45.192.1;atcx4-45;10.44.81.35;10.44.81.36;10.42.37.101;10.42.37.102;10.42.37.103;10.42.37.104;10.42.37.105;10.42.37.106;10.42.37.107;10.42.37.108;10.42.37.109;10.44.95.59;root;shroot12;events1;master;symantec;3;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E13.2;2;admin;password;10.42.37.114;255.255.255.128;10.45.196.207;255.255.248.0;athtem.eei.ericsson.se;10.45.196.207;ldap;1000000;150;3;1;159.107.177.56;NONE;No;NONE;medium;10.42.37.0;GENERIC_MZ_2;bnxe0;bnxe3;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;atcx4-46;10.44.81.37;10.44.81.38
+###########
+#atrcxb1847 --> EVENTS
+###########
+atrcxb1847;00:17:A4:77:04:B0;10.45.196.204;i86pc;10.44.95.71;mediation;10.45.192.1;atcx4-45;10.44.81.35;10.44.81.36;10.42.37.101;10.42.37.102;10.42.37.103;10.42.37.104;10.42.37.105;10.42.37.106;10.42.37.107;10.42.37.108;10.42.37.109;10.44.95.59;root;shroot12;events1;master;symantec;3;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E13.2;2;admin;password;10.42.37.88;255.255.255.128;10.45.196.204;255.255.248.0;athtem.eei.ericsson.se;10.45.196.204;ldap;1000000;150;3;1;159.107.177.56;NONE;No;NONE;medium;10.42.37.0;GENERIC_MZ_1;bnxe0;bnxe3;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;atcx4-46;10.44.81.37;10.44.81.38
+###########
+#atrcxb1361 --> EVENTS
+###########
+atrcxb1361;00:17:A4:77:44:3C;10.44.95.39;i86pc;10.44.28.190;coordinator;10.44.95.1;atcx4-29;10.44.201.46;10.44.201.47;10.45.17.188;10.45.17.181;10.45.17.182;10.45.17.183;10.45.17.184;10.45.17.181;10.45.17.182;10.45.17.183;10.45.17.184;10.44.28.197;Administrator;shroot12;events1;symantec;symantec;2;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E12.2;1;admin;password;10.45.17.120;255.255.255.0;10.44.95.39;255.255.255.0;athtem.eei.ericsson.se;10.44.95.39;ldap;1000000;150;3;1;1.1.1.1;atrcxb1362.athtem.eei.ericsson.se;NONE;NONE;medium;10.45.17.0;atrcxb1361_CO;bnxe0,bnxe1;bnxe4,bnxe5;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;atrcxb1308,atrcxb1361;
+###########
+#atrcxb1362 --> EVENTS
+###########
+atrcxb1362;00:17:A4:77:44:48;10.44.95.40;i86pc;10.44.28.191;presentation;10.44.95.1;atcx4-29;10.44.201.46;10.44.201.47;10.45.17.188;10.45.17.181;10.45.17.182;10.45.17.183;10.45.17.184;10.45.17.181;10.45.17.182;10.45.17.183;10.45.17.184;10.44.28.197;Administrator;shroot12;events1;symantec;symantec;4;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_EVENTS_11.2;1;admin;password;10.45.17.121;255.255.255.0;10.44.95.40;255.255.255.0;athtem.eei.ericsson.se;10.44.95.40;ldap;1000000;150;3;1;1.1.1.1;NONE;No;NONE;medium;10.45.17.0;atrcxb1362_PR;bnxe0,bnxe1;bnxe4,bnxe5;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb1363 --> EVENTS
+###########
+atrcxb1363;00:17:A4:77:44:54;10.44.95.41;i86pc;10.44.28.192;reader;10.44.95.1;atcx4-29;10.44.201.46;10.44.201.47;10.45.17.188;10.45.17.181;10.45.17.182;10.45.17.183;10.45.17.184;10.45.17.181;10.45.17.182;10.45.17.183;10.45.17.184;10.44.28.197;Administrator;shroot12;events1;symantec;symantec;5;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_EVENTS_11.2;1;admin;password;10.45.17.122;255.255.255.0;10.44.95.41;255.255.255.0;athtem.eei.ericsson.se;10.44.95.41;ldap;1000000;150;3;1;1.1.1.1;NONE;NONE;dwh_reader_1;medium;10.45.17.0;atrcxb1363_RD_1;bnxe0,bnxe1;bnxe4,bnxe5;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb1364 --> EVENTS
+###########
+atrcxb1364;00:17:A4:77:44:60;10.44.95.42;i86pc;10.44.28.193;reader;10.44.95.1;atcx4-29;10.44.201.46;10.44.201.47;10.45.17.188;10.45.17.181;10.45.17.182;10.45.17.183;10.45.17.184;10.45.17.181;10.45.17.182;10.45.17.183;10.45.17.184;10.44.28.197;Administrator;shroot12;events1;symantec;symantec;5;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_EVENTS_11.2;1;admin;password;10.45.17.123;255.255.255.0;10.44.95.42;255.255.255.0;athtem.eei.ericsson.se;10.44.95.42;ldap;1000000;150;3;1;1.1.1.1;NONE;NONE;dwh_reader_2;medium;10.45.17.0;atrcxb1364_RD_2;bnxe0,bnxe1;bnxe4,bnxe5;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb1365 --> EVENTS
+###########
+atrcxb1365;00:17:A4:77:44:6C;10.44.95.43;i86pc;10.44.28.194;mediation;10.44.95.1;atcx4-29;10.44.201.46;10.44.201.47;10.45.17.188;10.45.17.181;10.45.17.182;10.45.17.183;10.45.17.184;10.45.17.181;10.45.17.182;10.45.17.183;10.45.17.184;10.44.28.197;Administrator;shroot12;events1;symantec;symantec;3;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_EVENTS_11.2;1;admin;password;10.45.17.124;255.255.255.0;10.44.95.43;255.255.255.0;athtem.eei.ericsson.se;10.44.95.43;ldap;1000000;150;3;1;1.1.1.1;NONE;NONE;NONE;medium;10.45.17.0;atrcxb1365_MZ;bnxe0,bnxe1;bnxe4,bnxe5;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb1336 --> EVENTS
+###########
+atrcxb1336;00:17:A4:77:44:78;10.44.95.45;i86pc;10.44.28.196;reader;10.44.95.1;atcx4-29;10.44.201.46;10.44.201.47;10.45.17.188;10.45.17.181;10.45.17.182;10.45.17.183;10.45.17.184;10.45.17.181;10.45.17.182;10.45.17.183;10.45.17.184;10.44.28.197;Administrator;shroot12;events1;symantec;symantec;5;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_EVENTS_11.2;1;admin;password;10.45.17.126;255.255.255.0;10.44.95.45;255.255.255.0;athtem.eei.ericsson.se;10.44.95.45;ldap;1000000;150;3;1;1.1.1.1;NONE;NONE;dwh_reader_3;medium;10.45.17.0;atrcxb1336_RD_3;bnxe0,bnxe1;bnxe4,bnxe5;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#Atrcxb1731 --> EVENTS
+###########
+atrcxb1731;98:4B:E1:68:AC:E0;10.44.95.137;i86pc;10.44.94.229;mediation;10.44.95.1;atcx4-29;10.44.201.46;10.44.201.47;10.45.17.188;10.45.17.181;10.45.17.182;10.45.17.183;10.45.17.184;10.45.17.181;10.45.17.182;10.45.17.183;10.45.17.184;10.44.94.222;Administrator;shroot12;events1;symantec;symantec;3;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_EVENTS_11.2;1;admin;password;10.45.17.129;255.255.255.0;10.44.95.137;255.255.255.0;athtem.eei.ericsson.se;10.44.95.137;ldap;1000000;150;3;1;1.1.1.1;atrcx1362.athtem.eei.ericsson.se;No;NONE;medium;10.45.17.0;atrcxb1731_MZ;bnxe0,bnxe1;bnxe4,bnxe5;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb1730 --> EVENTS
+###########
+atrcxb1730;98:4B:E1:68:9C:98;10.44.95.136;i86pc;10.44.94.228;standalone;10.44.95.1;atcx4-29;10.44.201.46;10.44.201.47;10.45.17.188;10.45.17.181;10.45.17.182;10.45.17.181;10.45.17.182;10.45.17.181;10.45.17.182;10.45.17.181;10.45.17.182;10.44.94.228;root;shroot12;events2;master;symantec;1;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E14.0;1;admin;password;10.45.17.128;255.255.255.0;10.44.95.136;255.255.255.0;athtem.eei.ericsson.se;10.44.95.136;ldap;1000000;150;2;1;1.1.1.1;NONE;NONE;NONE;ft;10.45.17.0;atrcxb1730_STANDALONE;bnxe0;bnxe4;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb1736 --> EVENTS
+###########
+atrcxb1736;00:17:A4:77:60:3C;10.44.95.27;i86pc;10.45.208.32;standalone;10.44.95.1;atcx4-29;10.44.201.46;10.44.201.47;10.45.17.188;10.45.17.181;10.45.17.182;10.45.17.181;10.45.17.182;10.45.17.181;10.45.17.182;10.45.17.181;10.45.17.182;10.44.94.238;root;shroot12;events3;master;symantec;1;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E14.0;1;admin;password;10.42.39.115;255.255.255.0;10.44.95.27;255.255.255.0;athtem.eei.ericsson.se;10.44.95.27;ldap;1000000;150;2;1;1.1.1.1;NONE;NONE;NONE;ft;10.45.17.0;atrcxb1736_STANDALONE;bnxe0;bnxe4;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb1736 --> EVENTS
+###########
+#atrcxb1736;00:17:A4:77:60:3C;10.44.95.27;i86pc;10.45.208.32;presentation;10.44.95.1;atcx4-40;10.44.93.102;10.44.93.103;10.42.39.186;10.42.39.182;10.42.39.183;10.42.39.184;10.42.39.185;10.42.39.182;10.42.39.183;10.42.39.184;10.42.39.185;10.45.208.47;root;shroot12;events1;master;symantec;4;/net/159.107.177.74//eniq/eniq_build/license/ENIQ_E15.0;1;admin;password;10.42.39.115;255.255.248.0;10.44.95.27;255.255.248.0;athtem.eei.ericsson.se;10.44.95.27;ldap;1000000;150;4;1;1.1.1.1;atrcxb1132.athtem.eei.ericsson.se;No;none;small;10.42.36.0;atrcxb1736_MZ;bnxe0,bnxe1;bnxe2,bnxe3;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb1737 --> EVENTS
+###########
+atrcxb1737;98:4B:E1:68:8B:30;10.44.95.78;i86pc;10.44.94.239;mediation;10.44.95.1;atcx4-29;10.44.201.46;10.44.201.47;10.45.17.188;10.45.17.181;10.45.17.182;10.45.17.181;10.45.17.182;10.45.17.181;10.45.17.182;10.45.17.181;10.45.17.182;10.44.94.239;root;shroot12;events1;master;symantec;3;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E14.0;1;admin;password;10.45.17.135;255.255.255.0;10.44.95.78;255.255.255.0;athtem.eei.ericsson.se;10.44.95.78;ldap;1000000;150;3;1;1.1.1.1;atrcx1362.athtem.eei.ericsson.se;No;NONE;medium;10.44.194.0;atrcxb1737_MZ;bnxe0;bnxe4;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE;
+###########
+#atrcxb1306 --> EVENTS
+###########
+atrcxb1306;00:17:A4:77:44:24;10.44.95.33;i86pc;10.44.28.184;standalone;10.59.130.1;atcx4-29;10.44.201.46;10.44.201.47;10.59.131.203;10.59.131.208;10.59.131.209;10.59.131.210;10.59.131.211;10.59.131.208;10.59.131.209;10.59.131.210;10.59.131.211;10.44.95.33;admin123;admin123;evm1306;symantec;symantec;1;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_EVENTS_12.1;1;admin;password;10.44.95.33;255.255.254.0;10.44.95.33;255.255.255.0;athtem.eei.ericsson.se;10.44.95.33;ldap;1000000;150;2;1;1.1.1.1;NONE;NONE;NONE;ft;10.44.194.0;atrcxb1306_STANDALONE;bnxe0,bnxe1;bnxe4,bnxe5;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb2450 --> EVENTS
+atrcxb2450;00:17:A4:77:04:D0;10.45.196.210;i86pc;10.44.95.77;mediation_cep;10.45.192.1;atcx4-45;10.44.81.35;10.44.81.36;10.42.37.101;10.42.37.102;10.42.37.103;10.42.37.104;10.42.37.105;10.42.37.106;10.42.37.107;10.42.37.108;10.42.37.109;10.44.95.59;root;shroot12;events5;master;symantec;2;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E13.2;2;admin;password;10.42.37.115;255.255.255.128;10.45.196.189;255.255.248.0;athtem.eei.ericsson.se;10.45.196.189;ldap;1000000;150;3;1;159.107.177.56;atrcxb2450.athtem.eei.ericsson.se;No;NONE;medium;10.42.37.0;GENERIC_CO;eth0,eth1;eth3;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;linux;clariion;NONE,NONE;atcx4-46;10.44.81.37;10.44.81.38;
+
+#atrcxb2038 --> EVENTS
+###########
+atrcxb2038;44:1E:A1:45:66:C0;10.42.38.180;i86pc;10.36.49.74;standalone;10.42.33.1;atcx4-40;10.44.93.102;10.44.93.103;10.45.21.189;10.45.21.177;10.45.21.178;10.45.21.179;10.45.21.180;10.45.21.181;10.45.21.182;10.45.21.183;10.45.21.184;10.42.38.180;admin123;admin123;ex2038;master;symantec;1;/net/159.107.177.74/eniq/eniq_build/license/ENIQEvents_EOY;1;admin;password;10.42.38.180;255.255.254.0;10.42.38.180;255.255.255.0;athtem.eei.ericsson.se;10.42.38.180;ldap;1000000;150;2;1;1.1.1.1;NONE;NONE;NONE;ft;10.44.194.0;atrcxb2038_STANDALONE;bnxe0,bnxe1;bnxe4,bnxe5;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+
+#atrcxb1870 --> CO : EVENTS
+###########
+atrcxb1870;98:4B:E1:69:50:A8;10.45.198.37;i86pc;10.36.48.12;coordinator;10.45.192.1;atcx4-60;10.45.193.35;10.45.193.36;10.42.235.142;10.42.235.143;10.42.235.144;10.42.235.145;10.42.235.146;10.42.235.147;10.42.235.148;10.42.235.149;10.42.235.150;10.36.48.22;root;shroot12;events1;master;symantec;2;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E13.2;1;admin;password;10.42.235.192;255.255.252.0;10.45.198.37;255.255.248.0;athtem.eei.ericsson.se;10.45.198.37;ldap;1000000;150;3;1;159.107.177.56;atrcxb1921.athtem.eei.ericsson.se;No;NONE;medium;10.42.232.0;GENERIC_CO;bnxe0,bnxe1;bnxe2,bnxe3;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;atrcxb1721,atrcxb1870;
+
+#atrcxb1683 --> Reader_1 : EVENTS 
+###########
+atrcxb1683;98:4B:E1:63:12:F8;10.45.198.19;i86pc;10.36.48.16;reader;10.45.192.1;atcx4-60;10.45.193.35;10.45.193.36;10.42.235.142;10.42.235.143;10.42.235.144;10.42.235.145;10.42.235.146;10.42.235.147;10.42.235.148;10.42.235.149;10.42.235.150;10.36.48.22;root;shroot12;events1;master;symantec;5;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E13.2;1;admin;password;10.42.235.174;255.255.252.0;10.45.198.19;255.255.248.0;athtem.eei.ericsson.se;10.45.198.19;ldap;1000000;150;3;1;159.107.177.56;NONE;No;dwh_reader_1;medium;10.42.232.0;atrcxb1683_RD_1;bnxe0,bnxe1;bnxe2,bnxe3;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+
+#atrcxb1872 --> Reader_2 : EVENTS
+###########
+atrcxb1872;98:4B:E1:69:D0:70;10.45.198.25;i86pc;10.36.48.14;reader;10.45.192.1;atcx4-60;10.45.193.35;10.45.193.36;10.42.235.142;10.42.235.143;10.42.235.144;10.42.235.145;10.42.235.146;10.42.235.147;10.42.235.148;10.42.235.149;10.42.235.150;10.36.48.22;root;shroot12;events1;master;symantec;5;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E13.2;1;admin;password;10.42.235.180;255.255.252.0;10.45.198.25;255.255.248.0;athtem.eei.ericsson.se;10.45.198.25;ldap;1000000;150;3;1;159.107.177.56;NONE;No;dwh_reader_2;medium;10.42.232.0;GENERIC_RD_2;bnxe0,bnxe1;bnxe2,bnxe3;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+
+#atrcxb2336 --> Reader_3 : EVENTS
+###########
+atrcxb2336;80:C1:6E:64:10:88;10.45.198.28;i86pc;10.36.48.20;reader;10.45.192.1;atcx4-60;10.45.193.35;10.45.193.36;10.42.235.142;10.42.235.143;10.42.235.144;10.42.235.145;10.42.235.146;10.42.235.147;10.42.235.148;10.42.235.149;10.42.235.150;10.36.48.22;root;shroot12;events1;master;symantec;5;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E13.2;1;admin;password;10.42.235.183;255.255.252.0;10.45.198.28;255.255.248.0;athtem.eei.ericsson.se;10.45.198.28;ldap;1000000;150;3;1;159.107.177.56;NONE;No;dwh_reader_3;medium;10.42.232.0;GENERIC_RD_3;bnxe0,bnxe1;bnxe2,bnxe3;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+
+#atrcxb2337 --> EC_1 : EVENTS
+###########
+atrcxb2337;80:C1:6E:63:3F:E0;10.45.198.31;i86pc;10.36.48.21;mediation;10.45.192.1;atcx4-60;10.45.193.35;10.45.193.36;10.42.235.142;10.42.235.143;10.42.235.144;10.42.235.145;10.42.235.146;10.42.235.147;10.42.235.148;10.42.235.149;10.42.235.150;10.36.48.22;root;shroot12;events1;master;symantec;3;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E13.2;1;admin;password;10.42.235.186;255.255.252.0;10.45.198.31;255.255.248.0;athtem.eei.ericsson.se;10.45.198.31;ldap;1000000;150;3;1;159.107.177.56;NONE;No;NONE;medium;10.42.232.0;GENERIC_MZ_1;bnxe0,bnxe1;bnxe2,bnxe3;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+
+#atrcxb1865 --> EC_2 : EVENTS
+###########
+atrcxb1865;98:4B:E1:69:F0:A0;10.45.198.22;i86pc;10.36.48.15;mediation;10.45.192.1;atcx4-60;10.45.193.35;10.45.193.36;10.42.235.142;10.42.235.143;10.42.235.144;10.42.235.145;10.42.235.146;10.42.235.147;10.42.235.148;10.42.235.149;10.42.235.150;10.36.48.22;root;shroot12;events1;master;symantec;3;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E13.2;1;admin;password;10.42.235.177;255.255.252.0;10.45.198.22;255.255.248.0;athtem.eei.ericsson.se;10.45.198.22;ldap;1000000;150;3;1;159.107.177.56;NONE;No;NONE;medium;10.42.232.0;GENERIC_MZ_2;bnxe0,bnxe1;bnxe2,bnxe3;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+
+#atrcxb1921 --> Presentation : EVENTS
+###########
+atrcxb1921;98:4B:E1:62:BE:48;10.45.198.34;i86pc;10.36.48.19;presentation;10.45.192.1;atcx4-60;10.45.193.35;10.45.193.36;10.42.235.142;10.42.235.143;10.42.235.144;10.42.235.145;10.42.235.146;10.42.235.147;10.42.235.148;10.42.235.149;10.42.235.150;10.36.48.22;root;shroot12;events1;master;symantec;4;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E13.2;1;admin;password;10.42.235.189;255.255.252.0;10.45.198.34;255.255.248.0;athtem.eei.ericsson.se;10.45.198.34;ldap;1000000;150;3;1;159.107.177.56;NONE;No;NONE;medium;10.42.232.0;GENERIC_PR;bnxe0,bnxe1;bnxe2,bnxe3;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+
+#atrcxb1721 --> CEP : EVENTS
+###########
+atrcxb1721;98:4B:E1:68:DC:C8;10.45.198.43;i86pc;10.36.48.7;mediation_cep;10.45.192.1;atcx4-60;10.45.193.35;10.45.193.36;10.42.235.142;10.42.235.143;10.42.235.144;10.42.235.145;10.42.235.146;10.42.235.147;10.42.235.148;10.42.235.149;10.42.235.150;10.36.48.22;root;shroot12;events1;master;symantec;2;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E13.2;1;admin;password;10.42.235.195;255.255.252.0;10.45.198.43;255.255.248.0;athtem.eei.ericsson.se;10.45.198.43;ldap;1000000;150;3;1;159.107.177.56;atrcxb1721.athtem.eei.ericsson.se;No;NONE;medium;10.42.232.0;GENERIC_CO;eth0,eth1;eth3;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;linux;clariion;NONE,NONE;
+
+#atrcx3454 --> STATS
+###########
+atrcx3454;ac:16:2d:75:97:a8;159.107.177.39;sun4u;10.32.228.51;NONE;10.44.194.1;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;1;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_FULL_License;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;2;2;1.1.1.1;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;1,2,3;1000;500;500;25;200;25;200;200;200;N;NONE;NONE;solaris;clariion;NONE,NONE;
+###########
+#atrcxb2360 --> EVENTS
+###########
+atrcxb2360;00:17:A4:77:54:5A;10.45.193.212;i86pc;10.44.28.109;coordinator;10.45.192.1;atvnx-6;10.44.81.9;10.44.81.10;10.45.234.3;10.45.234.16;10.45.234.17;10.45.234.18;10.45.234.19;10.45.234.20;10.45.234.21;10.45.234.22;10.45.234.23;10.44.28.102;root;shroot12;events1;master;symantec;2;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E15.0;1;admin;password;10.45.233.221;255.255.248.0;10.45.193.212;255.255.248.0;athtem.eei.ericsson.se;10.45.193.212;ldap;1000000;150;3;1;159.107.177.56;atrcxb2513.athtem.eei.ericsson.se;No;NONE;medium;10.45.233.0;GENERIC_CO;bnxe0,bnxe1;bnxe2,bnxe3;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;vnx;NONE,atrcxb2360;
+###########
+#atrcxb2361 --> EVENTS
+###########
+atrcxb2361;00:17:A4:77:54:62;10.45.193.214;i86pc;10.44.28.110;reader;10.45.192.1;atvnx-6;10.44.81.9;10.44.81.10;10.45.234.3;10.45.234.16;10.45.234.17;10.45.234.18;10.45.234.19;10.45.234.20;10.45.234.21;10.45.234.22;10.45.234.23;10.44.28.102;root;shroot12;events1;master;symantec;5;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E15.0;1;admin;password;10.45.233.224;255.255.248.0;10.45.193.214;255.255.248.0;athtem.eei.ericsson.se;10.45.193.212;ldap;1000000;150;3;1;159.107.177.56;atrcxb2513.athtem.eei.ericsson.se;No;dwh_reader_1;medium;10.45.233.0;GENERIC_RD_1;bnxe0,bnxe1;bnxe2,bnxe3;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;vnx;NONE,atrcxb2360;
+###########
+#atrcxb2362 --> EVENTS
+###########
+atrcxb2362;00:17:A4:77:54:6A;10.45.193.216;i86pc;10.44.28.111;reader;10.45.192.1;atvnx-6;10.44.81.9;10.44.81.10;10.45.234.3;10.45.234.16;10.45.234.17;10.45.234.18;10.45.234.19;10.45.234.20;10.45.234.21;10.45.234.22;10.45.234.23;10.44.28.102;root;shroot12;events1;master;symantec;5;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E15.0;1;admin;password;10.45.233.227;255.255.248.0;10.45.193.216;255.255.248.0;athtem.eei.ericsson.se;10.45.193.212;ldap;1000000;150;3;1;159.107.177.56;atrcxb2513.athtem.eei.ericsson.se;No;dwh_reader_2;medium;10.45.233.0;GENERIC_RD_2;bnxe0,bnxe1;bnxe2,bnxe3;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;vnx;NONE,atrcxb2360;
+###########
+#atrcxb2511 --> EVENTS
+###########
+atrcxb2511;00:17:A4:77:54:7A;10.45.194.196;i86pc;10.44.28.113;mediation;10.45.192.1;atvnx-6;10.44.81.9;10.44.81.10;10.45.234.3;10.45.234.16;10.45.234.17;10.45.234.18;10.45.234.19;10.45.234.20;10.45.234.21;10.45.234.22;10.45.234.23;10.44.28.102;root;shroot12;events1;master;symantec;3;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E15.0;1;admin;password;10.45.233.233;255.255.248.0;10.45.194.196;255.255.248.0;athtem.eei.ericsson.se;10.45.193.212;ldap;1000000;150;3;1;159.107.177.56;atrcxb2513.athtem.eei.ericsson.se;No;NONE;medium;10.45.233.0;GENERIC_MZ_1;bnxe0,bnxe1;bnxe2,bnxe3;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;vnx;NONE,atrcxb2360;
+###########
+#atrcxb2512 --> EVENTS
+###########
+atrcxb2512;00:17:A4:77:54:82;10.45.194.199;i86pc;10.44.28.28;mediation;10.45.192.1;atvnx-6;10.44.81.9;10.44.81.10;10.45.234.3;10.45.234.16;10.45.234.17;10.45.234.18;10.45.234.19;10.45.234.20;10.45.234.21;10.45.234.22;10.45.234.23;10.44.28.102;root;shroot12;events1;master;symantec;3;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E15.0;1;admin;password;10.45.233.236;255.255.248.0;10.45.194.199;255.255.248.0;athtem.eei.ericsson.se;10.45.193.212;ldap;1000000;150;3;1;159.107.177.56;atrcxb2513.athtem.eei.ericsson.se;No;NONE;medium;10.45.233.0;GENERIC_MZ_2;bnxe0,bnxe1;bnxe2,bnxe3;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;vnx;NONE,atrcxb2360;
+###########
+#atrcxb2513 --> EVENTS
+###########
+atrcxb2513;00:17:A4:77:54:8A;10.45.194.202;i86pc;10.44.28.29;presentation;10.45.192.1;atvnx-6;10.44.81.9;10.44.81.10;10.45.234.3;10.45.234.16;10.45.234.17;10.45.234.18;10.45.234.19;10.45.234.20;10.45.234.21;10.45.234.22;10.45.234.23;10.44.28.102;root;shroot12;events1;master;symantec;4;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E15.0;1;admin;password;10.45.233.239;255.255.248.0;10.45.194.202;255.255.248.0;athtem.eei.ericsson.se;10.45.194.202;ldap;1000000;150;3;1;159.107.177.56;atrcxb2513.athtem.eei.ericsson.se;No;NONE;medium;10.45.233.0;GENERIC_PR;bnxe0,bnxe1;bnxe2,bnxe3;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;vnx;NONE,atrcxb2360;
+###########
+#atrcxb2363 --> EVENTS
+###########
+atrcxb2363;00:17:A4:77:54:72;10.45.193.218;i86pc;10.44.28.112;reader;10.45.192.1;atvnx-6;10.44.81.9;10.44.81.10;10.45.234.3;10.45.234.16;10.45.234.17;10.45.234.18;10.45.234.19;10.45.234.20;10.45.234.21;10.45.234.22;10.45.234.23;10.44.28.102;root;shroot12;events1;master;symantec;5;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E15.0;1;admin;password;10.45.233.230;255.255.248.0;10.45.193.218;255.255.248.0;athtem.eei.ericsson.se;10.45.193.212;ldap;1000000;150;3;1;159.107.177.56;atrcxb2513.athtem.eei.ericsson.se;No;dwh_reader_3;medium;10.45.233.0;GENERIC_RD_3;bnxe0,bnxe1;bnxe2,bnxe3;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;vnx;NONE,atrcxb2360;
+###########
+#atrcxb2923 --> EVENTS
+###########
+atrcxb2923;10:60:4B:B4:FE:D8;10.45.195.217;i86pc;10.45.211.18;reader;10.45.192.1;ieatvnx-63;10.32.231.16;10.32.231.17;10.45.56.104;10.45.56.68;10.45.56.69;10.45.56.70;10.45.56.71;10.45.56.72;10.45.56.73;10.45.56.74;10.45.56.75;10.45.211.7;root;shroot12;events1;master;symantec;4;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E13.2;1;admin;password;10.45.56.29;255.255.252.0;10.45.195.217;255.255.248.0;none;none;none;20000000;150;3;1;none;NONE;No;dwh_reader_1;medium;10.45.56.0;GENERIC_RD_1;bnxe0,bnxe1;bnxe2,bnxe3;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;vnx;NONE,NONE,atrcxb2923;
+
+##CO
+#atrcxb2959 --> EVENTS
+###########
+atrcxb2959;6C:3B:E5:AB:C1:A8;10.45.196.19;i86pc;10.82.17.240;coordinator;10.45.192.1;atvnx-36;10.82.18.1;10.82.18.2;10.45.56.172;10.45.56.160;10.45.56.161;10.45.56.162;10.45.56.163;10.45.56.164;10.45.56.165;10.45.56.166;10.45.56.167;10.82.17.227;root;shroot12;events1;master;symantec;2;/net/10.44.81.6/JUMP/LICENSE;1;admin;password;10.45.56.188;255.255.252.0;10.45.196.19;255.255.248.0;athtem.eei.ericsson.se;10.45.196.19;NONE;15000000;150;3;1;10.44.81.6;atrcxb2959.athtem.eei.ericsson.se;No;NONE;medium;10.45.56.0;GENERIC_CO;bnxe0,bnxe1;bnxe2,bnxe3;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;vnx;ieatrcxb4175,atrcxb2959;
+
+##Reader_1
+#atrcxb2957 --> EVENTS
+###########
+atrcxb2957;6C:3B:E5:AB:21:00;10.45.196.16;i86pc;10.82.17.239;reader;10.45.192.1;atvnx-36;10.82.18.1;10.82.18.2;10.45.56.172;10.45.56.160;10.45.56.161;10.45.56.162;10.45.56.163;10.45.56.164;10.45.56.165;10.45.56.166;10.45.56.167;10.82.17.227;root;shroot12;events1;master;symantec;4;/net/10.44.81.6/JUMP/LICENSE;1;admin;password;10.45.56.185;255.255.252.0;10.45.196.16;255.255.248.0;athtem.eei.ericsson.se;10.45.196.16;NONE;15000000;150;3;1;10.44.81.6;atrcxb2957.athtem.eei.ericsson.se;No;dwh_reader_1;medium;10.45.56.0;GENERIC_RD_1;bnxe0,bnxe1;bnxe2,bnxe3;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;vnx;NONE,NONE;
+
+##Reader_2
+#atrcxb2960 --> EVENTS
+###########
+atrcxb2960;6C:3B:E5:AB:31:30;10.45.198.25;i86pc;10.82.17.241;reader;10.45.192.1;atvnx-36;10.82.18.1;10.82.18.2;10.45.56.172;10.45.56.160;10.45.56.161;10.45.56.162;10.45.56.163;10.45.56.164;10.45.56.165;10.45.56.166;10.45.56.167;10.82.17.227;root;shroot12;events1;master;symantec;4;/net/10.44.81.6/JUMP/LICENSE;1;admin;password;10.45.56.191;255.255.252.0;10.45.198.25;255.255.248.0;athtem.eei.ericsson.se;10.45.198.25;NONE;15000000;150;3;1;10.44.81.6;atrcxb2960.athtem.eei.ericsson.se;No;dwh_reader_2;medium;10.45.56.0;GENERIC_RD_2;bnxe0,bnxe1;bnxe2,bnxe3;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;vnx;NONE,NONE;
+
+##Reader_3
+#atrcxb2961 --> EVENTS
+###########
+atrcxb2961;6C:3B:E5:AB:72:E8;10.45.198.28;i86pc;10.82.17.242;reader;10.45.192.1;atvnx-36;10.82.18.1;10.82.18.2;10.45.56.172;10.45.56.160;10.45.56.161;10.45.56.162;10.45.56.163;10.45.56.164;10.45.56.165;10.45.56.166;10.45.56.167;10.82.17.227;root;shroot12;events1;master;symantec;4;/net/10.44.81.6/JUMP/LICENSE;1;admin;password;10.45.56.194;255.255.252.0;10.45.198.28;255.255.248.0;athtem.eei.ericsson.se;10.45.198.28;NONE;15000000;150;3;1;10.44.81.6;atrcxb2961.athtem.eei.ericsson.se;No;dwh_reader_3;medium;10.45.56.0;GENERIC_RD_3;bnxe0,bnxe1;bnxe2,bnxe3;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;vnx;NONE,NONE;
+
+##EC_1
+#atrcxb2962 --> EVENTS
+###########
+atrcxb2962;6C:3B:E5:AB:C3:00;10.45.198.31;i86pc;10.82.17.243;mediation;10.45.192.1;atvnx-36;10.82.18.1;10.82.18.2;10.45.56.172;10.45.56.160;10.45.56.161;10.45.56.162;10.45.56.163;10.45.56.164;10.45.56.165;10.45.56.166;10.45.56.167;10.82.17.227;root;shroot12;events1;master;symantec;6;/net/10.44.81.6/JUMP/LICENSE;1;admin;password;10.45.56.197;255.255.252.0;10.45.198.31;255.255.248.0;athtem.eei.ericsson.se;10.45.198.31;NONE;15000000;150;3;1;10.44.81.6;atrcxb2962.athtem.eei.ericsson.se;No;NONE;medium;10.45.56.0;GENERIC_MZ_1;bnxe0,bnxe1;bnxe2,bnxe3;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;vnx;NONE,NONE;
+
+###EC_2
+#ieatrcxb4174 --> EVENTS
+###########
+ieatrcxb4174;14:58:D0:42:7D:98;10.45.194.142;i86pc;10.82.17.235;mediation;10.45.192.1;atvnx-36;10.82.18.1;10.82.18.2;10.45.56.172;10.45.56.160;10.45.56.161;10.45.56.162;10.45.56.163;10.45.56.164;10.45.56.165;10.45.56.166;10.45.56.167;10.82.17.227;root;shroot12;events1;master;symantec;6;/net/10.44.81.6/JUMP/LICENSE;1;admin;password;10.45.57.166;255.255.252.0;10.45.194.142;255.255.248.0;athtem.eei.ericsson.se;10.45.198.22;NONE;15000000;150;3;1;10.44.81.6;ieatrcxb4174.athtem.eei.ericsson.se;No;NONE;medium;10.45.56.0;GENERIC_MZ_2;bnxe0,bnxe1;bnxe2,bnxe3;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;vnx;NONE,NONE;
+
+###Presentation
+#atrcxb2964 --> EVENTS
+###########
+atrcxb2964;6C:3B:E5:AB:83:B8;10.45.196.34;i86pc;10.82.17.245;presentation;10.45.192.1;atvnx-36;10.82.18.1;10.82.18.2;10.45.56.172;10.45.56.160;10.45.56.161;10.45.56.162;10.45.56.163;10.45.56.164;10.45.56.165;10.45.56.166;10.45.56.167;10.82.17.227;root;shroot12;events1;master;symantec;5;/net/10.44.81.6/JUMP/LICENSE;1;admin;password;10.45.56.203;255.255.252.0;10.45.196.34;255.255.248.0;athtem.eei.ericsson.se;10.45.198.34;NONE;15000000;150;3;1;10.44.81.6;atrcxb2964.athtem.eei.ericsson.se;No;NONE;medium;10.45.56.0;GENERIC_PR;bnxe0,bnxe1;bnxe2,bnxe3;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;vnx;NONE,NONE;
+
+###CEP
+#ieatrcxb4175 --> EVENTS
+###########
+ieatrcxb4175;14:58:D0:42:BF:58;10.45.194.145;i86pc;10.82.17.236;mediation_cep;10.45.192.1;atvnx-36;10.82.18.1;10.82.18.2;10.45.56.172;10.45.56.160;10.45.56.161;10.45.56.162;10.45.56.163;10.45.56.164;10.45.56.165;10.45.56.166;10.45.56.167;10.82.17.227;root;shroot12;events1;master;symantec;2;/net/10.44.81.6/JUMP/LICENSE;1;admin;password;10.45.57.169;255.255.252.0;10.45.194.145;255.255.248.0;athtem.eei.ericsson.se;10.45.194.145;NONE;15000000;150;3;1;10.44.81.6;ieatrcxb4175.athtem.eei.ericsson.se;No;NONE;medium;10.45.56.0;GENERIC_CO;eth0,eth1;eth3;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;linux;vnx;NONE,NONE;
+
+##Co-Ordinator
+##ieatrcxb5231 --> EVENTS
+###########
+ieatrcxb5231;EC:B1:D7:91:5E:D8;10.45.192.224;i86pc;10.32.237.242;coordinator;10.45.192.1;ieatvnx-117;10.32.228.48;10.32.228.89;10.45.235.134;10.45.234.145;10.45.234.146;10.45.234.147;10.45.234.148;10.45.234.149;10.45.234.150;10.45.234.151;10.45.234.152;10.32.237.239;root;shroot12;events1;master;symantec;2;/net/10.44.81.6/JUMP/LICENSE;1;admin;password;10.45.232.119;255.255.252.0;10.45.192.224;255.255.248.0;athtem.eei.ericsson.se;10.45.192.224;NONE;20000000;150;3;1;10.44.81.6;ieatrcxb5237.athtem.eei.ericsson.se;No;NONE;medium;10.45.56.0;Generic_CO;bnxe0,bnxe1;bnxe2,bnxe3;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;vnx;ieatrcxb5238,ieatrcxb5231;Y;10.45.192.225;10.45.192.226;10.45.232.120;10.45.232.121;
+
+###CEP
+#ieatrcxb5238 --> EVENTS
+###########
+ieatrcxb5238;EC:B1:D7:91:3C:F8;10.45.192.245;i86pc;10.32.237.253;mediation_cep;10.45.56.1;ieatvnx-117;10.32.228.48;10.32.228.89;10.45.235.134;10.45.234.145;10.45.234.146;10.45.234.147;10.45.234.148;10.45.234.149;10.45.234.150;10.45.234.151;10.45.234.152;10.32.237.239;root;shroot12;events1;master;symantec;2;/net/10.44.81.6/JUMP/LICENSE;1;admin;password;10.45.235.59;255.255.252.0;10.45.192.224;255.255.248.0;athtem.eei.ericsson.se;10.45.192.224;NONE;15000000;150;3;1;10.44.81.6;ieatrcxb5238.athtem.eei.ericsson.se;No;NONE;medium;10.45.56.0;Generic_CO;eth0,eth1;eth2;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;linux;vnx;NONE,NONE;
+
+##Reader_1
+#ieatrcxb5232 --> EVENTS
+###########
+ieatrcxb5232;EC:B1:D7:91:8D:F8;10.45.192.227;i86pc;10.32.237.243;reader;10.45.192.1;ieatvnx-117;10.32.228.48;10.32.228.89;10.45.235.134;10.45.234.145;10.45.234.146;10.45.234.147;10.45.234.148;10.45.234.149;10.45.234.150;10.45.234.151;10.45.234.152;10.32.237.239;root;shroot12;events1;master;symantec;5;/net/10.44.81.6/JUMP/LICENSE;1;admin;password;10.45.232.122;255.255.252.0;10.45.192.227;255.255.248.0;athtem.eei.ericsson.se;10.45.192.227;NONE;15000000;150;3;1;10.44.81.6;ieatrcxb5232.athtem.eei.ericsson.se;No;dwh_reader_1;medium;10.45.56.0;Generic_RD_1;bnxe0,bnxe1;bnxe2,bnxe3;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;vnx;NONE,NONE;Y;10.45.192.228;10.45.192.229;10.45.232.146;10.45.232.147;
+
+
+##Reader_2
+#ieatrcxb5233 --> EVENTS
+###########
+ieatrcxb5233;EC:B1:D7:91:2D:E0;10.45.192.230;i86pc;10.32.237.244;reader;10.45.192.1;ieatvnx-117;10.32.228.48;10.32.228.89;10.45.235.134;10.45.234.145;10.45.234.146;10.45.234.147;10.45.234.148;10.45.234.149;10.45.234.150;10.45.234.151;10.45.234.152;10.32.237.239;root;shroot12;events1;master;symantec;5;/net/10.44.81.6/JUMP/LICENSE;1;admin;password;10.45.232.148;255.255.252.0;10.45.192.230;255.255.248.0;athtem.eei.ericsson.se;10.45.192.230;NONE;15000000;150;3;1;10.44.81.6;ieatrcxb5233.athtem.eei.ericsson.se;No;dwh_reader_2;medium;10.45.56.0;Generic_RD_2;bnxe0,bnxe1;bnxe2,bnxe3;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;vnx;NONE,NONE ;Y;10.45.192.231;10.45.192.232;10.45.232.149;10.45.232.150;
+
+
+##Reader_3
+#ieatrcxb5234 --> EVENTS
+###########
+ieatrcxb5234;EC:B1:D7:91:7B:F8;10.45.192.233;i86pc;10.32.237.245;reader;10.45.192.1;ieatvnx-117;10.32.228.48;10.32.228.89;10.45.235.134;10.45.234.145;10.45.234.146;10.45.234.147;10.45.234.148;10.45.234.149;10.45.234.150;10.45.234.151;10.45.234.152;10.32.237.239;root;shroot12;events1;master;symantec;5;/net/10.44.81.6/JUMP/LICENSE;1;admin;password;10.45.232.221;255.255.252.0;10.45.192.233;255.255.248.0;athtem.eei.ericsson.se;10.45.192.233;NONE;15000000;150;3;1;10.44.81.6;ieatrcxb5234.athtem.eei.ericsson.se;No;dwh_reader_3;medium;10.45.56.0;Generic_RD_3;bnxe0,bnxe1;bnxe2,bnxe3;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;vnx;NONE,NONE ;Y;10.45.192.234;10.45.192.235;10.45.232.222;10.45.232.223;
+
+
+##EC_1
+#ieatrcxb5235 --> EVENTS
+###########
+ieatrcxb5235;EC:B1:D7:91:0E:B0;10.45.192.236;i86pc;10.32.237.250;mediation;10.45.192.1;ieatvnx-117;10.32.228.48;10.32.228.89;10.45.235.134;10.45.234.145;10.45.234.146;10.45.234.147;10.45.234.148;10.45.234.149;10.45.234.150;10.45.234.151;10.45.234.152;10.32.237.239;root;shroot12;events1;master;symantec;3;/net/10.44.81.6/JUMP/LICENSE;1;admin;password;10.45.233.97;255.255.252.0;10.45.192.236;255.255.248.0;athtem.eei.ericsson.se;10.45.192.236;NONE;15000000;150;3;1;10.44.81.6;ieatrcxb5235.athtem.eei.ericsson.se;No;NONE;medium;10.45.56.0;Generic_MZ_1;bnxe0,bnxe1;bnxe2,bnxe3;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;vnx;NONE,NONE ;Y;10.45.192.237;10.45.192.238;10.45.233.98;10.45.233.99;
+
+
+###EC_2
+#ieatrcxb5236 --> EVENTS
+###########
+ieatrcxb5236;EC:B1:D7:91:6C:B8;10.45.192.239;i86pc;10.32.237.251;mediation;10.45.192.1;ieatvnx-117;10.32.228.48;10.32.228.89;10.45.235.134;10.45.234.145;10.45.234.146;10.45.234.147;10.45.234.148;10.45.234.149;10.45.234.150;10.45.234.151;10.45.234.152;10.32.237.239;root;shroot12;events1;master;symantec;3;/net/10.44.81.6/JUMP/LICENSE;1;admin;password;10.45.234.186;255.255.252.0;10.45.192.239;255.255.248.0;athtem.eei.ericsson.se;10.45.192.239;NONE;15000000;150;3;1;10.44.81.6;ieatrcxb5236.athtem.eei.ericsson.se;No;NONE;medium;10.45.56.0;Generic_MZ_2;bnxe0,bnxe1;bnxe2,bnxe3;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;vnx;NONE,NONE ;Y;10.45.192.240;10.45.192.241;10.45.234.193;10.45.234.194;
+
+
+###Presentation
+#ieatrcxb5237 --> EVENTS
+###########
+ieatrcxb5237;EC:B1:D7:91:4B:58;10.45.192.242;i86pc;10.32.237.252;presentation;10.45.192.1;ieatvnx-117;10.32.228.48;10.32.228.89;10.45.235.134;10.45.234.145;10.45.234.146;10.45.234.147;10.45.234.148;10.45.234.149;10.45.234.150;10.45.234.151;10.45.234.152;10.32.237.239;root;shroot12;events1;master;symantec;4;/net/10.44.81.6/JUMP/LICENSE;1;admin;password;10.45.235.56;255.255.252.0;10.45.192.242;255.255.248.0;athtem.eei.ericsson.se;10.45.192.242;NONE;15000000;150;3;1;10.44.81.6;ieatrcxb5237.athtem.eei.ericsson.se;No;NONE;medium;10.45.56.0;Generic_PR;bnxe0,bnxe1;bnxe2,bnxe3;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;vnx;NONE,NONE ;Y;10.45.192.243;10.45.192.244;10.45.235.57;10.45.235.58;
+
+###########
+#atrcxb1862 --> EVENTS
+###########
+atrcxb1862;98:4B:E1:68:FC:38;10.44.79.40;i86pc;10.36.48.9;standalone;10.36.48.22;atcx4-40;10.44.93.102;10.44.93.103;10.45.21.34;10.45.21.22;10.45.21.23;10.45.21.24;10.45.21.25;10.45.21.26;10.45.21.27;10.45.21.28;10.45.21.29;10.44.79.40;admin123;admin123;events4;master;symantec;1;/net/159.107.177.74/eniq/eniq_build/license/ENIQEvents_EOY;1;admin;password;10.44.79.40;255.255.254.0;10.44.79.40;255.255.255.0;athtem.eei.ericsson.se;10.44.79.40;ldap;1000000;150;2;1;1.1.1.1;NONE;NONE;NONE;ft;10.44.194.0;atrcxb1862_STANDALONE;bnxe0,bnxe1;bnxe4,bnxe5;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+
+###########
+#atrcxb2040 --> EVENTS
+###########
+atrcxb2040;44:1E:A1:4B:35:68;10.42.38.182;i86pc;10.36.49.82;standalone;10.42.38.1;atcx4-40;10.44.93.102;10.44.93.103;10.45.21.189;10.45.21.171;10.45.21.172;10.45.21.173;10.45.21.174;10.45.21.175;10.45.21.176;10.45.21.177;10.45.21.179;10.42.38.182;admin123;admin123;ex2040;master;symantec;1;/net/159.107.177.74/eniq/eniq_build/license/ENIQEvents_EOY;1;admin;password;10.42.38.182;255.255.254.0;10.42.38.182;255.255.255.0;athtem.eei.ericsson.se;10.42.38.182;ldap;1000000;150;2;1;1.1.1.1;NONE;NONE;NONE;ft;10.44.194.0;atrcxb2040_STANDALONE;bnxe0,bnxe1;bnxe4,bnxe5;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+
+###########
+#atrcxb1997 --> EVENTS
+###########
+atrcxb1997;F4:CE:46:83:4B:70;10.44.79.202;i86pc;10.36.48.133;standalone;#10.36.48.22;atcx4-40;10.44.93.102;10.44.93.103;10.45.22.169;10.45.22.151;10.45.22.152;10.45.22.153;10.45.22.154;10.45.22.155;10.45.22.156;10.45.22.157;10.45.22.158;10.44.79.202;admin123;admin123;events2;master;symantec;1;/net/159.107.177.74/eniq/eniq_build/license/ENIQEvents_EOY;1;admin;password;10.44.79.202;255.255.254.0;10.44.79.202;255.255.255.0;athtem.eei.ericsson.se;10.44.79.202;ldap;1000000;150;2;1;1.1.1.1;NONE;NONE;NONE;ft;10.44.194.0;atrcxb1997_STANDALONE;bnxe0,bnxe1;bnxe4,bnxe5;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+
+###########
+#atrcxb2007 --> EVENTS
+###########
+atrcxb2007;F4:CE:46:83:5C:E8;10.44.79.189;i86pc;10.36.48.134;standalone;#10.36.48.22;atcx4-40;10.44.93.102;10.44.93.103;10.45.22.169;10.45.22.151;10.45.22.152;10.45.22.153;10.45.22.154;10.45.22.155;10.45.22.156;10.45.22.157;10.45.22.158;10.44.79.189;admin123;admin123;events5;master;symantec;1;/net/159.107.177.74/eniq/eniq_build/license/ENIQEvents_EOY;1;admin;password;10.44.79.189;255.255.254.0;10.44.79.189;255.255.255.0;athtem.eei.ericsson.se;10.44.79.189;ldap;1000000;150;2;1;1.1.1.1;NONE;NONE;NONE;ft;10.44.194.0;atrcxb2007_STANDALONE;bnxe0,bnxe1;bnxe4,bnxe5;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+
+###########
+#atrcxb2009 --> EVENTS  [This server is only for PLM CI 16B activity]
+###########
+atrcxb2009;F4:CE:46:83:3B:30;10.44.79.191;i86pc;10.36.49.36;standalone;10.44.79.1;atcx4-40;10.44.93.102;10.44.93.103;10.59.130.122;10.59.130.56;10.59.130.57;10.59.130.58;10.59.130.59;10.59.130.56;10.59.130.57;10.59.130.58;10.59.130.59;10.44.79.191;admin123;admin123;ev565;symantec;symantec;1;/net/159.107.177.74/eniq/eniq_build/license/ENIQEvents_EOY;1;admin;password;10.44.79.191;255.255.254.0;10.44.79.191;255.255.255.0;athtem.eei.ericsson.se;10.44.79.191;ldap;1000000;150;2;1;1.1.1.1;NONE;NONE;NONE;ft;10.44.194.0;atrcxb1862_STANDALONE;bnxe0,bnxe1;bnxe4,bnxe5;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;  
+
+###########
+#atrcxb2212 --> EVENTS
+###########
+atrcxb2212;44:1E:A1:52:A9:E8;10.44.79.198;i86pc;10.36.48.124;standalone;10.44.79.1;atcx4-40;10.44.93.102;10.44.93.103;10.45.22.188;10.45.22.176;10.45.22.177;10.45.22.178;10.45.22.179;10.45.22.180;10.45.22.181;10.45.22.182;10.45.22.183;10.44.79.198;admin123;admin123;events1;master;symantec;1;/net/159.107.177.74/eniq/eniq_build/license/ENIQEvents_EOY;1;admin;password;10.44.79.198;255.255.254.0;10.44.79.198;255.255.255.0;athtem.eei.ericsson.se;10.44.79.198;ldap;1000000;150;2;1;1.1.1.1;NONE;NONE;NONE;ft;10.44.194.0;atrcxb1862_STANDALONE;bnxe0,bnxe1;bnxe4,bnxe5;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;
+
+###########
+#atrcxb1471
+###########
+atrcxb1471;00:17:a4:77:04:6c;10.44.81.25;i86pc;10.44.95.74;coordinator;10.44.81.1;atcx4-9;10.44.81.11;10.44.81.12;10.44.81.162;10.44.81.150;10.44.81.151;10.44.81.152;10.44.81.153;10.44.81.154;10.44.81.155;10.44.81.156;10.44.81.157;10.44.95.59;root;shroot12;events1;symantec;symantec;2;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E17.0;2;admin;password;10.44.81.128;255.255.255.192;10.44.81.25;255.255.255.192;athtem.eei.ericsson.se;10.44.81.25;password;1000000;150;4;1;10.44.81.25;atc7000-15b13ilo.athtem.eei.ericsson.se;none;none;medium;None;atrcxb1471_CO;bnxe0,bnxe1;bnxe4,bnxe5;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE;atcx4-10;10.44.81.13;10.44.81.14;
+###########
+#atrcxb1472
+###########
+atrcxb1472;00:17:a4:77:04:7c;10.44.81.26;i86pc;10.44.95.22;reader;10.44.81.1;atcx4-9;10.44.81.11;10.44.81.12;10.44.81.162;10.44.81.150;10.44.81.151;10.44.81.152;10.44.81.153;10.44.81.154;10.44.81.155;10.44.81.156;10.44.81.157;10.44.95.59;root;shroot12;events1;symantec;symantec;5;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E17.0;2;admin;password;10.44.81.172;255.255.255.192; 10.44.81.26;255.255.255.192;athtem.eei.ericsson.se;10.44.81.26;password;1000000;150;4;1;10.44.81.26;atc7000-15b14ilo.athtem.eei.ericsson.se;Yes;dwh_reader_1;medium;None;atrcxb1472_RD_1;bnxe0,bnxe1;bnxe4,bnxe5;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE;atcx4-10;10.44.81.13;10.44.81.14;
+###########
+#atrcxb1473
+###########
+atrcxb1473;00:17:a4:77:04:8c;10.44.81.27;i86pc;10.44.95.23;reader;10.44.81.1;atcx4-9;10.44.81.11;10.44.81.12;10.44.81.162;10.44.81.150;10.44.81.151;10.44.81.152;10.44.81.153;10.44.81.154;10.44.81.155;10.44.81.156;10.44.81.157;10.44.95.59;root;shroot12;events1;symantec;symantec;5;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E17.0;2;admin;password;10.44.81.173;255.255.255.192; 10.44.81.27;255.255.255.192;athtem.eei.ericsson.se;10.44.81.27;password;1000000;150;4;1;10.44.81.27;atc7000-15b15ilo.athtem.eei.ericsson.se;Yes;dwh_reader_2;medium;None;atrcxb1473_RD_2;bnxe0,bnxe1;bnxe4,bnxe5;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE;atcx4-10;10.44.81.13;10.44.81.14;
+###########
+#atrcxb1474
+###########
+atrcxb1474;00:17:a4:77:04:3c;10.44.81.28;i86pc;10.44.95.66;reader;10.44.81.1;atcx4-9;10.44.81.11;10.44.81.12;10.44.81.162;10.44.81.150;10.44.81.151;10.44.81.152;10.44.81.153;10.44.81.154;10.44.81.155;10.44.81.156;10.44.81.157;10.44.95.59;root;shroot12;events1;symantec;symantec;5;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E17.0;2;admin;password;10.44.81.174;255.255.255.192; 10.44.81.28;255.255.255.192;athtem.eei.ericsson.se;10.44.81.28;password;1000000;150;4;1;10.44.81.28;c7000-15b5ilo.athtem.eei.ericsson.se;Yes;dwh_reader_3;medium;None;atrcxb1474_RD_3;bnxe0,bnxe1;bnxe4,bnxe5;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE;atcx4-10;10.44.81.13;10.44.81.14;
+###########
+#atrcxb1475
+###########
+atrcxb1475;00:17:a4:77:04:4c;10.44.81.29;i86pc;10.44.95.67;mediation;10.44.81.1;atcx4-9;10.44.81.11;10.44.81.12;10.44.81.162;10.44.81.150;10.44.81.151;10.44.81.152;10.44.81.153;10.44.81.154;10.44.81.155;10.44.81.156;10.44.81.157;10.44.95.59;root;shroot12;events1;symantec;symantec;3;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E17.0;2;admin;password;10.44.81.175;255.255.255.192; 10.44.81.29;255.255.255.192;athtem.eei.ericsson.se;10.44.81.29;password;1000000;150;4;1;10.44.81.29;c7000-15b6ilo.athtem.eei.ericsson.se;none;none;medium;None;atrcxb1475_MZ;bnxe0;bnxe0,bnxe1;bnxe4,bnxe5;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE;atcx4-10;10.44.81.13;10.44.81.14;
+###########
+#atrcxb1476
+###########
+atrcxb1476;00:17:a4:77:04:5c;10.44.81.30;i86pc;10.44.95.68;presentation;10.44.81.1;atcx4-9;10.44.81.11;10.44.81.12;10.44.81.162;10.44.81.150;10.44.81.151;10.44.81.152;10.44.81.153;10.44.81.154;10.44.81.155;10.44.81.156;10.44.81.157;10.44.95.59;root;shroot12;events1;symantec;symantec;4;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E17.0;2;admin;password;10.44.81.176;255.255.255.192; 10.44.81.30;255.255.255.192;athtem.eei.ericsson.se;10.44.81.30;password;1000000;150;4;1; 10.44.81.30;atc7000-15b7ilo.athtem.eei.ericsson.se;none;none;medium;None;atrcxb1476_PR;bnxe0,bnxe1;bnxe4,bnxe5;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE;atcx4-10;10.44.81.13;10.44.81.14;
+###########
+#atrcxb1413
+###########
+atrcxb1413;00:17:a4:77:04:e0;10.44.81.31;i86pc;10.44.95.60;presentation;10.44.81.1;atcx4-9;10.44.81.11;10.44.81.12;10.44.81.162;10.44.81.150;10.44.81.151;10.44.81.152;10.44.81.153;10.44.81.154;10.44.81.155;10.44.81.156;10.44.81.157;10.44.95.59;root;shroot12;events1;symantec;symantec;4;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E17.0;2;admin;password;;255.255.255.192;;255.255.255.192;athtem.eei.ericsson.se;10.44.81.31;password;1000000;150;4;1;10.44.81.31;atrcxb1413.athtem.eei.ericsson.se;none;none;medium;None;atrcxb1413_PR;bnxe0,bnxe1;bnxe4,bnxe5;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE;atcx4-10;10.44.81.13;10.44.81.14;
+###########
+#atrcxb2915
+###########
+atrcxb2915;00:17:a4:77:10:00;i86pc;10.44.81.43;10.44.94.199;coordinator;10.44.81.1;atcx4-42;10.45.208.101;10.45.208.102;Atcx4-43;10.44.81.33;10.44.81.34;10.42.37.62;10.42.37.50;10.42.37.51;10.42.37.52;10.42.37.53;10.42.37.54;10.42.37.55;10.42.37.56;10.42.37.57;events1;symantec;symantec;2;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E17.0;2;admin;password;10.42.37.75;255.255.255.128;10.44.81.43;255.255.255.192;athtem.eei.ericsson.se;10.44.81.43;password;20000000;150;medium_plan;1;10.44.81.43;atrcxb1916.athtem.eei.ericsson.se;No;NONE;medium;10.42.37.75;GENERIC_CO;bnxe0;bnxe4;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;c3t600;solaris;clariion;
+###########
+#atrcxb2917
+###########
+atrcxb2917;00:17:A4:77:10:10;i86pc;10.44.81.44;10.44.94.208;Reader;10.44.81.1;atcx4-42;10.45.208.101;10.45.208.102;Atcx4-43;10.44.81.33;10.44.81.34;10.42.37.62;10.42.37.50;10.42.37.51;10.42.37.52;10.42.37.53;10.42.37.54;10.42.37.55;10.42.37.56;10.42.37.57;events1;symantec;symantec;4;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E17.0;2;admin;password;10.42.37.76;255.255.255.128;10.44.81.43;255.255.255.192;athtem.eei.ericsson.se;10.44.81.44;password;20000000;150;medium_plan;1;10.44.81.44;atrcxb1916.athtem.eei.ericsson.se;No;NONE;medium;10.42.37.76;GENERIC_RD_1;bnxe0;bnxe4;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;c3t600;solaris;clariion;
+###########
+#atrcxb2918
+###########
+atrcxb2918;00:17:A4:77:10:0C;i86pc;10.44.81.45;10.44.94.207;Reader;10.44.81.1;atcx4-42;10.45.208.101;10.45.208.102;Atcx4-43;10.44.81.33;10.44.81.34;10.42.37.62;10.42.37.50;10.42.37.51;10.42.37.52;10.42.37.53;10.42.37.54;10.42.37.55;10.42.37.56;10.42.37.57;events1;symantec;symantec;4;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E17.0;2;admin;password;10.42.37.77;255.255.255.128;10.44.81.45;255.255.255.192;athtem.eei.ericsson.se;10.44.81.45;password;20000000;150;medium_plan;1;10.44.81.45;atrcxb1916.athtem.eei.ericsson.se;No;NONE;medium;10.42.37.77;GENERIC_RD_2;bnxe0;bnxe4;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;c3t600;solaris;clariion;
+###########
+#atrcxb2916
+###########
+atrcxb2916;00:17:a4:77:10:08;i86pc;10.44.81.49;10.44.94.201;Presentation Server;10.44.81.1;atcx4-42;10.45.208.101;10.45.208.102;Atcx4-43;10.44.81.33;10.44.81.34;10.42.37.62;10.42.37.50;10.42.37.51;10.42.37.52;10.42.37.53;10.42.37.54;10.42.37.55;10.42.37.56;10.42.37.57;events1;symantec;symantec;2;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E17.0;2;admin;password;10.42.37.81;255.255.255.128;10.44.81.49;255.255.255.192;athtem.eei.ericsson.se;10.44.81.49;password;20000000;150;medium_plan;1;10.44.81.49;atrcxb1916.athtem.eei.ericsson.se;No;NONE;medium;10.42.37.81;GENERIC_PR;bnxe0;bnxe4;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;c3t600;solaris;clariion;
+###########
+#atrcxb2544
+###########
+atrcxb2544;00:17:A4:77:10:74;i86pc;10.44.81.62;10.44.94.210;Mediation Server;10.44.81.1;atcx4-42;10.45.208.101;10.45.208.102;Atcx4-43;10.44.81.33;10.44.81.34;10.42.37.62;10.42.37.50;10.42.37.51;10.42.37.52;10.42.37.53;10.42.37.54;10.42.37.55;10.42.37.56;10.42.37.57;events1;symantec;symantec;6;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E17.0;2;admin;password;10.42.37.74;255.255.255.128;10.44.81.62;255.255.255.192;athtem.eei.ericsson.se;10.44.81.62;password;20000000;150;medium_plan;1;10.44.81.62;atrcxb1916.athtem.eei.ericsson.se;No;NONE;medium;10.42.37.74;GENERIC_MZ_3;bnxe0;bnxe4;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;c3t600;solaris;clariion;
+###########
+#atrcxb2542
+###########
+atrcxb2542;00:17:A4:77:10:04;i86pc;10.44.81.50;10.44.94.200;Mediation Server;10.44.81.1;atcx4-42;10.45.208.101;10.45.208.102;Atcx4-43;10.44.81.33;10.44.81.34;10.42.37.62;10.42.37.50;10.42.37.51;10.42.37.52;10.42.37.53;10.42.37.54;10.42.37.55;10.42.37.56;10.42.37.57;events1;symantec;symantec;6;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E17.0;2;admin;password;10.42.37.82;255.255.255.128;10.44.81.50;255.255.255.192;athtem.eei.ericsson.se;10.44.81.50;password;20000000;150;medium_plan;1;10.44.81.50;atrcxb1916.athtem.eei.ericsson.se;No;NONE;medium;10.42.37.82;GENERIC_MZ_2;bnxe0;bnxe4;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;c3t600;solaris;clariion;
+###########
+#atrcxb2545
+###########
+atrcxb2545;00:17:A4:77:10:68;i86pc;10.44.81.52;10.44.94.202;Mediation Server;10.44.81.1;atcx4-42;10.45.208.101;10.45.208.102;Atcx4-43;10.44.81.33;10.44.81.34;10.42.37.62;10.42.37.50;10.42.37.51;10.42.37.52;10.42.37.53;10.42.37.54;10.42.37.55;10.42.37.56;10.42.37.57;events1;symantec;symantec;6;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E17.0;2;admin;password;10.42.37.78;255.255.255.128;10.44.81.52;255.255.255.192;athtem.eei.ericsson.se;10.44.81.52;password;20000000;150;medium_plan;1;10.44.81.52;atrcxb1916.athtem.eei.ericsson.se;No;NONE;medium;10.42.37.78;GENERIC_MZ_4;bnxe0;bnxe4;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;c3t600;solaris;clariion;
+###########
+#atrcxb2541
+###########
+atrcxb2541;00:17:A4:77:10:14;i86pc;10.44.81.48;10.44.94.209;Mediation Server;10.44.81.1;atcx4-42;10.45.208.101;10.45.208.102;Atcx4-43;10.44.81.33;10.44.81.34;10.42.37.62;10.42.37.50;10.42.37.51;10.42.37.52;10.42.37.53;10.42.37.54;10.42.37.55;10.42.37.56;10.42.37.57;events1;symantec;symantec;6;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E17.0;2;admin;password;10.42.37.80;255.255.255.128;10.44.81.48;255.255.255.192;athtem.eei.ericsson.se;10.44.81.48;password;20000000;150;medium_plan;1;10.44.81.48;atrcxb1916.athtem.eei.ericsson.se;No;NONE;medium;10.42.37.80;GENERIC_MZ_1;bnxe0;bnxe4;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;c3t600;solaris;clariion;
+###########
+#ieatrcxb2541 --> EVENTS
+###########
+ieatrcxb2541;00:17:A4:77:04:B0;10.45.196.204;i86pc;10.44.95.71;mediation;10.45.192.1;atcx4-45;10.44.81.35;10.44.81.36;10.42.37.101;10.42.37.102;10.42.37.103;10.42.37.104;10.42.37.105;10.42.37.106;10.42.37.107;10.42.37.108;10.42.37.109;10.44.95.59;root;shroot12;events1;master;symantec;3;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E13.2;2;admin;password;10.42.37.88;255.255.255.128;10.45.196.204;255.255.248.0;athtem.eei.ericsson.se;10.45.196.204;ldap;1000000;150;3;1;159.107.177.56;NONE;No;NONE;medium;10.42.37.0;GENERIC_MZ_1;bnxe0;bnxe3;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;atcx4-46;10.44.81.37;10.44.81.38
+###########
+#ieatrcxb2544 --> EVENTS
+###########
+#ieatrcxb2544;00:17:A4:77:04:C2;10.45.196.207;i86pc;10.44.95.65;mediation;10.45.192.1;atcx4-45;10.44.81.35;10.44.81.36;10.42.37.101;10.42.37.102;10.42.37.103;10.42.37.104;10.42.37.105;10.42.37.106;10.42.37.107;10.42.37.108;10.42.37.109;10.44.95.59;root;shroot12;events1;master;symantec;3;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E13.2;2;admin;password;10.42.37.114;255.255.255.128;10.45.196.207;255.255.248.0;athtem.eei.ericsson.se;10.45.196.207;ldap;1000000;150;3;1;159.107.177.56;NONE;No;NONE;medium;10.42.37.0;GENERIC_MZ_2;bnxe0;bnxe3;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;atcx4-46;10.44.81.37;10.44.81.38
+###########
+#ieatrcxb2544 --> EVENTS
+###########
+ieatrcxb2544;00:17:A4:77:04:C2;10.45.196.207;i86pc;10.44.95.65;mediation;10.45.192.1;atcx4-45;10.44.81.35;10.44.81.36;10.42.37.101;10.42.37.102;10.42.37.103;10.42.37.104;10.42.37.105;10.42.37.106;10.42.37.107;10.42.37.108;10.42.37.109;10.44.95.59;root;shroot12;events1;master;symantec;3;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_E13.2;2;admin;password;10.42.37.114;255.255.255.128;10.45.196.207;255.255.248.0;athtem.eei.ericsson.se;10.45.196.207;ldap;1000000;150;3;1;159.107.177.56;NONE;No;NONE;medium;10.42.37.0;GENERIC_MZ_2;net1;net3;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;NONE;solaris;clariion;NONE,NONE;atcx4-46;10.44.81.37;10.44.81.38
+############################
+#ieatrcxb5874
+############################
+ieatrcxb5874;94:57:A5:64:33:A8;10.248.3.147;i86pc;10.32.231.130;coordinator;10.45.192.1;ieatvnx-134;10.45.21.209;10.45.21.210;10.45.21.221;10.45.21.227;10.45.21.227;10.45.21.228;10.45.21.228;10.45.21.229;10.45.21.229;10.45.21.230;10.45.21.230;10.32.231.130;root;shroot12;eniqSG;master;symantec;2;/net/159.107.177.74/eniq/eniq_build/license/ENIQ_S18.0;1;admin;password;10.45.21.213;255.255.248.0;10.45.195.87;255.255.255.0;athtem.eei.ericsson.se;10.45.195.87;ldap;1000000;150;3;1;159.107.177.56;NONE;No;NONE;medium;10.42.37.0;ieatrcxb5874_co;net0,net1;net3,net5;1,2,3;1000;500;1000;25;1000;25;200;200;200;NONE;NONE;NONE;solaris;vnx;NONE,ieatrcxb5874;
+
+atrcxb1719;98:4B:E1:68:AC:58;10.45.195.186;i86pc;10.36.49.37;standalone;10.44.194.1;atvnx-33;10.82.17.175;10.82.17.176;10.45.235.170;10.45.235.146;10.45.235.147;10.45.235.148;10.45.235.149;10.45.235.146;10.45.235.147;10.45.235.148;10.45.235.149;10.45.195.186;root;shroot12;eniqst;master;symantec;1;/net/10.44.194.10//JUMP/SOL10/ENIQ_EVENTS/ENIQ_EVENTS/Licences/ENIQ_S17.0;1;admin;password;10.45.195.186;255.255.248.0;10.44.95.27;255.255.255.0;athtem.eei.ericsson.se;10.45.195.186;ldap;1000000;150;2;1;1.1.1.1;NONE;NONE;NONE;ft;10.44.192.0;atrcxb1719;bnxe0;bnxe1;1,2,3;1000;500;1000;500;1000;500;200;200;200;None;NONE;NONE;solaris;vnx;NONE NONE;NONE;NONE 

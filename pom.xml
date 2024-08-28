@@ -1,0 +1,52 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+<parent>
+        <groupId>com.ericsson.eniq.stats</groupId>
+        <artifactId>integration</artifactId>
+        <version>1.0.7</version>
+    </parent>
+    <groupId>com.ericsson.eniq.stats.ci</groupId>
+    <artifactId>utils</artifactId>
+    <version>1.0.6757</version>
+    <packaging>pom</packaging>
+    <properties>
+        <scm.url>scm:git:ssh://gerrit.ericsson.se:29418/OSS/ENIQ-CR-Parent/com.ericsson.eniq.stats.ci/utils</scm.url>
+    </properties>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <descriptor>assembly/bin.xml</descriptor>
+                    <finalName>scripts</finalName>
+                    <appendAssemblyId>false</appendAssemblyId>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+
+        </plugins>
+    </build>
+    <distributionManagement>
+        <repository>
+            <id>releases</id>
+            <name>Release repo</name>
+            <url>https://arm1s11-eiffel013.eiffel.gic.ericsson.se:8443/nexus/content/repositories/releases</url>
+        </repository>
+    </distributionManagement>
+
+    <scm>
+        <connection>${scm.url}</connection>
+        <developerConnection>${scm.url}</developerConnection>
+    </scm>
+
+</project>

@@ -1,0 +1,223 @@
+<project basedir="." default="all" name="build">
+
+  <!-- Following include contains precompile, compile and postcompile target definitions -->
+  <import file="${package.build.file}"/>
+
+  <!-- This following line needs to be in xml file that <if> tags are in use -->
+  <taskdef classpath="/proj/eiffel013_config_fem6s11/tools/ant-contrib/ant-contrib-1.0b3.jar" resource="net/sf/antcontrib/antcontrib.properties"/>
+
+  <!-- javadoc removed from the list -->
+  <target depends="
+                  create_dclib_dir,
+                  precompile,
+                  compile,
+                  postcompile,
+                  create_jar,
+                  sign_jars,
+                  copy_jars,
+                  cleanup
+                  " name="all"/>
+
+  <target name="benchMark">
+      <if>
+          <equals arg1="${branch}" arg2="at_eniq" />
+          <then>
+      <echo message="Compiler Warnings check for module ${package} " />
+
+      <exec executable="/bin/sh" outputproperty="benchSleep">
+          <arg value="-c" />
+          <arg value="sleep 60" />
+      </exec>
+
+      <exec executable="/bin/sh" outputproperty="returnCode">
+          <arg value="-c" />
+          <arg value="/proj/eiffel013_config_fem6s11/tools/bench.sh ${jobname}" />
+      </exec>
+      <echo message="Vulnerability returned ${returnCode}"/>
+      
+      <condition property="benchMatch">
+          <not>
+             <equals arg1="${returnCode}" arg2="SUCCESS"/>
+         </not>
+         </condition>
+      <fail if="benchMatch" message="Compiler Warnings got increased, kindly fix the same and re-trigger the build. Marking the build as failed!!!."/>
+  </then>
+  </if>
+  </target>
+
+  <!-- TARGET create_dclib_dir -->
+  <target name="create_dclib_dir">
+    <!-- Note! build.number file needs to be labelled before checking it out,
+         beacuse it will be read first and then incremented. -->
+    <buildnumber file="${package_dir}/build/build.number"/>
+    <mkdir dir="${package_dir}/dclib"/>
+  </target>
+
+  <!-- TARGET create_jar -->
+ <target name="create_jar">
+   <if>
+     <available file="${package_dir}/classes" type="dir"/>
+     <then>
+       <if>
+         <equals arg1="${package}" arg2="parser" />
+         <then>
+           <jar destfile="${package_dir}/dclib/${package}.jar">
+           <fileset dir="${pack.dir}/classes"/>
+             <manifest>
+               <attribute name="Class-Path" value="/vobs/eniq/design/plat/etl_controller/build/engine.jar"/>
+               <attribute name="Product-Name" value="${package}"/>
+             </manifest>
+           </jar>
+         </then>
+       <else>
+         <jar destfile="${package_dir}/dclib/${package}.jar">
+           <fileset dir="${package_dir}/classes"/>
+         </jar>
+       </else>
+     </if>
+     </then>
+   </if>
+ </target>
+
+  <!-- TARGET sign_jars -->
+  <target name="sign_jars">
+    <if>
+      <available file="${package_dir}/dclib" type="dir"/>
+      <then>
+
+        <if>
+          <available file="${package_dir}/classes"/>
+          <then/>
+          <else>
+            <mkdir dir="${package_dir}/classes"/>
+          </else>
+        </if>
+
+        <if>
+          <available file="${package_dir}/dclib/${package}.jar"/>
+          <then>
+            <echo message="Make a copy of unsigned jar for storing into build-directory"/>
+            <copy file="${package_dir}/dclib/${package}.jar" tofile="${package_dir}/classes/${package}.jar"/>
+          </then>
+        </if>
+
+
+         </then>
+
+    </if>
+  </target>
+
+  <!-- TARGET copy_jars -->
+  <target name="copy_jars">
+<if>
+      <available file="${jar_dir}/${package}.jar" type="file"/>
+      <then>
+        <if>
+          <available file="${package_dir}/dclib/${package}.jar" type="file"/>
+          <then>
+             <echo message="Copying from classes to jar_dir"/>
+             <copy file="${package_dir}/classes/${package}.jar" tofile="${jar_dir}/${package}.jar" overwrite="true"/>
+          </then>
+        </if>
+        <!-- This lib directory is needed for installer (jar done in installers build.xml) -->
+        <if>
+          <available file="${package_dir}/lib/${package}.jar" type="file"/>
+          <then>
+             <copy file="${package_dir}/lib/${package}.jar" tofile="${jar_dir}/${package}.jar" overwrite="true"/>
+          </then>
+        </if>
+      </then>
+      <else>
+        <if>
+          <available file="${package_dir}/dclib/${package}.jar" type="file"/>
+          <then>
+            <copy file="${package_dir}/dclib/${package}.jar" tofile="${jar_dir}/${package}.jar" overwrite="true"/>
+          </then>
+        </if>
+
+        <!-- This lib directory is needed for installer (jar done in installers build.xml) -->
+        <if>
+          <available file="${package_dir}/lib/${package}.jar" type="file"/>
+          <then>
+            <copy file="${package_dir}/lib/${package}.jar" tofile="${jar_dir}/${package}.jar" overwrite="true"/>
+          </then>
+        </if>
+      </else>
+    </if>
+        <!-- latest compiled webportal.jar needs to be put in setup directory also -->
+        <if>
+        <equals arg1="${package}" arg2="webportal" />
+                <then>
+                <if>
+              <available file="/proj/eiffel013_config_fem6s11/web_portal/dev/setup/webportal.jar" type="file"/>
+              <then>
+              </then>
+                  <else>
+                  </else>
+                </if>
+            <copy file="/proj/eiffel013_config_fem6s11/web_portal/build/webportal.jar" tofile="/proj/eiffel013_config_fem6s11/web_portal/dev/setup/webportal.jar" overwrite="true"/>
+                </then>
+        </if>
+  <!--
+        <if>
+        <equals arg1="${package}" arg2="webportal" />
+                <then>
+                <if>
+              <available file="/proj/eiffel013_config_fem6s11/web_portal/dev/setup/webportal.jar" type="file"/>
+              <then>
+                    <copy file="/proj/eiffel013_config_fem6s11/web_portal/build/webportal.jar" tofile="/proj/eiffel013_config_fem6s11/web_portal/dev/setup/webportal.jar" overwrite="true"/>
+               </then>
+                </if>
+                 </then>
+        </if>
+        -->
+  </target>
+
+  <!-- TARGET version_info -->
+  <target name="version_info">
+    <propertyfile file="${package_dir}/install/version.properties">
+      <entry key="module.name" value="${package}"/>
+      <entry key="module.version" value="${build.revision}"/>
+      <entry key="module.build" value="${build.number}"/>
+      <entry key="build.tag" value="b${build.number}"/>
+      <!-- ClearCase Information Added in version.properties -->
+      <entry key="build.label" value="${build.label}"/>
+      <entry key="product.number" value="${product.number}"/>
+      <entry key="author" value="${logname}"/>
+
+<!--      <entry key="path" value="${package_dir}"/>-->
+    </propertyfile>
+  </target>
+
+  <!-- TARGET zipit -->
+  <target name="zipit">
+    <zip basedir="${package_dir}" destfile="${delivery_dir}/${package}_${build.revision}b${build.number}.zip" excludes="${exclude_files}"/>
+  </target>
+
+  <!-- TARGET javadoc -->
+  <target name="javadoc">
+    <mkdir dir="${package_dir}/dep_arch/${package}/${build.revision}b${build.number}/doc"/>
+    <if>
+      <available file="${package_dir}/doc" type="dir"/>
+      <then>
+        <copy toDir="${package_dir}/dep_arch/${package}/${build.revision}b${build.number}/doc">
+          <fileset dir="${package_dir}/doc/" includes="*"/>
+        </copy>
+      </then>
+    </if>
+    <if>
+      <available file="${package_dir}/src" type="dir"/>
+      <then>
+        <javadoc destdir="${package_dir}/dep_arch/${package}/${build.revision}b${build.number}/doc/javadoc" packagenames="com.distocraft.*,com.ericsson.*" sourcepath="${package_dir}/src"/>
+      </then>
+    </if>
+  </target>
+
+  <!-- TARGET cleanup -->
+  <target name="cleanup">
+    <delete dir="${package_dir}/classes"/>
+    <delete dir="${package_dir}/dep_arch"/>
+    <delete dir="${package_dir}/dclib"/>
+    <delete dir="${package_dir}/lib"/>
+  </target>
+</project>
